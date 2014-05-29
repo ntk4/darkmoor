@@ -6,11 +6,11 @@ public class BaseException extends RuntimeException {
 	
 	protected Throwable t;
 
+	public BaseException(String errorCause) {
+		this.errorCause = errorCause;
+	}
+	
 	public String getErrorCause() {
 		return errorCause;
-	}
-
-	public void setErrorCause(String errorCause) {
-		this.errorCause = errorCause;
 	}
 }
