@@ -36,4 +36,14 @@ public class Monster {
 		return null;
 	}
 
+	public void teleport(DungeonLocation target) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onSpawn() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
