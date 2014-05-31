@@ -7,4 +7,14 @@ public class Item {
 		return null;
 	}
 
+	public int getGroundTileID() {
+		// TODO Auto-generated method stub
+		return 1;
+	}
+
+	public boolean isBig() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

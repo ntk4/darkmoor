@@ -7,4 +7,9 @@ public class Dungeon {
 		return false;
 	}
 
+	public TileSet getItemTileSet() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

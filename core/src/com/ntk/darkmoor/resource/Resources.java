@@ -1,7 +1,6 @@
 package com.ntk.darkmoor.resource;
 
 import com.badlogic.gdx.assets.AssetManager;
-import com.ntk.darkmoor.stub.Monster;
 
 public class Resources {
 
@@ -16,7 +15,12 @@ public class Resources {
 		return this;
 	}
 
-	public static Monster createAsset(Class<?> class1, String monsterName) {
+	public static <T> T createAsset(Class<T> class1, String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static <T> T lockSharedAsset(Class<T> class1, String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}

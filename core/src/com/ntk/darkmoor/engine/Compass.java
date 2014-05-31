@@ -7,6 +7,21 @@ public class Compass {
 
 	public static enum CardinalPoint {
 		NORTH, SOUTH, WEST, EAST;
+
+		public static CardinalPoint valueOf(int ordinal) {
+			switch (ordinal) {
+			case 0:
+				return NORTH;
+			case 1:
+				return SOUTH;
+			case 2:
+				return WEST;
+			case 3:
+				return EAST;
+
+			}
+			return NORTH;
+		}
 	}
 
 	public static enum CompassRotation {
