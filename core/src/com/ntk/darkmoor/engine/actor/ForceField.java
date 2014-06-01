@@ -40,8 +40,8 @@ public class ForceField extends SquareActor {
 		super(square);
 
 		type = ForceFieldType.Spin;
-		spin = CompassRotation.ROTATE_180;
-		direction = CardinalPoint.NORTH;
+		spin = CompassRotation.Rotate180;
+		direction = CardinalPoint.North;
 
 		affectTeam = true;
 		affectMonsters = true;
@@ -168,16 +168,16 @@ public class ForceField extends SquareActor {
 		case Move:
 
 			switch (direction) {
-			case NORTH:
+			case North:
 				monster.getLocation().getCoordinates().add(0, -1);
 				break;
-			case SOUTH:
+			case South:
 				monster.getLocation().getCoordinates().add(0, 1);
 				break;
-			case WEST:
+			case West:
 				monster.getLocation().getCoordinates().add(-1, 0);
 				break;
-			case EAST:
+			case East:
 				monster.getLocation().getCoordinates().add(1, 0);
 				break;
 			}

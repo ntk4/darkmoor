@@ -101,8 +101,8 @@ public class Door extends SquareActor {
 		}
 
 		// Draw the door
-		else if (((field.getMaze().isDoorNorthSouth(getSquare().getLocation()) && (view == CardinalPoint.NORTH || view == CardinalPoint.SOUTH)) || (!field
-				.getMaze().isDoorNorthSouth(getSquare().getLocation()) && (view == CardinalPoint.EAST || view == CardinalPoint.WEST)))
+		else if (((field.getMaze().isDoorNorthSouth(getSquare().getLocation()) && (view == CardinalPoint.North || view == CardinalPoint.South)) || (!field
+				.getMaze().isDoorNorthSouth(getSquare().getLocation()) && (view == CardinalPoint.East || view == CardinalPoint.West)))
 				&& position != ViewFieldPosition.Team) {
 			td = DisplayCoordinates.getDoor(position);
 			if (td != null) {

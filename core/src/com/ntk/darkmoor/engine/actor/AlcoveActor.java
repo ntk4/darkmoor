@@ -52,10 +52,10 @@ public class AlcoveActor extends SquareActor {
 				continue;
 
 			// Draw the decoration
-			deco.drawDecoration(batch, field.getMaze().getDecoration(), position, side == CardinalPoint.SOUTH);
+			deco.drawDecoration(batch, field.getMaze().getDecoration(), position, side == CardinalPoint.South);
 
 			// Hide items
-			if (alcove.isHideItems() || side != CardinalPoint.SOUTH)
+			if (alcove.isHideItems() || side != CardinalPoint.South)
 				continue;
 
 			// Offset the item locations according to the distance

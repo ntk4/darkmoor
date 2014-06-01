@@ -100,19 +100,19 @@ public class Idle extends MonsterState {
 			
 			// Depending the current direction
 			switch (direction) {
-			case NORTH: {
+			case North: {
 				vector.y--;
 			}
 				break;
-			case SOUTH: {
+			case South: {
 				vector.y++;
 			}
 				break;
-			case WEST: {
+			case West: {
 				vector.x--;
 			}
 				break;
-			case EAST: {
+			case East: {
 				vector.x++;
 			}
 				break;

@@ -6,33 +6,33 @@ import com.ntk.darkmoor.stub.DungeonLocation;
 public class Compass {
 
 	public static enum CardinalPoint {
-		NORTH, SOUTH, WEST, EAST;
+		North, South, West, East;
 
 		public static CardinalPoint valueOf(int ordinal) {
 			switch (ordinal) {
 			case 0:
-				return NORTH;
+				return North;
 			case 1:
-				return SOUTH;
+				return South;
 			case 2:
-				return WEST;
+				return West;
 			case 3:
-				return EAST;
+				return East;
 
 			}
-			return NORTH;
+			return North;
 		}
 	}
 
 	public static enum CompassRotation {
-		ROTATE_90, ROTATE_180, ROTATE_270,
+		Rotate90, Rotate180, Rotate270,
 	}
 
 	private CardinalPoint direction;
 
 	// Constructors
 	public Compass() {
-		direction = CardinalPoint.NORTH;
+		direction = CardinalPoint.North;
 	}
 
 	public Compass(Compass compass) {
@@ -43,28 +43,28 @@ public class Compass {
 	public static CardinalPoint rotate(CardinalPoint direction, CompassRotation rot) {
 		CardinalPoint[][] points = new CardinalPoint[][] {//@formatter:off
 			// NORTH
-			new CardinalPoint[] { CardinalPoint.EAST,
-									CardinalPoint.SOUTH,
-									CardinalPoint.WEST,
-									CardinalPoint.NORTH, },
+			new CardinalPoint[] { CardinalPoint.East,
+									CardinalPoint.South,
+									CardinalPoint.West,
+									CardinalPoint.North, },
 
 			// SOUTH
-			new CardinalPoint[] { CardinalPoint.WEST,
-									CardinalPoint.NORTH,
-									CardinalPoint.EAST,
-									CardinalPoint.SOUTH, },
+			new CardinalPoint[] { CardinalPoint.West,
+									CardinalPoint.North,
+									CardinalPoint.East,
+									CardinalPoint.South, },
 
 			// WEST
-			new CardinalPoint[] { CardinalPoint.NORTH,
-									CardinalPoint.EAST,
-									CardinalPoint.SOUTH,
-									CardinalPoint.WEST, },
+			new CardinalPoint[] { CardinalPoint.North,
+									CardinalPoint.East,
+									CardinalPoint.South,
+									CardinalPoint.West, },
 
 			// EAST
-			new CardinalPoint[] { CardinalPoint.SOUTH,
-									CardinalPoint.WEST,
-									CardinalPoint.NORTH,
-									CardinalPoint.EAST, }, };//@formatter:on
+			new CardinalPoint[] { CardinalPoint.South,
+									CardinalPoint.West,
+									CardinalPoint.North,
+									CardinalPoint.East, }, };//@formatter:on
 
 		// TODO: make sure ordinal is what we need here
 		return points[direction.ordinal()][rot.ordinal()];
@@ -77,41 +77,41 @@ public class Compass {
 		// Move WEST
 		if (delta.x < 0) {
 			if (delta.y > 0)
-				if (target.getDirection() == CardinalPoint.NORTH)
-					return CardinalPoint.SOUTH;
+				if (target.getDirection() == CardinalPoint.North)
+					return CardinalPoint.South;
 				else
-					return CardinalPoint.WEST;
+					return CardinalPoint.West;
 			else if (delta.y < 0)
-				if (target.getDirection() == CardinalPoint.SOUTH)
-					return CardinalPoint.NORTH;
+				if (target.getDirection() == CardinalPoint.South)
+					return CardinalPoint.North;
 				else
-					return CardinalPoint.WEST;
+					return CardinalPoint.West;
 			else
-				return CardinalPoint.WEST;
+				return CardinalPoint.West;
 		}
 
 		// Move EAST
 		else if (delta.x > 0) {
 			if (delta.y > 0)
-				if (target.getDirection() == CardinalPoint.NORTH)
-					return CardinalPoint.SOUTH;
+				if (target.getDirection() == CardinalPoint.North)
+					return CardinalPoint.South;
 				else
-					return CardinalPoint.EAST;
+					return CardinalPoint.East;
 			else if (delta.y < 0)
-				if (target.getDirection() == CardinalPoint.SOUTH)
-					return CardinalPoint.NORTH;
+				if (target.getDirection() == CardinalPoint.South)
+					return CardinalPoint.North;
 				else
-					return CardinalPoint.EAST;
+					return CardinalPoint.East;
 			else
-				return CardinalPoint.EAST;
+				return CardinalPoint.East;
 		}
 
 		if (delta.y > 0)
-			return CardinalPoint.SOUTH;
+			return CardinalPoint.South;
 		else if (delta.y < 0)
-			return CardinalPoint.NORTH;
+			return CardinalPoint.North;
 
-		return CardinalPoint.NORTH;
+		return CardinalPoint.North;
 	}
 
 	public static boolean isFacing(DungeonLocation from, DungeonLocation target) {
@@ -120,30 +120,30 @@ public class Compass {
 		// - from.getCoordinates().y);
 
 		switch (from.getDirection()) {
-		case NORTH:
-			return target.getDirection() == CardinalPoint.SOUTH;
+		case North:
+			return target.getDirection() == CardinalPoint.South;
 
-		case SOUTH:
-			return target.getDirection() == CardinalPoint.NORTH;
+		case South:
+			return target.getDirection() == CardinalPoint.North;
 
-		case WEST:
-			return target.getDirection() == CardinalPoint.EAST;
+		case West:
+			return target.getDirection() == CardinalPoint.East;
 
-		case EAST:
-			return target.getDirection() == CardinalPoint.WEST;
+		case East:
+			return target.getDirection() == CardinalPoint.West;
 		}
 
 		return false;
 	}
 
 	public static boolean isSideFacing(CardinalPoint view, CardinalPoint side) {
-		if (view == CardinalPoint.NORTH && side == CardinalPoint.SOUTH)
+		if (view == CardinalPoint.North && side == CardinalPoint.South)
 			return true;
-		if (view == CardinalPoint.SOUTH && side == CardinalPoint.NORTH)
+		if (view == CardinalPoint.South && side == CardinalPoint.North)
 			return true;
-		if (view == CardinalPoint.WEST && side == CardinalPoint.EAST)
+		if (view == CardinalPoint.West && side == CardinalPoint.East)
 			return true;
-		if (view == CardinalPoint.EAST && side == CardinalPoint.WEST)
+		if (view == CardinalPoint.East && side == CardinalPoint.West)
 			return true;
 
 		return false;
@@ -151,10 +151,10 @@ public class Compass {
 
 	public static CardinalPoint getDirectionFromView(CardinalPoint from, CardinalPoint side) {
 		CardinalPoint[][] tab = new CardinalPoint[][] {//@formatter:off
-				{CardinalPoint.NORTH, CardinalPoint.SOUTH, CardinalPoint.WEST, CardinalPoint.EAST},
-				{CardinalPoint.SOUTH, CardinalPoint.NORTH, CardinalPoint.EAST, CardinalPoint.WEST},
-				{CardinalPoint.WEST, CardinalPoint.EAST, CardinalPoint.SOUTH, CardinalPoint.NORTH},
-				{CardinalPoint.EAST, CardinalPoint.WEST, CardinalPoint.NORTH, CardinalPoint.SOUTH},
+				{CardinalPoint.North, CardinalPoint.South, CardinalPoint.West, CardinalPoint.East},
+				{CardinalPoint.South, CardinalPoint.North, CardinalPoint.East, CardinalPoint.West},
+				{CardinalPoint.West, CardinalPoint.East, CardinalPoint.South, CardinalPoint.North},
+				{CardinalPoint.East, CardinalPoint.West, CardinalPoint.North, CardinalPoint.South},
 			}; //@formatter:on
 
 		// TODO: make sure ordinal() is what we need here
@@ -163,10 +163,10 @@ public class Compass {
 
 	public static CardinalPoint getOppositeDirection(CardinalPoint direction) {
 		CardinalPoint[] val = new CardinalPoint[] {//@formatter:off
-			CardinalPoint.SOUTH,
-			CardinalPoint.NORTH,
-			CardinalPoint.EAST,
-			CardinalPoint.WEST
+			CardinalPoint.South,
+			CardinalPoint.North,
+			CardinalPoint.East,
+			CardinalPoint.West
 		}; //@formatter:on
 
 		// TODO: make sure ordinal() is what we need here
