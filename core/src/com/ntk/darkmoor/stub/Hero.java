@@ -54,6 +54,11 @@ public class Hero extends Entity {
 		return false;
 	}
 
+	public int getBaseAttackBonus() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 
 }

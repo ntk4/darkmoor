@@ -17,4 +17,9 @@ public class Item {
 		return false;
 	}
 
+	public Dice getDamage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

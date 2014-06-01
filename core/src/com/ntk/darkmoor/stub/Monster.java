@@ -1,6 +1,6 @@
 package com.ntk.darkmoor.stub;
 
-public class Monster {
+public class Monster extends Entity {
 
 	public DungeonLocation getLocation() {
 		return null;

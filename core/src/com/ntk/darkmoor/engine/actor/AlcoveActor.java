@@ -11,9 +11,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.engine.Alcove;
 import com.ntk.darkmoor.engine.Compass;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
-import com.ntk.darkmoor.stub.Alcove;
 import com.ntk.darkmoor.stub.Decoration;
 import com.ntk.darkmoor.stub.DisplayCoordinates;
 import com.ntk.darkmoor.stub.DungeonLocation;
@@ -112,7 +112,7 @@ public class AlcoveActor extends SquareActor {
 
 		// No item in hand
 		if (team.getItemInHand() != null) {
-			if (!alcove.acceptBigItems() && team.getItemInHand().isBig()) {
+			if (!alcove.isAcceptBigItems() && team.getItemInHand().isBig()) {
 				return false;
 			}
 
