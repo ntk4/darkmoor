@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import com.ntk.darkmoor.exception.InitializationException;
+import com.ntk.darkmoor.stub.SaveGame;
 
 public class Settings {
 
@@ -18,6 +19,9 @@ public class Settings {
 	private static final String SETTING_INPUTSCHEME = "inputscheme";
 	private static final String SETTING_SAVE_SLOTS = "saveSlots";
 	
+	// last loaded instance. (almost) a singleton
+	private static Settings instance;
+
 	// private members for the settings
 	private String inputScheme;
 	private String language;
@@ -26,6 +30,8 @@ public class Settings {
 	private boolean effects;
 	private boolean fullScreen;
 	private int saveSlots;
+
+	public static SaveGame savedGame;
 
 	// the properties that hold all settings
 	private Properties props;
@@ -44,7 +50,9 @@ public class Settings {
 		settings.setEffects(settings.extractBooleanProperty(SETTING_EFFECTS, true));
 		settings.setFullScreen(settings.extractBooleanProperty(SETTING_FULL_SCREEN, false));
 		settings.setSaveSlots(settings.extractIntProperty(SETTING_SAVE_SLOTS, 6));
-
+		
+		instance = settings;
+		
 		return settings;
 
 	}
@@ -156,5 +164,17 @@ public class Settings {
 			this.saveSlots = saveSlots;
 		} else 
 			this.saveSlots = 6;
+	}
+
+	public static SaveGame getSavedGame() {
+		return savedGame;
+	}
+
+	public static void setSavedGame(SaveGame savedGame) {
+		Settings.savedGame = savedGame;
+	}
+
+	public static Settings getLastLoadedInstance() {
+		return instance;
 	}
 }

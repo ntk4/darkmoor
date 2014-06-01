@@ -14,4 +14,9 @@ public class CampDialog {
 		
 	}
 
+	public GameScreen getGame() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -14,6 +14,7 @@ public class ScreenButton extends Button {
 	private boolean visible;
 	private Color textColor;
 	private boolean reactOnMouseOver;
+	private Object tag;
 
 	public ScreenButton(String text, Rectangle rectangle) {
 		this.text = text;
@@ -79,5 +80,13 @@ public class ScreenButton extends Button {
 
 	public void setReactOnMouseOver(boolean reactOnMouseOver) {
 		this.reactOnMouseOver = reactOnMouseOver;
+	}
+
+	public Object getTag() {
+		return tag;
+	}
+
+	public void setTag(Object tag) {
+		this.tag = tag;
 	}
 }

@@ -22,4 +22,9 @@ public class GameScreen {
 		
 	}
 
+	public void loadGameSlot(int selectedSlot) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
