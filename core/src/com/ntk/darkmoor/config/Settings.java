@@ -1,11 +1,13 @@
 package com.ntk.darkmoor.config;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 import com.ntk.darkmoor.exception.InitializationException;
+import com.ntk.darkmoor.exception.SaveException;
 import com.ntk.darkmoor.stub.SaveGame;
 
 public class Settings {
@@ -35,14 +37,17 @@ public class Settings {
 
 	// the properties that hold all settings
 	private Properties props;
+	private File settingsFile;
 
 	public static Settings loadSettings(String path, String file) throws IOException {
 
 		final Properties props = new Properties();
+		
 		props.load(new FileInputStream(path + file));
 
 		Settings settings = new Settings(props);
-
+		settings.settingsFile = new File(path, file);
+		
 		settings.setInputScheme(settings.extractStringProperty(SETTING_INPUTSCHEME, "qwerty", InputType.stringValues()));
 		settings.setLanguage(settings.extractStringProperty(SETTING_LANGUAGE, "English", GameLanguage.stringValues()));
 		settings.setHPAsBar(settings.extractBooleanProperty(SETTING_HP_AS_BAR, false));
@@ -57,10 +62,19 @@ public class Settings {
 
 	}
 
-	public void saveSettings(String path, String file) throws IOException {
-		props.store(new FileOutputStream(path + file), "");
+	public void saveSettings() throws IOException {
+		props.store(new FileOutputStream(settingsFile), "");
 	}
 
+	public static void save() {
+		try {
+			Settings.getLastLoadedInstance().saveSettings();
+		} catch (IOException e) {
+			throw new SaveException(e);
+		}
+		
+	}
+	
 	public Settings(Properties props) {
 		this.props = props;
 		if (props == null) {
@@ -177,4 +191,5 @@ public class Settings {
 	public static Settings getLastLoadedInstance() {
 		return instance;
 	}
+
 }

@@ -1,5 +1,6 @@
 package com.ntk.darkmoor.stub;
 
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
 
 public class CampDialog {
@@ -15,6 +16,11 @@ public class CampDialog {
 	}
 
 	public GameScreen getGame() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public BitmapFont getFont() {
 		// TODO Auto-generated method stub
 		return null;
 	}

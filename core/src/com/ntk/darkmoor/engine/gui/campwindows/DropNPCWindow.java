@@ -69,9 +69,8 @@ public class DropNPCWindow extends BaseWindow {
 
 		// Display message
 		if (hero == null) {
+			GUI.getMenuFont().setColor(rectangleColor);
 			GUI.getMenuFont().draw(batch, message, 26, 58);
-		} else {// TODO: ntk: why was it commented?
-				// batch.DrawString(Camp.Font, new Point(16, 76), Color.White, "0 of 0 remaining.");
 		}
 
 		for (int y = 0; y < 3; y++) {
