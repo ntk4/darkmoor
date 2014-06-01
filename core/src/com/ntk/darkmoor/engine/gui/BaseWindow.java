@@ -27,6 +27,7 @@ public class BaseWindow extends Window {
 		this.camp = camp;
 		buttons = new ArrayList<ScreenButton>();
 		closing = false;
+		setSkin(skin);
 	}
 
 	public void close() {

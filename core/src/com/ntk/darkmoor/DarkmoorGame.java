@@ -27,4 +27,9 @@ public class DarkmoorGame extends ApplicationAdapter {
 		batch.draw(img, 0, 0, 700, 899);
 		batch.end();
 	}
+
+	public static void exit() {
+		// TODO Auto-generated method stub
+		
+	}
 }

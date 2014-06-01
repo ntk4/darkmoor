@@ -57,4 +57,19 @@ public class Team {
 		
 	}
 
+	public int getHeroCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public Hero getHero(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void dropHero(Hero hero) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

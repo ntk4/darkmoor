@@ -97,4 +97,12 @@ public class GUI {
 		return menuFont;
 	}
 
+	public static void drawRectangle(Rectangle rect, Color color) {
+		shapeRenderer.begin(ShapeType.Filled);
+
+		shapeRenderer.rect(rect.x, rect.y, rect.width ,rect.height, color, color, color, color);
+
+		shapeRenderer.end();
+	}
+
 }
