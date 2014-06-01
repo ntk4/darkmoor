@@ -8,6 +8,14 @@ import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 
 public class DungeonLocation {
 
+	public DungeonLocation(Element xml) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public DungeonLocation() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public boolean isFacing(DungeonLocation location) {
 		// TODO Auto-generated method stub
 		return false;
@@ -41,6 +49,11 @@ public class DungeonLocation {
 	public Square getSquare(Dungeon dungeon) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void setDirection(CardinalPoint rotate) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -17,4 +17,9 @@ public class GameScreen {
 		return null;
 	}
 
+	public static void setDialog(ScriptedDialog scriptedDialog) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

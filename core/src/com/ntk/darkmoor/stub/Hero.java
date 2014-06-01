@@ -1,12 +1,18 @@
 package com.ntk.darkmoor.stub;
 
-import com.ntk.darkmoor.engine.script.actions.ActionBase;
 
-public class Hero extends ActionBase {
+public class Hero extends Entity {
 
 	public boolean addToInventory(Item collectItemFromSide) {
 		// TODO Auto-generated method stub
 		return true;
 	}
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }

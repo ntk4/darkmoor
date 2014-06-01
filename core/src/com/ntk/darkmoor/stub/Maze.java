@@ -50,4 +50,9 @@ public class Maze {
 		return false;
 	}
 
+	public int getFloorPitDeco() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

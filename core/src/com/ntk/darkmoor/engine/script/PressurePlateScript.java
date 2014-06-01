@@ -58,11 +58,16 @@ public class PressurePlateScript extends ScriptBase {
 		/** On team or monsters stepping off the switch will activate it */
 		OnEntityLeave(OnTeamLeave.weight | OnMonsterLeave.weight);
 
-		public final int weight;
+		private final int weight;
 
 		PressurcePlateCondition(Integer weight) {
 			this.weight = weight;
 		}
+		
+		public int getWeight() {
+			return weight;
+		}
+		
 
 	}
 

@@ -138,17 +138,20 @@ public class AlcoveActor extends SquareActor {
 		return true;
 	}
 
-	public boolean load(XmlReader.Element xml) {
-		if (xml == null)
+	public boolean load(XmlReader.Element node) {
+		if (node == null)
 			return false;
 
-		if (StringUtils.equals("side", xml.getName())) {
-			CardinalPoint dir = CardinalPoint.valueOf(xml.getAttribute("name"));
-			alcoves[dir.ordinal()].load(xml);
-		} else {
-			super.load(xml);
-		}
+		for (int i = 0; i < node.getChildCount(); i++) {
+			XmlReader.Element xml = node.getChild(i);
 
+			if (StringUtils.equals("side", xml.getName())) {
+				CardinalPoint dir = CardinalPoint.valueOf(xml.getAttribute("name"));
+				alcoves[dir.ordinal()].load(xml);
+			} else {
+				super.load(xml);
+			}
+		}
 		return true;
 	}
 

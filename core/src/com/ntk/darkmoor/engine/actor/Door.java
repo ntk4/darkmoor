@@ -20,7 +20,6 @@ import com.ntk.darkmoor.stub.GameMessage;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.Item;
 import com.ntk.darkmoor.stub.MouseButtons;
-import com.ntk.darkmoor.stub.SpriteEffects;
 import com.ntk.darkmoor.stub.Square;
 import com.ntk.darkmoor.stub.SwitchCount;
 import com.ntk.darkmoor.stub.TileSet;
@@ -359,32 +358,35 @@ public class Door extends SquareActor {
 
 	}
 
-	public boolean load(XmlReader.Element xml) {
-		if (xml == null)
+	public boolean load(XmlReader.Element node) {
+		if (node == null)
 			return false;
 
-		if (StringUtils.equals("smallitempassthrough", xml.getName())) {
-			smallItemPassThrough = Boolean.parseBoolean(xml.getText());
-		} else if (StringUtils.equals("type", xml.getName())) {
-			type = DoorType.valueOf(xml.getAttribute("value"));
-		} else if (StringUtils.equals("state", xml.getName())) {
-			state = DoorState.valueOf(xml.getAttribute("value"));
-			if (state == DoorState.Opened)
-				VPosition = -30;
-		} else if (StringUtils.equals("isbreakable", xml.getName())) {
-			breakable = Boolean.parseBoolean(xml.getAttribute("value"));
-		} else if (StringUtils.equals("hasbutton", xml.getName())) {
-			hasButton = Boolean.parseBoolean(xml.getText());
-		} else if (StringUtils.equals("picklock", xml.getName())) {
-			pickLock = Boolean.parseBoolean(xml.getAttribute("value"));
-		} else if (StringUtils.equals("speed", xml.getName())) {// TODO: check! the xml has seconds
-			speed = Integer.parseInt(xml.getAttribute("value")) * 1000;
-		} else if (StringUtils.equals("strength", xml.getName())) {// TODO: check! the xml has seconds
-			strength = Integer.parseInt(xml.getAttribute("value"));
-		} else {
-			super.load(xml);
-		}
+		for (int i = 0; i < node.getChildCount(); i++) {
+			XmlReader.Element xml = node.getChild(i);
 
+			if (StringUtils.equals("smallitempassthrough", xml.getName())) {
+				smallItemPassThrough = Boolean.parseBoolean(xml.getText());
+			} else if (StringUtils.equals("type", xml.getName())) {
+				type = DoorType.valueOf(xml.getAttribute("value"));
+			} else if (StringUtils.equals("state", xml.getName())) {
+				state = DoorState.valueOf(xml.getAttribute("value"));
+				if (state == DoorState.Opened)
+					VPosition = -30;
+			} else if (StringUtils.equals("isbreakable", xml.getName())) {
+				breakable = Boolean.parseBoolean(xml.getAttribute("value"));
+			} else if (StringUtils.equals("hasbutton", xml.getName())) {
+				hasButton = Boolean.parseBoolean(xml.getText());
+			} else if (StringUtils.equals("picklock", xml.getName())) {
+				pickLock = Boolean.parseBoolean(xml.getAttribute("value"));
+			} else if (StringUtils.equals("speed", xml.getName())) {// TODO: check! the xml has seconds
+				speed = Integer.parseInt(xml.getAttribute("value")) * 1000;
+			} else if (StringUtils.equals("strength", xml.getName())) {// TODO: check! the xml has seconds
+				strength = Integer.parseInt(xml.getAttribute("value"));
+			} else {
+				super.load(xml);
+			}
+		}
 		return true;
 	}
 
@@ -401,15 +403,15 @@ public class Door extends SquareActor {
 		writer.element("picklock").attribute("value", pickLock).pop();
 		writer.element("speed").attribute("value", speed).pop();
 		writer.element("strength").attribute("value", strength).pop();
-		writer.element("smallitempassthrough",smallItemPassThrough);
-		
+		writer.element("smallitempassthrough", smallItemPassThrough);
+
 		super.save(writer);
-		
+
 		writer.pop();
-		
+
 		return true;
 	}
-	
+
 	public boolean isDrawable(CardinalPoint point) {
 		return true;
 	}
@@ -419,6 +421,118 @@ public class Door extends SquareActor {
 			return null;
 
 		return getSquare().getMaze().getDoorTileset();
+	}
+
+	public Rectangle getButton() {
+		return button;
+	}
+
+	public void setButton(Rectangle button) {
+		this.button = button;
+	}
+
+	public SwitchCount getCount() {
+		return count;
+	}
+
+	public void setCount(SwitchCount count) {
+		this.count = count;
+	}
+
+	public AudioSample getOpenSound() {
+		return openSound;
+	}
+
+	public void setOpenSound(AudioSample openSound) {
+		this.openSound = openSound;
+	}
+
+	public AudioSample getCloseSound() {
+		return closeSound;
+	}
+
+	public void setCloseSound(AudioSample closeSound) {
+		this.closeSound = closeSound;
+	}
+
+	public boolean isAcceptItems() {
+		return acceptItems;
+	}
+
+	public void setAcceptItems(boolean acceptItems) {
+		this.acceptItems = acceptItems;
+	}
+
+	public boolean isBreakable() {
+		return breakable;
+	}
+
+	public void setBreakable(boolean breakable) {
+		this.breakable = breakable;
+	}
+
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+
+	public DoorType getType() {
+		return type;
+	}
+
+	public void setType(DoorType type) {
+		this.type = type;
+	}
+
+	public DoorState getState() {
+		return state;
+	}
+
+	public void setState(DoorState state) {
+		this.state = state;
+	}
+
+	public int getVPosition() {
+		return VPosition;
+	}
+
+	public void setVPosition(int vPosition) {
+		VPosition = vPosition;
+	}
+
+	public boolean isHasButton() {
+		return hasButton;
+	}
+
+	public void setHasButton(boolean hasButton) {
+		this.hasButton = hasButton;
+	}
+
+	public boolean isSmallItemPassThrough() {
+		return smallItemPassThrough;
+	}
+
+	public void setSmallItemPassThrough(boolean smallItemPassThrough) {
+		this.smallItemPassThrough = smallItemPassThrough;
+	}
+
+	public boolean isPickLock() {
+		return pickLock;
+	}
+
+	public void setPickLock(boolean pickLock) {
+		this.pickLock = pickLock;
+	}
+
+	public int getStrength() {
+		return strength;
+	}
+
+	public void setStrength(int strength) {
+		this.strength = strength;
 	}
 
 }

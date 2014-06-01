@@ -9,9 +9,58 @@ import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 
 public class Square {
 
+	public enum SquareType {
+		/** Ground block */
+		Ground,
+
+		/** Wall block */
+		Wall,
+
+		/** Illusionary wall */
+		Illusion,
+	}
+
+	//@formatter:off
+	/**Sub position in a square in the maze
+	 .-------.
+	 | A | B |
+	 | +---+ |
+	 |-| E |-|
+	 | +---+ |
+	 | C | D |
+	 '-------'
+	*/ //@formatter:on
+	public enum SquarePosition {
+
+		/** North west */
+		NorthWest(0),
+
+		/** North east */
+		NorthEast(1),
+
+		/** South west */
+		SouthWest(2),
+
+		/** South east */
+		SouthEast(3),
+
+		/** Center position (not for items !) */
+		Center(4);
+
+		private int value;
+
+		SquarePosition(int value) {
+			this.value = value;
+		}
+
+		public int value() {
+			return value;
+		}
+	}
+
 	public static final String TAG = null;
 	private SquareActor actor;
-	
+
 	public Square getSquare(Dungeon dungeon) {
 		// TODO Auto-generated method stub
 		return null;
@@ -27,12 +76,12 @@ public class Square {
 
 	public void save(XmlWriter writer) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void load(Element child) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public Vector2 getLocation() {
@@ -63,6 +112,11 @@ public class Square {
 	public boolean isWall() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public void setType(SquareType ground) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

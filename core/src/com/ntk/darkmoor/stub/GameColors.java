@@ -7,4 +7,7 @@ public class GameColors {
 	public static final Color dark = null;
 	public static final Color main = null;
 	public static final Color CYAN = null;
+	public static final Color Red = null;
+	public static final Color Green = null;
+	public static final Color Yellow = null;
 }

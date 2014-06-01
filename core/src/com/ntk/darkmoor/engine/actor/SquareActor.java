@@ -25,6 +25,7 @@ public abstract class SquareActor {
 	private boolean activated;
 	private boolean canPassThrough;
 	private boolean blocking;
+	private boolean acceptItems;
 	
 
 	public SquareActor(Square square) {
@@ -232,5 +233,21 @@ public abstract class SquareActor {
 
 	public void setBlocking(boolean isBlocking) {
 		this.blocking = isBlocking;
+	}
+
+	public boolean isAcceptItems() {
+		return acceptItems;
+	}
+
+	public void setAcceptItems(boolean acceptItems) {
+		this.acceptItems = acceptItems;
+	}
+
+	public boolean isActivated() {
+		return activated;
+	}
+
+	public void setActivated(boolean activated) {
+		this.activated = activated;
 	}
 }

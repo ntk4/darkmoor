@@ -1,5 +1,7 @@
 package com.ntk.darkmoor.stub;
 
+import java.util.List;
+
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 
 
@@ -41,6 +43,16 @@ public class Team {
 	}
 
 	public void setItemInHand(Item item) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List<Hero> getHeroes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void offset(CardinalPoint direction, int i) {
 		// TODO Auto-generated method stub
 		
 	}
