@@ -14,4 +14,9 @@ public class Display {
 		
 	}
 
+	public static void clearBuffers() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
