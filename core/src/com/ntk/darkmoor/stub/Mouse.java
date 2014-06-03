@@ -7,4 +7,9 @@ public class Mouse {
 		
 	}
 
+	public static void loadTileSet(TileSet itemTileSet) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

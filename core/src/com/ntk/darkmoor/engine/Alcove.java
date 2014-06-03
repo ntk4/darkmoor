@@ -9,7 +9,6 @@ import org.ntk.commons.StringUtils;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.script.AlcoveScript;
-import com.ntk.darkmoor.stub.DungeonLocation;
 
 /**
  * Alcove object

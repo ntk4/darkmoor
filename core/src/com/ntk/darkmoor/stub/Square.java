@@ -5,6 +5,7 @@ import java.util.List;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.engine.Dungeon;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 
 public class Square {

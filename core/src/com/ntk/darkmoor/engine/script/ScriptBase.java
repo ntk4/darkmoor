@@ -7,6 +7,7 @@ import org.ntk.commons.StringUtils;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.config.Log;
+import com.ntk.darkmoor.engine.Dungeon;
 import com.ntk.darkmoor.engine.script.actions.ActionBase;
 import com.ntk.darkmoor.engine.script.actions.ActivateTarget;
 import com.ntk.darkmoor.engine.script.actions.ChangePicture;
@@ -28,7 +29,6 @@ import com.ntk.darkmoor.engine.script.actions.SetTo;
 import com.ntk.darkmoor.engine.script.actions.SpawnMonster;
 import com.ntk.darkmoor.engine.script.actions.Teleport;
 import com.ntk.darkmoor.engine.script.actions.ToggleTarget;
-import com.ntk.darkmoor.stub.Dungeon;
 
 public abstract class ScriptBase {
 

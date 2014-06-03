@@ -128,7 +128,7 @@ public class DisplayCoordinates {
 	private static Rectangle scrollOk;
 	private static TileDrawing[][] walls;
 
-	private boolean loaded;
+	private static boolean loaded;
 
 	static {
 		int viewcount = ViewFieldPosition.values().length;
@@ -236,7 +236,7 @@ public class DisplayCoordinates {
 		return teleporters[view.value()];
 	}
 
-	public boolean load() throws IOException {
+	public static boolean load() throws IOException {
 		if (loaded)
 			return true;
 
@@ -314,7 +314,7 @@ public class DisplayCoordinates {
 		return true;
 	}
 
-	private TileDrawing getTileDrawing(Element node) {
+	private static TileDrawing getTileDrawing(Element node) {
 		if (node == null)
 			return null;
 

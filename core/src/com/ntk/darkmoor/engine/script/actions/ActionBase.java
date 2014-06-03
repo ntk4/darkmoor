@@ -5,7 +5,7 @@ import java.io.IOException;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.config.Log;
-import com.ntk.darkmoor.stub.DungeonLocation;
+import com.ntk.darkmoor.engine.DungeonLocation;
 
 public class ActionBase {
 

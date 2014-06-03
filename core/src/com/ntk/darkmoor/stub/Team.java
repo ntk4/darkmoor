@@ -2,6 +2,7 @@ package com.ntk.darkmoor.stub;
 
 import java.util.List;
 
+import com.ntk.darkmoor.engine.DungeonLocation;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 
 
