@@ -13,9 +13,9 @@ import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Alcove;
 import com.ntk.darkmoor.engine.Compass;
+import com.ntk.darkmoor.engine.Decoration;
+import com.ntk.darkmoor.engine.DisplayCoordinates;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
-import com.ntk.darkmoor.stub.Decoration;
-import com.ntk.darkmoor.stub.DisplayCoordinates;
 import com.ntk.darkmoor.stub.DungeonLocation;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.Item;
@@ -43,7 +43,7 @@ public class AlcoveActor extends SquareActor {
 			return;
 
 		// For each wall side, draws the decoration
-		for (CardinalPoint side : DisplayCoordinates.DrawingWallSides[position.ordinal()]) {
+		for (CardinalPoint side : DisplayCoordinates.getDrawingWallSides()[position.ordinal()]) {
 			Alcove alcove = getAlcove(Compass.getDirectionFromView(direction, side));
 
 			// Get the decoration
@@ -60,7 +60,7 @@ public class AlcoveActor extends SquareActor {
 
 			// Offset the item locations according to the distance
 			Vector2 vect = DisplayCoordinates.getMonsterScaleFactor(position);
-			Vector2 loc = deco.PrepareLocation(position);
+			Vector2 loc = deco.prepareLocation(position);
 			// TODO: what does offset() do? replace with a valid one for Vector2
 			// loc.offset((int) (deco.getItemLocation().x * vect.x), (int) (deco.getItemLocation().y * vect.y));
 

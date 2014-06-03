@@ -8,4 +8,8 @@ public class Log {
 	public static void debug(String message) {
 		Gdx.app.debug(TAG, message);
 	}
+
+	public static void error(String message) {
+		Gdx.app.error(TAG, message);
+	}
 }

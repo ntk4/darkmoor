@@ -13,7 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.ntk.darkmoor.stub.CampDialog;
+import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.stub.GameColors;
 import com.ntk.darkmoor.stub.GameTime;
 

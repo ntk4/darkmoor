@@ -11,7 +11,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
-import com.ntk.darkmoor.stub.CampDialog;
+import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.stub.GameColors;
 import com.ntk.darkmoor.stub.GameTime;
 
@@ -139,7 +139,7 @@ public class BaseWindow extends Window {
 		this.camp = camp;
 	}
 
-	protected boolean isClosing() {
+	public boolean isClosing() {
 		return closing;
 	}
 
@@ -147,7 +147,7 @@ public class BaseWindow extends Window {
 		this.closing = closing;
 	}
 
-	protected MessageBox getMessageBox() {
+	public MessageBox getMessageBox() {
 		return messageBox;
 	}
 

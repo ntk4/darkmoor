@@ -1,5 +1,7 @@
 package com.ntk.darkmoor.resource;
 
+import java.io.InputStream;
+
 import com.badlogic.gdx.assets.AssetManager;
 
 public class Resources {
@@ -21,6 +23,11 @@ public class Resources {
 	}
 
 	public static <T> T lockSharedAsset(Class<T> class1, String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static InputStream load(String filename) {
 		// TODO Auto-generated method stub
 		return null;
 	}

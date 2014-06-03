@@ -16,7 +16,7 @@ public enum ViewFieldPosition {
 	
 	private int value;
 	
-	public int getValue() {
+	public int value() {
 		return value;
 	}
 }

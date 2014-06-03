@@ -8,10 +8,10 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.engine.gui.GUI;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
-import com.ntk.darkmoor.stub.CampDialog;
 import com.ntk.darkmoor.stub.GameColors;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
@@ -73,7 +73,7 @@ public class SpellWindow extends BaseWindow {
 		if (hero == null) {
 			GUI.getMenuFont().draw(batch, message, 26, 58);
 		} else {
-			getCamp().getFont().draw(batch, "0 of 0 remaining.", 16, 76);
+			GUI.getMenuFont().draw(batch, "0 of 0 remaining.", 16, 76);
 		}
 
 		for (int y = 0; y < 3; y++) {

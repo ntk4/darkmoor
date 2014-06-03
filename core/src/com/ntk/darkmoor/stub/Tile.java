@@ -1,15 +1,15 @@
 package com.ntk.darkmoor.stub;
 
-public class TileSet {
+public class Tile {
 
-	public void dispose() {
+	public float getWidth() {
 		// TODO Auto-generated method stub
-		
+		return 0;
 	}
 
-	public Tile getTile(int tileId) {
+	public float getHeight() {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 }

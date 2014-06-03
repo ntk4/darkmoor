@@ -6,10 +6,10 @@ import com.ntk.darkmoor.stub.DungeonLocation;
 public class Compass {
 
 	public static enum CardinalPoint {
-		North, South, West, East;
+		North(0), South(1), West(2), East(3);
 
-		public static CardinalPoint valueOf(int ordinal) {
-			switch (ordinal) {
+		public static CardinalPoint valueOf(int value) {
+			switch (value) {
 			case 0:
 				return North;
 			case 1:
@@ -22,10 +22,30 @@ public class Compass {
 			}
 			return North;
 		}
+		
+		private int value;
+		
+		private CardinalPoint(int value) {
+			this.value = value;
+		}
+		
+		public int value() {
+			return value;
+		}
 	}
 
 	public static enum CompassRotation {
-		Rotate90, Rotate180, Rotate270,
+		Rotate90(0), Rotate180(1), Rotate270(2);
+		
+		private int value;
+		
+		private CompassRotation(int value) {
+			this.value = value;
+		}
+		
+		public int value() {
+			return value;
+		}
 	}
 
 	private CardinalPoint direction;
@@ -66,8 +86,7 @@ public class Compass {
 									CardinalPoint.North,
 									CardinalPoint.East, }, };//@formatter:on
 
-		// TODO: make sure ordinal is what we need here
-		return points[direction.ordinal()][rot.ordinal()];
+		return points[direction.value()][rot.value()];
 	}
 
 	public static CardinalPoint seekDirection(DungeonLocation from, DungeonLocation target) {
@@ -157,8 +176,7 @@ public class Compass {
 				{CardinalPoint.East, CardinalPoint.West, CardinalPoint.North, CardinalPoint.South},
 			}; //@formatter:on
 
-		// TODO: make sure ordinal() is what we need here
-		return tab[from.ordinal()][side.ordinal()];
+		return tab[from.value()][side.value()];
 	}
 
 	public static CardinalPoint getOppositeDirection(CardinalPoint direction) {
@@ -169,8 +187,7 @@ public class Compass {
 			CardinalPoint.West
 		}; //@formatter:on
 
-		// TODO: make sure ordinal() is what we need here
-		return val[direction.ordinal()];
+		return val[direction.value()];
 	}
 
 	public CardinalPoint getDirection() {

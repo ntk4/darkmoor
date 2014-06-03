@@ -1,6 +1,7 @@
 package com.ntk.darkmoor.stub;
 
 import com.badlogic.gdx.math.Vector2;
+import com.ntk.darkmoor.engine.DecorationSet;
 import com.ntk.darkmoor.engine.actor.Door.DoorType;
 
 public class Maze {

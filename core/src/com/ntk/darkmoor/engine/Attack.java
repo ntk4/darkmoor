@@ -2,7 +2,6 @@ package com.ntk.darkmoor.engine;
 
 import java.util.Date;
 
-import com.ntk.darkmoor.stub.Dice;
 import com.ntk.darkmoor.stub.DungeonLocation;
 import com.ntk.darkmoor.stub.Entity;
 import com.ntk.darkmoor.stub.GameScreen;

@@ -1,5 +1,7 @@
 package com.ntk.darkmoor.stub;
 
+import com.ntk.darkmoor.engine.Dice;
+
 public class Item {
 
 	public String getName() {
@@ -20,6 +22,11 @@ public class Item {
 	public Dice getDamage() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public int getTileID() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

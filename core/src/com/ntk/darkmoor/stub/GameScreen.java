@@ -1,5 +1,7 @@
 package com.ntk.darkmoor.stub;
 
+import com.ntk.darkmoor.engine.DialogBase;
+
 public class GameScreen {
 
 	public static Team getTeam() {
