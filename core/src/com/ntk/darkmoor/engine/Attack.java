@@ -2,7 +2,6 @@ package com.ntk.darkmoor.engine;
 
 import java.util.Date;
 
-import com.ntk.darkmoor.stub.Entity;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.Hero;
 import com.ntk.darkmoor.stub.Item;
@@ -86,15 +85,15 @@ public class Attack {
 
 		// Range penality
 		if (isRangedAttack()) {
-			modifier = attacker.getDexterity().getModifier();
+			modifier = attacker.dexterity.getModifier();
 
 			// TODO : Add range penality
 		} else
-			modifier = attacker.getStrength().getModifier();
+			modifier = attacker.strength.getModifier();
 
 		// Attack bonus
 		int attackbonus = baseattackbonus + modifier + sizemodifier + rangepenality;
-		if (target.getArmorClass() > attackdie + attackbonus)
+		if (target.armorClass > attackdie + attackbonus)
 			return;
 
 		if (item != null)

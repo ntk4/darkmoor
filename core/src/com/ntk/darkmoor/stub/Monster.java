@@ -1,6 +1,8 @@
 package com.ntk.darkmoor.stub;
 
+import com.ntk.darkmoor.engine.Attack;
 import com.ntk.darkmoor.engine.DungeonLocation;
+import com.ntk.darkmoor.engine.Entity;
 
 public class Monster extends Entity {
 
@@ -44,6 +46,12 @@ public class Monster extends Entity {
 	}
 
 	public void onSpawn() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void hit(Attack attack) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -12,7 +12,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.ntk.darkmoor.engine.CampDialog;
-import com.ntk.darkmoor.stub.GameColors;
+import com.ntk.darkmoor.engine.GameColors;
 import com.ntk.darkmoor.stub.GameTime;
 
 public class BaseWindow extends Window {
@@ -86,11 +86,11 @@ public class BaseWindow extends Window {
 
 	private void drawBackground(Batch batch, float parentAlpha) {
 		Rectangle rect = new Rectangle(0, 0, 352, 288);
-		GUI.drawDoubleBevel(batch, rect, GameColors.main, GameColors.light, GameColors.dark, false);
+		GUI.drawDoubleBevel(batch, rect, GameColors.Main, GameColors.Light, GameColors.Dark, false);
 
 		// TODO: ntk: check if it's equivalent to:
 		// batch.DrawString(GUI.MenuFont, new Point(8, 10), GameColors.Cyan, Title);
-		GUI.getMenuFont().setColor(GameColors.CYAN);
+		GUI.getMenuFont().setColor(GameColors.Cyan);
 		GUI.getMenuFont().draw(batch, getTitle(), 8, 10);
 
 	}

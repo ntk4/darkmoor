@@ -14,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.engine.CampDialog;
-import com.ntk.darkmoor.stub.GameColors;
+import com.ntk.darkmoor.engine.GameColors;
 import com.ntk.darkmoor.stub.GameTime;
 
 public class MessageBox extends Dialog {
@@ -168,7 +168,7 @@ public class MessageBox extends Dialog {
 			return;
 
 		// Draw bevel background
-		GUI.drawDoubleBevel(batch, rectangle, GameColors.main, GameColors.light, GameColors.dark, false);
+		GUI.drawDoubleBevel(batch, rectangle, GameColors.Main, GameColors.Light, GameColors.Dark, false);
 
 		// Draw message
 		Vector2 point = new Vector2();
@@ -183,7 +183,7 @@ public class MessageBox extends Dialog {
 		// Draw buttons
 		for (ScreenButton button : buttons) {
 			Rectangle rect = clientToScreen(rectangle.getPosition(point), button.getRectangle());
-			GUI.drawDoubleBevel(batch, rect, GameColors.main, GameColors.light, GameColors.dark, false);
+			GUI.drawDoubleBevel(batch, rect, GameColors.Main, GameColors.Light, GameColors.Dark, false);
 
 			// Text
 			point = rect.getPosition(point);

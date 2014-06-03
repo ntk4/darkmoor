@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
-import com.ntk.darkmoor.stub.GameMessage;
+import com.ntk.darkmoor.engine.GameMessage;
 import com.ntk.darkmoor.stub.GameScreen;
 
 public class DisplayMessage extends ActionBase {

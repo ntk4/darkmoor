@@ -5,8 +5,8 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont.TextBounds;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.ntk.darkmoor.engine.GameColors;
 import com.ntk.darkmoor.engine.gui.GUI;
-import com.ntk.darkmoor.stub.GameColors;
 import com.ntk.darkmoor.stub.GameTime;
 
 public class GUIScriptButton {
@@ -26,7 +26,7 @@ public class GUIScriptButton {
 		this.rectangle = rectangle;
 		this.visible = true;
 		this.textColor = Color.WHITE;
-		this.backColor = GameColors.main;
+		this.backColor = GameColors.Main;
 	}
 
 	public void update(GameTime time)
@@ -80,7 +80,7 @@ public class GUIScriptButton {
 			reverse = true;
 			*/
 		
-		GUI.drawSimpleBevel(batch, rectangle, backColor, GameColors.light, GameColors.dark, reverse);
+		GUI.drawSimpleBevel(batch, rectangle, backColor, GameColors.Light, GameColors.Dark, reverse);
 
 		// Text size
 		TextBounds textsize = GUI.getDialogFont().getBounds(text);

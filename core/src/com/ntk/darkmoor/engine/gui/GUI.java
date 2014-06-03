@@ -8,8 +8,8 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.ntk.darkmoor.engine.GameColors;
 import com.ntk.darkmoor.resource.Resources;
-import com.ntk.darkmoor.stub.GameColors;
 
 public class GUI {
 
@@ -35,11 +35,11 @@ public class GUI {
 	}
 
 	public static void drawDoubleBevel(Batch batch, Rectangle rectangle) {
-		drawDoubleBevel(batch, rectangle, GameColors.main, GameColors.light, GameColors.dark, false);
+		drawDoubleBevel(batch, rectangle, GameColors.Main, GameColors.Light, GameColors.Dark, false);
 	}
 
 	public static void drawDoubleBevel(Batch batch, Rectangle rectangle, boolean reverse) {
-		drawDoubleBevel(batch, rectangle, GameColors.main, GameColors.light, GameColors.dark, reverse);
+		drawDoubleBevel(batch, rectangle, GameColors.Main, GameColors.Light, GameColors.Dark, reverse);
 	}
 
 	public static void drawDoubleBevel(Batch batch, Rectangle rect, Color bg, Color light, Color dark, boolean reverse) {
@@ -64,11 +64,11 @@ public class GUI {
 	}
 
 	public static void drawSimpleBevel(SpriteBatch batch, Rectangle rect) {
-		drawSimpleBevel(batch, rect, GameColors.main, GameColors.light, GameColors.dark, false);
+		drawSimpleBevel(batch, rect, GameColors.Main, GameColors.Light, GameColors.Dark, false);
 	}
 
 	public static void drawSimpleBevel(SpriteBatch batch, Rectangle rect, boolean reverse) {
-		drawSimpleBevel(batch, rect, GameColors.main, GameColors.light, GameColors.dark, reverse);
+		drawSimpleBevel(batch, rect, GameColors.Main, GameColors.Light, GameColors.Dark, reverse);
 	}
 
 	public static void drawSimpleBevel(SpriteBatch batch, Rectangle rect, Color bg, Color light, Color dark,

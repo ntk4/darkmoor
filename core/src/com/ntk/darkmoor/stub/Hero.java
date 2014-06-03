@@ -1,5 +1,9 @@
 package com.ntk.darkmoor.stub;
 
+import com.ntk.darkmoor.engine.Attack;
+import com.ntk.darkmoor.engine.Entity;
+import com.ntk.darkmoor.engine.HitPoint;
+
 
 public class Hero extends Entity {
 
@@ -57,6 +61,12 @@ public class Hero extends Entity {
 	public int getBaseAttackBonus() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void hit(Attack attack) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
