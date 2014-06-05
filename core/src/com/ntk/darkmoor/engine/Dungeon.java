@@ -8,6 +8,7 @@ import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.badlogic.gdx.utils.XmlReader.Element;
 import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.exception.InitializationException;
 import com.ntk.darkmoor.resource.Resources;
@@ -81,27 +82,31 @@ public class Dungeon {
 		disposed = true;
 	}
 
-	public boolean load(XmlReader.Element node) {
-		if (node == null || !StringUtils.equals(node.getName(), TAG)) {
-			Log.error("[Dungeon] expecting \"" + TAG + "\" in node header, found \"" + node.getName()
+	public boolean load(XmlReader.Element xml) {
+		if (xml == null || !StringUtils.equals(xml.getName(), TAG)) {
+			Log.error("[Dungeon] expecting \"" + TAG + "\" in node header, found \"" + xml.getName()
 					+ "\" when loading Dungeon.");
 			return false;
 		}
 
-		name = node.getName();
+		this.name = xml.getName();
 
-		for (int i = 0; i < node.getChildCount(); i++) {
-			XmlReader.Element child = node.getChild(i);
+		Element child = null;
+		String name = null;
 
-			if ("items".equalsIgnoreCase(child.getName())) {
+		for (int i = 0; i < xml.getChildCount(); i++) {
+			child = xml.getChild(i);
+			name = child.getName();
+
+			if ("items".equalsIgnoreCase(name)) {
 				itemTileSetName = child.getAttribute("tileset");
 
-			} else if (Maze.TAG.equalsIgnoreCase(child.getName())) {
-				String name = node.getAttribute("name");
+			} else if (Maze.TAG.equalsIgnoreCase(name)) {
+				String nameAttr = child.getAttribute("name");
 				Maze maze = new Maze(this);
-				maze.setName(name);
-				mazes.put(name, maze);
-				maze.load(node);
+				maze.setName(nameAttr);
+				mazes.put(nameAttr, maze);
+				maze.load(child);
 
 			} else if ("start".equalsIgnoreCase(child.getName())) {
 				startLocation = new DungeonLocation(child);
@@ -129,7 +134,7 @@ public class Dungeon {
 		startLocation.save("start", writer);
 
 		// TODO: ntk: check if this write(note) works as expected
-		writer.element("note").write(note); 
+		writer.element("note").write(note);
 		writer.pop().pop();
 
 		return true;

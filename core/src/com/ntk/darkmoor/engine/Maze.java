@@ -24,7 +24,6 @@ import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.Display;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.MazeZone;
 import com.ntk.darkmoor.stub.Monster;
 import com.ntk.darkmoor.stub.SpriteEffects;
 import com.ntk.darkmoor.stub.Square;
@@ -369,12 +368,14 @@ public class Maze {
 		if (xml == null || !TAG.equalsIgnoreCase(xml.getName()))
 			return false;
 
-		String name = xml.getAttribute("name");
-
 		Square block = null;
 
+		Element node = null;
+		String name = null;
+		
 		for (int i = 0; i < xml.getChildCount(); i++) {
-			Element node = xml.getChild(i);
+			node = xml.getChild(i);
+			name = node.getName();
 
 			if ("tileset".equalsIgnoreCase(name)) {
 				wallTilesetName = node.getAttribute("wall");
@@ -727,7 +728,7 @@ public class Maze {
 			}
 	}
 
-	public void Resize(Vector2 newsize) {
+	public void resize(Vector2 newsize) {
 		// Rows
 		if (newsize.y > size.y) {
 			for (int y = (int) size.y; y < newsize.y; y++)

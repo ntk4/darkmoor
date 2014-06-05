@@ -2,6 +2,7 @@ package com.ntk.darkmoor.stub;
 
 import com.ntk.darkmoor.engine.DialogBase;
 import com.ntk.darkmoor.engine.Dungeon;
+import com.ntk.darkmoor.engine.ScriptedDialog;
 
 public class GameScreen {
 

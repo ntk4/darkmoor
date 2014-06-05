@@ -143,28 +143,30 @@ public abstract class Entity {
 		if (node == null)
 			return false;
 
-		if (!StringUtils.isEmpty(node.getAttribute("strength"))) {
+		String name = node.getName();
+		
+		if ("strength".equalsIgnoreCase(name)) {
 			strength.load(node);
 
-		} else if (!StringUtils.isEmpty(node.getAttribute("intelligence"))) {
+		} else if ("intelligence".equalsIgnoreCase(name)) {
 			intelligence.load(node);
 
-		} else if (!StringUtils.isEmpty(node.getAttribute("wisdom"))) {
+		} else if ("wisdom".equalsIgnoreCase(name)) {
 			wisdom.load(node);
 
-		} else if (!StringUtils.isEmpty(node.getAttribute("dexterity"))) {
+		} else if ("dexterity".equalsIgnoreCase(name)) {
 			dexterity.load(node);
 
-		} else if (!StringUtils.isEmpty(node.getAttribute("constitution"))) {
+		} else if ("constitution".equalsIgnoreCase(name)) {
 			constitution.load(node);
 
-		} else if (!StringUtils.isEmpty(node.getAttribute("alignment"))) {
+		} else if ("alignment".equalsIgnoreCase(name)) {
 			alignment = EntityAlignment.valueOf(node.getAttribute("value"));
 
-		} else if (!StringUtils.isEmpty(node.getAttribute("hitpoint"))) {
+		} else if ("hitpoint".equalsIgnoreCase(name)) {
 			hitPoint.load(node);
 
-		} else if (!StringUtils.isEmpty(node.getAttribute("movespeed"))) {
+		} else if ("movespeed".equalsIgnoreCase(name)) {
 			moveSpeed = Integer.parseInt(node.getAttribute("value"));
 
 		} else {

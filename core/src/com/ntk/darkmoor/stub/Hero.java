@@ -1,6 +1,7 @@
 package com.ntk.darkmoor.stub;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.ntk.commons.StringUtils;
@@ -9,6 +10,9 @@ import com.ntk.darkmoor.engine.Attack;
 import com.ntk.darkmoor.engine.Entity;
 import com.ntk.darkmoor.engine.HitPoint;
 import com.ntk.darkmoor.engine.Item;
+import com.ntk.darkmoor.engine.SpellImpl;
+import com.ntk.darkmoor.engine.interfaces.Spell;
+import com.ntk.darkmoor.stub.Hero.HeroClass;
 
 
 public class Hero extends Entity {
@@ -121,6 +125,21 @@ public class Hero extends Entity {
 	public void hit(Attack attack) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public static List<SpellImpl> getSpells(HeroClass heroClass, int spellLevel) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static int getMaxSpellCount(HeroClass cleric, int i) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static SpellImpl popSpell(HeroClass heroClass, int spellLevel, int i) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

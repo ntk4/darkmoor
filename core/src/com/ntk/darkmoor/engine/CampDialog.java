@@ -3,7 +3,7 @@ package com.ntk.darkmoor.engine;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
@@ -65,7 +65,7 @@ public class CampDialog extends DialogBase {
 	}
 	
 	@Override
-	public void draw(Batch batch, float parentAlpha) {
+	public void draw(SpriteBatch batch, float parentAlpha) {
 		if (windows.size() > 0) {
 			windows.peek().draw(batch, parentAlpha);
 		}

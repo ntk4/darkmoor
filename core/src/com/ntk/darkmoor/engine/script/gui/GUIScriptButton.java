@@ -5,17 +5,20 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont.TextBounds;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.ntk.darkmoor.engine.GameColors;
 import com.ntk.darkmoor.engine.gui.GUI;
 import com.ntk.darkmoor.stub.GameTime;
 
-public class GUIScriptButton {
+public class GUIScriptButton extends Button {
 
 	private String text;
 	private Rectangle rectangle;
 	private boolean visible;
 	private Color textColor;
 	private Color backColor;
+	
+	private Object tag;
 
 	public GUIScriptButton() {
 		this("", new Rectangle());
@@ -142,5 +145,13 @@ public class GUIScriptButton {
 
 	public void setBackColor(Color backColor) {
 		this.backColor = backColor;
+	}
+
+	public Object getTag() {
+		return tag;
+	}
+
+	public void setTag(Object tag) {
+		this.tag = tag;
 	}
 }

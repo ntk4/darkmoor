@@ -217,78 +217,83 @@ public class Item {
 		if (!StringUtils.equals("item", xml.getName()))
 			return false;
 
-		String name = xml.getAttribute("name");
-
+		this.name = xml.getAttribute("name");
+		
+		Element node = null;
+		String childName = null;
+		
 		for (int i = 0; i < xml.getChildCount(); i++) {
-			Element node = xml.getChild(i);
-			if ("script".equalsIgnoreCase(name)) {
+			node = xml.getChild(i);
+			childName = node.getName();
+			
+			if ("script".equalsIgnoreCase(childName)) {
 				script.load(node);
 
-			} else if ("type".equalsIgnoreCase(name)) {
+			} else if ("type".equalsIgnoreCase(childName)) {
 				type = ItemType.valueOf(node.getAttribute("value"));
 
-			} else if ("slot".equalsIgnoreCase(name)) {
+			} else if ("slot".equalsIgnoreCase(childName)) {
 				slot = BodySlot.parse(node.getAttribute("value"));
 
-			} else if ("damagetype".equalsIgnoreCase(name)) {
+			} else if ("damagetype".equalsIgnoreCase(childName)) {
 				damageType = DamageType.fromValue(damageType.value()
 						| DamageType.valueOf(node.getAttribute("value")).value());
 
-			} else if ("weight".equalsIgnoreCase(name)) {
+			} else if ("weight".equalsIgnoreCase(childName)) {
 				weight = Integer.parseInt(node.getAttribute("value"));
 
-			} else if ("damage".equalsIgnoreCase(name)) {
+			} else if ("damage".equalsIgnoreCase(childName)) {
 				damage.load(node);
 
-			} else if ("damagevsbig".equalsIgnoreCase(name)) {
+			} else if ("damagevsbig".equalsIgnoreCase(childName)) {
 				damageVsBig.load(node);
 
-			} else if ("damagevssmall".equalsIgnoreCase(name)) {
+			} else if ("damagevssmall".equalsIgnoreCase(childName)) {
 				damageVsSmall.load(node);
 
-			} else if ("critical".equalsIgnoreCase(name)) {
+			} else if ("critical".equalsIgnoreCase(childName)) {
 				critical = new Vector2(Integer.parseInt(node.getAttribute("min")), Integer.parseInt(node
 						.getAttribute("max")));
 				criticalMultiplier = Integer.parseInt(node.getAttribute("multiplier"));
 
-			} else if ("shortname".equalsIgnoreCase(name)) {
+			} else if ("shortname".equalsIgnoreCase(childName)) {
 				shortName = node.getText();
 
-			} else if ("identifiedname".equalsIgnoreCase(name)) {
+			} else if ("identifiedname".equalsIgnoreCase(childName)) {
 				identifiedName = node.getText();
 
-			} else if ("isidentified".equalsIgnoreCase(name)) {
+			} else if ("isidentified".equalsIgnoreCase(childName)) {
 				identified = Boolean.parseBoolean(node.getAttribute("value"));
 
-			} else if ("isbig".equalsIgnoreCase(name)) {
+			} else if ("isbig".equalsIgnoreCase(childName)) {
 				big = true;
 
-			} else if ("canidentify".equalsIgnoreCase(name)) {
+			} else if ("canidentify".equalsIgnoreCase(childName)) {
 				canIdentify = Boolean.parseBoolean(node.getAttribute("value"));
 
-			} else if ("speed".equalsIgnoreCase(name)) {
+			} else if ("speed".equalsIgnoreCase(childName)) {
 				speed = Integer.parseInt(node.getAttribute("value"));
 
-			} else if ("ac".equalsIgnoreCase(name)) {
+			} else if ("ac".equalsIgnoreCase(childName)) {
 				armorClass = Byte.parseByte(node.getAttribute("value"));
 
-			} else if ("tile".equalsIgnoreCase(name)) {
+			} else if ("tile".equalsIgnoreCase(childName)) {
 				tileSetName = node.getAttribute("name");
 				tileID = Integer.parseInt(node.getAttribute("inventory"));
 				groundTileID = Integer.parseInt(node.getAttribute("ground"));
 				incomingTileID = Integer.parseInt(node.getAttribute("incoming"));
 				throwTileID = Integer.parseInt(node.getAttribute("moveaway"));
 
-			} else if ("classes".equalsIgnoreCase(name)) {
+			} else if ("classes".equalsIgnoreCase(childName)) {
 				allowedClasses = HeroClass.parse(node.getAttribute("value"));
 
-			} else if ("allowedhands".equalsIgnoreCase(name)) {
+			} else if ("allowedhands".equalsIgnoreCase(childName)) {
 				allowedHands = HeroHand.parse(node.getAttribute("value"));
 
-			} else if ("cursed".equalsIgnoreCase(name)) {
+			} else if ("cursed".equalsIgnoreCase(childName)) {
 				cursed = Boolean.parseBoolean(node.getAttribute("value"));
 
-			} else if ("twohanded".equalsIgnoreCase(name)) {
+			} else if ("twohanded".equalsIgnoreCase(childName)) {
 				twoHanded = Boolean.parseBoolean(node.getAttribute("value"));
 
 			}

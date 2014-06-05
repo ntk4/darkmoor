@@ -1,7 +1,7 @@
 package com.ntk.darkmoor.engine;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.ntk.darkmoor.stub.GameTime;
 
 public abstract class DialogBase {
@@ -14,10 +14,6 @@ public abstract class DialogBase {
 	}
 
 	public void update(GameTime time) {
-
-	}
-
-	public void draw(Batch batch, float parentAlpha) {
 
 	}
 
@@ -35,5 +31,13 @@ public abstract class DialogBase {
 
 	public void setScriptFont(BitmapFont scriptFont) {
 		this.scriptFont = scriptFont;
+	}
+
+	public void dispose() {
+		
+	}
+
+	public void draw(SpriteBatch batch, float parentAlpha) {
+		
 	}
 }

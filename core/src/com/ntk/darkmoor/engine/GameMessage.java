@@ -9,7 +9,6 @@ import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.ScreenMessage;
 import com.ntk.darkmoor.stub.StringTable;
 
 public class GameMessage {
