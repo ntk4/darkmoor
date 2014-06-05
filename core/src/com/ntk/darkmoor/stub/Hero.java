@@ -1,8 +1,14 @@
 package com.ntk.darkmoor.stub;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import org.ntk.commons.StringUtils;
+
 import com.ntk.darkmoor.engine.Attack;
 import com.ntk.darkmoor.engine.Entity;
 import com.ntk.darkmoor.engine.HitPoint;
+import com.ntk.darkmoor.engine.Item;
 
 
 public class Hero extends Entity {
@@ -26,8 +32,56 @@ public class Hero extends Entity {
 			return value;
 		}
 
+		public static Set<HeroClass> parse(String classList) {
+			Set<HeroClass> result = new HashSet<Hero.HeroClass>(6);
+			
+			if (StringUtils.isEmpty(classList)) {
+				return result;
+			}
+			
+			for (HeroClass heroClass: values()) {
+				if (classList.contains(heroClass.toString())) {
+					result.add(heroClass);
+				}
+			}
+			return result;
+		}
+
 	}
 	
+	public enum HeroHand
+	{
+		/// Right hand
+		Primary(0),
+
+		/// Left hand
+		Secondary(1);
+		
+		private int value;
+		
+		private HeroHand(int value) {
+			this.value = value;
+		}
+		
+		public int value() {
+			return value;
+		}
+
+		public static Set<HeroHand> parse(String handList) {
+			Set<HeroHand> result = new HashSet<HeroHand>(6);
+			
+			if (StringUtils.isEmpty(handList)) {
+				return result;
+			}
+			
+			for (HeroHand hand: values()) {
+				if (handList.contains(hand.toString())) {
+					result.add(hand);
+				}
+			}
+			return result;
+		}
+	}
 	public boolean addToInventory(Item collectItemFromSide) {
 		// TODO Auto-generated method stub
 		return true;

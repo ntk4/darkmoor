@@ -2,8 +2,10 @@ package com.ntk.darkmoor.stub;
 
 import java.util.List;
 
-import com.ntk.darkmoor.engine.DungeonLocation;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
+import com.ntk.darkmoor.engine.DungeonLocation;
+import com.ntk.darkmoor.engine.Item;
+import com.ntk.darkmoor.engine.Maze;
 
 
 public class Team {
@@ -71,6 +73,11 @@ public class Team {
 	public void dropHero(Hero hero) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public Maze getMaze() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

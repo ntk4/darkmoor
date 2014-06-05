@@ -38,8 +38,8 @@ public class Resources {
 		return null;
 	}
 
-	public static void unlockSharedAsset(Class<BitmapFont> class1, BitmapFont font) {
+	public static <T> T unlockSharedAsset(Class<T> class1, Object obj) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 }

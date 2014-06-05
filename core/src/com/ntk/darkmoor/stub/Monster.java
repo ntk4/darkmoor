@@ -1,8 +1,11 @@
 package com.ntk.darkmoor.stub;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.ntk.darkmoor.engine.Attack;
+import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.DungeonLocation;
 import com.ntk.darkmoor.engine.Entity;
+import com.ntk.darkmoor.engine.Maze;
 
 public class Monster extends Entity {
 
@@ -52,6 +55,11 @@ public class Monster extends Entity {
 
 	@Override
 	public void hit(Attack attack) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void draw(SpriteBatch batch, CardinalPoint view, ViewFieldPosition position) {
 		// TODO Auto-generated method stub
 		
 	}

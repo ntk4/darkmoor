@@ -16,6 +16,7 @@ public class GameColors {
 	public static final Color Blue = getColor(101, 105, 182, 255);
 	public static final Color DarkBlue = getColor(44, 48, 138, 255);
 	public static final Color Yellow = getColor(255, 255, 85, 255);
+	public static final Color LightGreen = getColor(146, 207, 138, 255);
 
 	private static Color getColor(int r, int g, int b, int a) {
 		int col = Color.rgba8888(r, g, b, a);

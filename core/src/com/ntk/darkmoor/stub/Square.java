@@ -1,12 +1,16 @@
 package com.ntk.darkmoor.stub;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
-import com.ntk.darkmoor.engine.Dungeon;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
+import com.ntk.darkmoor.engine.Dungeon;
+import com.ntk.darkmoor.engine.Item;
+import com.ntk.darkmoor.engine.Maze;
+import com.ntk.darkmoor.engine.actor.SquareActor;
 
 public class Square {
 
@@ -57,10 +61,31 @@ public class Square {
 		public int value() {
 			return value;
 		}
+
+		public static SquarePosition valueOf(int position) {
+			switch (position) {
+			case 0:
+				return NorthWest;
+			case 1:
+				return NorthEast;
+			case 2:
+				return SouthWest;
+			case 3:
+				return SouthEast;
+			case 4:
+				return Center;
+			default:
+				return Center;
+			}
+		}
 	}
 
 	public static final String TAG = null;
 	private SquareActor actor;
+
+	public Square(Maze maze) {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Square getSquare(Dungeon dungeon) {
 		// TODO Auto-generated method stub
@@ -75,7 +100,7 @@ public class Square {
 		this.actor = actor;
 	}
 
-	public void save(XmlWriter writer) {
+	public void save(XmlWriter writer) throws IOException {
 		// TODO Auto-generated method stub
 
 	}
@@ -117,7 +142,87 @@ public class Square {
 
 	public void setType(SquareType ground) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	public void init() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void setPitTarget(boolean b) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void dispose() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void dropItem(SquarePosition pos, Item item) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void update(GameTime time) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public int getDecoration(int i) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getDecorationId(CardinalPoint side) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setLocation(Vector2 location) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void setMaze(Maze maze) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public boolean isPitTarget() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public List<Item>[] getItems(CardinalPoint view) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean hasDecorations() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getDecorationId(CardinalPoint view, CardinalPoint side) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getMonsterCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public Monster getMonster(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public SquareType getType() {
+		// TODO Auto-generated method stub
+		return SquareType.Ground;
 	}
 
 }
