@@ -20,7 +20,6 @@ import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.GameMechanics;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.Team;
 
 /**
  * Represents a hero in the team http://uaf.wiki.sourceforge.net/Player%27s+Guide

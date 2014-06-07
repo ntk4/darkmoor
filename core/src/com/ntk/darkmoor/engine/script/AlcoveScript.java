@@ -6,8 +6,8 @@ import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.stub.GameScreen;
-import com.ntk.darkmoor.stub.Team;
 
 public class AlcoveScript extends ScriptBase {
 

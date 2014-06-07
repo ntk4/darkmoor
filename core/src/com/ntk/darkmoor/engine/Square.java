@@ -23,7 +23,6 @@ import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.Monster;
 import com.ntk.darkmoor.stub.MouseButtons;
-import com.ntk.darkmoor.stub.Team;
 
 /**
  * Represents a block in a maze

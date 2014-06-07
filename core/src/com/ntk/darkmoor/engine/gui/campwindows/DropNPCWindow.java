@@ -75,7 +75,7 @@ public class DropNPCWindow extends BaseWindow {
 
 		for (int y = 0; y < 3; y++) {
 			for (int x = 0; x < 2; x++) {
-				Hero hero = GameScreen.getTeam().getHero(y * 2 + x);
+				Hero hero = GameScreen.getTeam().getHeroes()[y * 2 + x];
 				if (hero == null)
 					continue;
 
@@ -112,7 +112,7 @@ public class DropNPCWindow extends BaseWindow {
 	 * @return if update was handled or should continue
 	 */
 	private boolean updateHero(int y, int x) {
-		Hero hero = GameScreen.getTeam().getHero(y * 2 + x);
+		Hero hero = GameScreen.getTeam().getHeroes()[y * 2 + x];
 		if (hero == null)
 			return true;
 

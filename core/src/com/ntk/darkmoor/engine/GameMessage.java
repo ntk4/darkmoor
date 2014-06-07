@@ -77,7 +77,7 @@ public class GameMessage {
 		}
 	}
 
-	public static void buildMessage(int id, Object[] args) {
+	public static void buildMessage(int id, Object... args) {
 		addMessage(language.buildMessage(id, args));
 	}
 
@@ -97,6 +97,18 @@ public class GameMessage {
 			for (int i = 0; i < line.length(); i += maxlen)
 				messages.add(new ScreenMessage(line.substring(i, Math.min(line.length() - i, maxlen) - i), color));
 		}
+	}
+
+	public static ArrayList<ScreenMessage> getMessages() {
+		return messages;
+	}
+
+	public static StringTable getLanguage() {
+		return language;
+	}
+
+	public static BitmapFont getFont() {
+		return font;
 	}
 
 }

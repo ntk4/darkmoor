@@ -10,12 +10,12 @@ import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.DungeonLocation;
 import com.ntk.darkmoor.engine.Square;
+import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.Square.SquareType;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.Monster;
-import com.ntk.darkmoor.stub.Team;
 import com.ntk.darkmoor.stub.TileSet;
 
 public class Stair extends SquareActor {

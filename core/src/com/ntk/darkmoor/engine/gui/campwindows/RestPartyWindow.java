@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.GameMessage;
 import com.ntk.darkmoor.engine.Hero;
+import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.engine.gui.GUI;
 import com.ntk.darkmoor.engine.gui.MessageBox;
@@ -19,7 +20,6 @@ import com.ntk.darkmoor.engine.gui.MessageBox.MessageBoxButtons;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.Team;
 
 public class RestPartyWindow extends BaseWindow {
 
@@ -105,7 +105,7 @@ public class RestPartyWindow extends BaseWindow {
 			{
 
 				// Find the weakest hero and heal him
-				Hero weakest = team.getHeroes().get(0);
+				Hero weakest = team.getHeroes()[0];
 				for (Hero h : team.getHeroes())
 				{
 					if (h == null)

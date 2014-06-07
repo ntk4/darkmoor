@@ -19,11 +19,11 @@ import com.ntk.darkmoor.engine.DisplayCoordinates;
 import com.ntk.darkmoor.engine.DungeonLocation;
 import com.ntk.darkmoor.engine.Item;
 import com.ntk.darkmoor.engine.Square;
+import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.MouseButtons;
-import com.ntk.darkmoor.stub.Team;
 
 public class AlcoveActor extends SquareActor {
 

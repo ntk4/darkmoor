@@ -4,7 +4,6 @@ import java.util.Date;
 
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.Monster;
-import com.ntk.darkmoor.stub.Team;
 
 /**
  * This class handle an attack between to entities. There is a difference between Attacking and damaging. If you attack

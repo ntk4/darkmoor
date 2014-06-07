@@ -11,12 +11,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.GameColors;
 import com.ntk.darkmoor.engine.Hero;
+import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.engine.gui.GUI;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.Team;
 import com.ntk.darkmoor.stub.TileSet;
 
 public class SpellWindow extends BaseWindow {
@@ -78,7 +78,7 @@ public class SpellWindow extends BaseWindow {
 
 		for (int y = 0; y < 3; y++) {
 			for (int x = 0; x < 2; x++) {
-				Hero currentHero = team.getHero(y * 2 + x);
+				Hero currentHero = team.getHeroes()[y * 2 + x];
 				if (currentHero == null)
 					continue;
 
@@ -120,7 +120,7 @@ public class SpellWindow extends BaseWindow {
 	 * @return if update was handled or should continue
 	 */
 	private boolean updateHero(int y, int x) {
-		Hero currentHero = GameScreen.getTeam().getHero(y * 2 + x);
+		Hero currentHero = GameScreen.getTeam().getHeroes()[y * 2 + x];
 		if (hero == null)
 			return true;
 

@@ -28,7 +28,6 @@ import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.Monster;
 import com.ntk.darkmoor.stub.SpriteEffects;
-import com.ntk.darkmoor.stub.Team;
 import com.ntk.darkmoor.stub.TileSet;
 
 public class Maze {

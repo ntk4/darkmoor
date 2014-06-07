@@ -1,9 +1,9 @@
 package com.ntk.darkmoor.engine.monsterstate;
 
+import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.Monster;
-import com.ntk.darkmoor.stub.Team;
 
 public class Attack extends MonsterState {
 
