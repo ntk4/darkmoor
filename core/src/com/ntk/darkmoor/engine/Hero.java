@@ -144,13 +144,7 @@ public class Hero extends Entity {
 	private HandAction[] handActions;
 	private long[] handPenality;
 	private int food;
-	// private List<List<Spell>> noSpells;
-	private Set<HeroClass> classes;
 	private int quiver;
-	private int armorBonus;
-	private int shieldBonus;
-	private int dodgeBonus;
-	private int naturalArmorBonus;
 	private HeroRace race;
 	private HeroGender gender;
 
@@ -254,6 +248,8 @@ public class Hero extends Entity {
 			} else if ("learnedspell".equalsIgnoreCase(name)) {
 				learnedSpells.add(child.getAttribute("name"));
 
+			} else {
+				super.load(child);
 			}
 		}
 
@@ -295,11 +291,12 @@ public class Hero extends Entity {
 		}
 
 		for (int i = 0; i < 6; i++) {
-			for (HeroClass hClass : classes) {
+			for (HeroClass hClass : getClasses()) {
 				List<List<Spell>> spells = getSpellsFromHeroClass(hClass);
 				// TODO: ntk: check if it's correct: added a new iteration in classes
-				for (Spell spell : spells.get(i))
-					writer.element("spell").attribute("name", spell.getName()).pop();
+				if (spells.size() > 0) 
+					for (Spell spell : spells.get(i))
+						writer.element("spell").attribute("name", spell.getName()).pop();
 			}
 		}
 
@@ -393,48 +390,101 @@ public class Hero extends Entity {
 	}
 
 	public int getMaxSpellCount(HeroClass heroClass, int level) {
-		int[][] ClercLevels = new int[][] { new int[] { 1, 0, 0, 0, 0, 0 }, // 1
-				new int[] { 2, 0, 0, 0, 0, 0 }, // 2
-				new int[] { 2, 1, 0, 0, 0, 0 }, // 3
-				new int[] { 3, 2, 0, 0, 0, 0 }, // 4
-				new int[] { 3, 3, 1, 0, 0, 0 }, // 5
-				new int[] { 3, 3, 2, 0, 0, 0 }, // 6
-				new int[] { 3, 3, 2, 1, 0, 0 }, // 7
-				new int[] { 3, 3, 3, 2, 0, 0 }, // 8
-				new int[] { 4, 4, 3, 2, 1, 0 }, // 9
-				new int[] { 4, 4, 3, 3, 2, 0 }, // 10
-				new int[] { 5, 4, 4, 3, 2, 1 }, // 11
-				new int[] { 6, 5, 5, 3, 2, 2 }, // 12
-				new int[] { 6, 6, 6, 4, 2, 2 }, // 13
+		int[][] ClercLevels = new int[][] {
+				new int[] {
+						1, 0, 0, 0, 0, 0 }, // 1
+				new int[] {
+						2, 0, 0, 0, 0, 0 }, // 2
+				new int[] {
+						2, 1, 0, 0, 0, 0 }, // 3
+				new int[] {
+						3, 2, 0, 0, 0, 0 }, // 4
+				new int[] {
+						3, 3, 1, 0, 0, 0 }, // 5
+				new int[] {
+						3, 3, 2, 0, 0, 0 }, // 6
+				new int[] {
+						3, 3, 2, 1, 0, 0 }, // 7
+				new int[] {
+						3, 3, 3, 2, 0, 0 }, // 8
+				new int[] {
+						4, 4, 3, 2, 1, 0 }, // 9
+				new int[] {
+						4, 4, 3, 3, 2, 0 }, // 10
+				new int[] {
+						5, 4, 4, 3, 2, 1 }, // 11
+				new int[] {
+						6, 5, 5, 3, 2, 2 }, // 12
+				new int[] {
+						6, 6, 6, 4, 2, 2 }, // 13
 		};
 
-		int[][] ClercBonus = new int[][] { new int[] { 0, 0, 0, 0, 0, 0 }, new int[] { 0, 0, 0, 0, 0, 0 },
-				new int[] { 0, 0, 0, 0, 0, 0 }, new int[] { 0, 0, 0, 0, 0, 0 }, new int[] { 0, 0, 0, 0, 0, 0 },
-				new int[] { 0, 0, 0, 0, 0, 0 }, new int[] { 0, 0, 0, 0, 0, 0 }, new int[] { 0, 0, 0, 0, 0, 0 },
-				new int[] { 0, 0, 0, 0, 0, 0 }, new int[] { 0, 0, 0, 0, 0, 0 }, new int[] { 0, 0, 0, 0, 0, 0 },
-				new int[] { 0, 0, 0, 0, 0, 0 }, new int[] { 1, 0, 0, 0, 0, 0 }, new int[] { 2, 0, 0, 0, 0, 0 },
-				new int[] { 2, 1, 0, 0, 0, 0 }, new int[] { 2, 2, 0, 0, 0, 0 }, new int[] { 2, 2, 1, 0, 0, 0 },
-				new int[] { 2, 2, 1, 1, 0, 0 }, new int[] { 3, 2, 1, 2, 0, 0 }, };
+		int[][] ClercBonus = new int[][] {
+				new int[] {
+						0, 0, 0, 0, 0, 0 }, new int[] {
+						0, 0, 0, 0, 0, 0 }, new int[] {
+						0, 0, 0, 0, 0, 0 }, new int[] {
+						0, 0, 0, 0, 0, 0 }, new int[] {
+						0, 0, 0, 0, 0, 0 }, new int[] {
+						0, 0, 0, 0, 0, 0 }, new int[] {
+						0, 0, 0, 0, 0, 0 }, new int[] {
+						0, 0, 0, 0, 0, 0 }, new int[] {
+						0, 0, 0, 0, 0, 0 }, new int[] {
+						0, 0, 0, 0, 0, 0 }, new int[] {
+						0, 0, 0, 0, 0, 0 }, new int[] {
+						0, 0, 0, 0, 0, 0 }, new int[] {
+						1, 0, 0, 0, 0, 0 }, new int[] {
+						2, 0, 0, 0, 0, 0 }, new int[] {
+						2, 1, 0, 0, 0, 0 }, new int[] {
+						2, 2, 0, 0, 0, 0 }, new int[] {
+						2, 2, 1, 0, 0, 0 }, new int[] {
+						2, 2, 1, 1, 0, 0 }, new int[] {
+						3, 2, 1, 2, 0, 0 }, };
 
-		int[][] MageLevels = new int[][] { new int[] { 1, 0, 0, 0, 0, 0 }, // 1
-				new int[] { 2, 0, 0, 0, 0, 0 }, // 2
-				new int[] { 2, 1, 0, 0, 0, 0 }, // 3
-				new int[] { 3, 2, 0, 0, 0, 0 }, // 4
-				new int[] { 4, 2, 1, 0, 0, 0 }, // 5
-				new int[] { 4, 2, 2, 0, 0, 0 }, // 6
-				new int[] { 4, 3, 2, 1, 0, 0 }, // 7
-				new int[] { 4, 3, 3, 2, 0, 0 }, // 8
-				new int[] { 4, 3, 3, 2, 1, 0 }, // 9
-				new int[] { 4, 4, 3, 2, 2, 0 }, // 10
-				new int[] { 4, 4, 4, 3, 3, 0 }, // 11
-				new int[] { 4, 4, 4, 4, 4, 1 }, // 12
-				new int[] { 5, 5, 5, 4, 4, 2 }, // 13
+		int[][] MageLevels = new int[][] {
+				new int[] {
+						1, 0, 0, 0, 0, 0 }, // 1
+				new int[] {
+						2, 0, 0, 0, 0, 0 }, // 2
+				new int[] {
+						2, 1, 0, 0, 0, 0 }, // 3
+				new int[] {
+						3, 2, 0, 0, 0, 0 }, // 4
+				new int[] {
+						4, 2, 1, 0, 0, 0 }, // 5
+				new int[] {
+						4, 2, 2, 0, 0, 0 }, // 6
+				new int[] {
+						4, 3, 2, 1, 0, 0 }, // 7
+				new int[] {
+						4, 3, 3, 2, 0, 0 }, // 8
+				new int[] {
+						4, 3, 3, 2, 1, 0 }, // 9
+				new int[] {
+						4, 4, 3, 2, 2, 0 }, // 10
+				new int[] {
+						4, 4, 4, 3, 3, 0 }, // 11
+				new int[] {
+						4, 4, 4, 4, 4, 1 }, // 12
+				new int[] {
+						5, 5, 5, 4, 4, 2 }, // 13
 		};
 
-		int[][] PaladinLevels = new int[][] { new int[] { 0, 0, 0 }, new int[] { 0, 0, 0 }, new int[] { 0, 0, 0 },
-				new int[] { 0, 0, 0 }, new int[] { 0, 0, 0 }, new int[] { 0, 0, 0 }, new int[] { 0, 0, 0 },
-				new int[] { 0, 0, 0 }, new int[] { 1, 0, 0 }, new int[] { 2, 0, 0 }, new int[] { 2, 1, 0 },
-				new int[] { 2, 2, 0 }, new int[] { 2, 2, 1 }, };
+		int[][] PaladinLevels = new int[][] {
+				new int[] {
+						0, 0, 0 }, new int[] {
+						0, 0, 0 }, new int[] {
+						0, 0, 0 }, new int[] {
+						0, 0, 0 }, new int[] {
+						0, 0, 0 }, new int[] {
+						0, 0, 0 }, new int[] {
+						0, 0, 0 }, new int[] {
+						0, 0, 0 }, new int[] {
+						1, 0, 0 }, new int[] {
+						2, 0, 0 }, new int[] {
+						2, 1, 0 }, new int[] {
+						2, 2, 0 }, new int[] {
+						2, 2, 1 }, };
 
 		Profession prof = getProfession(heroClass);
 		if (prof == null)
@@ -505,7 +555,7 @@ public class Hero extends Entity {
 			return false;
 
 		// TODO: ntk: this loop pushes the spell to ALL the classes of this hero. Check if it's correct
-		for (HeroClass hClass : classes) {
+		for (HeroClass hClass : getClasses()) {
 			List<List<Spell>> spells = getSpellsFromHeroClass(hClass);
 			spells.get(spell.getLevel() - 1).add(spell);
 		}
@@ -516,7 +566,7 @@ public class Hero extends Entity {
 	public List<Spell> getSpells(HeroClass heroClass, int level) {
 		List<Spell> lspells = new ArrayList<Spell>();
 		// TODO: ntk: this loop gets the spells of all classes of this hero. Check if it's correct
-		for (HeroClass hClass : classes) {
+		for (HeroClass hClass : getClasses()) {
 			List<List<Spell>> spells = getSpellsFromHeroClass(hClass);
 
 			// Bad level
@@ -802,11 +852,6 @@ public class Hero extends Entity {
 
 	}
 
-	// / <summary>
-	// / Sets an item in the back pack
-	// / </summary>
-	// / <param name="position">Position</param>
-	// / <param name="item">Item handle</param>
 	public void setBackPackItem(int position, Item item) {
 		if (position < 0 || position > 14)
 			return;
@@ -814,11 +859,6 @@ public class Hero extends Entity {
 		backPack[position] = item;
 	}
 
-	// / <summary>
-	// / Gets an item from the backpack
-	// / </summary>
-	// / <param name="position">Position</param>
-	// / <returns>Item handle</returns>
 	public Item getBackPackItem(int position) {
 		if (position < 0 || position > 13)
 			return null;
@@ -826,12 +866,6 @@ public class Hero extends Entity {
 		return backPack[position];
 	}
 
-	// / <summary>
-	// / Sets an item in the waist pack
-	// / </summary>
-	// / <param name="position">Position</param>
-	// / <param name="item">Item handle</param>
-	// / <returns></returns>
 	public boolean setWaistPackItem(int position, Item item) {
 		if (position < 0 || position > 2)
 			return false;
@@ -848,11 +882,6 @@ public class Hero extends Entity {
 		return true;
 	}
 
-	// / <summary>
-	// / Gets an item from the waistpack
-	// / </summary>
-	// / <param name="position">Position</param>
-	// / <returns>Item handle</returns>
 	public Item getWaistPackItem(int position) {
 		if (position < 0 || position > 3)
 			return null;
@@ -880,11 +909,12 @@ public class Hero extends Entity {
 		return true;
 	}
 
-	// / <summary>
-	// / Checks if the hero belgons to a class
-	// / </summary>
-	// / <param name="classe">Class</param>
-	// / <returns>True if the Hero belongs to this class</returns>
+	/**
+	 * Checks if the hero belongs to a class
+	 * 
+	 * @param heroClass
+	 * @return
+	 */
 	public boolean checkClass(HeroClass heroClass) {
 		for (Profession prof : professions)
 			if (prof != null) {
@@ -895,11 +925,6 @@ public class Hero extends Entity {
 		return false;
 	}
 
-	// / <summary>
-	// / Get the profession handle
-	// / </summary>
-	// / <param name="classe">Hero class</param>
-	// / <returns>Handle to the profession or null</returns>
 	public Profession getProfession(HeroClass heroClass) {
 		for (Profession prof : professions)
 			if (prof.getHeroClass() == heroClass)
@@ -908,11 +933,12 @@ public class Hero extends Entity {
 		return null;
 	}
 
-	// / <summary>
-	// / can use the hand
-	// / </summary>
-	// / <param name="hand">Hand to attack</param>
-	// / <returns>True if the specified hand can be used</returns>
+	public Profession getProfession(int professionIndex) {
+		if (professionIndex < professions.size() && professionIndex >= 0)
+			return professions.get(professionIndex);
+		return null;
+	}
+
 	public boolean canUseHand(HeroHand hand) {
 		if (isDead() || isUnconscious())
 			return false;
@@ -1026,7 +1052,7 @@ public class Hero extends Entity {
 
 	@Override
 	public int getArmorClass() {
-		return 10 + armorBonus + shieldBonus + dodgeBonus + naturalArmorBonus;
+		return 10 + getArmorBonus() + getShieldBonus() + getDodgeBonus() + getNaturalArmorBonus();
 	}
 
 	public Set<HeroClass> getClasses() {
@@ -1038,32 +1064,31 @@ public class Hero extends Entity {
 		return hclass;
 	}
 
+	public int getBaseAttackBonus() {
+		int value = 0;
+
+		for (Profession prof : professions) {
+			if (prof == null)
+				continue;
+
+			if (prof.getHeroClass() == HeroClass.Fighter || prof.getHeroClass() == HeroClass.Ranger
+					|| prof.getHeroClass() == HeroClass.Paladin)
+				value += prof.getLevel();
+
+			if (prof.getHeroClass() == HeroClass.Cleric || prof.getHeroClass() == HeroClass.Mage
+					|| prof.getHeroClass() == HeroClass.Thief)
+				value += (prof.getLevel() * 4) / 3;
+		}
+
+		return value;
+	}
+
 	public Item popWaistItem() {
 		return null;
 	}
 
 	public int getProfessionsCount() {
 		return professions.size();
-	}
-
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public HitPoint getHitPoint() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public boolean checkClass(Object filter) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public int getBaseAttackBonus() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	public ArrayList<Profession> getProfessions() {
@@ -1119,19 +1144,60 @@ public class Hero extends Entity {
 	}
 
 	public int getArmorBonus() {
-		return armorBonus;
+		byte value = 0;
+
+		Item item = getInventoryItem(InventoryPosition.Helmet);
+		if (item != null)
+			value += item.getArmorClass();
+
+		item = getInventoryItem(InventoryPosition.Armor);
+		if (item != null)
+			value += item.getArmorClass();
+
+		item = getInventoryItem(InventoryPosition.Wrist);
+		if (item != null)
+			value += item.getArmorClass();
+
+		return value;
 	}
 
 	public int getShieldBonus() {
-		return shieldBonus;
+		Item item = getInventoryItem(InventoryPosition.Secondary);
+		if (item == null)
+			return 0;
+
+		return item.getArmorClass();
 	}
 
 	public int getDodgeBonus() {
-		return dodgeBonus;
+		Item item = getInventoryItem(InventoryPosition.Feet);
+		if (item == null)
+			return 0;
+
+		return item.getArmorClass();
 	}
 
 	public int getNaturalArmorBonus() {
-		return naturalArmorBonus;
+		Item item = getInventoryItem(InventoryPosition.Neck);
+		if (item == null)
+			return 0;
+
+		return item.getArmorClass();
+	}
+
+	public int getBaseSaveBonus() {
+		int value = 2;
+
+		for (Profession prof : professions) {
+			if (prof == null)
+				continue;
+			value += prof.getLevel() / 2;
+		}
+		return value;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 }

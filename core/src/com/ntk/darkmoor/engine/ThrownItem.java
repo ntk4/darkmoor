@@ -9,7 +9,6 @@ import com.ntk.darkmoor.engine.Square.SquarePosition;
 import com.ntk.darkmoor.engine.actor.Door;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.Monster;
 
 /**
  * All thrown objects in the maze (item, fireball, acid cloud....) <br/>

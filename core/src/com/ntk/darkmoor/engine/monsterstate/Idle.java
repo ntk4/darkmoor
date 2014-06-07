@@ -1,10 +1,10 @@
 package com.ntk.darkmoor.engine.monsterstate;
 
 import com.badlogic.gdx.math.Vector2;
+import com.ntk.darkmoor.engine.Monster;
 import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.Monster;
 import com.ntk.darkmoor.util.RandomEnum;
 
 public class Idle extends MonsterState {

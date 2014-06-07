@@ -6,8 +6,8 @@ import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.engine.Monster;
 import com.ntk.darkmoor.resource.Resources;
-import com.ntk.darkmoor.stub.Monster;
 
 public class SpawnMonster extends ActionBase {
 

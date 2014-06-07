@@ -153,6 +153,7 @@ public class Item {
 		damageType = DamageType.None;
 		script = new ScriptInterface<IItem>();
 		canIdentify = true;
+		slot = new HashSet<BodySlot>();
 
 		disposed = false;
 	}
@@ -240,7 +241,7 @@ public class Item {
 				type = ItemType.valueOf(node.getAttribute("value"));
 
 			} else if ("slot".equalsIgnoreCase(childName)) {
-				slot = BodySlot.parse(node.getAttribute("value"));
+				slot.addAll(BodySlot.parse(node.getAttribute("value")));
 
 			} else if ("damagetype".equalsIgnoreCase(childName)) {
 				damageType = DamageType.fromValue(damageType.value()

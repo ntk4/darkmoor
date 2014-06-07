@@ -21,7 +21,6 @@ import com.ntk.darkmoor.engine.actor.WallSwitch;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.Monster;
 import com.ntk.darkmoor.stub.MouseButtons;
 
 /**
@@ -798,6 +797,10 @@ public class Square {
 
 	public void setType(SquareType stype) {
 		this.type = stype;
+	}
+
+	public void setMonster(int index, Monster monster) {
+		monsters[index] = monster;
 	}
 
 }

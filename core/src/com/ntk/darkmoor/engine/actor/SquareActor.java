@@ -12,11 +12,11 @@ import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.DungeonLocation;
 import com.ntk.darkmoor.engine.Item;
+import com.ntk.darkmoor.engine.Monster;
 import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.Monster;
 import com.ntk.darkmoor.stub.MouseButtons;
 
 public abstract class SquareActor {

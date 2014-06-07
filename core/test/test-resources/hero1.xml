@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<hero name="Allabar">
+	<hitpoint current="16" max="23" />
+	<strength value="12" />
+	<intelligence value="14" />
+	<wisdom value="13" />
+	<dexterity value="8" />
+	<constitution value="10" />
+	<charisma value="13" />
+	<alignment value="NeutralGood" />
+	<movespeed value="0" />
+	<quiver count="24" />
+	<head id="27" />
+	<food value="100" />
+	<race value="Human" />
+	<gender value="Male" />
+	<profession>
+		<class name="Fighter" />
+		<xp points="98324" />
+	</profession>
+	<profession>
+		<class name="Paladin" />
+		<xp points="32505" />
+	</profession>
+	<inventory position="Primary" name="short sword" />
+	<waist position="0" name="rock" />
+	<waist position="1" name="rock" />
+	<waist position="2" name="rock" />
+</hero>

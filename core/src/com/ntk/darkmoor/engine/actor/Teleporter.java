@@ -11,13 +11,13 @@ import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.DisplayCoordinates;
 import com.ntk.darkmoor.engine.DungeonLocation;
+import com.ntk.darkmoor.engine.Monster;
 import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.engine.graphics.TileDrawing;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.GameScreen;
-import com.ntk.darkmoor.stub.Monster;
 
 public class Teleporter extends SquareActor {
 

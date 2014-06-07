@@ -7,12 +7,12 @@ import org.ntk.commons.StringUtils;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Compass;
+import com.ntk.darkmoor.engine.Monster;
 import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.Compass.CompassRotation;
 import com.ntk.darkmoor.stub.GameScreen;
-import com.ntk.darkmoor.stub.Monster;
 
 public class ForceField extends SquareActor {
 

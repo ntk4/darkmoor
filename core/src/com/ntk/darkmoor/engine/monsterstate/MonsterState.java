@@ -1,7 +1,7 @@
 package com.ntk.darkmoor.engine.monsterstate;
 
+import com.ntk.darkmoor.engine.Monster;
 import com.ntk.darkmoor.exception.StateException;
-import com.ntk.darkmoor.stub.Monster;
 
 public abstract class MonsterState extends StateAdapter {
 	

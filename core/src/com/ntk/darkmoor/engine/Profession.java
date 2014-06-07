@@ -46,7 +46,7 @@ public class Profession {
 			node = xml.getChild(i);
 			name = node.getName();
 
-			if ("script".equalsIgnoreCase(name)) {
+			if ("class".equalsIgnoreCase(name)) {
 				heroClass = HeroClass.valueOf(node.getAttribute("name"));
 
 			} else if ("xp".equalsIgnoreCase(name)) {

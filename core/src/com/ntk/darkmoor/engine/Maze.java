@@ -26,7 +26,6 @@ import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.Display;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.Monster;
 import com.ntk.darkmoor.stub.SpriteEffects;
 import com.ntk.darkmoor.stub.TileSet;
 

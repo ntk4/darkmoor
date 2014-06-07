@@ -63,7 +63,11 @@ public class Settings {
 	}
 
 	public void saveSettings() throws IOException {
-		props.store(new FileOutputStream(settingsFile), "");
+		saveSettings(settingsFile.getPath(), settingsFile.getName());
+	}
+	
+	public void saveSettings(String path, String settingsFile) throws IOException {
+		props.store(new FileOutputStream(path + settingsFile), "");
 	}
 
 	public static void save() {

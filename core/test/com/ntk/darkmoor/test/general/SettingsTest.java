@@ -37,8 +37,8 @@ public class SettingsTest {
 		Settings s = Settings.loadSettings(FOLDER_TEST_RESOURCES, SETTINGS_CORRECT);
 
 		assertNotNull(s);
-
-		s.saveSettings();
+		
+		s.saveSettings(FOLDER_TEST_RESOURCES, SETTINGS_TEMP);
 		File tempFile = new File(FOLDER_TEST_RESOURCES, SETTINGS_TEMP);
 		assertTrue(tempFile.exists());
 

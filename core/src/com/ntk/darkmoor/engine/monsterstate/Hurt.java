@@ -1,6 +1,6 @@
 package com.ntk.darkmoor.engine.monsterstate;
 
-import com.ntk.darkmoor.stub.Monster;
+import com.ntk.darkmoor.engine.Monster;
 
 public class Hurt extends MonsterState {
 

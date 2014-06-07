@@ -1,5 +1,7 @@
 package com.ntk.darkmoor.engine.gui.campwindows;
 
+import java.util.HashSet;
+
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
@@ -120,7 +122,10 @@ public class MainWindow extends BaseWindow {
 	protected boolean prayForSpellsSelected(Event event) {		
 		SpellWindow window = new SpellWindow(getCamp(), skin);
 		window.setMessage("Select a character<br />from your party<br />who would like to<br />pray for spells.");
-		window.setFilter(HeroClass.Cleric.value() | HeroClass.Paladin.value());
+		HashSet<HeroClass> filter = new HashSet<HeroClass>();
+		filter.add(HeroClass.Cleric);
+		filter.add(HeroClass.Paladin);
+		window.setFilter(filter);
 		getCamp().addWindow(window);
 		return false;
 	}
@@ -128,7 +133,9 @@ public class MainWindow extends BaseWindow {
 	protected boolean memorizeSpellsSelected(Event event) {		
 		SpellWindow window = new SpellWindow(getCamp(), skin);
 		window.setMessage("Select a character<br />from your party<br />who would like to<br />memorize spells.");
-		window.setFilter(HeroClass.Mage.value());
+		HashSet<HeroClass> filter = new HashSet<HeroClass>();
+		filter.add(HeroClass.Mage);
+		window.setFilter(filter);
 		getCamp().addWindow(window);
 		return false;
 	}

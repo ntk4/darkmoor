@@ -163,6 +163,9 @@ public abstract class Entity {
 		} else if ("alignment".equalsIgnoreCase(name)) {
 			alignment = EntityAlignment.valueOf(node.getAttribute("value"));
 
+		} else if ("charisma".equalsIgnoreCase(name)) {
+			charisma.load(node);
+
 		} else if ("hitpoint".equalsIgnoreCase(name)) {
 			hitPoint.load(node);
 
@@ -170,7 +173,7 @@ public abstract class Entity {
 			moveSpeed = Integer.parseInt(node.getAttribute("value"));
 
 		} else {
-			Log.error("[Entity] load() : Unknown node : <%s>", node.getName());
+			Log.error("[Entity] load() : Unknown node : <%s>", name);
 		}
 
 		return true;

@@ -1,5 +1,7 @@
 package com.ntk.darkmoor.engine.gui.campwindows;
 
+import java.util.Set;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.graphics.Color;
@@ -11,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.GameColors;
 import com.ntk.darkmoor.engine.Hero;
+import com.ntk.darkmoor.engine.Hero.HeroClass;
 import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.engine.gui.GUI;
@@ -25,7 +28,7 @@ public class SpellWindow extends BaseWindow {
 	private Color rectangleColor;
 	private Hero hero;
 	private CharSequence message;
-	private int filter;
+	private Set<HeroClass> filter;
 	private TileSet tileSetInterface;
 	private int spellLevel;
 
@@ -83,10 +86,10 @@ public class SpellWindow extends BaseWindow {
 					continue;
 
 				if (currentHero == this.hero) {
-//					float col = (float) Math.sin(1.0f); //ntk: not used?
+					// float col = (float) Math.sin(1.0f); //ntk: not used?
 					GUI.drawRectangle(new Rectangle(366 + x * 144, 2 + y * 104, 130, 104), Color.WHITE);
 					GUI.drawRectangle(new Rectangle(367 + x * 144, 4 + y * 104, 128, 101), Color.WHITE);
-				} else if (!currentHero.checkClass(filter)) {
+					// } else if (!currentHero.checkClass(filter)) {
 					// Ghost name
 					// TODO: ntk: find out how to draw tilesets and uncomment this
 					// batch.DrawTile(tileSetInterface, 31, new Vector2(368 + 144 * x, y * 104 + 4));
@@ -137,7 +140,6 @@ public class SpellWindow extends BaseWindow {
 		if (hero != null)
 			return;
 
-
 		setTitle("Spells Available :");
 
 		ScreenButton button;
@@ -152,24 +154,24 @@ public class SpellWindow extends BaseWindow {
 		});
 		getButtons().add(button);
 
-		for (int i = 0 ; i < 6 ; i++)
+		for (int i = 0; i < 6; i++)
 			levels[i].setVisible(true);
 
-		levels[0].setTextColor (GameColors.Red);
+		levels[0].setTextColor(GameColors.Red);
 		spellLevel = 1;
 	}
 
 	protected boolean clearSelected(Event event) {
-		//TODO: nothing happens here? can't be correct
+		// TODO: nothing happens here? can't be correct
 		return true;
 	}
 
 	protected boolean levelSelected(Event event) {
-		for (int i = 0 ; i < 6 ; i++)
-			levels[i].setTextColor (Color.WHITE);
+		for (int i = 0; i < 6; i++)
+			levels[i].setTextColor(Color.WHITE);
 
-		ScreenButton button = ((ScreenButton)event.getTarget());
-		button.setTextColor (GameColors.Red);
+		ScreenButton button = ((ScreenButton) event.getTarget());
+		button.setTextColor(GameColors.Red);
 		return true;
 	}
 
@@ -177,14 +179,17 @@ public class SpellWindow extends BaseWindow {
 		setClosing(true);
 		return true;
 	}
-	
+
 	public int getCount() {
 		int count = 0;
-		for (Hero hero : GameScreen.getTeam().getHeroes())
-		{
+		for (Hero hero : GameScreen.getTeam().getHeroes()) {
 			// Hero applies
-			if (hero != null && hero.checkClass(filter))
-				count++;
+			for (HeroClass heroClass : hero.getClasses()) {
+				if (hero != null && hero.checkClass(heroClass)) {
+					count++;
+					break; // next hero
+				}
+			}
 		}
 
 		return count;
@@ -222,11 +227,11 @@ public class SpellWindow extends BaseWindow {
 		this.message = message;
 	}
 
-	public int getFilter() {
+	public Set<HeroClass> getFilter() {
 		return filter;
 	}
 
-	public void setFilter(int filter) {
+	public void setFilter(Set<HeroClass> filter) {
 		this.filter = filter;
 	}
 

@@ -19,7 +19,15 @@ public class Resources {
 	}
 
 	public static <T> T createAsset(Class<T> class1, String name) {
-		// TODO Auto-generated method stub
+		try {
+			return class1.newInstance();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 

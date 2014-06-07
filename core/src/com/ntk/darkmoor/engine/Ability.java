@@ -1,5 +1,9 @@
 package com.ntk.darkmoor.engine;
 
+import java.io.IOException;
+
+import org.ntk.commons.StringUtils;
+
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
 
@@ -30,13 +34,31 @@ public class Ability {
 		return (value - 10) / 2;
 	}
 
-	public void save(String string, XmlWriter writer) {
-		// TODO Auto-generated method stub
+	public boolean save(String name, XmlWriter writer) throws IOException {
+		if (writer == null || StringUtils.isEmpty(name))
+			return false;
 		
+		writer.element(name).attribute("value", value).pop();
+		
+		return true;
 	}
 
-	public void load(Element node) {
-		// TODO Auto-generated method stub
+	public boolean load(Element node) {
+		if (node == null)
+			return false;
 		
+		if (node.getAttribute("value") != null) {
+			value = Integer.parseInt(node.getAttribute("value"));
+		}
+		
+		return true;
+	}
+
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
 	}
 }
