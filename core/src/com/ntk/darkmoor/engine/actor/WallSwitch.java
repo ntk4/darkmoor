@@ -18,17 +18,17 @@ import com.ntk.darkmoor.engine.DisplayCoordinates;
 import com.ntk.darkmoor.engine.DungeonLocation;
 import com.ntk.darkmoor.engine.GameColors;
 import com.ntk.darkmoor.engine.GameMessage;
+import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.engine.graphics.TileDrawing;
 import com.ntk.darkmoor.engine.script.WallSwitchScript;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.MouseButtons;
-import com.ntk.darkmoor.stub.Square;
 
 public class WallSwitch extends SquareActor {
 
-	private static final String TAG = "wallswitch";
+	public static final String TAG = "wallswitch";
 	private ArrayList<WallSwitchScript> scripts;
 	private boolean reusable;
 	private boolean wasUsed;

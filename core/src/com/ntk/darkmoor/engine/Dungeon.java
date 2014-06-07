@@ -14,7 +14,6 @@ import com.ntk.darkmoor.exception.InitializationException;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.Mouse;
-import com.ntk.darkmoor.stub.Square;
 import com.ntk.darkmoor.stub.TileSet;
 
 public class Dungeon {

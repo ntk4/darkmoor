@@ -14,17 +14,18 @@ import com.ntk.darkmoor.engine.DecorationSet;
 import com.ntk.darkmoor.engine.DisplayCoordinates;
 import com.ntk.darkmoor.engine.DungeonLocation;
 import com.ntk.darkmoor.engine.Item;
+import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.engine.graphics.TileDrawing;
 import com.ntk.darkmoor.engine.script.PressurePlateScript;
 import com.ntk.darkmoor.engine.script.PressurePlateScript.PressurcePlateCondition;
 import com.ntk.darkmoor.stub.Monster;
-import com.ntk.darkmoor.stub.Square;
 
 public class PressurePlate extends SquareActor {
 
-	private static final String TAG = "pressureplate";
+	public static final String TAG = "pressureplate";
+	
 	private ArrayList<PressurePlateScript> scripts;
 	private boolean reusable;
 	private boolean wasUsed;

@@ -18,11 +18,11 @@ import com.ntk.darkmoor.engine.Decoration;
 import com.ntk.darkmoor.engine.DisplayCoordinates;
 import com.ntk.darkmoor.engine.DungeonLocation;
 import com.ntk.darkmoor.engine.Item;
+import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.MouseButtons;
-import com.ntk.darkmoor.stub.Square;
 import com.ntk.darkmoor.stub.Team;
 
 public class AlcoveActor extends SquareActor {
@@ -65,7 +65,7 @@ public class AlcoveActor extends SquareActor {
 			// loc.offset((int) (deco.getItemLocation().x * vect.x), (int) (deco.getItemLocation().y * vect.y));
 
 			// Draw items in the alcove in front of the team
-			for (Item item : Square.getItemsFromSide(direction, side)) {
+			for (Item item : getSquare().getItemsFromSide(direction, side)) {
 				// TODO: draw the tile!
 				// batch.drawTile(getSquare().getMaze().getDungeon().getItemTileSet(), item.getGroundTileID(), loc,
 				// DisplayCoordinates.getDistantColor(position), 0.0f,

@@ -5,12 +5,11 @@ import java.io.IOException;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.engine.Square.SquarePosition;
 import com.ntk.darkmoor.engine.actor.Door;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.Monster;
-import com.ntk.darkmoor.stub.Square;
-import com.ntk.darkmoor.stub.Square.SquarePosition;
 
 /**
  * All thrown objects in the maze (item, fireball, acid cloud....) <br/>

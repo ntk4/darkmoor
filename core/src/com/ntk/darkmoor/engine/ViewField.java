@@ -1,7 +1,6 @@
 package com.ntk.darkmoor.engine;
 
 import com.badlogic.gdx.math.Vector2;
-import com.ntk.darkmoor.stub.Square;
 
 public class ViewField {
 

@@ -31,6 +31,16 @@ public class Compass {
 		public int value() {
 			return value;
 		}
+
+		public static String[] stringValues() {
+			CardinalPoint[] values = values();
+			String[] result = new String[values.length];
+			
+			for (CardinalPoint point: values) {
+				result[point.value] = point.toString();
+			}
+			return result;
+		}
 	}
 
 	public static enum CompassRotation {

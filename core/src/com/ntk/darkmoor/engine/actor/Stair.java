@@ -9,12 +9,12 @@ import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.DungeonLocation;
+import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.ViewField;
+import com.ntk.darkmoor.engine.Square.SquareType;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.Monster;
-import com.ntk.darkmoor.stub.Square;
-import com.ntk.darkmoor.stub.Square.SquareType;
 import com.ntk.darkmoor.stub.Team;
 import com.ntk.darkmoor.stub.TileSet;
 
@@ -27,7 +27,7 @@ public class Stair extends SquareActor {
 		Down
 	}
 
-	private static final String TAG = "stair";
+	public static final String TAG = "stair";
 	private StairType type;
 	private DungeonLocation target;
 

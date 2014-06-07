@@ -6,8 +6,8 @@ import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.stub.GameScreen;
-import com.ntk.darkmoor.stub.Square;
 
 public class SetTo extends ActionBase {
 

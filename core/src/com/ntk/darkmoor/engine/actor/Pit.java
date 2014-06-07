@@ -12,14 +12,15 @@ import com.ntk.darkmoor.engine.DecorationSet;
 import com.ntk.darkmoor.engine.Dice;
 import com.ntk.darkmoor.engine.DisplayCoordinates;
 import com.ntk.darkmoor.engine.DungeonLocation;
+import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.engine.graphics.TileDrawing;
-import com.ntk.darkmoor.stub.Square;
 
 public class Pit extends SquareActor {
 
-	private static final String TAG = "pit";
+	public static final String TAG = "pit";
+	
 	private Dice damage;
 	private boolean hidden;
 	private DecorationSet decoration;

@@ -13,14 +13,14 @@ import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.GameMessage;
 import com.ntk.darkmoor.engine.SavingThrowType;
 import com.ntk.darkmoor.engine.ScriptedDialog;
+import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.script.gui.ScriptChoice;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.Hero;
-import com.ntk.darkmoor.stub.Square;
 
 public class EventSquare extends SquareActor {
 
-	private static final String TAG = "eventsquare";
+	public static final String TAG = "eventsquare";
 
 	private boolean mustFace;
 	private int remaining;

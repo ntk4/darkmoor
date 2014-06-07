@@ -11,7 +11,6 @@ import com.ntk.darkmoor.engine.gui.GUI;
 import com.ntk.darkmoor.engine.script.gui.GUIScriptButton;
 import com.ntk.darkmoor.engine.script.gui.ScriptChoice;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.Square;
 
 public class ScriptedDialog extends DialogBase {
 

@@ -80,4 +80,14 @@ public class Team {
 		return null;
 	}
 
+	public DungeonLocation getFrontLocation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public CardinalPoint getDirection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

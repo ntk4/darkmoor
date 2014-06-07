@@ -7,11 +7,11 @@ import org.ntk.commons.StringUtils;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Compass;
+import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.Compass.CompassRotation;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.Monster;
-import com.ntk.darkmoor.stub.Square;
 import com.ntk.darkmoor.stub.Team;
 
 public class ForceField extends SquareActor {
@@ -27,7 +27,8 @@ public class ForceField extends SquareActor {
 		FaceTo,
 	}
 
-	private static final String TAG = "forcefield";
+	public static final String TAG = "forcefield";
+	
 	private ForceFieldType type;
 	private CompassRotation spin;
 	private CardinalPoint direction;

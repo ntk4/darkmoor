@@ -15,6 +15,7 @@ import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
+import com.ntk.darkmoor.engine.Square.SquarePosition;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.engine.actor.Door;
 import com.ntk.darkmoor.engine.actor.Door.DoorType;
@@ -27,8 +28,6 @@ import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.Monster;
 import com.ntk.darkmoor.stub.SpriteEffects;
-import com.ntk.darkmoor.stub.Square;
-import com.ntk.darkmoor.stub.Square.SquarePosition;
 import com.ntk.darkmoor.stub.Team;
 import com.ntk.darkmoor.stub.TileSet;
 
@@ -232,7 +231,7 @@ public class Maze {
 
 		// If there's a forced decoration
 		for (int i = 0; i < 4; i++) {
-			id = square.getDecoration(i);
+			id = square.getDecorations()[i];
 			if (id == -1)
 				continue;
 
@@ -543,7 +542,7 @@ public class Maze {
 		Square square = field.getBlock(position);
 		Vector2 point;
 		Decoration deco = null;
-		List<Item>[] list = square.getItems(view);
+		List<List<Item>> list = square.getItems(view);
 
 		// ceiling pit
 		if (square.isPitTarget()) {
@@ -560,10 +559,10 @@ public class Maze {
 		if (deco == null || (deco != null && !deco.isHideItems())) {
 			if (!square.isWall() || (deco != null && !deco.isHideItems())) {
 				for (int i = 0; i < 2; i++) {
-					if (list[i].size() == 0)
+					if (list.get(i).size() == 0)
 						continue;
 
-					for (Item item : list[i]) {
+					for (Item item : list.get(i)) {
 						point = DisplayCoordinates.getGroundPosition(position, SquarePosition.valueOf(i));
 						if (point.x != 0 || point.y != 0) // not is empty
 						{
@@ -627,11 +626,11 @@ public class Maze {
 				// Both ground positions
 				for (int i = 2; i < 4; i++) {
 					// No items
-					if (list[i].isEmpty())
+					if (list.get(i).isEmpty())
 						continue;
 
 					// Foreach item on the ground
-					for (Item item : list[i]) {
+					for (Item item : list.get(i)) {
 						// Get screen coordinate
 						point = DisplayCoordinates.getGroundPosition(position, SquarePosition.valueOf(i));
 						if (point.x != 0 || point.y != 0) // not is empty
@@ -656,7 +655,7 @@ public class Maze {
 			};
 
 			for (int i = 0; i < 4; i++) {
-				Monster monster = square.getMonster(order[view.value()][i]);
+				Monster monster = square.getMonster(SquarePosition.valueOf(order[view.value()][i]));
 				if (monster != null)
 					monster.draw(batch, view, position);
 			}

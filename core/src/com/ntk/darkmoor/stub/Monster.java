@@ -6,6 +6,8 @@ import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.DungeonLocation;
 import com.ntk.darkmoor.engine.Entity;
 import com.ntk.darkmoor.engine.Maze;
+import com.ntk.darkmoor.engine.Square;
+import com.ntk.darkmoor.engine.Square.SquarePosition;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 
 public class Monster extends Entity {
@@ -61,6 +63,31 @@ public class Monster extends Entity {
 	}
 
 	public void draw(SpriteBatch batch, CardinalPoint view, ViewFieldPosition position) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onDeath() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void update(GameTime time) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void teleport(Square square) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void teleport(Square square, SquarePosition valueOf) {
 		// TODO Auto-generated method stub
 		
 	}

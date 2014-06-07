@@ -14,6 +14,7 @@ import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.DisplayCoordinates;
 import com.ntk.darkmoor.engine.GameMessage;
 import com.ntk.darkmoor.engine.Item;
+import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.SwitchCount;
 import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
@@ -23,7 +24,6 @@ import com.ntk.darkmoor.stub.AudioSample;
 import com.ntk.darkmoor.stub.Display;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.MouseButtons;
-import com.ntk.darkmoor.stub.Square;
 import com.ntk.darkmoor.stub.TileSet;
 
 public class Door extends SquareActor {
@@ -36,7 +36,7 @@ public class Door extends SquareActor {
 		Closed, Closing, Opening, Opened, Broken, Stuck;
 	}
 
-	private static final String TAG = "door";
+	public static final String TAG = "door";
 
 	private Rectangle button;
 	private SwitchCount count;

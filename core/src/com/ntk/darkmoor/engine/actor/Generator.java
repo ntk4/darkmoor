@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
-import com.ntk.darkmoor.stub.Square;
+import com.ntk.darkmoor.engine.Square;
 
 public class Generator extends SquareActor {
 	public static final String TAG = "generator";

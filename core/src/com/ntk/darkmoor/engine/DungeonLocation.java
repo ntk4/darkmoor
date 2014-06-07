@@ -8,8 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
-import com.ntk.darkmoor.stub.Square;
-import com.ntk.darkmoor.stub.Square.SquarePosition;
+import com.ntk.darkmoor.engine.Square.SquarePosition;
 
 public class DungeonLocation {
 
