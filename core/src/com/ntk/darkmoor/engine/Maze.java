@@ -15,6 +15,7 @@ import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
+import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.engine.actor.Door;
 import com.ntk.darkmoor.engine.actor.Door.DoorType;
 import com.ntk.darkmoor.engine.actor.Pit;
@@ -29,10 +30,7 @@ import com.ntk.darkmoor.stub.SpriteEffects;
 import com.ntk.darkmoor.stub.Square;
 import com.ntk.darkmoor.stub.Square.SquarePosition;
 import com.ntk.darkmoor.stub.Team;
-import com.ntk.darkmoor.stub.ThrownItem;
 import com.ntk.darkmoor.stub.TileSet;
-import com.ntk.darkmoor.stub.ViewField;
-import com.ntk.darkmoor.stub.ViewFieldPosition;
 
 public class Maze {
 
@@ -542,7 +540,7 @@ public class Maze {
 		if (field == null)
 			return;
 
-		Square square = field.getBlock(position.value());
+		Square square = field.getBlock(position);
 		Vector2 point;
 		Decoration deco = null;
 		List<Item>[] list = square.getItems(view);

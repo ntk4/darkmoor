@@ -6,6 +6,7 @@ import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.DungeonLocation;
 import com.ntk.darkmoor.engine.Entity;
 import com.ntk.darkmoor.engine.Maze;
+import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 
 public class Monster extends Entity {
 

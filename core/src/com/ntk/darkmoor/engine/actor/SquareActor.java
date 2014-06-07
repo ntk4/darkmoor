@@ -9,15 +9,15 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.config.Log;
+import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.DungeonLocation;
 import com.ntk.darkmoor.engine.Item;
-import com.ntk.darkmoor.engine.Compass.CardinalPoint;
+import com.ntk.darkmoor.engine.ViewField;
+import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.Monster;
 import com.ntk.darkmoor.stub.MouseButtons;
 import com.ntk.darkmoor.stub.Square;
-import com.ntk.darkmoor.stub.ViewField;
-import com.ntk.darkmoor.stub.ViewFieldPosition;
 
 public abstract class SquareActor {
 	private boolean enabled;

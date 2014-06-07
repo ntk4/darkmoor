@@ -11,10 +11,10 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.Tile;
 import com.ntk.darkmoor.stub.TileSet;
-import com.ntk.darkmoor.stub.ViewFieldPosition;
 
 public class DecorationSet {
 

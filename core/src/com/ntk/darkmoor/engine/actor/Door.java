@@ -10,11 +10,13 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.DisplayCoordinates;
 import com.ntk.darkmoor.engine.GameMessage;
 import com.ntk.darkmoor.engine.Item;
 import com.ntk.darkmoor.engine.SwitchCount;
-import com.ntk.darkmoor.engine.Compass.CardinalPoint;
+import com.ntk.darkmoor.engine.ViewField;
+import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.engine.graphics.TileDrawing;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.AudioSample;
@@ -23,8 +25,6 @@ import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.MouseButtons;
 import com.ntk.darkmoor.stub.Square;
 import com.ntk.darkmoor.stub.TileSet;
-import com.ntk.darkmoor.stub.ViewField;
-import com.ntk.darkmoor.stub.ViewFieldPosition;
 
 public class Door extends SquareActor {
 

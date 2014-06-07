@@ -7,15 +7,15 @@ import org.ntk.commons.StringUtils;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.DecorationSet;
 import com.ntk.darkmoor.engine.Dice;
 import com.ntk.darkmoor.engine.DisplayCoordinates;
 import com.ntk.darkmoor.engine.DungeonLocation;
-import com.ntk.darkmoor.engine.Compass.CardinalPoint;
+import com.ntk.darkmoor.engine.ViewField;
+import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.engine.graphics.TileDrawing;
 import com.ntk.darkmoor.stub.Square;
-import com.ntk.darkmoor.stub.ViewField;
-import com.ntk.darkmoor.stub.ViewFieldPosition;
 
 public class Pit extends SquareActor {
 

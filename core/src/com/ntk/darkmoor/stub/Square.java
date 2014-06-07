@@ -225,4 +225,14 @@ public class Square {
 		return SquareType.Ground;
 	}
 
+	public boolean isBlocking() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public Monster[] getMonsters() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

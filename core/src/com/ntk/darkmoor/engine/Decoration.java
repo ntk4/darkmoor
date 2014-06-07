@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.config.Log;
-import com.ntk.darkmoor.stub.ViewFieldPosition;
+import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 
 public class Decoration {
 

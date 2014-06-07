@@ -12,11 +12,11 @@ import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
+import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.engine.graphics.TileDrawing;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.SpriteEffects;
 import com.ntk.darkmoor.stub.Square.SquarePosition;
-import com.ntk.darkmoor.stub.ViewFieldPosition;
 
 /**
  * http://dmweb.free.fr/?q=node/1394

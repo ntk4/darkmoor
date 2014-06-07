@@ -13,17 +13,17 @@ import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Alcove;
 import com.ntk.darkmoor.engine.Compass;
+import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.Decoration;
 import com.ntk.darkmoor.engine.DisplayCoordinates;
 import com.ntk.darkmoor.engine.DungeonLocation;
 import com.ntk.darkmoor.engine.Item;
-import com.ntk.darkmoor.engine.Compass.CardinalPoint;
+import com.ntk.darkmoor.engine.ViewField;
+import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.MouseButtons;
 import com.ntk.darkmoor.stub.Square;
 import com.ntk.darkmoor.stub.Team;
-import com.ntk.darkmoor.stub.ViewField;
-import com.ntk.darkmoor.stub.ViewFieldPosition;
 
 public class AlcoveActor extends SquareActor {
 
