@@ -63,11 +63,6 @@ public class HitPoint {
 		return current;
 	}
 
-	public void setCurrent(int current) {
-		this.current = current;
-		current = Math.min(current, max);
-	}
-
 	public int getMax() {
 		return max;
 	}
@@ -82,6 +77,11 @@ public class HitPoint {
 
 	public float getRatio() {
 		return ((float) current / (float) max);
+	}
+
+	public void damage(int hit) {
+		// TODO: ntk: this means that even heroes cannot get under 0, therefore die!
+		current = Math.max(0, current-hit);
 	}
 
 }

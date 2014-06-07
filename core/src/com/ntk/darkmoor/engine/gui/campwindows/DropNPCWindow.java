@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.engine.CampDialog;
+import com.ntk.darkmoor.engine.Hero;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.engine.gui.GUI;
 import com.ntk.darkmoor.engine.gui.MessageBox;
@@ -18,7 +19,6 @@ import com.ntk.darkmoor.engine.gui.ScreenButton;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.Hero;
 import com.ntk.darkmoor.stub.TileSet;
 
 public class DropNPCWindow extends BaseWindow {

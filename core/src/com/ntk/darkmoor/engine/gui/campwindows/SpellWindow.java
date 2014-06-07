@@ -10,12 +10,12 @@ import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.GameColors;
+import com.ntk.darkmoor.engine.Hero;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.engine.gui.GUI;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.Hero;
 import com.ntk.darkmoor.stub.Team;
 import com.ntk.darkmoor.stub.TileSet;
 

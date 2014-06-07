@@ -1,9 +1,9 @@
 package com.ntk.darkmoor.engine.interfaces;
 
-import com.ntk.darkmoor.engine.SpellImpl;
-import com.ntk.darkmoor.stub.Hero;
+import com.ntk.darkmoor.engine.Hero;
+import com.ntk.darkmoor.engine.Spell;
 
-public interface Spell {
+public interface ISpell {
 
 	public static enum SpellRange {
 		/** The spell affects only the caster. */
@@ -37,5 +37,5 @@ public interface Spell {
 	 * @param hero
 	 *            hero casting the spell
 	 */
-	void onCast(SpellImpl spell, Hero hero);
+	void onCast(Spell spell, Hero hero);
 }

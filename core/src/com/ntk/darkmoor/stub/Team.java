@@ -4,8 +4,12 @@ import java.util.List;
 
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.DungeonLocation;
+import com.ntk.darkmoor.engine.Entity;
+import com.ntk.darkmoor.engine.Hero;
 import com.ntk.darkmoor.engine.Item;
 import com.ntk.darkmoor.engine.Maze;
+import com.ntk.darkmoor.engine.Square;
+import com.ntk.darkmoor.engine.Square.SquarePosition;
 
 
 public class Team {
@@ -86,6 +90,26 @@ public class Team {
 	}
 
 	public CardinalPoint getDirection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Square getFrontSquare() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean isHeroInFront(Hero hero) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public SquarePosition getHeroGroundPosition(Hero hero) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Entity getFrontEntity(SquarePosition heroGroundPosition) {
 		// TODO Auto-generated method stub
 		return null;
 	}

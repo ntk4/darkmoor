@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.badlogic.gdx.utils.XmlWriter;
 import com.badlogic.gdx.utils.XmlReader.Element;
-import com.ntk.darkmoor.stub.Hero.HeroClass;
+import com.ntk.darkmoor.engine.Hero.HeroClass;
 
 public class Profession {
 

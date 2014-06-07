@@ -5,8 +5,8 @@ import java.util.Set;
 
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
-import com.ntk.darkmoor.engine.interfaces.Spell.SpellRange;
-import com.ntk.darkmoor.stub.Hero.HeroClass;
+import com.ntk.darkmoor.engine.Hero.HeroClass;
+import com.ntk.darkmoor.engine.interfaces.ISpell.SpellRange;
 import com.ntk.darkmoor.stub.ScriptInterface;
 
 /**
@@ -15,22 +15,22 @@ import com.ntk.darkmoor.stub.ScriptInterface;
  * @author Nick
  * 
  */
-public class SpellImpl {
+public class Spell {
 	public static final String TAG = "spell";
 	
 	private boolean disposed;
-	private ScriptInterface<SpellImpl> script;
+	private ScriptInterface<Spell> script;
 	private int level;
 	private String name;
-	private Set<HeroClass> heroClass;
+	private HeroClass heroClass;
 	private SpellRange range;
 	private int duration;
 	private int castingTime;
 	private String description;
 
-	public SpellImpl() {
+	public Spell() {
 		disposed = false;
-		script = new ScriptInterface<SpellImpl>();
+		script = new ScriptInterface<Spell>();
 		level = 1;
 	}
 
@@ -63,7 +63,7 @@ public class SpellImpl {
 				range = SpellRange.valueOf(node.getAttribute("value"));
 
 			} else if ("class".equalsIgnoreCase(name)) {
-				heroClass = HeroClass.parse(node.getAttribute("value"));
+				heroClass = HeroClass.valueOf(node.getAttribute("value"));
 
 			} else if ("level".equalsIgnoreCase(name)) {
 				level = Integer.parseInt(node.getAttribute("value"));
@@ -211,7 +211,7 @@ public class SpellImpl {
 		return disposed;
 	}
 
-	public ScriptInterface<SpellImpl> getScript() {
+	public ScriptInterface<Spell> getScript() {
 		return script;
 	}
 
@@ -223,7 +223,7 @@ public class SpellImpl {
 		return name;
 	}
 
-	public Set<HeroClass> getHeroClass() {
+	public HeroClass getHeroClass() {
 		return heroClass;
 	}
 

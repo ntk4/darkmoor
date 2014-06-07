@@ -10,9 +10,9 @@ import org.ntk.commons.StringUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.engine.Hero.HeroClass;
+import com.ntk.darkmoor.engine.Hero.HeroHand;
 import com.ntk.darkmoor.engine.interfaces.IItem;
-import com.ntk.darkmoor.stub.Hero.HeroClass;
-import com.ntk.darkmoor.stub.Hero.HeroHand;
 import com.ntk.darkmoor.stub.ScriptInterface;
 
 public class Item {
@@ -124,7 +124,7 @@ public class Item {
 	private int criticalMultiplier;
 	private String shortName;
 	private boolean big;
-	private int speed;
+	private int attackSpeed;
 	private byte armorClass;
 	private String tileSetName;
 	private int tileID;
@@ -135,6 +135,13 @@ public class Item {
 	private boolean cursed;
 	private boolean twoHanded;
 	private int incomingTileId;
+	
+	/**
+	 * Any attack at less than this distance is not penalized for range. However, each full range increment imposes a
+	 * cumulative –2 penalty on the attack roll. A thrown weapon has a maximum range of five range increments. A
+	 * projectile weapon can shoot out to ten range increments.
+	 */
+	private int range;
 
 	public Item() {
 		allowedClasses = new HashSet<HeroClass>();
@@ -203,7 +210,7 @@ public class Item {
 
 		writer.element("shortname", shortName);
 		writer.element("identifiedname", identifiedName);
-		writer.element("speed").attribute("value", speed).pop();
+		writer.element("speed").attribute("value", attackSpeed).pop();
 
 		writer.pop();
 
@@ -218,14 +225,14 @@ public class Item {
 			return false;
 
 		this.name = xml.getAttribute("name");
-		
+
 		Element node = null;
 		String childName = null;
-		
+
 		for (int i = 0; i < xml.getChildCount(); i++) {
 			node = xml.getChild(i);
 			childName = node.getName();
-			
+
 			if ("script".equalsIgnoreCase(childName)) {
 				script.load(node);
 
@@ -272,7 +279,7 @@ public class Item {
 				canIdentify = Boolean.parseBoolean(node.getAttribute("value"));
 
 			} else if ("speed".equalsIgnoreCase(childName)) {
-				speed = Integer.parseInt(node.getAttribute("value"));
+				attackSpeed = Integer.parseInt(node.getAttribute("value"));
 
 			} else if ("ac".equalsIgnoreCase(childName)) {
 				armorClass = Byte.parseByte(node.getAttribute("value"));
@@ -313,7 +320,11 @@ public class Item {
 			return true;
 		}
 	}
-	
+
+	public boolean isUseQuiver() {
+		return slot.contains(BodySlot.Quiver);
+	}
+
 	@Override
 	public String toString() {
 		return name;
@@ -439,12 +450,12 @@ public class Item {
 		this.big = big;
 	}
 
-	public int getSpeed() {
-		return speed;
+	public int getAttackSpeed() {
+		return attackSpeed;
 	}
 
-	public void setSpeed(int speed) {
-		this.speed = speed;
+	public void setAttackSpeed(int speed) {
+		this.attackSpeed = speed;
 	}
 
 	public byte getArmorClass() {
@@ -533,6 +544,14 @@ public class Item {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getRange() {
+		return range;
+	}
+
+	public void setRange(int range) {
+		this.range = range;
 	}
 
 }

@@ -8,12 +8,11 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.ntk.darkmoor.engine.Hero.HeroClass;
 import com.ntk.darkmoor.engine.Item.ItemType;
 import com.ntk.darkmoor.engine.gui.GUI;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.Hero;
-import com.ntk.darkmoor.stub.Hero.HeroClass;
 import com.ntk.darkmoor.stub.TileSet;
 
 public class SpellBook {
@@ -86,7 +85,7 @@ public class SpellBook {
 		}
 
 		// Get a list of available spells for this level
-		List<SpellImpl> spells = Hero.getSpells(heroClass, spellLevel);
+		List<Spell> spells = hero.getSpells(heroClass, spellLevel);
 
 		// Display at max 6 spells
 		Vector2 pos = new Vector2(146, 264);
@@ -124,7 +123,7 @@ public class SpellBook {
 		if (!visible)
 			return;
 
-		Hero.getMaxSpellCount(HeroClass.Cleric, 3);
+		hero.getMaxSpellCount(HeroClass.Cleric, 3);
 
 		// Left mouse button
 		if (Gdx.input.isButtonPressed(Buttons.LEFT)) {
@@ -142,7 +141,7 @@ public class SpellBook {
 				// Cast a spell
 				if (line.contains(Gdx.input.getX(), Gdx.input.getY())) {
 
-					SpellImpl spell = Hero.popSpell(heroClass, spellLevel, i + 1);
+					Spell spell = hero.popSpell(heroClass, spellLevel, i + 1);
 					if (spell != null && spell.getScript().getInstance() != null)
 						spell.getScript().getInstance().onCast(spell, hero);
 				}

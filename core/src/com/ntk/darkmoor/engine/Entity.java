@@ -96,7 +96,7 @@ public abstract class Entity {
 		if (save == 20 || save + savingThrow(type) > difficulty)
 			return;
 
-		hitPoint.setCurrent(hitPoint.getCurrent() - damage.roll());
+		hitPoint.damage(damage.roll());
 
 	}
 
@@ -178,5 +178,69 @@ public abstract class Entity {
 
 	public boolean isDead() {
 		return hitPoint.getCurrent() <= 0;
+	}
+
+	public HitPoint getHitPoint() {
+		return hitPoint;
+	}
+
+	public Ability getCharisma() {
+		return charisma;
+	}
+
+	public Ability getStrength() {
+		return strength;
+	}
+
+	public Ability getConstitution() {
+		return constitution;
+	}
+
+	public Ability getDexterity() {
+		return dexterity;
+	}
+
+	public Ability getIntelligence() {
+		return intelligence;
+	}
+
+	public Ability getWisdom() {
+		return wisdom;
+	}
+
+	public int getArmorClass() {
+		return armorClass;
+	}
+
+	public int getMoveSpeed() {
+		return moveSpeed;
+	}
+
+	public int getBaseSaveBonus() {
+		return baseSaveBonus;
+	}
+
+	public byte getAntiMagic() {
+		return antiMagic;
+	}
+
+	public byte getAntiFire() {
+		return antiFire;
+	}
+
+	public Attack getLastAttack() {
+		return lastAttack;
+	}
+
+	public Date getLastUpdate() {
+		return lastUpdate;
+	}
+
+	public EntityAlignment getAlignment() {
+		return alignment;
+	}
+
+	public int[] getArr() {
+		return arr;
 	}
 }
