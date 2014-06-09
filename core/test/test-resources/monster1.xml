@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<monster name="Dwarf" position="NorthWest">
+	<hitpoint current="24" max="24" />
+	<strength value="13" />
+	<intelligence value="10" />
+	<wisdom value="11" />
+	<dexterity value="11" />
+	<constitution value="10" />
+	<charisma value="7" />
+	<alignment value="LawfulGood" />
+	<movespeed value="1200" />
+	<script script="" interface="Dwarf" />
+	<damage throws="1" faces="1" modifier="2" />
+	<hitdice throws="0" faces="1" modifier="0" />
+	<tiles name="Monsters_EOB1" id="96" />
+	<direction value="North" />
+	<armorclass value="6" />
+	<baseattack value="0" />
+	<sightrange value="0" />
+	<reward value="200" />
+	<sound event="hit" name="" />
+	<sound event="hurt" name="" />
+	<sound event="walk" name="" />
+	<sound event="die" name="" />
+	<behaviour default="Aggressive" current="Aggressive" />
+	<fillsquare value="False" />
+	<flees value="True" />
+	<drains value="False" />
+	<heals value="False" />
+	<castinglevel value="0" />
+	<throwweapons value="True" />
+	<weaponname name="" />
+	<usestairs value="False" />
+	<flying value="True" />
+	<smartai value="True" />
+	<teleports value="True" />
+	<pickuprate value="0,09" />
+	<stealrate value="0,09" />
+	<backrowattack value="False" />
+	<canseeinvisible value="False" />
+	<poisonimmunity value="True" />
+	<nonmaterial value="True" />
+	<attackspeed value="1200" />
+</monster>

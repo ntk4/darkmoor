@@ -1,19 +1,30 @@
 package com.ntk.darkmoor.stub;
 
+import java.io.IOException;
+
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
-import com.ntk.darkmoor.engine.Spell;
 import com.ntk.darkmoor.engine.interfaces.ISpell;
 
 public class ScriptInterface<T> {
 
+	public static final String TAG = "script";
+	private String  interfaceName;
+
 	public boolean load(Element node) {
-		// TODO Auto-generated method stub
+		if (node == null)
+			return false;
+		
 		return true;
 	}
 
-	public void save(String string, XmlWriter writer) {
-		// TODO Auto-generated method stub
+	public boolean save(String name, XmlWriter writer) throws IOException {
+		if (writer == null)
+			return false;
+		
+		writer.element(TAG).attribute("script", name).attribute("interface", interfaceName).pop();
+		
+		return true;
 		
 	}
 

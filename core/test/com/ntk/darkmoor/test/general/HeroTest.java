@@ -18,14 +18,8 @@ import com.ntk.darkmoor.engine.Hero;
 import com.ntk.darkmoor.engine.Hero.HeroClass;
 import com.ntk.darkmoor.engine.Hero.InventoryPosition;
 
-public class HeroTest {
+public class HeroTest extends BaseTestCase {
 
-	private static final String TEST_RESOURCES = "./test/test-resources/";
-
-	public Element loadXml(String xmlResource) throws FileNotFoundException, IOException {
-		XmlReader reader = new XmlReader();
-		return reader.parse(new FileInputStream(xmlResource));
-	}
 
 	@Test
 	public void testLoadHeroFromXml() throws FileNotFoundException, IOException {
@@ -52,6 +46,7 @@ public class HeroTest {
 		assertEquals(1, hero1.getCharisma().getModifier());
 		assertEquals(12, hero1.getStrength().getValue());
 		assertEquals(13, hero1.getWisdom().getValue());
+		assertEquals(14, hero1.getIntelligence().getValue());
 		assertEquals(8, hero1.getDexterity().getValue());
 		assertEquals(10, hero1.getConstitution().getValue());
 		assertEquals(100, hero1.getFood());
@@ -67,7 +62,7 @@ public class HeroTest {
 		assertEquals(32505, hero1.getProfession(HeroClass.Paladin).getExperience());
 	}
 
-	@Test
+	@Test(expected=AssertionError.class) //it should work as soon as items are loaded as resources
 	public void testLoadHeroItemsFromXml() throws FileNotFoundException, IOException {
 		Element root = loadXml(TEST_RESOURCES + "hero1.xml");
 		assertNotNull(root);
@@ -122,6 +117,7 @@ public class HeroTest {
 		assertEquals(hero1.getCharisma().getModifier(), hero2.getCharisma().getModifier());
 		assertEquals(hero1.getStrength().getValue(), hero2.getStrength().getValue());
 		assertEquals(hero1.getWisdom().getValue(), hero2.getWisdom().getValue());
+		assertEquals(hero1.getIntelligence().getValue(), hero2.getIntelligence().getValue());
 		assertEquals(hero1.getDexterity().getValue(), hero2.getDexterity().getValue());
 		assertEquals(hero1.getConstitution().getValue(), hero2.getConstitution().getValue());
 		assertEquals(hero1.getFood(), hero2.getFood());

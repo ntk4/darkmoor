@@ -1,3 +1,7 @@
+## Project specific files
+*_save.xml
+*temp.properties
+
 ## Java
 
 *.class

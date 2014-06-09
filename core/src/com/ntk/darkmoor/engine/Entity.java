@@ -45,7 +45,7 @@ public abstract class Entity {
 	public byte antiFire;
 
 	public Attack lastAttack;
-	protected Date lastUpdate;
+	protected long lastUpdate;
 	public EntityAlignment alignment;
 
 	// temporary variables
@@ -144,7 +144,7 @@ public abstract class Entity {
 			return false;
 
 		String name = node.getName();
-		
+
 		if ("strength".equalsIgnoreCase(name)) {
 			strength.load(node);
 
@@ -235,7 +235,7 @@ public abstract class Entity {
 		return lastAttack;
 	}
 
-	public Date getLastUpdate() {
+	public long getLastUpdate() {
 		return lastUpdate;
 	}
 

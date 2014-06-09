@@ -161,14 +161,14 @@ public class DisplayCoordinates {
 
 		scriptedDialog = new Rectangle(0, 242, 640, 158);
 		scriptedDialogChoices = new Rectangle[] {
-			// 1 choice
-			new Rectangle(442, 378, 190, 18), new Rectangle(), new Rectangle(),
+				// 1 choice
+				new Rectangle(442, 378, 190, 18), new Rectangle(), new Rectangle(),
 
-			// 2 choices
-			new Rectangle(118, 378, 190, 18), new Rectangle(332, 378, 190, 18), new Rectangle(),
+				// 2 choices
+				new Rectangle(118, 378, 190, 18), new Rectangle(332, 378, 190, 18), new Rectangle(),
 
-			// 3 choices
-			new Rectangle(8, 378, 190, 18), new Rectangle(224, 378, 190, 18), new Rectangle(440, 378, 190, 18), };
+				// 3 choices
+				new Rectangle(8, 378, 190, 18), new Rectangle(224, 378, 190, 18), new Rectangle(440, 378, 190, 18), };
 
 		scroll = new Rectangle(0, 0, 352, 350);
 		scrollOk = new Rectangle(152, 324, 190, 18);
@@ -188,6 +188,10 @@ public class DisplayCoordinates {
 		return scaleFactor[monsterScaleOffset[position.value()]];
 	}
 
+	public static Vector2 getMonsterLocation(ViewFieldPosition position, SquarePosition sub) {
+		return monsterLocations[position.value()][sub.value()];
+	}
+
 	public static Color getDistantColor(ViewFieldPosition position) {
 		Color color1 = Color.WHITE;
 		Color.rgb888ToColor(color1, Color.rgba8888(128, 128, 128, 255));
@@ -196,7 +200,7 @@ public class DisplayCoordinates {
 		Color.rgb888ToColor(color2, Color.rgba8888(96, 96, 96, 220));
 
 		Color[] colors = new Color[] {
-			Color.WHITE, Color.WHITE, color1, color2, };
+				Color.WHITE, Color.WHITE, color1, color2, };
 		return colors[itemScaleOffset[position.value()]];
 	}
 

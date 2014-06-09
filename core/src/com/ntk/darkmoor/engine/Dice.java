@@ -58,13 +58,13 @@ public class Dice implements Cloneable {
 			return false;
 
 		if (xml.getAttribute("faces") != null)
-			faces = Integer.parseInt("faces");
+			faces = Integer.parseInt(xml.getAttribute("faces"));
 
 		if (xml.getAttribute("throws") != null)
-			diceThrows = Integer.parseInt("throws");
+			diceThrows = Integer.parseInt(xml.getAttribute("throws"));
 
 		if (xml.getAttribute("modifier") != null)
-			modifier = Integer.parseInt("modifier");
+			modifier = Integer.parseInt(xml.getAttribute("modifier"));
 
 		return true;
 	}
