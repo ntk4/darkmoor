@@ -21,12 +21,12 @@ import com.ntk.darkmoor.engine.actor.Door;
 import com.ntk.darkmoor.engine.actor.Door.DoorType;
 import com.ntk.darkmoor.engine.actor.Pit;
 import com.ntk.darkmoor.engine.actor.Stair;
+import com.ntk.darkmoor.engine.graphics.SpriteEffects;
 import com.ntk.darkmoor.engine.graphics.TileDrawing;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.Display;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.SpriteEffects;
 import com.ntk.darkmoor.stub.TileSet;
 
 public class Maze {

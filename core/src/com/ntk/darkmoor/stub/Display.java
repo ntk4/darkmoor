@@ -19,4 +19,9 @@ public class Display {
 		
 	}
 
+	public static void init() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

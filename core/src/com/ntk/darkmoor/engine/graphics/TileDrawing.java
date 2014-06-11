@@ -2,7 +2,6 @@ package com.ntk.darkmoor.engine.graphics;
 
 import com.badlogic.gdx.math.Vector2;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
-import com.ntk.darkmoor.stub.SpriteEffects;
 
 public class TileDrawing
 {
