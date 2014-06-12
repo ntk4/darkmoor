@@ -102,7 +102,7 @@ public class Item {
 				if (slot.value == value)
 					return slot;
 			}
-			return DamageType.Slash;
+			return DamageType.None;
 		}
 	}
 
@@ -134,8 +134,7 @@ public class Item {
 	private Set<HeroHand> allowedHands;
 	private boolean cursed;
 	private boolean twoHanded;
-	private int incomingTileId;
-	
+
 	/**
 	 * Any attack at less than this distance is not penalized for range. However, each full range increment imposes a
 	 * cumulative –2 penalty on the attack roll. A thrown weapon has a maximum range of five range increments. A
@@ -176,21 +175,21 @@ public class Item {
 		writer.element("item").attribute("name", name);
 
 		writer.element("tile").attribute("name", tileSetName).attribute("inventory", tileID)
-				.attribute("ground", groundTileID).attribute("incoming", incomingTileId)
+				.attribute("ground", groundTileID).attribute("incoming", incomingTileID)
 				.attribute("moveaway", throwTileID).pop();
 
 		writer.element("type").attribute("value", type).pop();
-		writer.element("damagetype").attribute("value", damageType).pop();
+		writer.element("damagetype").attribute("value", damageType.value()).pop();
 		writer.element("ac").attribute("value", armorClass).pop();
 		writer.element("slot").attribute("value", slot).pop();
-		writer.element("classes").attribute("value", allowedClasses.toArray().toString()).pop();
+		writer.element("classes").attribute("value", allowedClasses.toString().replace("[", "").replace("]", "")).pop();
 		writer.element("weight").attribute("value", weight).pop();
 
 		damage.save("damage", writer);
 		damageVsBig.save("damagevsbig", writer);
 		damageVsSmall.save("damagevssmall", writer);
 
-		writer.element("critical").attribute("min", critical.x).attribute("max", critical.x)
+		writer.element("critical").attribute("min", (int) critical.x).attribute("max", (int) critical.y)
 				.attribute("multiplier", criticalMultiplier).pop();
 
 		script.save("script", writer);
@@ -207,7 +206,8 @@ public class Item {
 		if (big)
 			writer.element("isbig").attribute("value", big).pop();
 
-		writer.element("allowedhands").attribute("value", allowedHands.toArray().toString()).pop();
+		writer.element("allowedhands").attribute("value", allowedHands.toString().replace("[", "").replace("]", ""))
+				.pop();
 
 		writer.element("shortname", shortName);
 		writer.element("identifiedname", identifiedName);
@@ -245,7 +245,7 @@ public class Item {
 
 			} else if ("damagetype".equalsIgnoreCase(childName)) {
 				damageType = DamageType.fromValue(damageType.value()
-						| DamageType.valueOf(node.getAttribute("value")).value());
+						| DamageType.fromValue(Integer.parseInt(node.getAttribute("value"))).value());
 
 			} else if ("weight".equalsIgnoreCase(childName)) {
 				weight = Integer.parseInt(node.getAttribute("value"));
@@ -521,14 +521,6 @@ public class Item {
 
 	public void setTwoHanded(boolean twoHanded) {
 		this.twoHanded = twoHanded;
-	}
-
-	public int getIncomingTileId() {
-		return incomingTileId;
-	}
-
-	public void setIncomingTileId(int incomingTileId) {
-		this.incomingTileId = incomingTileId;
 	}
 
 	public Set<HeroClass> getAllowedClasses() {
