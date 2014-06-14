@@ -20,12 +20,12 @@ import com.ntk.darkmoor.engine.Square.SquarePosition;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.engine.interfaces.IMonster;
 import com.ntk.darkmoor.resource.Resources;
+import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.AudioSample;
 import com.ntk.darkmoor.stub.GameMechanics;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.ScriptInterface;
-import com.ntk.darkmoor.stub.TileSet;
 
 /**
  * List of monsters : http://members.tripod.com/~stanislavs/games/eob1mons.htm<br/>
@@ -95,9 +95,9 @@ public class Monster extends Entity {
 	private SquarePosition position;
 	private long lastHit;
 	private int reward;
-	private TileSet tileset;
-	private String tileSetName;
-	private int tile;
+	private TextureSet textureSet;
+	private String textureSetName;
+	private int texture;
 	private String name;
 	private String weaponName;
 	private Item weapon;
@@ -177,8 +177,8 @@ public class Monster extends Entity {
 	}
 
 	public void dispose() {
-		Resources.unlockSharedAsset(TileSet.class, tileset);
-		tileset = null;
+		Resources.unlockSharedAsset(TextureSet.class, textureSet);
+		textureSet = null;
 
 		disposed = true;
 	}
@@ -343,7 +343,7 @@ public class Monster extends Entity {
 		// Trace.WriteDebugLine("[Monster] {0} spawn at {1}.", Name, getLocation().ToStringShort());
 
 		// tileset
-		tileset = Resources.createSharedAsset(TileSet.class, tileSetName, tileSetName);
+		textureSet = Resources.createSharedAsset(TextureSet.class, textureSetName, textureSetName);
 
 		// Give a weapon to the monster
 		if (!StringUtils.isEmpty(weaponName))
@@ -764,7 +764,7 @@ public class Monster extends Entity {
 	 * @param pos Position of the monster in the field of view
 	 */
 	public void draw(SpriteBatch batch, CardinalPoint view, ViewFieldPosition pos) {
-		if (batch == null || tileset == null || square == null)
+		if (batch == null || textureSet == null || square == null)
 			return;
 
 		// Translate subsquare position according looking point
@@ -824,7 +824,7 @@ public class Monster extends Entity {
 						2, 1, 0, 3 }, // East
 		};
 
-		return id[direction.value()][point.value()] + tile;
+		return id[direction.value()][point.value()] + texture;
 	}
 
 	/**
@@ -1110,16 +1110,16 @@ public class Monster extends Entity {
 		return reward;
 	}
 
-	public TileSet getTileset() {
-		return tileset;
+	public TextureSet getTextureSet() {
+		return textureSet;
 	}
 
-	public String getTileSetName() {
-		return tileSetName;
+	public String getTextureSetName() {
+		return textureSetName;
 	}
 
-	public int getTile() {
-		return tile;
+	public int getTexture() {
+		return texture;
 	}
 
 	public String getName() {
@@ -1306,8 +1306,8 @@ public class Monster extends Entity {
 				direction = CardinalPoint.valueOf(value);
 
 			} else if ("tiles".equalsIgnoreCase(name)) {
-				tileSetName = child.getAttribute("name");
-				tile = Integer.parseInt(child.getAttribute("id"));
+				textureSetName = child.getAttribute("name");
+				texture = Integer.parseInt(child.getAttribute("id"));
 
 			} else if ("pocket".equalsIgnoreCase(name)) {
 				itemsInPocket.add(child.getAttribute("item"));
@@ -1413,7 +1413,7 @@ public class Monster extends Entity {
 		damageDice.save("damage", writer);
 		hitDice.save("hitdice", writer);
 
-		writer.element("tiles").attribute("name", tileSetName).attribute("id", tile).pop();
+		writer.element("tiles").attribute("name", textureSetName).attribute("id", texture).pop();
 		writer.element("direction").attribute("value", direction.toString()).pop();
 
 		for (String name : itemsInPocket)

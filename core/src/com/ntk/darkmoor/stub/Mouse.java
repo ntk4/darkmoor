@@ -1,5 +1,7 @@
 package com.ntk.darkmoor.stub;
 
+import com.ntk.darkmoor.resource.TextureSet;
+
 public class Mouse {
 
 	public static void setTile(int i) {
@@ -7,7 +9,7 @@ public class Mouse {
 		
 	}
 
-	public static void loadTileSet(TileSet itemTileSet) {
+	public static void loadTextureSet(TextureSet itemTextureSet) {
 		// TODO Auto-generated method stub
 		
 	}

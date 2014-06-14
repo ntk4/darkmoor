@@ -12,9 +12,9 @@ import com.badlogic.gdx.utils.XmlReader.Element;
 import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.exception.InitializationException;
 import com.ntk.darkmoor.resource.Resources;
+import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.Mouse;
-import com.ntk.darkmoor.stub.TileSet;
 
 public class Dungeon {
 
@@ -22,8 +22,8 @@ public class Dungeon {
 
 	private HashMap<String, Maze> mazes;
 	private DungeonLocation startLocation;
-	private TileSet itemTileSet;
-	private String itemTileSetName;
+	private TextureSet itemTextureSet;
+	private String itemTextureSetName;
 	private boolean disposed;
 	private String note;
 	private String name;
@@ -43,27 +43,27 @@ public class Dungeon {
 			throw new InitializationException(e);
 		}
 
-		loadItemTileSet();
+		loadItemTextureSet();
 
 		for (Maze maze : mazes.values())
 			maze.init();
 
-		Mouse.loadTileSet(itemTileSet);
+		Mouse.loadTextureSet(itemTextureSet);
 
 		return true;
 	}
 
-	private boolean loadItemTileSet() {
-		if (StringUtils.isEmpty(itemTileSetName))
+	private boolean loadItemTextureSet() {
+		if (StringUtils.isEmpty(itemTextureSetName))
 			return false;
 
-		if (itemTileSet != null)
-			itemTileSet.dispose();
-		itemTileSet = null;
+		if (itemTextureSet != null)
+			itemTextureSet.dispose();
+		itemTextureSet = null;
 
-		itemTileSet = Resources.createAsset(TileSet.class, itemTileSetName);
+		itemTextureSet = Resources.createAsset(TextureSet.class, itemTextureSetName);
 
-		return itemTileSet != null;
+		return itemTextureSet != null;
 	}
 
 	public void dispose() {
@@ -71,9 +71,9 @@ public class Dungeon {
 			maze.dispose();
 		mazes.clear();
 
-		if (itemTileSet != null)
-			itemTileSet.dispose();
-		itemTileSet = null;
+		if (itemTextureSet != null)
+			itemTextureSet.dispose();
+		itemTextureSet = null;
 
 		startLocation = null;
 		note = "";
@@ -98,7 +98,7 @@ public class Dungeon {
 			name = child.getName();
 
 			if ("items".equalsIgnoreCase(name)) {
-				itemTileSetName = child.getAttribute("tileset");
+				itemTextureSetName = child.getAttribute("tileset");
 
 			} else if (Maze.TAG.equalsIgnoreCase(name)) {
 				String nameAttr = child.getAttribute("name");
@@ -124,7 +124,7 @@ public class Dungeon {
 
 		writer.element(TAG).attribute("name", name);
 
-		writer.element("items").attribute("tileset", itemTileSetName).pop();
+		writer.element("items").attribute("tileset", itemTextureSetName).pop();
 
 		for (Maze maze : mazes.values()) {
 			maze.save(writer);
@@ -213,7 +213,7 @@ public class Dungeon {
 		mazes.remove(name);
 	}
 
-	public TileSet getItemTileSet() {
+	public TextureSet getItemTextureSet() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -226,12 +226,12 @@ public class Dungeon {
 		this.startLocation = startLocation;
 	}
 
-	public String getItemTileSetName() {
-		return itemTileSetName;
+	public String getItemTextureSetName() {
+		return itemTextureSetName;
 	}
 
-	public void setItemTileSetName(String itemTileSetName) {
-		this.itemTileSetName = itemTileSetName;
+	public void setItemTextureSetName(String itemTextureSetName) {
+		this.itemTextureSetName = itemTextureSetName;
 	}
 
 	public String getNote() {

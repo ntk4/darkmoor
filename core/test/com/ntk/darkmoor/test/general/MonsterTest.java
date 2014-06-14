@@ -87,7 +87,7 @@ public class MonsterTest extends BaseTestCase {
 		assertEquals(monster1.getAttackSpeed(), monster2.getAttackSpeed());
 		assertEquals(monster1.getLocation(), monster2.getLocation());
 		assertEquals(monster1.getDirection(), monster2.getDirection());
-		assertEquals(monster1.getTile(), monster2.getTile());
+		assertEquals(monster1.getTexture(), monster2.getTexture());
 		assertEquals(monster1.getItemsInPocket().size(), monster2.getItemsInPocket().size());
 		// assertEquals(monster1.getScript(), monster2.getScript());
 		assertEquals(monster1.getDamageDice().getFaces(), monster2.getDamageDice().getFaces());

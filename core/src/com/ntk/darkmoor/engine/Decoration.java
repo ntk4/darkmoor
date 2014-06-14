@@ -18,7 +18,7 @@ public class Decoration {
 	public static final String TAG = "decoration";
 
 	private Vector2[] location;
-	private int[] tileIds;
+	private int[] textureIds;
 	private int onBashId;
 	private int onHackId;
 	private int onClickId;
@@ -31,7 +31,7 @@ public class Decoration {
 	private boolean hideItems;
 
 	public Decoration() {
-		tileIds = new int[16];
+		textureIds = new int[16];
 		location = new Vector2[] {//@formatter:off
 	        new Vector2(LOC_INIT_VAL, LOC_INIT_VAL), new Vector2(LOC_INIT_VAL, LOC_INIT_VAL), 
 	        new Vector2(LOC_INIT_VAL, LOC_INIT_VAL), new Vector2(LOC_INIT_VAL, LOC_INIT_VAL), 
@@ -47,17 +47,17 @@ public class Decoration {
 		onHackId = -1;
 		onClickId = -1;
 
-		for (int i = 0; i < tileIds.length; i++)
-			tileIds[i] = -1;
+		for (int i = 0; i < textureIds.length; i++)
+			textureIds[i] = -1;
 		swap = new boolean[16];
 	}
 
-	public int getTileId(ViewFieldPosition position) {
-		return tileIds[position.value()];
+	public int getTextureId(ViewFieldPosition position) {
+		return textureIds[position.value()];
 	}
 
-	public void setTileId(ViewFieldPosition position, int id) {
-		tileIds[position.value()] = id;
+	public void setTextureId(ViewFieldPosition position, int id) {
+		textureIds[position.value()] = id;
 	}
 
 	public Vector2 getLocation(ViewFieldPosition position) {
@@ -78,7 +78,7 @@ public class Decoration {
 
 	public void Clear() {
 		for (ViewFieldPosition pos : ViewFieldPosition.values()) {
-			setTileId(pos, -1);
+			setTextureId(pos, -1);
 			setLocation(pos, new Vector2());
 			setSwap(pos, false);
 		}
@@ -93,18 +93,18 @@ public class Decoration {
 		// Location of the decoration on the screen
 		Vector2 location = getLocation(position);
 
-		// Tile id
-		int tileid = getTileId(position);
+		// Texture id
+		int textureid = getTextureId(position);
 
 		// Offset the decoration if facing to the view point
 		if (alignView) {
 			location = prepareLocation(position);
-			tileid = prepareTile(position);
+			textureid = prepareTexture(position);
 		}
 
 		// TODO: ntk: uncomment when I find how to use Gdx for this
 		// Draws the decoration
-		// batch.drawTile(set.getTileSet(), tileid, location, Color.WHITE, 0.0f,
+		// batch.drawTexture(set.getTextureSet(), textureid, location, Color.WHITE, 0.0f,
 		// getSwap(position) ? SpriteEffects.FLIP_HORIZONTALLY : SpriteEffects.NONE, 0.0f);
 
 	}
@@ -156,7 +156,7 @@ public class Decoration {
 		return location;
 	}
 
-	public int prepareTile(ViewFieldPosition position) {
+	public int prepareTexture(ViewFieldPosition position) {
 		ViewFieldPosition[] pos = new ViewFieldPosition[] {//@formatter:off
 			ViewFieldPosition.C,	// A
 			ViewFieldPosition.C,	// B
@@ -179,7 +179,7 @@ public class Decoration {
 			ViewFieldPosition.O,	// O
 		};//@formatter:on
 
-		return getTileId(pos[position.value()]);
+		return getTextureId(pos[position.value()]);
 	}
 
 	public boolean load(XmlReader.Element node) {
@@ -202,9 +202,9 @@ public class Decoration {
 			} else {
 				try {
 					ViewFieldPosition pos = ViewFieldPosition.valueOf(child.getName());
-					tileIds[pos.value()] = Integer.parseInt(child.getAttribute("id"));
+					textureIds[pos.value()] = Integer.parseInt(child.getAttribute("id"));
 
-					if (tileIds[pos.value()] != -1) {
+					if (textureIds[pos.value()] != -1) {
 						location[pos.value()].x = Integer.parseInt(child.getAttribute("x"));
 						location[pos.value()].y = Integer.parseInt(child.getAttribute("y"));
 						swap[pos.value()] = Boolean.parseBoolean(child.getAttribute("swap"));
@@ -248,12 +248,12 @@ public class Decoration {
 		this.location = location;
 	}
 
-	public int[] getTileIds() {
-		return tileIds;
+	public int[] getTextureIds() {
+		return textureIds;
 	}
 
-	public void setTileIds(int[] tileIds) {
-		this.tileIds = tileIds;
+	public void setTextureIds(int[] textureIds) {
+		this.textureIds = textureIds;
 	}
 
 	public int getOnBashId() {

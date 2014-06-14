@@ -7,43 +7,44 @@ import org.ntk.commons.StringUtils;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.exception.LoadException;
+import com.ntk.darkmoor.exception.ResourceException;
 
-public class TextureSet {
+public class TextureSet implements Disposable {
 
 	public static final String TAG = "tileset";
 	private String name;
-	private String textureAtlasFile;
-	private TextureAtlas atlas;
+	private String textureFile;
+	private Texture texture;
+	private Sprite[] spriteCache;
 	private Array<TextureMetadata> metadata;
 
 	public TextureSet(int capacity) {
 		metadata = new Array<TextureMetadata>(capacity);
+		spriteCache = new Sprite[capacity];
 	}
 
-	private void loadAtlas() {
-		Texture texture = null;
-
+	private void loadTexture() {
+		texture = null;
 		// the file handle can be retrieved in a game, in JUnit it doesn't work
 		if (Gdx.files == null)
 			return;
 
-		FileHandle fh = Gdx.files.internal("data/" + textureAtlasFile.toLowerCase());
+		FileHandle fh = Gdx.files.internal("data/" + textureFile.toLowerCase());
 		if (fh != null) {
-			atlas = new TextureAtlas(fh);
 			texture = new Texture(fh);
+			// atlas = new TextureAtlas(fh);
 
-			for (TextureMetadata textureInfo : metadata) {
-
-				atlas.addRegion(name,
-						new TextureRegion(texture, textureInfo.getRectangle().x, textureInfo.getRectangle().y,
-								textureInfo.getRectangle().width, textureInfo.getRectangle().height));
-			}
+			// for (TextureMetadata textureInfo : metadata) {
+			// atlas.addRegion(String.valueOf(textureInfo.getId()), texture, (int) textureInfo.getRectangle().x,
+			// (int) textureInfo.getRectangle().y, (int) textureInfo.getRectangle().width,
+			// (int) textureInfo.getRectangle().height);
+			// }
 		}
 	}
 
@@ -68,12 +69,12 @@ public class TextureSet {
 				}
 
 			} else if ("texture".equalsIgnoreCase(name)) {
-				this.textureAtlasFile = child.getAttribute("file");
+				this.textureFile = child.getAttribute("file");
 			}
 		}
 
-		if (!StringUtils.isEmpty(textureAtlasFile)) {
-			loadAtlas();
+		if (!StringUtils.isEmpty(textureFile)) {
+			loadTexture();
 		}
 
 		return true;
@@ -84,7 +85,7 @@ public class TextureSet {
 			return false;
 
 		writer.element(TAG).attribute("name", name);
-		writer.element("texture").attribute("file", textureAtlasFile).pop();
+		writer.element("texture").attribute("file", textureFile).pop();
 
 		for (TextureMetadata texture : metadata) {
 			texture.save(writer);
@@ -92,6 +93,40 @@ public class TextureSet {
 
 		writer.pop();
 		return true;
+	}
+
+	public Sprite getSprite(int spriteId) {
+
+		if (spriteId >= 0 && spriteId < spriteCache.length && spriteCache[spriteId] != null)
+			return spriteCache[spriteId];
+
+		if (texture == null) {
+			loadTexture();
+		}
+		try {
+			TextureMetadata textureInfo = metadata.get(spriteId);
+
+			spriteCache[spriteId] = new Sprite(texture, (int) textureInfo.getRectangle().x,
+					(int) textureInfo.getRectangle().y, (int) textureInfo.getRectangle().width,
+					(int) textureInfo.getRectangle().height);
+
+			return spriteCache[spriteId];
+
+		} catch (Exception e) {
+			throw new ResourceException(e);
+		}
+	}
+
+	@Override
+	public void dispose() {
+		for (int i = 0; i < spriteCache.length; i++) {
+			if (spriteCache[i] != null)
+				spriteCache[i] = null;
+		}
+		if (texture != null)
+			texture.dispose();
+		metadata.clear();
+		metadata = null;
 	}
 
 	public static String getTag() {
@@ -103,10 +138,11 @@ public class TextureSet {
 	}
 
 	public String getTextureAtlasFile() {
-		return textureAtlasFile;
+		return textureFile;
 	}
 
 	public Array<TextureMetadata> getMetadata() {
 		return metadata;
 	}
+
 }

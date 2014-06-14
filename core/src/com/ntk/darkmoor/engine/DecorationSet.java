@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.ntk.commons.StringUtils;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -13,8 +14,7 @@ import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.resource.Resources;
-import com.ntk.darkmoor.stub.Tile;
-import com.ntk.darkmoor.stub.TileSet;
+import com.ntk.darkmoor.resource.TextureSet;
 
 public class DecorationSet {
 
@@ -22,9 +22,9 @@ public class DecorationSet {
 	
 	private Map<Integer, Decoration> decorations;
 	private boolean disposed;
-	private String tileSetName;
-	private TileSet tileset;
-	private String backgroundTileSet;
+	private String textureSetName;
+	private TextureSet textureSet;
+	private String backgroundTextureSet;
 
 	private Object name;
 
@@ -34,15 +34,15 @@ public class DecorationSet {
 	}
 
 	public boolean init() {
-		loadTileSet(tileSetName);
+		loadTextureSet(textureSetName);
 
 		return true;
 	}
 
 	public void dispose() {
-		if (tileset != null)
-			tileset.dispose();
-		tileset = null;
+		if (textureSet != null)
+			textureSet.dispose();
+		textureSet = null;
 
 		decorations = null;
 		disposed = true;
@@ -53,12 +53,12 @@ public class DecorationSet {
 		if (deco == null)
 			return false;
 
-		Tile tile = tileset.getTile(deco.getTileId(ViewFieldPosition.L));
-		if (tile == null)
+		Sprite sprite = textureSet.getSprite(deco.getTextureId(ViewFieldPosition.L));
+		if (sprite == null)
 			return false;
 
 		Vector2 rectLocation = deco.getLocation(ViewFieldPosition.L);
-		Rectangle zone = new Rectangle(rectLocation.x, rectLocation.y, tile.getWidth(), tile.getHeight());
+		Rectangle zone = new Rectangle(rectLocation.x, rectLocation.y, sprite.getWidth(), sprite.getHeight());
 
 		return zone.contains(location);
 	}
@@ -80,16 +80,16 @@ public class DecorationSet {
 		return deco;
 	}
 
-	public boolean loadTileSet(String name)
+	public boolean loadTextureSet(String name)
 	{
-		tileSetName = name;
+		textureSetName = name;
 
 		if (StringUtils.isEmpty(name))
 			return false;
 
-		tileset = Resources.createAsset(TileSet.class, tileSetName);
+		textureSet = Resources.createAsset(TextureSet.class, textureSetName);
 
-		return tileset != null;
+		return textureSet != null;
 	}
 	
 	public boolean isPointInside(int decoration, Vector2 location) {
@@ -122,7 +122,7 @@ public class DecorationSet {
 			XmlReader.Element child = node.getChild(i);
 
 			if ("tileset".equals(child.getName())) {
-				loadTileSet(child.getAttribute("name"));
+				loadTextureSet(child.getAttribute("name"));
 				
 			} else if ("decoration".equals(child.getName())) {
 				Decoration deco = new Decoration();
@@ -131,7 +131,7 @@ public class DecorationSet {
 				decorations.put(Integer.valueOf(id), deco);
 				
 			} else if ("editor".equals(child.getName())) {
-				backgroundTileSet = child.getAttribute("tileset");
+				backgroundTextureSet = child.getAttribute("tileset");
 				
 			}
 		}
@@ -144,9 +144,9 @@ public class DecorationSet {
 
 		writer.element(TAG).attribute("name", name);
 		
-		writer.element("tileset").attribute("name", tileSetName).pop();
+		writer.element("tileset").attribute("name", textureSetName).pop();
 		
-		writer.element("editor").attribute("tileset", backgroundTileSet).pop();
+		writer.element("editor").attribute("tileset", backgroundTextureSet).pop();
 		
 		for (Map.Entry<Integer, Decoration> decoration : decorations.entrySet()) {
 			decoration.getValue().save(writer, decoration.getKey());
@@ -157,20 +157,20 @@ public class DecorationSet {
 		return true;
 	}
 
-	public String getTileSetName() {
-		return tileSetName;
+	public String getTextureSetName() {
+		return textureSetName;
 	}
 
-	public void setTileSetName(String tileSetName) {
-		this.tileSetName = tileSetName;
+	public void setTextureSetName(String textureSetName) {
+		this.textureSetName = textureSetName;
 	}
 
-	public String getBackgroundTileSet() {
-		return backgroundTileSet;
+	public String getBackgroundTextureSet() {
+		return backgroundTextureSet;
 	}
 
-	public void setBackgroundTileSet(String backgroundTileSet) {
-		this.backgroundTileSet = backgroundTileSet;
+	public void setBackgroundTextureSet(String backgroundTextureSet) {
+		this.backgroundTextureSet = backgroundTextureSet;
 	}
 
 	public Object getName() {
@@ -193,8 +193,8 @@ public class DecorationSet {
 		return disposed;
 	}
 
-	public TileSet getTileset() {
-		return tileset;
+	public TextureSet getTextureSet() {
+		return textureSet;
 	}
 	
 }

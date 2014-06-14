@@ -20,11 +20,11 @@ import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.engine.graphics.TileDrawing;
 import com.ntk.darkmoor.resource.Resources;
+import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.AudioSample;
 import com.ntk.darkmoor.stub.Display;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.MouseButtons;
-import com.ntk.darkmoor.stub.TileSet;
 
 public class Door extends SquareActor {
 
@@ -84,11 +84,11 @@ public class Door extends SquareActor {
 
 	@Override
 	public void draw(SpriteBatch batch, ViewField field, ViewFieldPosition position, CardinalPoint view) {
-		if (getTileSet() == null)
+		if (getTextureSet() == null)
 			return;
 
 		TileDrawing td = null;
-		TileSet wall = getSquare().getMaze().getWallTileset();
+		TextureSet wall = getSquare().getMaze().getWallTileset();
 
 		// TODO: Under the door, draw sides
 		if (field.getBlock(ViewFieldPosition.L).isWall() && position == ViewFieldPosition.Team) {
@@ -213,7 +213,7 @@ public class Door extends SquareActor {
 	/**
 	 * 
 	 * @param batch
-	 * @param tileset
+	 * @param textureset
 	 * @param id
 	 * @param location
 	 * @param scissor
@@ -221,7 +221,7 @@ public class Door extends SquareActor {
 	 * @param color
 	 *            normally Gdx Color. Changed to int because it's helpful for the next method
 	 */
-	void internalDraw(SpriteBatch batch, TileSet tileset, int id, Vector2 location, Rectangle scissor, Vector2 scale,
+	void internalDraw(SpriteBatch batch, TextureSet textureset, int id, Vector2 location, Rectangle scissor, Vector2 scale,
 			int color) {
 		if (batch == null)
 			return;
@@ -234,7 +234,7 @@ public class Door extends SquareActor {
 
 		batch.begin();
 		// TODO: uncomment the next line (ONLY 1 line) after finding what drawTile corresponds to, in GDX
-		// batch.drawTile(tileset, id, location, color, 0.0f, scale, SpriteEffects.NONE, 0.0f);
+		// batch.drawTile(textureset, id, location, color, 0.0f, scale, SpriteEffects.NONE, 0.0f);
 		batch.end();
 
 		Display.popScissor();
@@ -283,16 +283,16 @@ public class Door extends SquareActor {
 
 		}
 
-		internalDraw(batch, getTileSet(), tileid, new Vector2(location.x, location.y + VPosition * 5), new Rectangle(
+		internalDraw(batch, getTextureSet(), tileid, new Vector2(location.x, location.y + VPosition * 5), new Rectangle(
 				location.x, location.y, 144, 150), scale, color);
 
 		// TODO: uncomment the next 2 lines after finding what drawTile corresponds to, in GDX
 		// if (hasButton)
-		// batch.drawTile(getTileSet(), 15, button, color, 0.0f, scale, SpriteEffects.NONE, 0.0f);
+		// batch.drawTile(getTextureSet(), 15, button, color, 0.0f, scale, SpriteEffects.NONE, 0.0f);
 
 	}
 
-	void DrawUpDownDoor(SpriteBatch batch, int tileid, Vector2 location, ViewFieldPosition distance) {
+	void DrawUpDownDoor(SpriteBatch batch, int textureID, Vector2 location, ViewFieldPosition distance) {
 		Vector2 scale = new Vector2();
 		int color = Color.WHITE.toIntBits();
 		Rectangle clip = new Rectangle();
@@ -345,16 +345,16 @@ public class Door extends SquareActor {
 		}
 
 		// Upper part
-		internalDraw(batch, getTileSet(), tileid, new Vector2(location.x, location.y + offset[0]), clip, scale, color);
+		internalDraw(batch, getTextureSet(), textureID, new Vector2(location.x, location.y + offset[0]), clip, scale, color);
 
 		// Lower part
-		internalDraw(batch, getTileSet(), tileid + 1, new Vector2(location.x, location.y + offset[1]), clip, scale,
+		internalDraw(batch, getTextureSet(), textureID + 1, new Vector2(location.x, location.y + offset[1]), clip, scale,
 				color);
 
 		// TODO: uncomment the next 2 lines after finding what drawTile corresponds to, in GDX
 		// Button
 		// if (hasButton)
-		// batch.DrawTile(getTileSet(), 13, button, color, 0.0f, scale, SpriteEffects.NONE, 0.0f);
+		// batch.DrawTile(getTextureSet(), 13, button, color, 0.0f, scale, SpriteEffects.NONE, 0.0f);
 
 	}
 
@@ -416,11 +416,11 @@ public class Door extends SquareActor {
 		return true;
 	}
 
-	private TileSet getTileSet() {
+	private TextureSet getTextureSet() {
 		if (getSquare() == null || getSquare().getMaze() == null)
 			return null;
 
-		return getSquare().getMaze().getDoorTileset();
+		return getSquare().getMaze().getDoorTextureset();
 	}
 
 	public Rectangle getButton() {

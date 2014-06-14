@@ -67,7 +67,7 @@ public class AlcoveActor extends SquareActor {
 			// Draw items in the alcove in front of the team
 			for (Item item : getSquare().getItemsFromSide(direction, side)) {
 				// TODO: draw the tile!
-				// batch.drawTile(getSquare().getMaze().getDungeon().getItemTileSet(), item.getGroundTileID(), loc,
+				// batch.drawTile(getSquare().getMaze().getDungeon().getItemTextureSet(), item.getGroundTileID(), loc,
 				// DisplayCoordinates.getDistantColor(position), 0.0f,
 				// DisplayCoordinates.getMonsterScaleFactor(position), SpriteEffects.NONE, 0.0f);
 			}

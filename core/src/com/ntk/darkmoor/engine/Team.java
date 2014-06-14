@@ -194,7 +194,7 @@ public class Team {
 			GameMessage.buildMessage(2, itemInHand.getName());
 
 			// Change cursor
-			Mouse.setTile(item.getTileID());
+			Mouse.setTile(item.getTextureID());
 		} else {
 			Mouse.setTile(0);
 		}

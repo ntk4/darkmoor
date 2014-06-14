@@ -126,11 +126,11 @@ public class Item {
 	private boolean big;
 	private int attackSpeed;
 	private byte armorClass;
-	private String tileSetName;
-	private int tileID;
-	private int groundTileID;
-	private int incomingTileID;
-	private int throwTileID;
+	private String textureSetName;
+	private int textureID;
+	private int groundTextureID;
+	private int incomingTextureID;
+	private int throwTextureID;
 	private Set<HeroHand> allowedHands;
 	private boolean cursed;
 	private boolean twoHanded;
@@ -174,9 +174,9 @@ public class Item {
 
 		writer.element("item").attribute("name", name);
 
-		writer.element("tile").attribute("name", tileSetName).attribute("inventory", tileID)
-				.attribute("ground", groundTileID).attribute("incoming", incomingTileID)
-				.attribute("moveaway", throwTileID).pop();
+		writer.element("tile").attribute("name", textureSetName).attribute("inventory", textureID)
+				.attribute("ground", groundTextureID).attribute("incoming", incomingTextureID)
+				.attribute("moveaway", throwTextureID).pop();
 
 		writer.element("type").attribute("value", type).pop();
 		writer.element("damagetype").attribute("value", damageType.value()).pop();
@@ -286,11 +286,11 @@ public class Item {
 				armorClass = Byte.parseByte(node.getAttribute("value"));
 
 			} else if ("tile".equalsIgnoreCase(childName)) {
-				tileSetName = node.getAttribute("name");
-				tileID = Integer.parseInt(node.getAttribute("inventory"));
-				groundTileID = Integer.parseInt(node.getAttribute("ground"));
-				incomingTileID = Integer.parseInt(node.getAttribute("incoming"));
-				throwTileID = Integer.parseInt(node.getAttribute("moveaway"));
+				textureSetName = node.getAttribute("name");
+				textureID = Integer.parseInt(node.getAttribute("inventory"));
+				groundTextureID = Integer.parseInt(node.getAttribute("ground"));
+				incomingTextureID = Integer.parseInt(node.getAttribute("incoming"));
+				throwTextureID = Integer.parseInt(node.getAttribute("moveaway"));
 
 			} else if ("classes".equalsIgnoreCase(childName)) {
 				allowedClasses = HeroClass.parse(node.getAttribute("value"));
@@ -467,44 +467,44 @@ public class Item {
 		this.armorClass = armorClass;
 	}
 
-	public String getTileSetName() {
-		return tileSetName;
+	public String getTextureSetName() {
+		return textureSetName;
 	}
 
-	public void setTileSetName(String tileSetName) {
-		this.tileSetName = tileSetName;
+	public void setTextureSetName(String textureSetName) {
+		this.textureSetName = textureSetName;
 	}
 
-	public int getTileID() {
-		return tileID;
+	public int getTextureID() {
+		return textureID;
 	}
 
-	public void setTileID(int tileID) {
-		this.tileID = tileID;
+	public void setTextureID(int textureID) {
+		this.textureID = textureID;
 	}
 
 	public int getGroundTileID() {
-		return groundTileID;
+		return groundTextureID;
 	}
 
-	public void setGroundTileID(int groundTileID) {
-		this.groundTileID = groundTileID;
+	public void setGroundTextureID(int groundTextureID) {
+		this.groundTextureID = groundTextureID;
 	}
 
-	public int getIncomingTileID() {
-		return incomingTileID;
+	public int getIncomingTextureID() {
+		return incomingTextureID;
 	}
 
-	public void setIncomingTileID(int incomingTileID) {
-		this.incomingTileID = incomingTileID;
+	public void setIncomingTextureID(int incomingTextureID) {
+		this.incomingTextureID = incomingTextureID;
 	}
 
-	public int getThrowTileID() {
-		return throwTileID;
+	public int getThrowTextureID() {
+		return throwTextureID;
 	}
 
-	public void setThrowTileID(int throwTileID) {
-		this.throwTileID = throwTileID;
+	public void setThrowTextureID(int throwTextureID) {
+		this.throwTextureID = throwTextureID;
 	}
 
 	public boolean isCursed() {

@@ -17,15 +17,15 @@ import com.ntk.darkmoor.engine.gui.MessageBox.DialogResult;
 import com.ntk.darkmoor.engine.gui.MessageBox.MessageBoxButtons;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
 import com.ntk.darkmoor.resource.Resources;
+import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.TileSet;
 
 public class DropNPCWindow extends BaseWindow {
 
 	private static final String WINDOW_TITLE = "Drop Character";
 
-	private TileSet tileSetInterface;
+	private TextureSet textureSetInterface;
 
 	private Color rectangleColor;
 
@@ -43,7 +43,7 @@ public class DropNPCWindow extends BaseWindow {
 			return;
 		}
 
-		tileSetInterface = Resources.lockSharedAsset(TileSet.class, "Interface");
+		textureSetInterface = Resources.lockSharedAsset(TextureSet.class, "Interface");
 
 		// Adds buttons
 		ScreenButton button;
@@ -148,12 +148,12 @@ public class DropNPCWindow extends BaseWindow {
 		return true;
 	}
 
-	public TileSet getTileSetInterface() {
-		return tileSetInterface;
+	public TextureSet getTextureSetInterface() {
+		return textureSetInterface;
 	}
 
-	public void setTileSetInterface(TileSet tileSetInterface) {
-		this.tileSetInterface = tileSetInterface;
+	public void setTextureSetInterface(TextureSet textureSetInterface) {
+		this.textureSetInterface = textureSetInterface;
 	}
 
 	public Color getRectangleColor() {

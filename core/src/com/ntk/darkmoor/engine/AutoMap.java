@@ -5,13 +5,13 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.ntk.darkmoor.engine.gui.GUI;
 import com.ntk.darkmoor.resource.Resources;
+import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.Display;
-import com.ntk.darkmoor.stub.TileSet;
 
 public class AutoMap extends ScreenAdapter {
 	
 	private SpriteBatch batch;
-	private TileSet tileSet;
+	private TextureSet textureSet;
 
 	public AutoMap(SpriteBatch batch) {
 		this.batch = batch;
@@ -21,7 +21,7 @@ public class AutoMap extends ScreenAdapter {
 	public void resume() {
 		super.resume();
 
-		this.tileSet = Resources.createAsset(TileSet.class, "AutoMap");
+		this.textureSet = Resources.createAsset(TextureSet.class, "AutoMap");
 	}
 
 	@Override
@@ -30,9 +30,9 @@ public class AutoMap extends ScreenAdapter {
 		
 		batch = null;
 		
-		if (tileSet != null) 
-			tileSet.dispose();
-		tileSet = null;
+		if (textureSet != null) 
+			textureSet.dispose();
+		textureSet = null;
 	}
 	
 	public void draw() {
@@ -43,14 +43,14 @@ public class AutoMap extends ScreenAdapter {
 
 		// TODO: ntk: uncomment the drawTile as soon as a Gdx equivalent is found
 		// Background
-//		batch.drawTile(tileSet, 1, new Vector2(), Color.WHITE);
+//		batch.drawTile(textureSet, 1, new Vector2(), Color.WHITE);
 
 		// Some WIP
 		GUI.getMenuFont().setColor(Color.WHITE);
 		GUI.getMenuFont().draw(batch, "TODO...", 100, 100);	
 
 		// Draw the cursor or the item in the hand
-//		batch.drawTile(tileSet, 0, Gdx.input.getX(), Gdx.input.getY(), Color.WHITE);
+//		batch.drawTile(textureSet, 0, Gdx.input.getX(), Gdx.input.getY(), Color.WHITE);
 
 		batch.end();
 	}
@@ -63,11 +63,11 @@ public class AutoMap extends ScreenAdapter {
 		this.batch = batch;
 	}
 
-	public TileSet getTileSet() {
-		return tileSet;
+	public TextureSet getTextureSet() {
+		return textureSet;
 	}
 
-	public void setTileSet(TileSet tileSet) {
-		this.tileSet = tileSet;
+	public void setTextureSet(TextureSet textureSet) {
+		this.textureSet = textureSet;
 	}
 }

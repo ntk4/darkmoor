@@ -15,8 +15,8 @@ import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.Square.SquareType;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
+import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.GameScreen;
-import com.ntk.darkmoor.stub.TileSet;
 
 public class Stair extends SquareActor {
 
@@ -45,7 +45,7 @@ public class Stair extends SquareActor {
 
 	@Override
 	public void draw(SpriteBatch batch, ViewField field, ViewFieldPosition position, CardinalPoint direction) {
-		if (getTileSet() == null)
+		if (getTextureSet() == null)
 			return;
 
 		// Upstair or downstair ?
@@ -53,7 +53,7 @@ public class Stair extends SquareActor {
 
 		// TODO: ntk: the following loop should be uncommented when drawTile is mapped to a GDX method
 		// for (TileDrawing tmp : DisplayCoordinates.getStairs(position))
-		// batch.drawTile(getTileSet(), tmp.getID()+ delta, tmp.getLocation(), Color.WHITE, 0.0f, tmp.getEffect(), 0.0f);
+		// batch.drawTile(getTextureSet(), tmp.getID()+ delta, tmp.getLocation(), Color.WHITE, 0.0f, tmp.getEffect(), 0.0f);
 
 	}
 
@@ -134,7 +134,7 @@ public class Stair extends SquareActor {
 		return true;
 	}
 
-	public TileSet getTileSet() {
+	public TextureSet getTextureSet() {
 		if (getSquare() == null)
 			return null;
 		

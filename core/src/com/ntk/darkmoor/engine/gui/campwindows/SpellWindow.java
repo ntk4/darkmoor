@@ -18,9 +18,9 @@ import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.engine.gui.GUI;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
+import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.TileSet;
 
 public class SpellWindow extends BaseWindow {
 
@@ -29,7 +29,7 @@ public class SpellWindow extends BaseWindow {
 	private Hero hero;
 	private CharSequence message;
 	private Set<HeroClass> filter;
-	private TileSet tileSetInterface;
+	private TextureSet textureSetInterface;
 	private int spellLevel;
 
 	public SpellWindow(CampDialog camp, Skin skin) {
@@ -92,7 +92,7 @@ public class SpellWindow extends BaseWindow {
 					// } else if (!currentHero.checkClass(filter)) {
 					// Ghost name
 					// TODO: ntk: find out how to draw tilesets and uncomment this
-					// batch.DrawTile(tileSetInterface, 31, new Vector2(368 + 144 * x, y * 104 + 4));
+					// batch.DrawTile(textureSetInterface, 31, new Vector2(368 + 144 * x, y * 104 + 4));
 				}
 			}
 		}
@@ -235,12 +235,12 @@ public class SpellWindow extends BaseWindow {
 		this.filter = filter;
 	}
 
-	public TileSet getTileSetInterface() {
-		return tileSetInterface;
+	public TextureSet getTextureSetInterface() {
+		return textureSetInterface;
 	}
 
-	public void setTileSetInterface(TileSet tileSetInterface) {
-		this.tileSetInterface = tileSetInterface;
+	public void setTextureSetInterface(TextureSet textureSetInterface) {
+		this.textureSetInterface = textureSetInterface;
 	}
 
 	public int getSpellLevel() {

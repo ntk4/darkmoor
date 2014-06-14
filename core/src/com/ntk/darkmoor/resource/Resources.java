@@ -2,15 +2,22 @@ package com.ntk.darkmoor.resource;
 
 import java.io.InputStream;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.ntk.darkmoor.exception.LoadException;
 
 public class Resources {
 
+	public static final String RESOURCE_PATH = "/data";
+	public static final String TEXTURE_SET_FILE = RESOURCE_PATH + "TextureSet.xml";
+	
 	private AssetManager assetManager;
+	private GraphicAssets graphicAssets;
 	
 	public Resources() {
 		assetManager = new AssetManager();
+		
 	}
 	
 	public Resources loadResources(String path) {
@@ -19,6 +26,7 @@ public class Resources {
 	}
 
 	public static <T> T createAsset(Class<T> class1, String name) {
+		
 		try {
 			return class1.newInstance();
 		} catch (InstantiationException e) {
@@ -29,6 +37,11 @@ public class Resources {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public static TextureSet createTextureSetAsset(String name) {
+		GraphicAssets textureAssets = new GraphicAssets(TEXTURE_SET_FILE);
+		return textureAssets.load(name);
 	}
 
 	public static <T> T lockSharedAsset(Class<T> class1, String name) {

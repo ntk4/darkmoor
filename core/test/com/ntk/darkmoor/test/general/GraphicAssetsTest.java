@@ -17,7 +17,7 @@ public class GraphicAssetsTest extends BaseTestCase {
 	@Test
 	public void testLoadInterfaceAssets() throws FileNotFoundException, IOException {
 
-		GraphicAssets assets = new GraphicAssets(TEST_RESOURCES + "TileSet.xml");
+		GraphicAssets assets = new GraphicAssets(TEST_RESOURCES + "TextureSet.xml");
 		TextureSet set = assets.load("Interface");
 		assertNotNull(set);
 		assertEquals("Interface", set.getName());
@@ -32,17 +32,17 @@ public class GraphicAssetsTest extends BaseTestCase {
 
 	@Test
 	public void testSaveDataToXml() throws FileNotFoundException, IOException {
-		GraphicAssets assets = new GraphicAssets(TEST_RESOURCES + "TileSet.xml");
+		GraphicAssets assets = new GraphicAssets(TEST_RESOURCES + "TextureSet.xml");
 		TextureSet set1 = assets.load("Interface");
 
 		
-		assets = new GraphicAssets(TEST_RESOURCES + "TileSet_temp.xml");
+		assets = new GraphicAssets(TEST_RESOURCES + "TextureSet_temp.xml");
 		assets.save(set1);
-		GraphicAssets assets2 = new GraphicAssets(TEST_RESOURCES + "TileSet_temp.xml");
+		GraphicAssets assets2 = new GraphicAssets(TEST_RESOURCES + "TextureSet_temp.xml");
 		TextureSet set2 = assets2.load("Interface");
 		
 
-		new File(TEST_RESOURCES + "TileSet_temp.xml").delete();
+		new File(TEST_RESOURCES + "TextureSet_temp.xml").delete();
 		compareTextureSets(set1, set2);
 	}
 

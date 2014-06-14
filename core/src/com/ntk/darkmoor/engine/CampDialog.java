@@ -36,7 +36,7 @@ public class CampDialog extends DialogBase {
 
 		// Restore item in hand cursor
 		if (team.getItemInHand() != null)
-			Mouse.setTile(team.getItemInHand().getTileID());
+			Mouse.setTile(team.getItemInHand().getTextureID());
 
 		super.exit();
 	}

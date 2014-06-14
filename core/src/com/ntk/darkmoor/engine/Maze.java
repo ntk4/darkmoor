@@ -24,10 +24,10 @@ import com.ntk.darkmoor.engine.actor.Stair;
 import com.ntk.darkmoor.engine.graphics.SpriteEffects;
 import com.ntk.darkmoor.engine.graphics.TileDrawing;
 import com.ntk.darkmoor.resource.Resources;
+import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.Display;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.TileSet;
 
 public class Maze {
 
@@ -41,11 +41,11 @@ public class Maze {
 	private int doorDeco;
 	private int floorPitDeco;
 	private boolean disposed;
-	private TileSet wallTileset;
+	private TextureSet wallTileset;
 	private String wallTilesetName;
 	private String decorationName;
 	private DecorationSet decoration;
-	private TileSet doorTileset;
+	private TextureSet doorTileset;
 	private String description;
 	private Vector2 size;
 	private Rectangle rectangle;
@@ -68,9 +68,9 @@ public class Maze {
 	}
 
 	public boolean init() {
-		loadWallTileSet();
+		loadWallTextureSet();
 		loadDecoration();
-		loadDoorTileSet();
+		loadDoorTextureSet();
 
 		for (List<Square> list : squares)
 			for (Square square : list) {
@@ -99,11 +99,11 @@ public class Maze {
 		return true;
 	}
 
-	private boolean loadDoorTileSet() {
+	private boolean loadDoorTextureSet() {
 		if (doorTileset != null)
 			doorTileset.dispose();
 
-		doorTileset = Resources.createSharedAsset(TileSet.class, "Doors", "Doors");
+		doorTileset = Resources.createSharedAsset(TextureSet.class, "Doors", "Doors");
 		if (doorTileset == null) {
 			Log.error("[Maze] Failed to create door tileset.");
 			return false;
@@ -128,10 +128,10 @@ public class Maze {
 		return true;
 	}
 
-	private boolean loadWallTileSet() {
-		Resources.unlockSharedAsset(TileSet.class, wallTileset);
+	private boolean loadWallTextureSet() {
+		Resources.unlockSharedAsset(TextureSet.class, wallTileset);
 
-		wallTileset = Resources.createSharedAsset(TileSet.class, wallTilesetName, wallTilesetName);
+		wallTileset = Resources.createSharedAsset(TextureSet.class, wallTilesetName, wallTilesetName);
 		if (wallTileset == null) {
 			Log.error("[Maze] Failed to create wall tileset for the maze \"" + name + "\".");
 			return false;
@@ -146,13 +146,13 @@ public class Maze {
 			for (Square square : list)
 				square.dispose();
 
-		Resources.unlockSharedAsset(TileSet.class, doorTileset);
+		Resources.unlockSharedAsset(TextureSet.class, doorTileset);
 		doorTileset = null;
 
 		Resources.unlockSharedAsset(DecorationSet.class, decoration);
 		decoration = null;
 
-		Resources.unlockSharedAsset(TileSet.class, wallTileset);
+		Resources.unlockSharedAsset(TextureSet.class, wallTileset);
 		wallTileset = null;
 
 		squares.clear();
@@ -565,7 +565,7 @@ public class Maze {
 						if (point.x != 0 || point.y != 0) // not is empty
 						{
 							// TODO: ntk: draw the texture
-							// batch.drawTile(dungeon.getItemTileSet(), item.getGroundTileID(), point,
+							// batch.drawTile(dungeon.getItemTextureSet(), item.getGroundTileID(), point,
 							// DisplayCoordinates.getDistantColor(position), 0.0f,
 							// DisplayCoordinates.getItemScaleFactor(position), SpriteEffects.NONE, 0.0f);
 						}
@@ -634,7 +634,7 @@ public class Maze {
 						if (point.x != 0 || point.y != 0) // not is empty
 						{
 							// TODO: ntk: draw the texture
-							// batch.drawTile(dungeon.getItemTileSet(), item.getGroundTileID(), point,
+							// batch.drawTile(dungeon.getItemTextureSet(), item.getGroundTileID(), point,
 							// DisplayCoordinates.getDistantColor(position), 0.0f,
 							// DisplayCoordinates.getItemScaleFactor(position), SpriteEffects.NONE, 0.0f);
 						}
@@ -673,7 +673,7 @@ public class Maze {
 
 			for (ThrownItem fi : flyings.get(pos.value())) {
 				// TODO: ntk: draw the texture
-				// batch.drawTile(dungeon.getItemTileSet(), fi.getItem().getThrowTileID(), point,
+				// batch.drawTile(dungeon.getItemTextureSet(), fi.getItem().getThrowTileID(), point,
 				// DisplayCoordinates.getDistantColor(position), 0.0f,
 				// DisplayCoordinates.getItemScaleFactor(position), fx, 0.0f);
 			}
@@ -919,7 +919,7 @@ public class Maze {
 		return disposed;
 	}
 
-	public TileSet getWallTileset() {
+	public TextureSet getWallTileset() {
 		return wallTileset;
 	}
 
@@ -927,7 +927,7 @@ public class Maze {
 		return decoration;
 	}
 
-	public TileSet getDoorTileset() {
+	public TextureSet getDoorTextureset() {
 		return doorTileset;
 	}
 

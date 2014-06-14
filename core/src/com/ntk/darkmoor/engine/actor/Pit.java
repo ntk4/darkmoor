@@ -56,7 +56,7 @@ public class Pit extends SquareActor {
 			decoration.draw(batch, field.getMaze().getFloorPitDeco(), position);
 		// TODO (ntk: commented also in the original code)
 		// if (td != null && !IsHidden)
-		// batch.DrawTile(TileSet, td.ID, td.Location, Color.White, 0.0f, td.Effect, 0.0f);
+		// batch.DrawTile(TextureSet, td.ID, td.Location, Color.White, 0.0f, td.Effect, 0.0f);
 	}
 	
 	@Override

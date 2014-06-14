@@ -5,7 +5,12 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-	SettingsTest.class, HeroTest.class, MonsterTest.class, ItemTest.class, LanguagesManagerTest.class
+	SettingsTest.class,
+	HeroTest.class,
+	MonsterTest.class,
+	ItemTest.class,
+	LanguagesManagerTest.class,
+	GraphicAssetsTest.class
 })
 public class DarkmoorTestSuite {
 

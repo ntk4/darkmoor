@@ -12,12 +12,12 @@ import com.ntk.darkmoor.engine.Hero.HeroClass;
 import com.ntk.darkmoor.engine.Item.ItemType;
 import com.ntk.darkmoor.engine.gui.GUI;
 import com.ntk.darkmoor.resource.Resources;
+import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.TileSet;
 
 public class SpellBook {
 	private int spellLevel;
-	private TileSet tileSet;
+	private TextureSet textureSet;
 	private Hero hero;
 	private HeroClass heroClass;
 	private boolean visible;
@@ -28,12 +28,12 @@ public class SpellBook {
 	}
 
 	public void loadContent() {
-		tileSet = Resources.lockSharedAsset(TileSet.class, "Interface");
+		textureSet = Resources.lockSharedAsset(TextureSet.class, "Interface");
 	}
 
 	public void Dispose() {
-		Resources.unlockSharedAsset(TileSet.class, tileSet);
-		tileSet = null;
+		Resources.unlockSharedAsset(TextureSet.class, textureSet);
+		textureSet = null;
 	}
 
 	/**
@@ -72,13 +72,13 @@ public class SpellBook {
 
 		// Main window
 		// TODO: ntk: draw the tile
-		// batch.drawTile(tileSet, 23, new Vector2(mainRectangle.x, mainRectangle.Y - 2));
+		// batch.drawTile(textureSet, 23, new Vector2(mainRectangle.x, mainRectangle.Y - 2));
 
 		// Levels
 		for (int level = 1; level <= 6; level++) {
 			int id = spellLevel == level ? 24 : 25;
 			// TODO: ntk: draw the tile
-			// batch.drawTile(tileSet, id, new Vector2(mainRectangle.x + level * 36 - 36, mainRectangle.Top - 20));
+			// batch.drawTile(textureSet, id, new Vector2(mainRectangle.x + level * 36 - 36, mainRectangle.Top - 20));
 			GUI.getDialogFont().setColor(Color.BLACK);
 			GUI.getDialogFont().draw(batch, String.valueOf(level), mainRectangle.x + level * 36 + 12 - 36,
 					mainRectangle.y - 20 + 4);
@@ -102,7 +102,7 @@ public class SpellBook {
 
 		// Abort spell
 		// TODO: ntk: draw the tile
-		// batch.drawTile(tileSet, 30, new Vector2(142, 336));
+		// batch.drawTile(textureSet, 30, new Vector2(142, 336));
 
 		// Abort spell
 		if (new Rectangle(mainRectangle.x + 2, mainRectangle.y + mainRectangle.height - 14, mainRectangle.width - 56,
@@ -115,8 +115,8 @@ public class SpellBook {
 
 		// Next & previous buttons
 		// TODO: ntk: draw the buttons
-		// batch.draw(tileSet, 28, new Vector2(298, 336));
-		// batch.draw(tileSet, 29, new Vector2(326, 336));
+		// batch.draw(textureSet, 28, new Vector2(298, 336));
+		// batch.draw(textureSet, 29, new Vector2(326, 336));
 	}
 
 	public void update(GameTime time) {
@@ -172,8 +172,8 @@ public class SpellBook {
 		return spellLevel;
 	}
 
-	public TileSet getTileSet() {
-		return tileSet;
+	public TextureSet getTextureSet() {
+		return textureSet;
 	}
 
 	public Hero getHero() {
