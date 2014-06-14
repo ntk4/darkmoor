@@ -31,13 +31,13 @@ public class GameMessage {
 		}
 		// language.setLanguageName(Settings.getLastLoadedInstance().getLanguage());
 
-		font = Resources.createSharedAsset(BitmapFont.class, "inventory", "inventory");
+		font = Resources.createSharedFontAsset("inventory");
 
 		return true;
 	}
 
 	public static void dispose() {
-		Resources.unlockSharedAsset(BitmapFont.class, font);
+		Resources.unlockSharedFontAsset(font);
 		font = null;
 	}
 

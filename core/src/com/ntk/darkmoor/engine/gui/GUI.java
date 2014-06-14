@@ -18,8 +18,8 @@ public class GUI {
 	private static ShapeRenderer shapeRenderer;
 
 	static {
-		menuFont = Resources.lockSharedAsset(BitmapFont.class, "intro");
-		dialogFont = Resources.lockSharedAsset(BitmapFont.class, "inventory");
+		menuFont = Resources.lockSharedFontAsset("intro");
+		dialogFont = Resources.lockSharedFontAsset("inventory");
 
 		shapeRenderer = new ShapeRenderer();
 	}

@@ -197,7 +197,7 @@ public class Square {
 
 			} else if ("item".equalsIgnoreCase(name)) {
 				SquarePosition loc = SquarePosition.valueOf(child.getAttribute("location"));
-				Item item = Resources.createAsset(Item.class, child.getAttribute("name"));
+				Item item = Resources.createItemAsset(child.getAttribute("name"));
 				if (item != null)
 					items.get(loc.value()).add(item);
 

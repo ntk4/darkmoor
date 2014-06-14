@@ -28,7 +28,7 @@ public class IntroScreen extends GameScreen {
 		// Scene.Font.GlyphTileset.Scale = new Vector2(2, 2);
 		scene.getLanguagesManager().setLanguage(Settings.getLastLoadedInstance().getLanguage());
 
-		font = Resources.createAsset(BitmapFont.class, "intro");
+		font = Resources.createFontAsset("intro");
 		// Font.GlyphTileset.Scale = new Vector2(2, 2);
 
 		spriteBatch = new SpriteBatch();
