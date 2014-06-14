@@ -177,7 +177,7 @@ public class Monster extends Entity {
 	}
 
 	public void dispose() {
-		Resources.unlockSharedAsset(TextureSet.class, textureSet);
+		Resources.unlockSharedTextureSetAsset(textureSet);
 		textureSet = null;
 
 		disposed = true;
@@ -343,7 +343,7 @@ public class Monster extends Entity {
 		// Trace.WriteDebugLine("[Monster] {0} spawn at {1}.", Name, getLocation().ToStringShort());
 
 		// tileset
-		textureSet = Resources.createSharedAsset(TextureSet.class, textureSetName, textureSetName);
+		textureSet = Resources.createSharedTextureSetAsset(textureSetName, textureSetName);
 
 		// Give a weapon to the monster
 		if (!StringUtils.isEmpty(weaponName))

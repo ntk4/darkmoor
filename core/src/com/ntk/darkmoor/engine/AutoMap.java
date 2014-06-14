@@ -21,7 +21,7 @@ public class AutoMap extends ScreenAdapter {
 	public void resume() {
 		super.resume();
 
-		this.textureSet = Resources.createAsset(TextureSet.class, "AutoMap");
+		this.textureSet = Resources.createTextureSetAsset("AutoMap");
 	}
 
 	@Override

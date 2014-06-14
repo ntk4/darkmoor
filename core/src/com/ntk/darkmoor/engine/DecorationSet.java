@@ -87,7 +87,7 @@ public class DecorationSet {
 		if (StringUtils.isEmpty(name))
 			return false;
 
-		textureSet = Resources.createAsset(TextureSet.class, textureSetName);
+		textureSet = Resources.createTextureSetAsset(textureSetName);
 
 		return textureSet != null;
 	}

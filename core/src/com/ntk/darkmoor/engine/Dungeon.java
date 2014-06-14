@@ -61,7 +61,7 @@ public class Dungeon {
 			itemTextureSet.dispose();
 		itemTextureSet = null;
 
-		itemTextureSet = Resources.createAsset(TextureSet.class, itemTextureSetName);
+		itemTextureSet = Resources.createTextureSetAsset(itemTextureSetName);
 
 		return itemTextureSet != null;
 	}

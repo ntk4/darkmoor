@@ -44,6 +44,10 @@ public class Resources {
 		return textureAssets.load(name);
 	}
 
+	public static TextureSet loadSharedTextureSetAsset(String name) {
+		return null;
+	}
+	
 	public static <T> T lockSharedAsset(Class<T> class1, String name) {
 		// TODO Auto-generated method stub
 		return null;
@@ -60,6 +64,21 @@ public class Resources {
 	}
 
 	public static <T> T unlockSharedAsset(Class<T> class1, Object obj) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static TextureSet createSharedTextureSetAsset(String wallTilesetName, String wallTilesetName2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static void unlockSharedTextureSetAsset(TextureSet wallTileset) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static TextureSet lockSharedTextureSetAsset(String string) {
 		// TODO Auto-generated method stub
 		return null;
 	}

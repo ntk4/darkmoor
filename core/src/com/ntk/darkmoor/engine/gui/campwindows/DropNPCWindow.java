@@ -43,7 +43,7 @@ public class DropNPCWindow extends BaseWindow {
 			return;
 		}
 
-		textureSetInterface = Resources.lockSharedAsset(TextureSet.class, "Interface");
+		textureSetInterface = Resources.loadSharedTextureSetAsset("Interface");
 
 		// Adds buttons
 		ScreenButton button;

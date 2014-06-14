@@ -103,7 +103,7 @@ public class Maze {
 		if (doorTileset != null)
 			doorTileset.dispose();
 
-		doorTileset = Resources.createSharedAsset(TextureSet.class, "Doors", "Doors");
+		doorTileset = Resources.createSharedTextureSetAsset("Doors", "Doors");
 		if (doorTileset == null) {
 			Log.error("[Maze] Failed to create door tileset.");
 			return false;
@@ -129,9 +129,9 @@ public class Maze {
 	}
 
 	private boolean loadWallTextureSet() {
-		Resources.unlockSharedAsset(TextureSet.class, wallTileset);
+		Resources.unlockSharedTextureSetAsset(wallTileset);
 
-		wallTileset = Resources.createSharedAsset(TextureSet.class, wallTilesetName, wallTilesetName);
+		wallTileset = Resources.createSharedTextureSetAsset(wallTilesetName, wallTilesetName);
 		if (wallTileset == null) {
 			Log.error("[Maze] Failed to create wall tileset for the maze \"" + name + "\".");
 			return false;
@@ -146,13 +146,13 @@ public class Maze {
 			for (Square square : list)
 				square.dispose();
 
-		Resources.unlockSharedAsset(TextureSet.class, doorTileset);
+		Resources.unlockSharedTextureSetAsset(doorTileset);
 		doorTileset = null;
 
 		Resources.unlockSharedAsset(DecorationSet.class, decoration);
 		decoration = null;
 
-		Resources.unlockSharedAsset(TextureSet.class, wallTileset);
+		Resources.unlockSharedTextureSetAsset(wallTileset);
 		wallTileset = null;
 
 		squares.clear();
