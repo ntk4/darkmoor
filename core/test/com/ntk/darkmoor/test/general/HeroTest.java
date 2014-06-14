@@ -3,14 +3,12 @@ package com.ntk.darkmoor.test.general;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
 import org.junit.Test;
 
-import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Entity.EntityAlignment;
@@ -19,7 +17,6 @@ import com.ntk.darkmoor.engine.Hero.HeroClass;
 import com.ntk.darkmoor.engine.Hero.InventoryPosition;
 
 public class HeroTest extends BaseTestCase {
-
 
 	@Test
 	public void testLoadHeroFromXml() throws FileNotFoundException, IOException {
@@ -62,7 +59,8 @@ public class HeroTest extends BaseTestCase {
 		assertEquals(32505, hero1.getProfession(HeroClass.Paladin).getExperience());
 	}
 
-	@Test(expected=AssertionError.class) //it should work as soon as items are loaded as resources
+	@Test(expected = AssertionError.class)
+	// it should work as soon as items are loaded as resources
 	public void testLoadHeroItemsFromXml() throws FileNotFoundException, IOException {
 		Element root = loadXml(TEST_RESOURCES + "hero1.xml");
 		assertNotNull(root);
@@ -75,27 +73,27 @@ public class HeroTest extends BaseTestCase {
 		assertEquals(null, hero1.getWaistPackItem(2).getName());
 		assertEquals("short sword", hero1.getInventoryItem(InventoryPosition.Primary));
 	}
-	
+
 	@Test
 	public void testSaveHeroToXml() throws FileNotFoundException, IOException {
 		Element root = loadXml(TEST_RESOURCES + "hero1.xml");
 		assertNotNull(root);
 		Hero hero1 = new Hero();
 		hero1.load(root);
-		
-//		 StringWriter writer = new StringWriter();
-		 
-		 FileWriter writer = new FileWriter(TEST_RESOURCES + "hero1_save.xml");
-		 XmlWriter xml = new XmlWriter(writer);
+
+		// StringWriter writer = new StringWriter();
+
+		FileWriter writer = new FileWriter(TEST_RESOURCES + "hero1_save.xml");
+		XmlWriter xml = new XmlWriter(writer);
 		hero1.save(xml);
 		xml.close();
-//		System.out.println(writer.toString());
+		// System.out.println(writer.toString());
 		root = loadXml(TEST_RESOURCES + "hero1_save.xml");
 		assertNotNull(root);
 		Hero hero1_saved = new Hero();
 		hero1_saved.load(root);
-		
-		compareHeroes(hero1,hero1_saved);
+
+		compareHeroes(hero1, hero1_saved);
 	}
 
 	private void compareHeroes(Hero hero1, Hero hero2) {
@@ -128,7 +126,7 @@ public class HeroTest extends BaseTestCase {
 
 		assertNotNull(hero1.getProfessions());
 		assertEquals(hero1.getProfessionsCount(), hero2.getProfessionsCount());
-		for (int i=0;i<hero1.getProfessionsCount();i++) {
+		for (int i = 0; i < hero1.getProfessionsCount(); i++) {
 			assertEquals(hero1.getProfession(i).getHeroClass(), hero2.getProfession(i).getHeroClass());
 			assertEquals(hero1.getProfession(i).getLevel(), hero2.getProfession(i).getLevel());
 			assertEquals(hero1.getProfession(i).getExperience(), hero2.getProfession(i).getExperience());
