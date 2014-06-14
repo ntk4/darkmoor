@@ -11,13 +11,13 @@ import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.config.GameMechanics;
 import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.HandAction.ActionResult;
 import com.ntk.darkmoor.engine.Item.BodySlot;
 import com.ntk.darkmoor.engine.Item.ItemType;
 import com.ntk.darkmoor.resource.Resources;
-import com.ntk.darkmoor.stub.GameMechanics;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameTime;
 

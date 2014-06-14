@@ -7,10 +7,8 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.ntk.darkmoor.config.LanguagesManager;
 import com.ntk.darkmoor.config.Log;
-import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.GameTime;
-import com.ntk.darkmoor.stub.StringTable;
 
 public class GameMessage {
 

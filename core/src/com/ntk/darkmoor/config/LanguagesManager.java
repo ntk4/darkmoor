@@ -21,6 +21,7 @@ public class LanguagesManager {
 	private HashMap<String, String> messages = null;
 	/** String table file from which the instance was loaded */
 	private String fileName;
+	/** Current language setting (set by LanguagesManager users from Settings class) */
 	private String language;
 
 	private LanguagesManager(String stringTableFile) {

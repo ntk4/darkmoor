@@ -6,7 +6,7 @@ import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
-import com.ntk.darkmoor.stub.GameMechanics;
+import com.ntk.darkmoor.config.GameMechanics;
 
 public class Dice implements Cloneable {
 

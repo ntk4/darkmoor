@@ -8,8 +8,8 @@ import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.config.GameMechanics;
 import com.ntk.darkmoor.config.Log;
-import com.ntk.darkmoor.stub.GameMechanics;
 
 public abstract class Entity {
 

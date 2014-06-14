@@ -1,4 +1,4 @@
-package com.ntk.darkmoor.stub;
+package com.ntk.darkmoor.config;
 
 import java.util.Random;
 
