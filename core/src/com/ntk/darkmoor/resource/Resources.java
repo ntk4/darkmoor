@@ -2,18 +2,17 @@ package com.ntk.darkmoor.resource;
 
 import java.io.InputStream;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.ntk.darkmoor.exception.LoadException;
+import com.ntk.darkmoor.config.LanguagesManager;
 
 public class Resources {
 
 	public static final String RESOURCE_PATH = "/data";
+	public static final String STRING_TABLE_FILE = RESOURCE_PATH + LanguagesManager.DEFAULT_FILE;
 	public static final String TEXTURE_SET_FILE = RESOURCE_PATH + "TextureSet.xml";
 	
 	private AssetManager assetManager;
-	private GraphicAssets graphicAssets;
+//	private GraphicAssets graphicAssets;
 	
 	public Resources() {
 		assetManager = new AssetManager();
@@ -58,7 +57,7 @@ public class Resources {
 		return null;
 	}
 
-	public static <T> T  createSharedAsset(Class<T> class1, String string, String string2) {
+	public static <T> T createSharedAsset(Class<T> class1, String string, String string2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -81,5 +80,9 @@ public class Resources {
 	public static TextureSet lockSharedTextureSetAsset(String string) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public static void loadGameStartupResources() {
+		LanguagesManager.getInstance(STRING_TABLE_FILE);
 	}
 }

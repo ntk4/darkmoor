@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.ntk.darkmoor.config.LanguagesManager;
 import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.resource.Resources;
@@ -14,7 +15,7 @@ import com.ntk.darkmoor.stub.StringTable;
 public class GameMessage {
 
 	private static ArrayList<ScreenMessage> messages;
-	private static StringTable language;
+	private static LanguagesManager language;
 	private static BitmapFont font;
 
 	static {
@@ -25,12 +26,12 @@ public class GameMessage {
 	public static boolean init() {
 
 		// Language
-		language = Resources.createAsset(StringTable.class, "game");
+		language = LanguagesManager.getInstance();// "game");
 		if (language == null) {
 			Log.error("ERROR !!! No StringTable defined for the game !!!");
 			return false;
 		}
-		language.setLanguageName(Settings.getLastLoadedInstance().getLanguage());
+		// language.setLanguageName(Settings.getLastLoadedInstance().getLanguage());
 
 		font = Resources.createSharedAsset(BitmapFont.class, "inventory", "inventory");
 
@@ -78,7 +79,7 @@ public class GameMessage {
 	}
 
 	public static void buildMessage(int id, Object... args) {
-		addMessage(language.buildMessage(id, args));
+		addMessage(language.buildMessage("game", id, args));
 	}
 
 	public static void addMessage(String msg) {
@@ -103,7 +104,7 @@ public class GameMessage {
 		return messages;
 	}
 
-	public static StringTable getLanguage() {
+	public static LanguagesManager getLanguage() {
 		return language;
 	}
 

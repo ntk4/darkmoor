@@ -17,6 +17,7 @@ public class DarkmoorGame extends ApplicationAdapter {
 		resources = new Resources().loadResources("./data");
 		batch = new SpriteBatch();
 		img = new Texture("EOB2.jpg"); //size: 700x899
+		Resources.loadGameStartupResources();
 	}
 
 	@Override

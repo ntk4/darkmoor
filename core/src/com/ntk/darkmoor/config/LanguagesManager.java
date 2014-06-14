@@ -13,18 +13,20 @@ import com.badlogic.gdx.utils.XmlReader.Element;
 
 public class LanguagesManager {
 	private static LanguagesManager _instance = null;
+	public static final String DEFAULT_FILE = "StringTable.xml";
 
 	private static final String LANGUAGES_FILE = "data/languages.xml";
-	// private static final String DEFAULT_LANGUAGE = "English";
+	private static final String DEFAULT_LANGUAGE = "English";
 
-	// private HashMap<String, HashMap<String, String>> _strings = null;
 	private HashMap<String, String> messages = null;
-
-	// private String _languageName = null;
+	/** String table file from which the instance was loaded */
+	private String fileName;
+	private String language;
 
 	private LanguagesManager(String stringTableFile) {
 		// Create language map
 		messages = new HashMap<String, String>();
+		fileName = stringTableFile;
 
 		InputStream inputStream = null;
 		if (new File(stringTableFile).exists()) {
@@ -37,18 +39,34 @@ public class LanguagesManager {
 			inputStream = Gdx.files.internal(LANGUAGES_FILE).read();
 		}
 
-		loadLanguage(inputStream);
+		loadMessages(inputStream);
 	}
 
 	public static LanguagesManager getInstance(String stringTableFile) {
 		if (_instance == null) {
+			_instance = new LanguagesManager(stringTableFile);
+		} else if (!_instance.fileName.equalsIgnoreCase(stringTableFile)) {
+			_instance.dispose();
 			_instance = new LanguagesManager(stringTableFile);
 		}
 
 		return _instance;
 	}
 
-	public String getString(String languageName, String section, String key) {
+	public static LanguagesManager getInstance() {
+		if (_instance == null) {
+			_instance = new LanguagesManager(DEFAULT_FILE);
+		}
+
+		return _instance;
+	}
+
+	private void dispose() {
+		messages.clear();
+		messages = null;
+	}
+
+	public String getString(String languageName, String section, int key) {
 		String string;
 
 		if (messages != null) {
@@ -60,11 +78,18 @@ public class LanguagesManager {
 			}
 		}
 
-		// Key not found, return the key itself
-		return key;
+		// Key not found, return an explaining message
+		return String.format("Key %d not found in string table", key);
 	}
 
-	public boolean loadLanguage(InputStream inputStream) {
+	public String buildMessage(String section, int id, Object[] args) {
+		String message = getString(language == null ? DEFAULT_LANGUAGE : language, section, id);
+		if (message != null)
+			return String.format(message, args);
+		return "";
+	}
+
+	private boolean loadMessages(InputStream inputStream) {
 		try {
 			XmlReader reader = new XmlReader();
 			Element root = reader.parse(inputStream);
@@ -99,4 +124,17 @@ public class LanguagesManager {
 
 		return false;
 	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+
 }

@@ -1,10 +1,11 @@
 package com.ntk.darkmoor.stub;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.ntk.darkmoor.config.LanguagesManager;
 
 public class Scene {
 
-	public StringTable getStringTable() {
+	public LanguagesManager getLanguagesManager() {
 		return null;
 	}
 
