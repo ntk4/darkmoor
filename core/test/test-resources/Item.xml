@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<bank>
+	<item name="boots">
+		<tile name="Items" inventory="103" ground="13" incoming="13" moveaway="13" />
+		<type value="Adornment" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Feet" />
+		<classes value="Ranger, Mage, Thief" />
+		<weight value="2000" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="Boots" />
+		<allowedhands value="Primary" />
+		<shortname>boots</shortname>
+		<identifiedname>The Super Boots!</identifiedname>
+		<speed value="1000" />
+	</item>
+</bank>

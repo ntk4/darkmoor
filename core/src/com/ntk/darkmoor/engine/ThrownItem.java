@@ -188,8 +188,8 @@ public class ThrownItem {
 			if ("location".equalsIgnoreCase(name)) {
 				location.load(child);
 			} else if ("item".equalsIgnoreCase(name)) {
-				Item item = Resources.createItemAsset("Main"); // ntk: how is this used??
-				this.item = Resources.createItemAsset(child.getAttribute("name"));
+				Item item = Resources.getItemAsset("Main"); // ntk: how is this used??
+				this.item = Resources.getItemAsset(child.getAttribute("name"));
 			} else if ("distance".equalsIgnoreCase(name)) {
 				distance = Integer.parseInt(child.getAttribute("value"));
 			} else if ("speed".equalsIgnoreCase(name)) {

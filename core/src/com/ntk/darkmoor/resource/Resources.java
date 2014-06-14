@@ -119,7 +119,7 @@ public class Resources {
 		}
 	}
 
-	public static Item createItemAsset(String name) {
-		return null;
+	public static Item getItemAsset(String name) {
+		return ItemAssets.getItem(name);
 	}
 }

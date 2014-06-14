@@ -330,7 +330,7 @@ public class Monster extends Entity {
 
 		// Drop items on the ground
 		for (String item : itemsInPocket)
-			square.dropItem(position, Resources.createItemAsset(item));
+			square.dropItem(position, Resources.getItemAsset(item));
 
 		// Reward the team
 		for (Hero hero : GameScreen.getTeam().getHeroes())
@@ -347,7 +347,7 @@ public class Monster extends Entity {
 
 		// Give a weapon to the monster
 		if (!StringUtils.isEmpty(weaponName))
-			weapon = Resources.createItemAsset(weaponName);
+			weapon = Resources.getItemAsset(weaponName);
 
 		// Last time updated
 		lastUpdate = new Date().getTime();

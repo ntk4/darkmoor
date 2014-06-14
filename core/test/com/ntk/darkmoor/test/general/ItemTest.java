@@ -1,11 +1,12 @@
 package com.ntk.darkmoor.test.general;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
 
 import org.junit.Test;
 
@@ -13,12 +14,20 @@ import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Hero.HeroClass;
 import com.ntk.darkmoor.engine.Hero.HeroHand;
+import com.ntk.darkmoor.engine.Item;
 import com.ntk.darkmoor.engine.Item.BodySlot;
 import com.ntk.darkmoor.engine.Item.ItemType;
-import com.ntk.darkmoor.engine.Item;
+import com.ntk.darkmoor.resource.ItemAssets;
 
 public class ItemTest extends BaseTestCase {
 
+	@Test
+	public void testItemAssets() throws FileNotFoundException, IOException {
+		ItemAssets.getInstance(TEST_RESOURCES + "Item.xml"); //initialization only
+		Item boots = ItemAssets.getItem("boots");
+		testItemAttributes(boots);
+	}
+	
 	@Test
 	public void testLoadItemFromXml() throws FileNotFoundException, IOException {
 		Element root = loadXml(TEST_RESOURCES + "item1.xml");

@@ -205,15 +205,15 @@ public class Hero extends Entity {
 
 			if ("inventory".equalsIgnoreCase(name)) {
 				setInventoryItem(InventoryPosition.valueOf(child.getAttribute("position")),
-						Resources.createItemAsset(child.getAttribute("name")));
+						Resources.getItemAsset(child.getAttribute("name")));
 
 			} else if ("waist".equalsIgnoreCase(name)) {
 				setWaistPackItem(Integer.parseInt(child.getAttribute("position")),
-						Resources.createItemAsset(child.getAttribute("name")));
+						Resources.getItemAsset(child.getAttribute("name")));
 
 			} else if ("backpack".equalsIgnoreCase(name)) {
 				setBackPackItem(Integer.parseInt(child.getAttribute("position")),
-						Resources.createItemAsset(child.getAttribute("name")));
+						Resources.getItemAsset(child.getAttribute("name")));
 
 			} else if ("quiver".equalsIgnoreCase(name)) {
 				quiver = Integer.parseInt(child.getAttribute("count"));
@@ -812,7 +812,7 @@ public class Hero extends Entity {
 				if (quiver > 0) {
 					team.getMaze()
 							.getThrownItems()
-							.add(new ThrownItem(this, Resources.createItemAsset("Arrow"), loc, 250,
+							.add(new ThrownItem(this, Resources.getItemAsset("Arrow"), loc, 250,
 									Integer.MAX_VALUE));
 					quiver--;
 				} else
