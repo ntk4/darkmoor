@@ -19,7 +19,7 @@ public class ResourceUtility {
 		InputStream inputStream = null;
 		Element root = null;
 
-		if (new File(fileName).exists()) {
+		if (ResourceUtility.isStandaloneMode() && new File(fileName).exists()) {
 			try {
 				inputStream = new FileInputStream(fileName);
 				root = reader.parse(inputStream);
@@ -37,5 +37,9 @@ public class ResourceUtility {
 			}
 		}
 		return root;
+	}
+
+	public static boolean isStandaloneMode() {
+		return (Gdx.files == null);
 	}
 }

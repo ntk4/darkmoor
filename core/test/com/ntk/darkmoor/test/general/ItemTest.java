@@ -4,10 +4,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.badlogic.gdx.utils.XmlReader.Element;
@@ -18,12 +20,19 @@ import com.ntk.darkmoor.engine.Item;
 import com.ntk.darkmoor.engine.Item.BodySlot;
 import com.ntk.darkmoor.engine.Item.ItemType;
 import com.ntk.darkmoor.resource.ItemAssets;
+import com.ntk.darkmoor.resource.Resources;
 
 public class ItemTest extends BaseTestCase {
 
+	@Before
+	public void setUp() {
+		Resources.setResourcePath(TEST_RESOURCES);
+		// Resources.loadGameStartupResources(); //doesn't work on JUnit
+	}
+	
 	@Test
 	public void testItemAssets() throws FileNotFoundException, IOException {
-		ItemAssets.getInstance(TEST_RESOURCES + "Item.xml"); //initialization only
+//		ItemAssets.getInstance(); //initialization only
 		Item boots = ItemAssets.getItem("boots");
 		testItemAttributes(boots);
 	}
@@ -97,6 +106,7 @@ public class ItemTest extends BaseTestCase {
 		item1_saved.load(root);
 
 		compareItemes(item1, item1_saved);
+		new File(TEST_RESOURCES + "item1_save.xml").delete();
 	}
 
 	private void compareItemes(Item item1, Item item2) {

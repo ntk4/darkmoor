@@ -4,6 +4,7 @@ import java.io.InputStream;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.ntk.darkmoor.config.LanguagesManager;
 import com.ntk.darkmoor.engine.Item;
@@ -11,21 +12,15 @@ import com.ntk.darkmoor.exception.LoadException;
 
 public class Resources {
 
-	public static final String RESOURCE_PATH = "/data/";
-	public static final String STRING_TABLE_FILE = RESOURCE_PATH + LanguagesManager.DEFAULT_FILE;
-	public static final String TEXTURE_SET_FILE = RESOURCE_PATH + "TextureSet.xml";
-	public static final String FONT_FILE = RESOURCE_PATH + "fonts/font.fnt";
-	public static final String FONT_IMAGE_FILE = RESOURCE_PATH + "fonts/font_0.png";
+	private static String resourcePath = "data/";
+	public static final String TEXTURE_SET_FILE = "TextureSet.xml";
+	public static final String FONT_FILE = "fonts/font.fnt";
+	public static final String FONT_IMAGE_FILE = "fonts/font_0.png";
 	private static BitmapFont bitmapFont;
 
-	private AssetManager assetManager;
+	private static AssetManager assetManager;
 
 	// private GraphicAssets graphicAssets;
-
-	public Resources() {
-		assetManager = new AssetManager();
-
-	}
 
 	public Resources loadResources(String path) {
 		// assetManager.load(path + "/", type)
@@ -91,7 +86,16 @@ public class Resources {
 	}
 
 	public static void loadGameStartupResources() {
-		LanguagesManager.getInstance(STRING_TABLE_FILE);
+		LanguagesManager.getInstance(getStringTableFile());
+
+		// TextureParameter param = new TextureParameter();
+		// param.minFilter = TextureFilter.Linear;
+		// param.genMipMaps = true;Gdx.files.internal(getResourcePath() + "chargen.png").exists()
+		// param.magFilter = TextureFilter.
+		getAssetManager().load(getResourcePath() + FONT_FILE, BitmapFont.class);
+		getAssetManager().load(getResourcePath() + "chargen.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "items.png", Texture.class);
+		getAssetManager().finishLoading();
 	}
 
 	public static BitmapFont lockSharedFontAsset(String string) {
@@ -100,7 +104,7 @@ public class Resources {
 	}
 
 	public static BitmapFont createSharedFontAsset(String name) {
-		return createFontAsset(name); //TODO: ntk: define what shared means
+		return createFontAsset(name); // TODO: ntk: define what shared means
 	}
 
 	public static void unlockSharedFontAsset(BitmapFont font) {
@@ -119,7 +123,42 @@ public class Resources {
 		}
 	}
 
+	public static AssetManager getAssetManager() {
+		if (assetManager == null)
+			assetManager = new AssetManager();
+		return assetManager;
+	}
+
 	public static Item getItemAsset(String name) {
 		return ItemAssets.getItem(name);
+	}
+
+	public static String getResourcePath() {
+		return resourcePath;
+	}
+
+	public static String getStringTableFile() {
+		return resourcePath + LanguagesManager.DEFAULT_FILE;
+	}
+
+	public static String getTextureSetFile() {
+		return resourcePath + TEXTURE_SET_FILE;
+	}
+
+	public static String getFontFile() {
+		return resourcePath + FONT_FILE;
+	}
+
+	public static String getFontImageFile() {
+		return resourcePath + FONT_IMAGE_FILE;
+	}
+
+	/**
+	 * The setter is useful for tests
+	 * 
+	 * @param resourcePath
+	 */
+	public static void setResourcePath(String resourcePath) {
+		Resources.resourcePath = resourcePath;
 	}
 }

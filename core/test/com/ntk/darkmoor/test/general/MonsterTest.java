@@ -3,6 +3,7 @@ package com.ntk.darkmoor.test.general;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -65,6 +66,7 @@ public class MonsterTest extends BaseTestCase {
 		monster1_saved.load(root);
 
 		compareMonsteres(monster1, monster1_saved);
+		new File(TEST_RESOURCES + "monster1_save.xml").delete();
 	}
 
 	private void compareMonsteres(Monster monster1, Monster monster2) {

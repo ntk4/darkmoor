@@ -21,7 +21,7 @@ public class GraphicAssetsTest extends BaseTestCase {
 		TextureSet set = assets.load("Interface");
 		assertNotNull(set);
 		assertEquals("Interface", set.getName());
-		assertEquals("interface.png", set.getTextureAtlasFile());
+		assertEquals("interface.png", set.getTextureFile());
 		assertNotNull(set.getMetadata());
 		assertEquals(32, set.getMetadata().size);
 		assertEquals(598, (int) set.getMetadata().get(29).getRectangle().x);
@@ -48,7 +48,7 @@ public class GraphicAssetsTest extends BaseTestCase {
 		assertNotNull(set);
 		assertNotNull(set2);
 		assertEquals(set.getName(), set2.getName());
-		assertEquals(set.getTextureAtlasFile(), set2.getTextureAtlasFile());
+		assertEquals(set.getTextureFile(), set2.getTextureFile());
 		assertNotNull(set.getMetadata());
 		assertNotNull(set2.getMetadata());
 		assertEquals(set.getMetadata().size, set2.getMetadata().size);

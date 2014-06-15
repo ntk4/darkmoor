@@ -11,23 +11,23 @@ import com.ntk.darkmoor.exception.LoadException;
 
 public class ItemAssets implements Disposable {
 
-	public static final String ITEMS_FILE = Resources.RESOURCE_PATH + "Item.xml";
+	public static final String ITEMS_FILE = Resources.getResourcePath() + "Item.xml";
 
 	private static ItemAssets instance;
 	private Map<String, Item> itemCache;
 	private Element rootElement;
 
-	/**
-	 * Used only for the JUnit tests that can't access Gdx.files.*
-	 * @param itemsXmlFile
-	 * @return
-	 */
-	public static ItemAssets getInstance(String itemsXmlFile) {
-		if (instance != null)
-			return instance;
-		instance = new ItemAssets(itemsXmlFile);
-		return instance;
-	}
+//	/**
+//	 * Used only for the JUnit tests that can't access Gdx.files.*
+//	 * @param itemsXmlFile
+//	 * @return
+//	 */
+//	public static ItemAssets getInstance(String itemsXmlFile) {
+//		if (instance != null)
+//			return instance;
+//		instance = new ItemAssets(itemsXmlFile);
+//		return instance;
+//	}
 	
 	/**
 	 * Singleton access method to be used internally. For any reference to items see getItem

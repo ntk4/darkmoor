@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.utils.Array;
@@ -31,21 +30,15 @@ public class TextureSet implements Disposable {
 
 	private void loadTexture() {
 		texture = null;
-		// the file handle can be retrieved in a game, in JUnit it doesn't work
-		if (Gdx.files == null)
+		// the file handle can be retrieved in a game, but in JUnit it doesn't work
+		if (ResourceUtility.isStandaloneMode()) {
 			return;
-
-		FileHandle fh = Gdx.files.internal("data/" + textureFile.toLowerCase());
-		if (fh != null) {
-			texture = new Texture(fh);
-			// atlas = new TextureAtlas(fh);
-
-			// for (TextureMetadata textureInfo : metadata) {
-			// atlas.addRegion(String.valueOf(textureInfo.getId()), texture, (int) textureInfo.getRectangle().x,
-			// (int) textureInfo.getRectangle().y, (int) textureInfo.getRectangle().width,
-			// (int) textureInfo.getRectangle().height);
-			// }
+//			texture = Resources.getAssetManager().get(Resources.getResourcePath() + textureFile.toLowerCase(),
+//					Texture.class);
+		} else {
+			texture = Resources.getAssetManager().get("data/" + textureFile.toLowerCase(), Texture.class);
 		}
+
 	}
 
 	public boolean load(Element xml) {
@@ -73,7 +66,7 @@ public class TextureSet implements Disposable {
 			}
 		}
 
-		if (!StringUtils.isEmpty(textureFile)) {
+		if (!StringUtils.isEmpty(textureFile) && Gdx.files != null) {
 			loadTexture();
 		}
 
@@ -137,7 +130,7 @@ public class TextureSet implements Disposable {
 		return name;
 	}
 
-	public String getTextureAtlasFile() {
+	public String getTextureFile() {
 		return textureFile;
 	}
 

@@ -3,10 +3,12 @@ package com.ntk.darkmoor.test.general;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.badlogic.gdx.utils.XmlReader.Element;
@@ -15,13 +17,18 @@ import com.ntk.darkmoor.engine.Entity.EntityAlignment;
 import com.ntk.darkmoor.engine.Hero;
 import com.ntk.darkmoor.engine.Hero.HeroClass;
 import com.ntk.darkmoor.engine.Hero.InventoryPosition;
-import com.ntk.darkmoor.resource.ItemAssets;
+import com.ntk.darkmoor.resource.Resources;
 
 public class HeroTest extends BaseTestCase {
 
+	@Before
+	public void setUp() {
+		Resources.setResourcePath(TEST_RESOURCES);
+		// Resources.loadGameStartupResources(); //doesn't work on JUnit
+	}
+	
 	@Test
 	public void testLoadHeroFromXml() throws FileNotFoundException, IOException {
-		ItemAssets.getInstance(TEST_RESOURCES + "Item.xml"); //initialization only
 		Element root = loadXml(TEST_RESOURCES + "hero1.xml");
 		assertNotNull(root);
 		Hero hero1 = new Hero();
@@ -63,7 +70,6 @@ public class HeroTest extends BaseTestCase {
 
 	@Test
 	public void testLoadHeroItemsFromXml() throws FileNotFoundException, IOException {
-		ItemAssets.getInstance(TEST_RESOURCES + "Item.xml"); //initialization only
 		Element root = loadXml(TEST_RESOURCES + "hero1.xml");
 		assertNotNull(root);
 		Hero hero1 = new Hero();
@@ -96,6 +102,7 @@ public class HeroTest extends BaseTestCase {
 		hero1_saved.load(root);
 
 		compareHeroes(hero1, hero1_saved);
+		new File(TEST_RESOURCES + "hero1_save.xml").delete();
 	}
 
 	private void compareHeroes(Hero hero1, Hero hero2) {

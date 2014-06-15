@@ -15,7 +15,7 @@ public class LanguagesManager {
 	private static LanguagesManager _instance = null;
 	public static final String DEFAULT_FILE = "StringTable.xml";
 
-	private static final String LANGUAGES_FILE = "data/languages.xml";
+	private static final String LANGUAGES_FILE = "data/StringTable.xml";
 	private static final String DEFAULT_LANGUAGE = "English";
 
 	private HashMap<String, String> messages = null;

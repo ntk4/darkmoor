@@ -52,7 +52,7 @@ public class SettingsTest {
 		assertEquals(s.isFullScreen(), s2.isFullScreen());
 		assertEquals(s.getSaveSlots(), s2.getSaveSlots());
 		
-		tempFile.delete();
+		new File(FOLDER_TEST_RESOURCES, SETTINGS_TEMP).deleteOnExit(); // does not work
 	}
 	
 	@Test
