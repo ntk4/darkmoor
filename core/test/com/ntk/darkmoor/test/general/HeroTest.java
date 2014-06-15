@@ -15,11 +15,13 @@ import com.ntk.darkmoor.engine.Entity.EntityAlignment;
 import com.ntk.darkmoor.engine.Hero;
 import com.ntk.darkmoor.engine.Hero.HeroClass;
 import com.ntk.darkmoor.engine.Hero.InventoryPosition;
+import com.ntk.darkmoor.resource.ItemAssets;
 
 public class HeroTest extends BaseTestCase {
 
 	@Test
 	public void testLoadHeroFromXml() throws FileNotFoundException, IOException {
+		ItemAssets.getInstance(TEST_RESOURCES + "Item.xml"); //initialization only
 		Element root = loadXml(TEST_RESOURCES + "hero1.xml");
 		assertNotNull(root);
 		Hero hero1 = new Hero();
@@ -59,19 +61,19 @@ public class HeroTest extends BaseTestCase {
 		assertEquals(32505, hero1.getProfession(HeroClass.Paladin).getExperience());
 	}
 
-	@Test(expected = AssertionError.class)
-	// it should work as soon as items are loaded as resources
+	@Test
 	public void testLoadHeroItemsFromXml() throws FileNotFoundException, IOException {
+		ItemAssets.getInstance(TEST_RESOURCES + "Item.xml"); //initialization only
 		Element root = loadXml(TEST_RESOURCES + "hero1.xml");
 		assertNotNull(root);
 		Hero hero1 = new Hero();
 		hero1.load(root);
 		assertNotNull(hero1.getWaistPack());
 		assertEquals(3, hero1.getWaistPack().length);
-		assertEquals(null, hero1.getWaistPackItem(0).getName());
-		assertEquals(null, hero1.getWaistPackItem(1).getName());
-		assertEquals(null, hero1.getWaistPackItem(2).getName());
-		assertEquals("short sword", hero1.getInventoryItem(InventoryPosition.Primary));
+		assertEquals("rock", hero1.getWaistPackItem(0).getName());
+		assertEquals("rock", hero1.getWaistPackItem(1).getName());
+		assertEquals("rock", hero1.getWaistPackItem(2).getName());
+		assertEquals("short sword", hero1.getInventoryItem(InventoryPosition.Primary).getName());
 	}
 
 	@Test

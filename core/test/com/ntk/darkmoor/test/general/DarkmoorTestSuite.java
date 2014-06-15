@@ -10,7 +10,8 @@ import org.junit.runners.Suite;
 	MonsterTest.class,
 	ItemTest.class,
 	LanguagesManagerTest.class,
-	GraphicAssetsTest.class
+	GraphicAssetsTest.class,
+	AnimationTest.class
 })
 public class DarkmoorTestSuite {
 

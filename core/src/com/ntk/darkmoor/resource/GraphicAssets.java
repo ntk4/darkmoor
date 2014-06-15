@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -18,8 +20,19 @@ import com.ntk.darkmoor.exception.LoadException;
 public class GraphicAssets {
 
 	private String fileName;
+	private static Map<String,GraphicAssets> instances;
 
-	public GraphicAssets(String fileName) {
+	public static GraphicAssets getAssets(String fileName) {
+		if (instances == null)
+			instances = new HashMap<String, GraphicAssets>();
+		
+		if (instances.get(fileName) == null) {
+			instances.put(fileName,new GraphicAssets(fileName));
+		}
+		return instances.get(fileName);
+	}
+
+	private GraphicAssets(String fileName) {
 		this.fileName = fileName;
 	}
 
@@ -75,16 +88,16 @@ public class GraphicAssets {
 	}
 
 	public void save(TextureSet... sets) throws IOException {
-		
+
 		XmlWriter writer = new XmlWriter(new FileWriter(fileName));
-		
+
 		writer.element("bank");
-		
+
 		for (TextureSet set : sets)
 			set.save(writer);
-		
+
 		writer.pop();
-		
+
 		writer.close();
 	}
 }

@@ -11,7 +11,7 @@ import com.ntk.darkmoor.exception.LoadException;
 
 public class Resources {
 
-	public static final String RESOURCE_PATH = "/data";
+	public static final String RESOURCE_PATH = "/data/";
 	public static final String STRING_TABLE_FILE = RESOURCE_PATH + LanguagesManager.DEFAULT_FILE;
 	public static final String TEXTURE_SET_FILE = RESOURCE_PATH + "TextureSet.xml";
 	public static final String FONT_FILE = RESOURCE_PATH + "fonts/font.fnt";
@@ -47,7 +47,7 @@ public class Resources {
 	}
 
 	public static TextureSet createTextureSetAsset(String name) {
-		GraphicAssets textureAssets = new GraphicAssets(TEXTURE_SET_FILE);
+		GraphicAssets textureAssets = GraphicAssets.getAssets(TEXTURE_SET_FILE);
 		return textureAssets.load(name);
 	}
 

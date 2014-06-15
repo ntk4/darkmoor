@@ -18,4 +18,42 @@
 		<identifiedname>The Super Boots!</identifiedname>
 		<speed value="1000" />
 	</item>
+	<item name="rock">
+		<tile name="Items" inventory="45" ground="17" incoming="17" moveaway="17" />
+		<type value="Ammo" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary, Belt" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="105" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>rock</shortname>
+		<identifiedname>rock</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="short sword">
+		<tile name="Items" inventory="88" ground="2" incoming="2" moveaway="2" />
+		<type value="Weapon" />
+		<damagetype value="Pierce" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Thief" />
+		<weight value="1000" />
+		<damage throws="1" faces="6" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="19" max="20" multiplier="2" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>short sword</shortname>
+		<identifiedname>short sword</identifiedname>
+		<speed value="500" />
+	</item>
 </bank>

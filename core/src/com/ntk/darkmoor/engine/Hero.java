@@ -875,7 +875,7 @@ public class Hero extends Entity {
 			return true;
 		}
 
-		if (item.getSlot().contains(BodySlot.Belt))
+		if (!item.getSlot().contains(BodySlot.Belt))
 			return false;
 
 		waistPack[position] = item;

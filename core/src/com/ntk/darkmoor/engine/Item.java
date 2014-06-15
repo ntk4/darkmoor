@@ -97,6 +97,16 @@ public class Item {
 			return value;
 		}
 
+		public static DamageType fromValue(String value) {
+			if ("0".equals(value))
+				return None;
+			for (DamageType slot : DamageType.values()) {
+				if (slot.toString().equalsIgnoreCase(value))
+					return slot;
+			}
+			return DamageType.None;
+		}
+		
 		public static DamageType fromValue(int value) {
 			for (DamageType slot : DamageType.values()) {
 				if (slot.value == value)
@@ -245,7 +255,7 @@ public class Item {
 
 			} else if ("damagetype".equalsIgnoreCase(childName)) {
 				damageType = DamageType.fromValue(damageType.value()
-						| DamageType.fromValue(Integer.parseInt(node.getAttribute("value"))).value());
+						| DamageType.fromValue(node.getAttribute("value")).value());
 
 			} else if ("weight".equalsIgnoreCase(childName)) {
 				weight = Integer.parseInt(node.getAttribute("value"));
