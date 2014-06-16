@@ -5,7 +5,7 @@ import java.io.IOException;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.GameMessage;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class DisplayMessage extends ActionBase {
 
@@ -19,7 +19,7 @@ public class DisplayMessage extends ActionBase {
 
 	@Override
 	public boolean run() {
-		GameMessage.addMessage(GameScreen.getTeam().getSelectedHero().getName() + ": " + message);
+		GameMessage.addMessage(GameScreenBase.getTeam().getSelectedHero().getName() + ": " + message);
 
 		return true;
 	}

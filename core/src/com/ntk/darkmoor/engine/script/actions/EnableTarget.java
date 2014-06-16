@@ -5,7 +5,7 @@ import java.io.IOException;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Square;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class EnableTarget extends ActionBase {
 
@@ -21,7 +21,7 @@ public class EnableTarget extends ActionBase {
 			return false;
 
 		// Get the target
-		Square target2 = target.getSquare(GameScreen.getDungeon());
+		Square target2 = target.getSquare(GameScreenBase.getDungeon());
 		if (target2 == null)
 			return false;
 

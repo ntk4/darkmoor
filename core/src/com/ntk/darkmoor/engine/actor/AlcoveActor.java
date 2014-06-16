@@ -22,7 +22,7 @@ import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.MouseButtons;
 
 public class AlcoveActor extends SquareActor {
@@ -108,7 +108,7 @@ public class AlcoveActor extends SquareActor {
 		if (!getSquare().getMaze().getDecoration().isPointInside(alcove.getDecoration(), location))
 			return false;
 
-		Team team = GameScreen.getTeam();
+		Team team = GameScreenBase.getTeam();
 
 		// No item in hand
 		if (team.getItemInHand() != null) {

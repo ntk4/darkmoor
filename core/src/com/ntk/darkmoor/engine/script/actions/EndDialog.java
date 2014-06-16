@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class EndDialog extends ActionBase {
 
@@ -19,7 +19,7 @@ public class EndDialog extends ActionBase {
 		if (target == null)
 			return false;
 
-		GameScreen.getDialog().exit();
+		GameScreenBase.getDialog().exit();
 
 		return true;
 	}

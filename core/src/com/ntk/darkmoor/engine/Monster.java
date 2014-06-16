@@ -23,7 +23,7 @@ import com.ntk.darkmoor.engine.interfaces.IMonster;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.AudioSample;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.ScriptInterface;
 
@@ -188,7 +188,7 @@ public class Monster extends Entity {
 		if (!canMove)
 			return false;
 
-		Team team = GameScreen.getTeam();
+		Team team = GameScreenBase.getTeam();
 
 		// Get informations about the destination block
 		Vector2 dst = getLocation().getCoordinates();
@@ -293,10 +293,10 @@ public class Monster extends Entity {
 		if (target == null)
 			return false;
 
-		if (GameScreen.getDungeon() == null)
+		if (GameScreenBase.getDungeon() == null)
 			return false;
 
-		Maze maze = GameScreen.getDungeon().getMaze(target.getMaze());
+		Maze maze = GameScreenBase.getDungeon().getMaze(target.getMaze());
 		if (maze == null)
 			return false;
 
@@ -320,7 +320,7 @@ public class Monster extends Entity {
 
 		// Reward the team for having killed the entity
 		if (isDead() && attack.getStriker() instanceof Hero) {
-			GameScreen.getTeam().addExperience(reward);
+			GameScreenBase.getTeam().addExperience(reward);
 		}
 	}
 
@@ -333,9 +333,9 @@ public class Monster extends Entity {
 			square.dropItem(position, Resources.getItemAsset(item));
 
 		// Reward the team
-		for (Hero hero : GameScreen.getTeam().getHeroes())
+		for (Hero hero : GameScreenBase.getTeam().getHeroes())
 			if (hero != null)
-				hero.addExperience(reward / GameScreen.getTeam().getHeroCount());
+				hero.addExperience(reward / GameScreenBase.getTeam().getHeroCount());
 	}
 
 	/** Fired when the creature is first spawned */
@@ -366,7 +366,7 @@ public class Monster extends Entity {
 		// if (Script.Instance != null)
 		// Script.Instance.OnUpdate(this);
 
-		Team team = GameScreen.getTeam();
+		Team team = GameScreenBase.getTeam();
 
 		// Draw offset
 		if (lastDrawOffset + drawOffsetDuration < new Date().getTime()) {

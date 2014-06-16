@@ -12,7 +12,7 @@ import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.Square.SquarePosition;
 import com.ntk.darkmoor.engine.Square.SquareType;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.Mouse;
 
 public class Team {
@@ -77,8 +77,8 @@ public class Team {
 		// Set initial location
 		if (location == null) {
 			location = new DungeonLocation();
-			teleport(GameScreen.getDungeon().getStartLocation());
-			location.setDirection(GameScreen.getDungeon().getStartLocation().getDirection());
+			teleport(GameScreenBase.getDungeon().getStartLocation());
+			location.setDirection(GameScreenBase.getDungeon().getStartLocation().getDirection());
 		} else {
 			teleport(location);
 		}
@@ -448,7 +448,7 @@ public class Team {
 	 * @return True if teleportation is ok
 	 */
 	public boolean teleport(DungeonLocation location) {
-		return teleport(location, GameScreen.getDungeon());
+		return teleport(location, GameScreenBase.getDungeon());
 	}
 
 	/**

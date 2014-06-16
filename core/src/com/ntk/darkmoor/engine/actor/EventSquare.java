@@ -16,7 +16,7 @@ import com.ntk.darkmoor.engine.SavingThrowType;
 import com.ntk.darkmoor.engine.ScriptedDialog;
 import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.script.gui.ScriptChoice;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class EventSquare extends SquareActor {
 
@@ -57,7 +57,7 @@ public class EventSquare extends SquareActor {
 		Hero hero = null;
 
 		// Check if a hero detect the event
-		for (Hero h : GameScreen.getTeam().getHeroes()) {
+		for (Hero h : GameScreenBase.getTeam().getHeroes()) {
 			// if (hero.SavingThrow(SavingThrowType.Will) > Dice.GetD20(1))
 			if (h != null && h.savingThrow(SavingThrowType.Will) > intelligence) {
 				hero = h;
@@ -75,7 +75,7 @@ public class EventSquare extends SquareActor {
 
 		// Create the scripted dialog if there's a picture to show
 		if (!StringUtils.isEmpty(pictureName))
-			GameScreen.setDialog(new ScriptedDialog(getSquare(), this));
+			GameScreenBase.setDialog(new ScriptedDialog(getSquare(), this));
 
 		// Decrement usage
 		if (remaining > 0)

@@ -18,7 +18,7 @@ import com.ntk.darkmoor.engine.HandAction.ActionResult;
 import com.ntk.darkmoor.engine.Item.BodySlot;
 import com.ntk.darkmoor.engine.Item.ItemType;
 import com.ntk.darkmoor.resource.Resources;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.GameTime;
 
 /**
@@ -844,7 +844,7 @@ public class Hero extends Entity {
 		if (!canUseHand(hand))
 			return;
 
-		Team team = GameScreen.getTeam();
+		Team team = GameScreenBase.getTeam();
 
 		// Find the entity in front of the hero
 		Entity target = team.getFrontEntity(team.getHeroGroundPosition(this));
@@ -924,7 +924,7 @@ public class Hero extends Entity {
 
 		case HolySymbol:
 		case Book: {
-			GameScreen.getSpellBook().open(this, item);
+			GameScreenBase.getSpellBook().open(this, item);
 
 			// Spell spell = ResourceManager.CreateAsset<Spell>("CreateFood");
 			// spell.Init();

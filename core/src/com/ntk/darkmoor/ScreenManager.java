@@ -1,7 +1,7 @@
 package com.ntk.darkmoor;
 
 import com.badlogic.gdx.Game;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class ScreenManager {
 
@@ -22,7 +22,7 @@ public class ScreenManager {
 		game.dispose();
 	}
 
-	public static void addScreen(GameScreen screen) {
+	public static void addScreen(GameScreenBase screen) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,7 +1,7 @@
 package com.ntk.darkmoor;
 
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
-public class MainMenu extends GameScreen {
+public class MainMenu extends GameScreenBase {
 
 }

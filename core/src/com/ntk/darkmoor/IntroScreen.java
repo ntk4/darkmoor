@@ -8,11 +8,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.Display;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.Scene;
 
-public class IntroScreen extends GameScreen {
+public class IntroScreen extends GameScreenBase {
 
 	private Scene scene;
 	private BitmapFont font;

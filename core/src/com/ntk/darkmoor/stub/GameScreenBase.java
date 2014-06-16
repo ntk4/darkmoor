@@ -7,7 +7,7 @@ import com.ntk.darkmoor.engine.ScriptedDialog;
 import com.ntk.darkmoor.engine.SpellBook;
 import com.ntk.darkmoor.engine.Team;
 
-public class GameScreen extends ScreenAdapter {
+public class GameScreenBase extends ScreenAdapter {
 
 	public static Team getTeam() {
 		// TODO Auto-generated method stub

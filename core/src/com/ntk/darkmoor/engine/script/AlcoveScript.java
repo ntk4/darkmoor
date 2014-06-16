@@ -7,7 +7,7 @@ import org.ntk.commons.StringUtils;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Team;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class AlcoveScript extends ScriptBase {
 
@@ -23,7 +23,7 @@ public class AlcoveScript extends ScriptBase {
 	
 	public boolean run() {
 
-		Team team = GameScreen.getTeam();
+		Team team = GameScreenBase.getTeam();
 		if (team.getItemInHand() == null || !StringUtils.equals(team.getItemInHand().getName(), itemName)) {
 			return false;
 		}

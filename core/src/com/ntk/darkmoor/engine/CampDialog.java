@@ -9,18 +9,18 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
 import com.ntk.darkmoor.engine.gui.campwindows.MainWindow;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.Mouse;
 
 public class CampDialog extends DialogBase {
 
-	private GameScreen game;
+	private GameScreenBase game;
 	private Rectangle rectangle;
 	private ArrayList<ScreenButton> buttons;
 	private ArrayDeque<BaseWindow> windows;
 
-	public CampDialog(GameScreen game, Skin skin) {
+	public CampDialog(GameScreenBase game, Skin skin) {
 		this.game = game;
 		windows = new ArrayDeque<BaseWindow>(); 
 		buttons = new ArrayList<ScreenButton>();
@@ -30,7 +30,7 @@ public class CampDialog extends DialogBase {
 	}
 
 	public void exit() {
-		Team team = GameScreen.getTeam();
+		Team team = GameScreenBase.getTeam();
 
 		windows.clear();
 
@@ -94,7 +94,7 @@ public class CampDialog extends DialogBase {
 		this.windows = windows;
 	}
 
-	public GameScreen getGame() {
+	public GameScreenBase getGame() {
 		return game;
 	}
 

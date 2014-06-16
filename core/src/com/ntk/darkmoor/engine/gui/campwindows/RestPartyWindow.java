@@ -18,7 +18,7 @@ import com.ntk.darkmoor.engine.gui.MessageBox;
 import com.ntk.darkmoor.engine.gui.MessageBox.DialogResult;
 import com.ntk.darkmoor.engine.gui.MessageBox.MessageBoxButtons;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.GameTime;
 
 public class RestPartyWindow extends BaseWindow {
@@ -84,7 +84,7 @@ public class RestPartyWindow extends BaseWindow {
 		if (start == null || start.getTime() == 0)
 			return;
 
-		Team team = GameScreen.getTeam();
+		Team team = GameScreenBase.getTeam();
 
 		// Number of hour sleeping
 		int hours = (int)(new Date().getTime() - start.getTime())/MILLIS_OF_REAL_TIME_FOR_EACH_HOUR_OF_PARTY_REST;

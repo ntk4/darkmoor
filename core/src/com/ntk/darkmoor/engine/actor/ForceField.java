@@ -12,7 +12,7 @@ import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.Compass.CompassRotation;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class ForceField extends SquareActor {
 
@@ -132,7 +132,7 @@ public class ForceField extends SquareActor {
 		if (!affectTeam)
 			return false;
 
-		Team team = GameScreen.getTeam();
+		Team team = GameScreenBase.getTeam();
 
 		switch (type) {
 		case Spin:

@@ -7,7 +7,7 @@ import org.ntk.commons.StringUtils;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Square;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class SetTo extends ActionBase {
 
@@ -24,7 +24,7 @@ public class SetTo extends ActionBase {
 		if (target == null)
 			return false;
 
-		return GameScreen.getDungeon().setSquare(target, square);
+		return GameScreenBase.getDungeon().setSquare(target, square);
 	}
 
 	@Override

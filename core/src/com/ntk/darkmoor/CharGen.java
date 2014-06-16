@@ -1,7 +1,7 @@
 package com.ntk.darkmoor;
 
 import java.io.InputStream;
-import java.util.HashMap;
+import java.util.Map;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Buttons;
@@ -23,6 +23,7 @@ import com.ntk.darkmoor.engine.Hero.HeroClass;
 import com.ntk.darkmoor.engine.Hero.HeroGender;
 import com.ntk.darkmoor.engine.Hero.HeroRace;
 import com.ntk.darkmoor.engine.Hero.InventoryPosition;
+import com.ntk.darkmoor.engine.HeroAllowedClasses;
 import com.ntk.darkmoor.engine.Profession;
 import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.Team.HeroPosition;
@@ -31,11 +32,11 @@ import com.ntk.darkmoor.resource.ItemAssets;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.Display;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.SaveGame;
 
-public class CharGen extends GameScreen {
+public class CharGen extends GameScreenBase {
 	enum CharGenStates {
 		SelectRace, SelectHero, SelectClass, SelectAlignment, SelectFace, Confirm, SelectName, Delete,
 	}
@@ -45,14 +46,13 @@ public class CharGen extends GameScreen {
 	private Vector2[] nameLocations;
 	private int heroID;
 	private Rectangle backButton;
-	private HashMap<HeroRace, int[]> allowedClass;
+	private Map<HeroRace, int[]> allowedClass;
 	private SpriteBatch batch;
 	private TextureSet textureSet;
 	private TextureSet heads;
 	private BitmapFont font;
 	private BitmapFont nameFont;
 	private ScreenButton playButton;
-	private LanguagesManager stringTable;
 	private Animation anims;
 	private CharGenStates currentState;
 	private int faceOffset;
@@ -75,79 +75,15 @@ public class CharGen extends GameScreen {
 
 		// Allowed classes
 
-		allowedClass = new HashMap<HeroRace, int[]>();
+		allowedClass = HeroAllowedClasses.allowedClass;
 
-		generateAllowedClasses();
-	}
-
-	private void generateAllowedClasses() {
-		allowedClass.put(HeroRace.Human, new int[] {
-			HeroClass.Fighter.value(),
-			HeroClass.Ranger.value(),
-			HeroClass.Mage.value(),
-			HeroClass.Paladin.value(),
-			HeroClass.Cleric.value(),
-			HeroClass.Thief.value(),
-		});
-
-		allowedClass.put(HeroRace.Elf, new int[] {
-			HeroClass.Fighter.value(),
-			HeroClass.Ranger.value(),
-			HeroClass.Mage.value(),
-			HeroClass.Cleric.value(),
-			HeroClass.Thief.value(),
-			HeroClass.Fighter.value() | HeroClass.Thief.value(),
-			HeroClass.Fighter.value() | HeroClass.Mage.value(),
-			HeroClass.Fighter.value() | HeroClass.Mage.value() | HeroClass.Thief.value(),
-			HeroClass.Thief.value() | HeroClass.Mage.value(),
-		});
-
-		allowedClass.put(HeroRace.HalfElf, new int[] {
-			HeroClass.Fighter.value(),
-			HeroClass.Ranger.value(),
-			HeroClass.Mage.value(),
-			HeroClass.Cleric.value(),
-			HeroClass.Thief.value(),
-			HeroClass.Fighter.value() | HeroClass.Cleric.value(),
-			HeroClass.Fighter.value() | HeroClass.Thief.value(),
-			HeroClass.Fighter.value() | HeroClass.Mage.value(),
-			HeroClass.Fighter.value() | HeroClass.Mage.value() | HeroClass.Thief.value(),
-			HeroClass.Thief.value() | HeroClass.Mage.value(),
-			HeroClass.Fighter.value() | HeroClass.Cleric.value() | HeroClass.Mage.value(),
-			HeroClass.Ranger.value() | HeroClass.Cleric.value(),
-			HeroClass.Cleric.value() | HeroClass.Mage.value()
-		});
-
-		allowedClass.put(HeroRace.Dwarf, new int[] {
-			HeroClass.Fighter.value(),
-			HeroClass.Cleric.value(),
-			HeroClass.Thief.value(),
-			HeroClass.Fighter.value() | HeroClass.Cleric.value(),
-			HeroClass.Fighter.value() | HeroClass.Thief.value()
-		});
-
-		allowedClass.put(HeroRace.Gnome, new int[] {
-			HeroClass.Fighter.value(),
-			HeroClass.Cleric.value(),
-			HeroClass.Thief.value(),
-			HeroClass.Fighter.value() | HeroClass.Cleric.value(),
-			HeroClass.Fighter.value() | HeroClass.Thief.value(),
-			HeroClass.Cleric.value() | HeroClass.Thief.value()
-		});
-
-		allowedClass.put(HeroRace.Halfling, new int[] {
-			HeroClass.Fighter.value(),
-			HeroClass.Cleric.value(),
-			HeroClass.Thief.value(),
-			HeroClass.Fighter.value() | HeroClass.Thief.value()
-		});
 	}
 
 	@Override
 	public void loadContent() {
 		Log.debug("[CharGen] LoadContent()");
 
-		//TODO: ntk: the batch should be given and be already opened 
+		// TODO: ntk: the batch should be given and be already opened
 		batch = new SpriteBatch();
 
 		textureSet = Resources.createTextureSetAsset("CharGen");
@@ -161,7 +97,7 @@ public class CharGen extends GameScreen {
 		playButton = new ScreenButton("", new Rectangle(48, 362, 166, 32));
 		// playButton.Selected += new EventHandler(PlayButton_Selected);
 
-		stringTable = LanguagesManager.getInstance();// ."Chargen");
+		// stringTable = LanguagesManager.getInstance();// ."Chargen");
 		// stringTable.LanguageName = Game.LanguageName;
 
 		anims = Resources.createAsset(Animation.class, "Animations");
@@ -278,7 +214,7 @@ public class CharGen extends GameScreen {
 
 	void playButton_Selected() {
 		// if (Heroes.Any(hero => hero == null)) return;
-		GameScreen screen = new GameScreen();
+		GameScreenBase screen = new GameScreenBase();
 
 		// Generate the team
 		Settings.setSavedGame(new SaveGame());
@@ -819,5 +755,65 @@ public class CharGen extends GameScreen {
 	void Keyboard_OnKeyDown(Keys key) {
 		// TODO: ntk: handle all keyboard events for typing names etc.
 
+	}
+
+	public Hero[] getHeroes() {
+		return heroes;
+	}
+
+	public Rectangle[] getHeroBoxes() {
+		return heroBoxes;
+	}
+
+	public Vector2[] getNameLocations() {
+		return nameLocations;
+	}
+
+	public int getHeroID() {
+		return heroID;
+	}
+
+	public Rectangle getBackButton() {
+		return backButton;
+	}
+
+	public Map<HeroRace, int[]> getAllowedClass() {
+		return allowedClass;
+	}
+
+	public SpriteBatch getBatch() {
+		return batch;
+	}
+
+	public TextureSet getTextureSet() {
+		return textureSet;
+	}
+
+	public TextureSet getHeads() {
+		return heads;
+	}
+
+	public BitmapFont getFont() {
+		return font;
+	}
+
+	public BitmapFont getNameFont() {
+		return nameFont;
+	}
+
+	public ScreenButton getPlayButton() {
+		return playButton;
+	}
+
+	public Animation getAnims() {
+		return anims;
+	}
+
+	public CharGenStates getCurrentState() {
+		return currentState;
+	}
+
+	public int getFaceOffset() {
+		return faceOffset;
 	}
 }

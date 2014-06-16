@@ -18,7 +18,7 @@ import com.ntk.darkmoor.engine.gui.MessageBox.MessageBoxButtons;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.GameTime;
 
 public class DropNPCWindow extends BaseWindow {
@@ -38,7 +38,7 @@ public class DropNPCWindow extends BaseWindow {
 	public DropNPCWindow(CampDialog camp, Skin skin) {
 		super(camp, WINDOW_TITLE, skin);
 
-		if (GameScreen.getTeam().getHeroCount() <= 4) {
+		if (GameScreenBase.getTeam().getHeroCount() <= 4) {
 			setClosing(true);
 			return;
 		}
@@ -75,7 +75,7 @@ public class DropNPCWindow extends BaseWindow {
 
 		for (int y = 0; y < 3; y++) {
 			for (int x = 0; x < 2; x++) {
-				Hero hero = GameScreen.getTeam().getHeroes()[y * 2 + x];
+				Hero hero = GameScreenBase.getTeam().getHeroes()[y * 2 + x];
 				if (hero == null)
 					continue;
 
@@ -112,7 +112,7 @@ public class DropNPCWindow extends BaseWindow {
 	 * @return if update was handled or should continue
 	 */
 	private boolean updateHero(int y, int x) {
-		Hero hero = GameScreen.getTeam().getHeroes()[y * 2 + x];
+		Hero hero = GameScreenBase.getTeam().getHeroes()[y * 2 + x];
 		if (hero == null)
 			return true;
 
@@ -140,7 +140,7 @@ public class DropNPCWindow extends BaseWindow {
 
 	protected boolean dropAnswer(Event event) {
 		if (((MessageBox) event.getTarget()).getDialogResult() == DialogResult.Yes) {
-			GameScreen.getTeam().dropHero(hero);
+			GameScreenBase.getTeam().dropHero(hero);
 			getCamp().exit();
 		}
 

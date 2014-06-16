@@ -26,7 +26,7 @@ import com.ntk.darkmoor.engine.graphics.TileDrawing;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.Display;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.GameTime;
 
 public class Maze {
@@ -684,7 +684,7 @@ public class Maze {
 		if (batch == null)
 			return;
 
-		Team team = GameScreen.getTeam();
+		Team team = GameScreenBase.getTeam();
 
 		Color color;
 

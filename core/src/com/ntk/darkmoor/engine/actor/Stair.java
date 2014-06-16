@@ -16,7 +16,7 @@ import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.Square.SquareType;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.resource.TextureSet;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class Stair extends SquareActor {
 
@@ -115,7 +115,7 @@ public class Stair extends SquareActor {
 
 	@Override
 	public boolean onTeamEnter() {
-		Team team = GameScreen.getTeam();
+		Team team = GameScreenBase.getTeam();
 
 		if (team.teleport(target))
 			team.setDirection(target.getDirection());

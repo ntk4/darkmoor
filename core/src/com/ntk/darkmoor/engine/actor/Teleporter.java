@@ -17,7 +17,7 @@ import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.engine.graphics.TileDrawing;
 import com.ntk.darkmoor.resource.Resources;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class Teleporter extends SquareActor {
 
@@ -156,7 +156,7 @@ public class Teleporter extends SquareActor {
 		// One shot ?
 		setActivated(reusable);
 
-		return GameScreen.getTeam().teleport(target);
+		return GameScreenBase.getTeam().teleport(target);
 	}
 
 	@Override

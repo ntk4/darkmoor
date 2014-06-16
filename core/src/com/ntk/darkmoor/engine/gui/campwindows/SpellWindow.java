@@ -19,7 +19,7 @@ import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.engine.gui.GUI;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
 import com.ntk.darkmoor.resource.TextureSet;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.GameTime;
 
 public class SpellWindow extends BaseWindow {
@@ -69,7 +69,7 @@ public class SpellWindow extends BaseWindow {
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 
-		Team team = GameScreen.getTeam();
+		Team team = GameScreenBase.getTeam();
 
 		GUI.getMenuFont().setColor(rectangleColor);
 		// Display message
@@ -123,7 +123,7 @@ public class SpellWindow extends BaseWindow {
 	 * @return if update was handled or should continue
 	 */
 	private boolean updateHero(int y, int x) {
-		Hero currentHero = GameScreen.getTeam().getHeroes()[y * 2 + x];
+		Hero currentHero = GameScreenBase.getTeam().getHeroes()[y * 2 + x];
 		if (hero == null)
 			return true;
 
@@ -182,7 +182,7 @@ public class SpellWindow extends BaseWindow {
 
 	public int getCount() {
 		int count = 0;
-		for (Hero hero : GameScreen.getTeam().getHeroes()) {
+		for (Hero hero : GameScreenBase.getTeam().getHeroes()) {
 			// Hero applies
 			for (HeroClass heroClass : hero.getClasses()) {
 				if (hero != null && hero.checkClass(heroClass)) {

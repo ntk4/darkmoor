@@ -6,7 +6,7 @@ import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class GiveExperience extends ActionBase {
 
@@ -24,7 +24,7 @@ public class GiveExperience extends ActionBase {
 			return false;
 
 		if (amount > 0) {
-			GameScreen.getTeam().addExperience(amount);
+			GameScreenBase.getTeam().addExperience(amount);
 		}
 
 		return true;

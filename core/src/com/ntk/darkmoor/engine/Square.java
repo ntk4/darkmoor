@@ -19,7 +19,7 @@ import com.ntk.darkmoor.engine.actor.Stair;
 import com.ntk.darkmoor.engine.actor.Teleporter;
 import com.ntk.darkmoor.engine.actor.WallSwitch;
 import com.ntk.darkmoor.resource.Resources;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.MouseButtons;
 
@@ -375,7 +375,7 @@ public class Square {
 			return actor.onClick(location, side, button);
 
 		// Decoration interaction
-		Team team = GameScreen.getTeam();
+		Team team = GameScreenBase.getTeam();
 		Decoration decoration = team.getMaze().getDecoration(team.getFrontLocation().getCoordinates(),
 				Compass.getOppositeDirection(team.getDirection()));
 		if (decoration != null) {

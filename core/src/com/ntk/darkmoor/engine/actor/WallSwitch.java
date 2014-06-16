@@ -23,7 +23,7 @@ import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.engine.graphics.TileDrawing;
 import com.ntk.darkmoor.engine.script.WallSwitchScript;
-import com.ntk.darkmoor.stub.GameScreen;
+import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.MouseButtons;
 
 public class WallSwitch extends SquareActor {
@@ -79,14 +79,14 @@ public class WallSwitch extends SquareActor {
 		if (!StringUtils.isEmpty(neededItem)) {
 
 			// No item in hand or not the good item
-			if (GameScreen.getTeam().getItemInHand() == null
-					|| !StringUtils.equals(GameScreen.getTeam().getItemInHand().getName(), neededItem)) {
+			if (GameScreenBase.getTeam().getItemInHand() == null
+					|| !StringUtils.equals(GameScreenBase.getTeam().getItemInHand().getName(), neededItem)) {
 				GameMessage.addMessage("You need a key to open this lock");
 				return true;
 			}
 
 			// Picklock
-			if ("PickLock".equalsIgnoreCase(GameScreen.getTeam().getItemInHand().getName())) {
+			if ("PickLock".equalsIgnoreCase(GameScreenBase.getTeam().getItemInHand().getName())) {
 				// TODO: already unlocked => "It's already unlocked"
 				if (pickLock()) {
 					GameMessage.addMessage("You pick the lock.", GameColors.Green);
@@ -99,7 +99,7 @@ public class WallSwitch extends SquareActor {
 
 			// Consume item
 			if (consumeItem)
-				GameScreen.getTeam().setItemInHand(null);
+				GameScreenBase.getTeam().setItemInHand(null);
 		}
 
 		toggle();
