@@ -3,6 +3,7 @@ package com.ntk.darkmoor;
 import java.io.InputStream;
 import java.util.Map;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
@@ -32,8 +33,8 @@ import com.ntk.darkmoor.resource.ItemAssets;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.Display;
+import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameScreenBase;
-import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.SaveGame;
 
 public class CharGen extends GameScreenBase {
@@ -57,7 +58,9 @@ public class CharGen extends GameScreenBase {
 	private CharGenStates currentState;
 	private int faceOffset;
 
-	public CharGen() {
+	public CharGen(Game game) {
+		super(game);
+		
 		heroes = new Hero[4];
 
 		heroBoxes = new Rectangle[] {
@@ -214,7 +217,7 @@ public class CharGen extends GameScreenBase {
 
 	void playButton_Selected() {
 		// if (Heroes.Any(hero => hero == null)) return;
-		GameScreenBase screen = new GameScreenBase();
+		GameScreen screen = new GameScreen(game);
 
 		// Generate the team
 		Settings.setSavedGame(new SaveGame());
@@ -231,10 +234,10 @@ public class CharGen extends GameScreenBase {
 	}
 
 	@Override
-	public void update(GameTime time, boolean hasFocus, boolean isCovered) {
+	public void update(float delta, boolean hasFocus, boolean isCovered) {
 		// Go back to the main menu
 		if (Gdx.input.isKeyPressed(Keys.ESCAPE)) {
-			ScreenManager.addScreen(new MainMenu());
+			ScreenManager.addScreen(new MainMenu(game));
 			exitScreen();
 		}
 

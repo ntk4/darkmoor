@@ -19,7 +19,6 @@ import com.ntk.darkmoor.engine.gui.MessageBox.DialogResult;
 import com.ntk.darkmoor.engine.gui.MessageBox.MessageBoxButtons;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
 import com.ntk.darkmoor.stub.GameScreenBase;
-import com.ntk.darkmoor.stub.GameTime;
 
 public class RestPartyWindow extends BaseWindow {
 
@@ -67,8 +66,8 @@ public class RestPartyWindow extends BaseWindow {
 	}
 
 	@Override
-	public void update(GameTime time) {
-		super.update(time);
+	public void update(float delta) {
+		super.update(delta);
 
 		// TODO: ntk: what's the point here? also is the condition correct?
 		// No answer, waiting

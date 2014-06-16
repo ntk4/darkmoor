@@ -65,7 +65,7 @@ public class ScriptedDialog extends DialogBase {
 	}
 
 	@Override
-	public void update(GameTime time) {
+	public void update(float delta) {
 		// Debug
 		if (Gdx.input.isButtonPressed(Buttons.MIDDLE))
 			exit();
@@ -96,7 +96,7 @@ public class ScriptedDialog extends DialogBase {
 			if (choices[id] == null)
 				break;
 
-			buttons[id].update(time);
+			buttons[id].update(delta);
 		}
 
 	}

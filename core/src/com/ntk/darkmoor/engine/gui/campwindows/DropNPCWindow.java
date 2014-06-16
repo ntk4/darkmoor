@@ -19,7 +19,6 @@ import com.ntk.darkmoor.engine.gui.ScreenButton;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.GameScreenBase;
-import com.ntk.darkmoor.stub.GameTime;
 
 public class DropNPCWindow extends BaseWindow {
 
@@ -88,8 +87,8 @@ public class DropNPCWindow extends BaseWindow {
 	}
 
 	@Override
-	public void update(GameTime time) {
-		super.update(time);
+	public void update(float delta) {
+		super.update(delta);
 
 		// int col = (int) (Math.Sin(time.ElapsedGameTime.Milliseconds) * 255.0f);
 		// RectangleColor = Color.FromArgb(255, col, col, col);

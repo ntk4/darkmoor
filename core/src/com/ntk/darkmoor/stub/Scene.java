@@ -29,7 +29,7 @@ public class Scene {
 		
 	}
 
-	public void update(GameTime time) {
+	public void update(float delta) {
 		// TODO Auto-generated method stub
 		
 	}

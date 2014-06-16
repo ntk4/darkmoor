@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.ntk.darkmoor.exception.InitializationException;
 import com.ntk.darkmoor.exception.SaveException;
 import com.ntk.darkmoor.stub.SaveGame;
@@ -40,13 +42,17 @@ public class Settings {
 	private File settingsFile;
 
 	public static Settings loadSettings(String path, String file) throws IOException {
+		return loadSettings(new FileHandle(new File(path + file)));
+	}
+	
+	public static Settings loadSettings(FileHandle handle) throws IOException {
 
 		final Properties props = new Properties();
 		
-		props.load(new FileInputStream(path + file));
+		props.load(handle.read());
 
 		Settings settings = new Settings(props);
-		settings.settingsFile = new File(path, file);
+		settings.settingsFile = handle.file();
 		
 		settings.setInputScheme(settings.extractStringProperty(SETTING_INPUTSCHEME, "qwerty", InputType.stringValues()));
 		settings.setLanguage(settings.extractStringProperty(SETTING_LANGUAGE, "English", GameLanguage.stringValues()));

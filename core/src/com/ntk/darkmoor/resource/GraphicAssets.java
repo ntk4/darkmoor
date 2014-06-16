@@ -31,7 +31,7 @@ public class GraphicAssets {
 
 	public TextureSet load(String textureSetName) throws LoadException {
 
-		Element root = ResourceUtility.extractRootElement(fileName);
+		Element root = ResourceUtility.extractRootElement(Resources.getResourcePath() + fileName);
 
 		TextureSet set = null;
 		try {

@@ -33,10 +33,11 @@ public class TextureSet implements Disposable {
 		// the file handle can be retrieved in a game, but in JUnit it doesn't work
 		if (ResourceUtility.isStandaloneMode()) {
 			return;
-//			texture = Resources.getAssetManager().get(Resources.getResourcePath() + textureFile.toLowerCase(),
-//					Texture.class);
+			// texture = Resources.getAssetManager().get(Resources.getResourcePath() + textureFile.toLowerCase(),
+			// Texture.class);
 		} else {
-			texture = Resources.getAssetManager().get("data/" + textureFile.toLowerCase(), Texture.class);
+			texture = Resources.getAssetManager().get(Resources.getResourcePath() + textureFile.toLowerCase(),
+					Texture.class);
 		}
 
 	}

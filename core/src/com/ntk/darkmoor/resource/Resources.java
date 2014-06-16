@@ -93,8 +93,9 @@ public class Resources {
 		// param.genMipMaps = true;Gdx.files.internal(getResourcePath() + "chargen.png").exists()
 		// param.magFilter = TextureFilter.
 		getAssetManager().load(getResourcePath() + FONT_FILE, BitmapFont.class);
-		getAssetManager().load(getResourcePath() + "chargen.png", Texture.class);
+		// getAssetManager().load(getResourcePath() + "chargen.png", Texture.class);
 		getAssetManager().load(getResourcePath() + "items.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "main menu.png", Texture.class);
 		getAssetManager().finishLoading();
 	}
 
@@ -116,7 +117,8 @@ public class Resources {
 		if (bitmapFont != null)
 			return bitmapFont;
 		try {
-			bitmapFont = new BitmapFont(Gdx.files.internal(FONT_FILE), Gdx.files.internal(FONT_IMAGE_FILE), false);
+			bitmapFont = new BitmapFont(Gdx.files.internal(getResourcePath() + FONT_FILE),
+					Gdx.files.internal(getResourcePath() + FONT_IMAGE_FILE), false);
 			return bitmapFont;
 		} catch (Exception e) {
 			throw new LoadException(e);

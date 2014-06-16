@@ -32,7 +32,7 @@ public class GUIScriptButton extends Button {
 		this.backColor = GameColors.Main;
 	}
 
-	public void update(GameTime time)
+	public void update(float delta)
 	{
 		/* TODO: controller: find out how to replace mouse handling with touch
 		// Mouse over

@@ -13,7 +13,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.GameColors;
-import com.ntk.darkmoor.stub.GameTime;
 
 public class BaseWindow extends Window {
 
@@ -34,14 +33,14 @@ public class BaseWindow extends Window {
 		closing = true;
 	}
 
-	public void update(GameTime time) {
+	public void update(float delta) {
 		if (messageBox != null && !messageBox.isClosing())
 			messageBox = null;
 
 		if (messageBox != null)
-			messageBox.update(time);
+			messageBox.update(delta);
 		else
-			updateButtons(time, buttons);
+			updateButtons(delta, buttons);
 	}
 
 	@Override
@@ -95,10 +94,10 @@ public class BaseWindow extends Window {
 
 	}
 
-	private void updateButtons(GameTime time, List<ScreenButton> buttons2) {
+	private void updateButtons(float delta, List<ScreenButton> buttons2) {
 		// update message box
 		if (messageBox != null) {
-			messageBox.update(time);
+			messageBox.update(delta);
 
 			return;
 		}

@@ -1,16 +1,16 @@
 package com.ntk.darkmoor;
 
-import com.badlogic.gdx.Game;
 import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class ScreenManager {
 
-	private static Game game;
+	private static DarkmoorGame game;
 	private static IntroScreen introScreen;
 	
-	public static void init(Game parentGame) {
+	public static void init(DarkmoorGame parentGame) {
 		game = parentGame;
-		introScreen = new IntroScreen();
+		
+		introScreen = new IntroScreen(parentGame);
 	}
 	
 	public static void showIntroScreen() {

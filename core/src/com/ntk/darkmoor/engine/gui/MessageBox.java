@@ -197,7 +197,7 @@ public class MessageBox extends Dialog {
 		}
 	}
 
-	public void update(GameTime time) {
+	public void update(float delta) {
 		if (closing)
 			return;
 

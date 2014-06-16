@@ -50,7 +50,7 @@ public class CampDialog extends DialogBase {
 	}
 
 	@Override
-	public void update(GameTime time) {
+	public void update(float delta) {
 		if (windows.size() > 0) {
 			// Remove closing windows
 			while (windows.size() > 0 && windows.peek().isClosing())
@@ -59,7 +59,7 @@ public class CampDialog extends DialogBase {
 			if (windows.isEmpty())
 				exit();
 			else
-				windows.peek().update(time);
+				windows.peek().update(delta);
 		}
 	}
 	

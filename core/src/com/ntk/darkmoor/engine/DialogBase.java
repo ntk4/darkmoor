@@ -2,7 +2,6 @@ package com.ntk.darkmoor.engine;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.ntk.darkmoor.stub.GameTime;
 
 public abstract class DialogBase {
 
@@ -13,7 +12,7 @@ public abstract class DialogBase {
 		quit = true;
 	}
 
-	public void update(GameTime time) {
+	public void update(float delta) {
 
 	}
 
