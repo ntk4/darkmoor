@@ -7,19 +7,17 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.ntk.darkmoor.config.LanguagesManager;
 import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.config.Settings;
-import com.ntk.darkmoor.engine.GameColors;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
 import com.ntk.darkmoor.engine.gui.campwindows.LoadGameWindow;
+import com.ntk.darkmoor.resource.ResizableRectangle;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.Display;
@@ -56,7 +54,7 @@ public class MainMenu extends GameScreenBase {
 		stringTable = LanguagesManager.getInstance(); // "main";
 
 		buttons = new ScreenButton[4];
-		buttons[0] = new ScreenButton("", new Rectangle(156, 324, 340, 14));
+		buttons[0] = new ScreenButton("", new ResizableRectangle(158, 70, 340, 16));
 		buttons[0].addListener(new EventListener() {
 			@Override
 			public boolean handle(Event event) {
@@ -65,7 +63,7 @@ public class MainMenu extends GameScreenBase {
 			}
 		});
 
-		buttons[1] = new ScreenButton("", new Rectangle(156, 342, 340, 14));
+		buttons[1] = new ScreenButton("", new ResizableRectangle(158, 52, 340, 16));
 		buttons[1].addListener(new EventListener() {
 			@Override
 			public boolean handle(Event event) {
@@ -75,7 +73,7 @@ public class MainMenu extends GameScreenBase {
 			}
 		});
 
-		buttons[2] = new ScreenButton("", new Rectangle(156, 360, 340, 14));
+		buttons[2] = new ScreenButton("", new ResizableRectangle(158, 36, 340, 16));
 		buttons[2].addListener(new EventListener() {
 			@Override
 			public boolean handle(Event event) {
@@ -84,7 +82,7 @@ public class MainMenu extends GameScreenBase {
 			}
 		});
 
-		buttons[3] = new ScreenButton("", new Rectangle(156, 378, 340, 14));
+		buttons[3] = new ScreenButton("", new ResizableRectangle(158, 20, 340, 16));
 		buttons[3].addListener(new EventListener() {
 			@Override
 			public boolean handle(Event event) {
@@ -95,8 +93,9 @@ public class MainMenu extends GameScreenBase {
 
 		theme = Gdx.audio.newMusic(Gdx.files.internal("data/main.ogg"));
 		theme.setLooping(true);
-		theme.play();
+		// theme.play();
 
+		// this.shapeRenderer = new ShapeRenderer();
 	}
 
 	@Override
@@ -240,18 +239,15 @@ public class MainMenu extends GameScreenBase {
 		batch.begin();
 
 		// Background
-		batch.draw(textureSet.getSprite(0), 0, 0, 640, 400);
+		batch.draw(textureSet.getSprite(0), 0, 0, game.getCamera().viewportWidth, game.getCamera().viewportHeight);
 
 		// Draw buttons
 		for (int id = 0; id < buttons.length; id++) {
 			ScreenButton button = buttons[id];
 
-			Color textColor = id == menuID ? GameColors.getColor(255, 85, 85) : Color.WHITE;
-			font.setColor(textColor);
+			// Color textColor = (id == menuID ? GameColors.getColor(255, 85, 85) : Color.WHITE);
+			// font.setColor(GameColors.getColor(255, 85, 85));
 			font.draw(batch, button.getText(), button.getRectangle().x, button.getRectangle().y);
-
-			// Batch.DrawString(Font, new Vector2(button.Rectangle.Location.X, button.Rectangle.Location.Y),
-			// id == MenuID ? Color.FromArgb(255, 85, 85) : Color.White, button.Text);
 		}
 
 		if (loadGame != null)

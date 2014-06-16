@@ -15,7 +15,7 @@ public class Resources {
 	private static String resourcePath = "data/";
 	public static final String TEXTURE_SET_FILE = "TextureSet.xml";
 	public static final String FONT_FILE = "fonts/font.fnt";
-	public static final String FONT_IMAGE_FILE = "fonts/font_0.png";
+	public static final String FONT_IMAGE_FILE = "fonts/font.png";
 	private static BitmapFont bitmapFont;
 
 	private static AssetManager assetManager;
@@ -117,8 +117,7 @@ public class Resources {
 		if (bitmapFont != null)
 			return bitmapFont;
 		try {
-			bitmapFont = new BitmapFont(Gdx.files.internal(getResourcePath() + FONT_FILE),
-					Gdx.files.internal(getResourcePath() + FONT_IMAGE_FILE), false);
+			bitmapFont = assetManager.get(getResourcePath() + FONT_FILE, BitmapFont.class);
 			return bitmapFont;
 		} catch (Exception e) {
 			throw new LoadException(e);

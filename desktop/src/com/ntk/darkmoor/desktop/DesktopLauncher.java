@@ -7,8 +7,8 @@ import com.ntk.darkmoor.DarkmoorGame;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.height = 400;
-		config.width = 640;
+		config.height = DarkmoorGame.DISPLAY_HEIGHT;
+		config.width = DarkmoorGame.DISPLAY_WIDTH;
 		new LwjglApplication(new DarkmoorGame(), config);
 	}
 }

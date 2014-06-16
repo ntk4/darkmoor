@@ -1,13 +1,13 @@
-font.size=32
+font.size=24
 font.bold=false
 font.italic=false
 
-pad.top=0
-pad.right=0
-pad.bottom=0
-pad.left=0
-pad.advance.x=0
-pad.advance.y=0
+pad.top=1
+pad.right=1
+pad.bottom=1
+pad.left=1
+pad.advance.x=1
+pad.advance.y=1
 
 glyph.native.rendering=false
 glyph.page.width=256

@@ -19,21 +19,21 @@ public class GameColors {
 	public static final Color LightGreen = getColor(146, 207, 138, 255);
 
 	public static Color getColor(int r, int g, int b, int a) {
-		int col = Color.rgba8888(r, g, b, a);
+		int col = Color.rgba8888((float)r/255, (float)g/255, (float)b/255, (float)a/255);
 		Color result = Color.WHITE;
 		Color.rgba8888ToColor(result, col);
 		return result;
 	}
 	
 	public static Color getColorFromArgb(int a, int r, int g, int b) {
-		int col = Color.rgba8888(r, g, b, a);
+		int col = Color.rgba8888((float)r, (float)g/255, (float)b/255, (float)a/255);
 		Color result = Color.WHITE;
 		Color.rgba8888ToColor(result, col);
 		return result;
 	}
 
 	public static Color getColor(int r, int g, int b) {
-		int col = Color.rgb888(r, g, b);
+		int col = Color.rgb888((float)r/255, (float)g/255, (float)b/255);
 		Color result = Color.WHITE;
 		Color.rgb888ToColor(result, col);
 		return result;
