@@ -10,13 +10,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlReader.Element;
+import com.ntk.darkmoor.resource.Resources;
 
 public class LanguagesManager {
 	private static LanguagesManager _instance = null;
 	public static final String DEFAULT_FILE = "StringTable.xml";
 
-	private static final String LANGUAGES_FILE = "data/StringTable.xml";
-	private static final String DEFAULT_LANGUAGE = "English";
+	public static final String DEFAULT_LANGUAGE = "English";
 
 	private HashMap<String, String> messages = null;
 	/** String table file from which the instance was loaded */
@@ -37,7 +37,7 @@ public class LanguagesManager {
 				Log.error("[LanguagesManager]: string table file '%s' was not found!", stringTableFile);
 			}
 		} else {
-			inputStream = Gdx.files.internal(LANGUAGES_FILE).read();
+			inputStream = Gdx.files.internal(Resources.getResourcePath() + DEFAULT_FILE).read();
 		}
 
 		loadMessages(inputStream);
@@ -65,6 +65,10 @@ public class LanguagesManager {
 	private void dispose() {
 		messages.clear();
 		messages = null;
+	}
+
+	public static String getString(String section, int key) {
+		return getInstance().getString(getInstance().getLanguage(), section, key);
 	}
 
 	public String getString(String languageName, String section, int key) {
@@ -119,7 +123,7 @@ public class LanguagesManager {
 				}
 			}
 		} catch (Exception e) {
-			System.out.println("Error loading languages file " + LANGUAGES_FILE);
+			System.out.println("Error loading languages file " + Resources.getResourcePath() + DEFAULT_FILE);
 			return false;
 		}
 

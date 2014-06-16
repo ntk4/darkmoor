@@ -124,10 +124,35 @@ public class Hero extends Entity {
 		public int value() {
 			return value;
 		}
+
+		public static HeroRace valueOf(int race) {
+			switch (race) {
+			case 0:
+				return Human;
+			case 1:
+				return Elf;
+			case 2:
+				return HalfElf;
+			case 4:
+				return Dwarf;
+			case 8:
+				return Gnome;
+			case 16:
+				return Halfling;
+			default:
+				return Human;
+			}
+		}
 	}
 
 	public enum HeroGender {
-		Male, Female,
+		Male, Female;
+		
+		public static HeroGender valueOf(int gender) {
+			if (gender == 0) {
+				return Male;
+			} else return Female;
+		}
 	}
 
 	private String name;
@@ -294,7 +319,7 @@ public class Hero extends Entity {
 			for (HeroClass hClass : getClasses()) {
 				List<List<Spell>> spells = getSpellsFromHeroClass(hClass);
 				// TODO: ntk: check if it's correct: added a new iteration in classes
-				if (spells.size() > 0) 
+				if (spells.size() > 0)
 					for (Spell spell : spells.get(i))
 						writer.element("spell").attribute("name", spell.getName()).pop();
 			}
@@ -391,100 +416,160 @@ public class Hero extends Entity {
 
 	public int getMaxSpellCount(HeroClass heroClass, int level) {
 		int[][] ClercLevels = new int[][] {
-				new int[] {
-						1, 0, 0, 0, 0, 0 }, // 1
-				new int[] {
-						2, 0, 0, 0, 0, 0 }, // 2
-				new int[] {
-						2, 1, 0, 0, 0, 0 }, // 3
-				new int[] {
-						3, 2, 0, 0, 0, 0 }, // 4
-				new int[] {
-						3, 3, 1, 0, 0, 0 }, // 5
-				new int[] {
-						3, 3, 2, 0, 0, 0 }, // 6
-				new int[] {
-						3, 3, 2, 1, 0, 0 }, // 7
-				new int[] {
-						3, 3, 3, 2, 0, 0 }, // 8
-				new int[] {
-						4, 4, 3, 2, 1, 0 }, // 9
-				new int[] {
-						4, 4, 3, 3, 2, 0 }, // 10
-				new int[] {
-						5, 4, 4, 3, 2, 1 }, // 11
-				new int[] {
-						6, 5, 5, 3, 2, 2 }, // 12
-				new int[] {
-						6, 6, 6, 4, 2, 2 }, // 13
+			new int[] {
+				1, 0, 0, 0, 0, 0
+			}, // 1
+			new int[] {
+				2, 0, 0, 0, 0, 0
+			}, // 2
+			new int[] {
+				2, 1, 0, 0, 0, 0
+			}, // 3
+			new int[] {
+				3, 2, 0, 0, 0, 0
+			}, // 4
+			new int[] {
+				3, 3, 1, 0, 0, 0
+			}, // 5
+			new int[] {
+				3, 3, 2, 0, 0, 0
+			}, // 6
+			new int[] {
+				3, 3, 2, 1, 0, 0
+			}, // 7
+			new int[] {
+				3, 3, 3, 2, 0, 0
+			}, // 8
+			new int[] {
+				4, 4, 3, 2, 1, 0
+			}, // 9
+			new int[] {
+				4, 4, 3, 3, 2, 0
+			}, // 10
+			new int[] {
+				5, 4, 4, 3, 2, 1
+			}, // 11
+			new int[] {
+				6, 5, 5, 3, 2, 2
+			}, // 12
+			new int[] {
+				6, 6, 6, 4, 2, 2
+			}, // 13
 		};
 
 		int[][] ClercBonus = new int[][] {
-				new int[] {
-						0, 0, 0, 0, 0, 0 }, new int[] {
-						0, 0, 0, 0, 0, 0 }, new int[] {
-						0, 0, 0, 0, 0, 0 }, new int[] {
-						0, 0, 0, 0, 0, 0 }, new int[] {
-						0, 0, 0, 0, 0, 0 }, new int[] {
-						0, 0, 0, 0, 0, 0 }, new int[] {
-						0, 0, 0, 0, 0, 0 }, new int[] {
-						0, 0, 0, 0, 0, 0 }, new int[] {
-						0, 0, 0, 0, 0, 0 }, new int[] {
-						0, 0, 0, 0, 0, 0 }, new int[] {
-						0, 0, 0, 0, 0, 0 }, new int[] {
-						0, 0, 0, 0, 0, 0 }, new int[] {
-						1, 0, 0, 0, 0, 0 }, new int[] {
-						2, 0, 0, 0, 0, 0 }, new int[] {
-						2, 1, 0, 0, 0, 0 }, new int[] {
-						2, 2, 0, 0, 0, 0 }, new int[] {
-						2, 2, 1, 0, 0, 0 }, new int[] {
-						2, 2, 1, 1, 0, 0 }, new int[] {
-						3, 2, 1, 2, 0, 0 }, };
+			new int[] {
+				0, 0, 0, 0, 0, 0
+			}, new int[] {
+				0, 0, 0, 0, 0, 0
+			}, new int[] {
+				0, 0, 0, 0, 0, 0
+			}, new int[] {
+				0, 0, 0, 0, 0, 0
+			}, new int[] {
+				0, 0, 0, 0, 0, 0
+			}, new int[] {
+				0, 0, 0, 0, 0, 0
+			}, new int[] {
+				0, 0, 0, 0, 0, 0
+			}, new int[] {
+				0, 0, 0, 0, 0, 0
+			}, new int[] {
+				0, 0, 0, 0, 0, 0
+			}, new int[] {
+				0, 0, 0, 0, 0, 0
+			}, new int[] {
+				0, 0, 0, 0, 0, 0
+			}, new int[] {
+				0, 0, 0, 0, 0, 0
+			}, new int[] {
+				1, 0, 0, 0, 0, 0
+			}, new int[] {
+				2, 0, 0, 0, 0, 0
+			}, new int[] {
+				2, 1, 0, 0, 0, 0
+			}, new int[] {
+				2, 2, 0, 0, 0, 0
+			}, new int[] {
+				2, 2, 1, 0, 0, 0
+			}, new int[] {
+				2, 2, 1, 1, 0, 0
+			}, new int[] {
+				3, 2, 1, 2, 0, 0
+			},
+		};
 
 		int[][] MageLevels = new int[][] {
-				new int[] {
-						1, 0, 0, 0, 0, 0 }, // 1
-				new int[] {
-						2, 0, 0, 0, 0, 0 }, // 2
-				new int[] {
-						2, 1, 0, 0, 0, 0 }, // 3
-				new int[] {
-						3, 2, 0, 0, 0, 0 }, // 4
-				new int[] {
-						4, 2, 1, 0, 0, 0 }, // 5
-				new int[] {
-						4, 2, 2, 0, 0, 0 }, // 6
-				new int[] {
-						4, 3, 2, 1, 0, 0 }, // 7
-				new int[] {
-						4, 3, 3, 2, 0, 0 }, // 8
-				new int[] {
-						4, 3, 3, 2, 1, 0 }, // 9
-				new int[] {
-						4, 4, 3, 2, 2, 0 }, // 10
-				new int[] {
-						4, 4, 4, 3, 3, 0 }, // 11
-				new int[] {
-						4, 4, 4, 4, 4, 1 }, // 12
-				new int[] {
-						5, 5, 5, 4, 4, 2 }, // 13
+			new int[] {
+				1, 0, 0, 0, 0, 0
+			}, // 1
+			new int[] {
+				2, 0, 0, 0, 0, 0
+			}, // 2
+			new int[] {
+				2, 1, 0, 0, 0, 0
+			}, // 3
+			new int[] {
+				3, 2, 0, 0, 0, 0
+			}, // 4
+			new int[] {
+				4, 2, 1, 0, 0, 0
+			}, // 5
+			new int[] {
+				4, 2, 2, 0, 0, 0
+			}, // 6
+			new int[] {
+				4, 3, 2, 1, 0, 0
+			}, // 7
+			new int[] {
+				4, 3, 3, 2, 0, 0
+			}, // 8
+			new int[] {
+				4, 3, 3, 2, 1, 0
+			}, // 9
+			new int[] {
+				4, 4, 3, 2, 2, 0
+			}, // 10
+			new int[] {
+				4, 4, 4, 3, 3, 0
+			}, // 11
+			new int[] {
+				4, 4, 4, 4, 4, 1
+			}, // 12
+			new int[] {
+				5, 5, 5, 4, 4, 2
+			}, // 13
 		};
 
 		int[][] PaladinLevels = new int[][] {
-				new int[] {
-						0, 0, 0 }, new int[] {
-						0, 0, 0 }, new int[] {
-						0, 0, 0 }, new int[] {
-						0, 0, 0 }, new int[] {
-						0, 0, 0 }, new int[] {
-						0, 0, 0 }, new int[] {
-						0, 0, 0 }, new int[] {
-						0, 0, 0 }, new int[] {
-						1, 0, 0 }, new int[] {
-						2, 0, 0 }, new int[] {
-						2, 1, 0 }, new int[] {
-						2, 2, 0 }, new int[] {
-						2, 2, 1 }, };
+			new int[] {
+				0, 0, 0
+			}, new int[] {
+				0, 0, 0
+			}, new int[] {
+				0, 0, 0
+			}, new int[] {
+				0, 0, 0
+			}, new int[] {
+				0, 0, 0
+			}, new int[] {
+				0, 0, 0
+			}, new int[] {
+				0, 0, 0
+			}, new int[] {
+				0, 0, 0
+			}, new int[] {
+				1, 0, 0
+			}, new int[] {
+				2, 0, 0
+			}, new int[] {
+				2, 1, 0
+			}, new int[] {
+				2, 2, 0
+			}, new int[] {
+				2, 2, 1
+			},
+		};
 
 		Profession prof = getProfession(heroClass);
 		if (prof == null)
@@ -810,10 +895,8 @@ public class Hero extends Entity {
 			// Weapon use quiver
 			else if (item.isUseQuiver()) {
 				if (quiver > 0) {
-					team.getMaze()
-							.getThrownItems()
-							.add(new ThrownItem(this, Resources.getItemAsset("Arrow"), loc, 250,
-									Integer.MAX_VALUE));
+					team.getMaze().getThrownItems()
+							.add(new ThrownItem(this, Resources.getItemAsset("Arrow"), loc, 250, Integer.MAX_VALUE));
 					quiver--;
 				} else
 					handActions[hand.value()] = new HandAction(ActionResult.NoAmmo);
@@ -1198,6 +1281,30 @@ public class Hero extends Entity {
 
 	public String getName() {
 		return name;
+	}
+
+	public HeroRace getRace() {
+		return race;
+	}
+
+	public void setRace(HeroRace race) {
+		this.race = race;
+	}
+
+	public HeroGender getGender() {
+		return gender;
+	}
+
+	public void setGender(HeroGender gender) {
+		this.gender = gender;
+	}
+
+	public void setHead(int head) {
+		this.head = head;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

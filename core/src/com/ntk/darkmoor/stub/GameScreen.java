@@ -59,4 +59,14 @@ public class GameScreen extends ScreenAdapter {
 		
 	}
 
+	public void newGame(Team gsteam) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void exitScreen() {
+		// TODO Auto-generated method stub
+		
+	}
 }

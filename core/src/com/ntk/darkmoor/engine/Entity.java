@@ -2,9 +2,6 @@ package com.ntk.darkmoor.engine;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Date;
-
-import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
@@ -245,5 +242,9 @@ public abstract class Entity {
 
 	public int[] getArr() {
 		return arr;
+	}
+
+	public void setAlignment(EntityAlignment alignment) {
+		this.alignment = alignment;
 	}
 }
