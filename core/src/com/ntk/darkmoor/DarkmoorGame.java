@@ -7,6 +7,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.ntk.darkmoor.config.Settings;
@@ -15,12 +16,12 @@ import com.ntk.darkmoor.resource.Resources;
 public class DarkmoorGame extends Game {
 	public static final int GAME_HEIGHT = 400;
 	public static final int GAME_WIDTH = 640;
-	
+
 	public static final int DISPLAY_HEIGHT = 720;
 	public static final int DISPLAY_WIDTH = 1280;
-	
+
 	public static final String DATA_ASSET_FOLDER = "./data";
-	
+
 	SpriteBatch batch;
 	Texture img;
 	Resources resources;
@@ -30,15 +31,20 @@ public class DarkmoorGame extends Game {
 	@Override
 	public void create() {
 		resources = new Resources().loadResources(DATA_ASSET_FOLDER);
-		batch = new SpriteBatch();
 		loadStartupData();
 		camera = new OrthographicCamera(DISPLAY_WIDTH, DISPLAY_HEIGHT);
+		// camera.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		// camera.update();
+
+		batch = new SpriteBatch();
+
 		viewport = new FitViewport(DISPLAY_WIDTH, DISPLAY_HEIGHT);
 		setScreen(new MainMenu(this));
 	}
 
 	private void loadStartupData() {
 		Resources.loadGameStartupResources();
+		Resources.loadResources();
 		try {
 			Settings.loadSettings(Gdx.files.internal("settings.properties"));
 		} catch (IOException e) {
@@ -76,5 +82,11 @@ public class DarkmoorGame extends Game {
 
 	public Viewport getViewport() {
 		return viewport;
+	}
+
+	public Vector2 getInputCoordinates(Vector2 position) {
+		position.x = Gdx.input.getX();
+		position.y = DISPLAY_HEIGHT - Gdx.input.getY();
+		return position;
 	}
 }

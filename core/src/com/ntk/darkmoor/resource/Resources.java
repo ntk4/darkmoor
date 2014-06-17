@@ -45,6 +45,10 @@ public class Resources {
 		GraphicAssets textureAssets = GraphicAssets.getAssets(TEXTURE_SET_FILE);
 		return textureAssets.load(name);
 	}
+	
+	public static Texture createTextureAsset(String name) {
+		return assetManager.get(getResourcePath() + name + ".png");
+	}
 
 	public static TextureSet loadSharedTextureSetAsset(String name) {
 		return null;
@@ -95,8 +99,22 @@ public class Resources {
 		getAssetManager().load(getResourcePath() + FONT_FILE, BitmapFont.class);
 		// getAssetManager().load(getResourcePath() + "chargen.png", Texture.class);
 		getAssetManager().load(getResourcePath() + "items.png", Texture.class);
-		getAssetManager().load(getResourcePath() + "main menu.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "mainmenu.png", Texture.class);
 		getAssetManager().finishLoading();
+	}
+	
+	public static void loadResources() {
+		LanguagesManager.getInstance(getStringTableFile());
+
+		// TextureParameter param = new TextureParameter();
+		// param.minFilter = TextureFilter.Linear;
+		// param.genMipMaps = true;Gdx.files.internal(getResourcePath() + "chargen.png").exists()
+		// param.magFilter = TextureFilter.
+//		getAssetManager().load(getResourcePath() + FONT_FILE, BitmapFont.class);
+		 getAssetManager().load(getResourcePath() + "chargen.png", Texture.class);
+//		getAssetManager().load(getResourcePath() + "items.png", Texture.class);
+//		getAssetManager().load(getResourcePath() + "main menu.png", Texture.class);
+//		getAssetManager().finishLoading();
 	}
 
 	public static BitmapFont lockSharedFontAsset(String string) {

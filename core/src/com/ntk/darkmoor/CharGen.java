@@ -89,9 +89,9 @@ public class CharGen extends GameScreenBase {
 		// TODO: ntk: the batch should be given and be already opened
 		batch = new SpriteBatch();
 
-		textureSet = Resources.createTextureSetAsset("CharGen");
+		textureSet = Resources.createTextureSetAsset("chargen");
 
-		heads = Resources.createTextureSetAsset("Heads");
+		heads = Resources.createTextureSetAsset("heads");
 
 		font = Resources.createFontAsset("intro");
 
