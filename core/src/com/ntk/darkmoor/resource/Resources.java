@@ -14,8 +14,8 @@ public class Resources {
 
 	private static String resourcePath = "data/";
 	public static final String TEXTURE_SET_FILE = "TextureSet.xml";
-	public static final String FONT_FILE = "fonts/font.fnt";
-	public static final String FONT_IMAGE_FILE = "fonts/font.png";
+	public static final String FONT_FILE = "fonts/font1.fnt";
+	public static final String FONT_IMAGE_FILE = "fonts/font1.png";
 	private static BitmapFont bitmapFont;
 
 	private static AssetManager assetManager;

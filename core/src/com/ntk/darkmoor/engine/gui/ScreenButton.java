@@ -25,6 +25,13 @@ public class ScreenButton extends Button {
 	}
 
 	public void onSelectEntry() {
+//		if (getListeners().size > 0) {
+//			for (EventListener listener: getListeners()) {
+//				Event e = new Event();
+//				e.setTarget(this);
+//				listener.handle(e);
+//			}
+//		}
 		if (selectedListener != null) {
 			Event e = new Event();
 			e.setTarget(this);
@@ -34,11 +41,11 @@ public class ScreenButton extends Button {
 
 
 	// ntk: careful here! we provide only one selected Listener!
-	protected EventListener getSelectedListener() {
+	public EventListener getSelectedListener() {
 		return selectedListener;
 	}
 
-	protected void setSelectedListener(EventListener selectedListener) {
+	public void setSelectedListener(EventListener selectedListener) {
 		this.selectedListener = selectedListener;
 	}
 

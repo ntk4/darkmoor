@@ -7,6 +7,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.resource.Resources;
 
@@ -17,13 +19,13 @@ public class DarkmoorGame extends Game {
 	public static final int DISPLAY_HEIGHT = 720;
 	public static final int DISPLAY_WIDTH = 1280;
 	
-	
 	public static final String DATA_ASSET_FOLDER = "./data";
 	
 	SpriteBatch batch;
 	Texture img;
 	Resources resources;
 	OrthographicCamera camera;
+	Viewport viewport;
 
 	@Override
 	public void create() {
@@ -31,6 +33,7 @@ public class DarkmoorGame extends Game {
 		batch = new SpriteBatch();
 		loadStartupData();
 		camera = new OrthographicCamera(DISPLAY_WIDTH, DISPLAY_HEIGHT);
+		viewport = new FitViewport(DISPLAY_WIDTH, DISPLAY_HEIGHT);
 		setScreen(new MainMenu(this));
 	}
 
@@ -64,13 +67,14 @@ public class DarkmoorGame extends Game {
 	@Override
 	public void resize(int width, int height) {
 		super.resize(width, height);
-//		camera.viewportHeight = height;
-//		camera.viewportWidth = width;
-//		float aspectRatio = (float) width / (float) height;
-//		camera = new OrthographicCamera(2f * aspectRatio, 2f);
+		viewport.update(width, height);
 	}
 
 	public OrthographicCamera getCamera() {
 		return camera;
+	}
+
+	public Viewport getViewport() {
+		return viewport;
 	}
 }
