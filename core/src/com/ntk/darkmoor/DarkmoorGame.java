@@ -5,7 +5,6 @@ import java.io.IOException;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -22,15 +21,13 @@ public class DarkmoorGame extends Game {
 
 	public static final String DATA_ASSET_FOLDER = "./data";
 
-	SpriteBatch batch;
-	Texture img;
-	Resources resources;
-	OrthographicCamera camera;
-	Viewport viewport;
+	private SpriteBatch batch;
+	private OrthographicCamera camera;
+	private Viewport viewport;
+	private MainMenu mainMenu;
 
 	@Override
 	public void create() {
-		resources = new Resources().loadResources(DATA_ASSET_FOLDER);
 		loadStartupData();
 		camera = new OrthographicCamera(DISPLAY_WIDTH, DISPLAY_HEIGHT);
 		// camera.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -39,7 +36,8 @@ public class DarkmoorGame extends Game {
 		batch = new SpriteBatch();
 
 		viewport = new FitViewport(DISPLAY_WIDTH, DISPLAY_HEIGHT);
-		setScreen(new MainMenu(this));
+		mainMenu = new MainMenu(this);
+		setScreen(mainMenu);
 	}
 
 	private void loadStartupData() {
@@ -62,8 +60,7 @@ public class DarkmoorGame extends Game {
 	// }
 
 	public static void exit() {
-		// TODO Auto-generated method stub
-
+		Gdx.app.exit();
 	}
 
 	public SpriteBatch getBatch() {
@@ -88,5 +85,9 @@ public class DarkmoorGame extends Game {
 		position.x = Gdx.input.getX();
 		position.y = DISPLAY_HEIGHT - Gdx.input.getY();
 		return position;
+	}
+
+	public MainMenu getMainMenu() {
+		return new MainMenu(this);
 	}
 }

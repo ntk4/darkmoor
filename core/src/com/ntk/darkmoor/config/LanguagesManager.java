@@ -23,6 +23,7 @@ public class LanguagesManager {
 	private String fileName;
 	/** Current language setting (set by LanguagesManager users from Settings class) */
 	private String language;
+	private String[] availableLanguages = {"English","French"};
 
 	private LanguagesManager(String stringTableFile) {
 		// Create language map
@@ -140,6 +141,10 @@ public class LanguagesManager {
 
 	public void setLanguage(String language) {
 		this.language = language;
+	}
+	
+	public String[] getAvailableLanguages() {
+		return availableLanguages ;
 	}
 
 }

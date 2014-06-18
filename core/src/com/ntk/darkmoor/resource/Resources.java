@@ -2,7 +2,6 @@ package com.ntk.darkmoor.resource;
 
 import java.io.InputStream;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -21,11 +20,6 @@ public class Resources {
 	private static AssetManager assetManager;
 
 	// private GraphicAssets graphicAssets;
-
-	public Resources loadResources(String path) {
-		// assetManager.load(path + "/", type)
-		return this;
-	}
 
 	public static <T> T createAsset(Class<T> class1, String name) {
 
