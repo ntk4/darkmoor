@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
@@ -25,6 +26,7 @@ public class DarkmoorGame extends Game {
 	private OrthographicCamera camera;
 	private Viewport viewport;
 	private MainMenu mainMenu;
+	private Music theme;
 
 	@Override
 	public void create() {
@@ -38,6 +40,32 @@ public class DarkmoorGame extends Game {
 		viewport = new FitViewport(DISPLAY_WIDTH, DISPLAY_HEIGHT);
 		mainMenu = new MainMenu(this);
 		setScreen(mainMenu);
+		
+		initMusic();
+	}
+
+	private void initMusic() {
+		theme = Gdx.audio.newMusic(Gdx.files.internal("data/main.ogg"));
+		theme.setLooping(true);
+		theme.play();
+	}
+
+	@Override
+	public void pause() {
+
+		if (theme != null && theme.isPlaying())
+			theme.pause();
+		
+		
+		super.pause();
+	}
+
+	@Override
+	public void resume() {
+		if (theme != null && !theme.isPlaying())
+			theme.play();
+		
+		super.resume();
 	}
 
 	private void loadStartupData() {

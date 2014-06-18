@@ -2,8 +2,18 @@ package com.ntk.darkmoor.engine;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
-public abstract class DialogBase {
+public class DialogBase extends Dialog {
+
+	public DialogBase() {
+		super("", new WindowStyle());
+	}
+	
+	public DialogBase(String title, Skin skin) {
+		super(title, skin);
+	}
 
 	private boolean quit;
 	private BitmapFont scriptFont;

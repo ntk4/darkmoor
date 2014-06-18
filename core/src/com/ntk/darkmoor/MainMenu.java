@@ -4,8 +4,6 @@ import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -31,7 +29,6 @@ public class MainMenu extends GameScreenBase {
 	private TextureSet textureSet;
 	private BitmapFont font;
 	private LanguagesManager stringTable;
-	private Music theme;
 
 	private LoadGameWindow loadGame;
 	private String languageName;
@@ -57,10 +54,6 @@ public class MainMenu extends GameScreenBase {
 
 		stringTable = LanguagesManager.getInstance(); // "main";
 		this.languageName = Settings.getLastLoadedInstance().getLanguage();
-
-		theme = Gdx.audio.newMusic(Gdx.files.internal("data/main.ogg"));
-		theme.setLooping(true);
-		theme.play();
 		
 		super.loadContent();
 	}
@@ -76,13 +69,13 @@ public class MainMenu extends GameScreenBase {
 
 	@Override
 	protected void setupButtons(Skin uiSkin) {
-		int widthUnit = DarkmoorGame.DISPLAY_WIDTH / 5;
-		int heightUnit = DarkmoorGame.DISPLAY_HEIGHT / 5;
+		int widthUnit = 320;//DarkmoorGame.DISPLAY_WIDTH / 5;
+		int heightUnit = 100;//DarkmoorGame.DISPLAY_HEIGHT / 5;
 
 		buttons = new TextButton[4];
 
-		buttons[0] = new TextButton(stringTable.getString(languageName, "main", 1), uiSkin);
-		buttons[0].setBounds(widthUnit, heightUnit << 2, widthUnit, heightUnit);
+		buttons[0] = new TextButton(stringTable.getString(languageName, "main", 1), uiSkin,"transparent");
+		buttons[0].setBounds(320, 480, widthUnit, heightUnit);
 		buttons[0].setTouchable(Touchable.enabled);
 		buttons[0].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -94,8 +87,8 @@ public class MainMenu extends GameScreenBase {
 			}
 		});
 
-		buttons[1] = new TextButton(stringTable.getString(languageName, "main", 2), uiSkin);
-		buttons[1].setBounds(widthUnit, heightUnit << 1, widthUnit, heightUnit);
+		buttons[1] = new TextButton(stringTable.getString(languageName, "main", 2), uiSkin,"transparent");
+		buttons[1].setBounds(340+widthUnit, 480, widthUnit, heightUnit);
 		buttons[1].setTouchable(Touchable.enabled);
 		buttons[1].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -108,10 +101,9 @@ public class MainMenu extends GameScreenBase {
 			}
 		});
 
-		buttons[2] = new TextButton(stringTable.getString(languageName, "main", 3), uiSkin);
-		buttons[2].setBounds(widthUnit * 3, heightUnit << 2, widthUnit, heightUnit);
+		buttons[2] = new TextButton(stringTable.getString(languageName, "main", 3), uiSkin,"transparent");
+		buttons[2].setBounds(320, 330, widthUnit, heightUnit);
 		buttons[2].setTouchable(Touchable.enabled);
-		// buttons[2] = new TextButton("", uiSkin);//new ResizableRectangle(158, 360, 340, 16));
 		buttons[2].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				setScreen(new OptionMenu(game));
@@ -122,10 +114,9 @@ public class MainMenu extends GameScreenBase {
 			}
 		});
 
-		buttons[3] = new TextButton(stringTable.getString(languageName, "main", 4), uiSkin);
-		buttons[3].setBounds(widthUnit * 3, heightUnit << 1, widthUnit, heightUnit);
+		buttons[3] = new TextButton(stringTable.getString(languageName, "main", 4), uiSkin,"transparent");
+		buttons[3].setBounds(340+widthUnit, 330, widthUnit, heightUnit);
 		buttons[3].setTouchable(Touchable.enabled);
-		// buttons[3] = new TextButton("", uiSkin);//new ResizableRectangle(158, 378, 340, 16));
 		buttons[3].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				DarkmoorGame.exit();
@@ -149,26 +140,7 @@ public class MainMenu extends GameScreenBase {
 		Resources.unlockSharedFontAsset(font);
 		font = null;
 
-		if (theme != null)
-			theme.dispose();
-		theme = null;
 
-	}
-
-	@Override
-	public void onLeave() {
-		super.onLeave();
-
-		if (theme != null && theme.isPlaying())
-			theme.stop();
-	}
-
-	@Override
-	public void onEnter() {
-		super.onEnter();
-
-		if (theme != null && !theme.isPlaying())
-			theme.play();
 	}
 
 	@Override
@@ -182,12 +154,6 @@ public class MainMenu extends GameScreenBase {
 		// Play sound
 		// if (Theme.State != AudioSourceState.Playing)
 		// Theme.Play();
-
-		if (Gdx.input.isKeyPressed(Keys.S))
-			theme.stop();
-
-		if (Gdx.input.isKeyPressed(Keys.P))
-			theme.play();
 
 		// ntk
 		// Does the default language change ?

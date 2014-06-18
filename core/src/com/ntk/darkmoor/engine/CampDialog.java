@@ -10,7 +10,6 @@ import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
 import com.ntk.darkmoor.engine.gui.campwindows.MainWindow;
 import com.ntk.darkmoor.stub.GameScreenBase;
-import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.Mouse;
 
 public class CampDialog extends DialogBase {

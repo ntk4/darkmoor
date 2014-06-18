@@ -3,6 +3,7 @@ package com.ntk.darkmoor.stub;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -10,7 +11,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.ntk.darkmoor.DarkmoorGame;
-import com.ntk.darkmoor.OptionMenu;
 import com.ntk.darkmoor.engine.DialogBase;
 import com.ntk.darkmoor.engine.Dungeon;
 import com.ntk.darkmoor.engine.ScriptedDialog;
@@ -73,6 +73,11 @@ public class GameScreenBase extends ScreenAdapter {
 		// TODO Auto-generated method stub
 
 		uiSkin = new Skin(Gdx.files.internal("data/skin/uiskin.json"));
+//		FreeTypeFontGenerator gen = new FreeTypeFontGenerator(Gdx.files.internal("data/font.ttf"));
+//		BitmapFont bfont = gen.generateFont(fontSize);
+//		gen.dispose();
+//		Skin skin = new Skin();
+//		skin.add("default-font", bfont);
 		setupButtons(uiSkin);
 		setupStage();
 	}

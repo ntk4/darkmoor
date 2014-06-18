@@ -26,7 +26,7 @@ public class AnimationTest extends BaseTestCase {
 //		GraphicAssets.getAssets(TEST_RESOURCES + "TextureSet.xml"); //initialization only
 //		AnimationAssets.getInstance(TEST_RESOURCES + "Animation.xml"); //initialization only
 		
-		Animation animation = AnimationAssets.getAnimation(TEST_RESOURCES + "TextureSet.xml", "Animations");
+		Animation animation = AnimationAssets.getAnimation("TextureSet.xml", "Animations");
 		testAnimationAttributes(animation);
 	}
 
