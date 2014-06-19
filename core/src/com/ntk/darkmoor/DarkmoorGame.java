@@ -49,21 +49,27 @@ public class DarkmoorGame extends Game {
 		theme.setLooping(true);
 		theme.play();
 	}
+	
+	public void pauseMusic() {
+		if (theme != null && theme.isPlaying())
+			theme.pause();
+	}
+	
+	public void resumeMusic() {
+		if (theme != null && !theme.isPlaying())
+			theme.play();
+	}
 
 	@Override
 	public void pause() {
-
-		if (theme != null && theme.isPlaying())
-			theme.pause();
-		
+		pauseMusic();	
 		
 		super.pause();
 	}
 
 	@Override
 	public void resume() {
-		if (theme != null && !theme.isPlaying())
-			theme.play();
+		resumeMusic();
 		
 		super.resume();
 	}

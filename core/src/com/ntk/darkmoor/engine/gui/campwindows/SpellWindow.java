@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.GameColors;
@@ -31,8 +32,8 @@ public class SpellWindow extends BaseWindow {
 	private TextureSet textureSetInterface;
 	private int spellLevel;
 
-	public SpellWindow(CampDialog camp, Skin skin) {
-		super(camp, "", skin);
+	public SpellWindow(CampDialog camp, Skin skin, Stage stage) {
+		super(camp, "", skin, stage);
 
 		ScreenButton button = new ScreenButton("Exit", new Rectangle(256, 244, 80, 28));
 		button.addListener(new EventListener() {
@@ -43,7 +44,7 @@ public class SpellWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
+		//getButtons().add(button);
 
 		levels = new ScreenButton[6];
 		for (int i = 0; i < 6; i++) {
@@ -58,7 +59,7 @@ public class SpellWindow extends BaseWindow {
 			});
 			levels[i].setReactOnMouseOver(false);
 			levels[i].setVisible(false);
-			getButtons().add(levels[i]);
+			//getButtons().add(levels[i]);
 		}
 
 		rectangleColor = Color.WHITE;
@@ -151,7 +152,7 @@ public class SpellWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
+		//getButtons().add(button);
 
 		for (int i = 0; i < 6; i++)
 			levels[i].setVisible(true);

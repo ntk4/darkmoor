@@ -3,6 +3,7 @@ package com.ntk.darkmoor.engine.gui.campwindows;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.DarkmoorGame;
 import com.ntk.darkmoor.engine.CampDialog;
@@ -17,8 +18,8 @@ public class GameOptionsWindow extends BaseWindow {
 	private static final String WINDOW_TITLE = "Game Options:";
 	private Skin skin;
 
-	public GameOptionsWindow(CampDialog camp, Skin skin) {
-		super(camp, WINDOW_TITLE, skin);
+	public GameOptionsWindow(CampDialog camp, Skin skin, Stage stage) {
+		super(camp, WINDOW_TITLE, skin,stage);
 
 		this.skin = skin;
 
@@ -33,7 +34,7 @@ public class GameOptionsWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
+//		//getButtons().add(button);
 
 		button = new ScreenButton("Save Game", new Rectangle(16, 74, 320, 28));
 		button.addListener(new EventListener() {
@@ -44,7 +45,7 @@ public class GameOptionsWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
+//		//getButtons().add(button);
 
 		button = new ScreenButton("Drop Character", new Rectangle(16, 108, 320, 28));
 		button.addListener(new EventListener() {
@@ -55,7 +56,7 @@ public class GameOptionsWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
+//		//getButtons().add(button);
 
 		button = new ScreenButton("Quit Game", new Rectangle(16, 142, 320, 28));
 		button.addListener(new EventListener() {
@@ -66,7 +67,7 @@ public class GameOptionsWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
+//		//getButtons().add(button);
 
 		button = new ScreenButton("Exit", new Rectangle(256, 244, 80, 28));
 		button.addListener(new EventListener() {
@@ -77,7 +78,7 @@ public class GameOptionsWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
+		//getButtons().add(button);
 	}
 
 	protected boolean exitSelected(Event event) {
@@ -106,17 +107,17 @@ public class GameOptionsWindow extends BaseWindow {
 	}
 
 	protected boolean dropHeroSelected(Event event) {
-		getCamp().addWindow(new DropNPCWindow(getCamp(), skin));
+		getCamp().addWindow(new DropNPCWindow(getCamp(), skin, stage));
 		return false;
 	}
 
 	protected boolean saveSelected(Event event) {
-		getCamp().addWindow(new SaveGameWindow(getCamp(), skin));
+		getCamp().addWindow(new SaveGameWindow(getCamp(), skin, stage));
 		return false;
 	}
 
 	protected boolean loadSelected(Event event) {
-		getCamp().addWindow(new LoadGameWindow(getCamp(), skin));
+		getCamp().addWindow(new LoadGameWindow(getCamp(), skin, stage));
 		return false;
 	}
 

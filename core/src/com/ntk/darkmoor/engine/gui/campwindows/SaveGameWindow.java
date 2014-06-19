@@ -5,6 +5,7 @@ import org.ntk.commons.StringUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.engine.CampDialog;
@@ -21,8 +22,8 @@ public class SaveGameWindow extends BaseWindow {
 
 	private Skin skin;
 
-	public SaveGameWindow(CampDialog camp, Skin skin) {
-		super(camp, "Save Game", skin);
+	public SaveGameWindow(CampDialog camp, Skin skin, Stage stage) {
+		super(camp, "Save Game", skin, stage);
 		this.skin = skin;
 		Settings.getSavedGame().load();
 
@@ -40,7 +41,7 @@ public class SaveGameWindow extends BaseWindow {
 
 			});
 			button.setTag(slot == null ? -1 : id);
-			getButtons().add(button);
+			//getButtons().add(button);
 		}
 
 		button = new ScreenButton("Cancel", new Rectangle(230, 244, 106, 28));
@@ -52,7 +53,7 @@ public class SaveGameWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
+		//getButtons().add(button);
 
 		selectedSlot = -1;
 	}

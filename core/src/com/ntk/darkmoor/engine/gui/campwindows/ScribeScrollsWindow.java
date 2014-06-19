@@ -3,6 +3,7 @@ package com.ntk.darkmoor.engine.gui.campwindows;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
@@ -10,8 +11,8 @@ import com.ntk.darkmoor.engine.gui.ScreenButton;
 
 public class ScribeScrollsWindow extends BaseWindow {
 
-	public ScribeScrollsWindow(CampDialog camp, Skin skin) {
-		super(camp, "Scribe Scrolls :", skin);
+	public ScribeScrollsWindow(CampDialog camp, Skin skin, Stage stage) {
+		super(camp, "Scribe Scrolls :", skin, stage);
 		
 		ScreenButton button;
 		
@@ -24,7 +25,7 @@ public class ScribeScrollsWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
+		//getButtons().add(button);
 		
 		//TODO: ntk: implement the scribe logic and GUI
 	}

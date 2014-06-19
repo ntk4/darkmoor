@@ -5,6 +5,7 @@ import java.util.HashSet;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.Hero.HeroClass;
@@ -15,8 +16,8 @@ public class MainWindow extends BaseWindow {
 
 	private Skin skin;
 
-	public MainWindow(CampDialog camp, Skin skin) {
-		super(camp, "Camp :", skin);
+	public MainWindow(CampDialog camp, Skin skin, Stage stage) {
+		super(camp, "Camp :", skin, stage);
 		this.skin = skin;
 
 		ScreenButton button;
@@ -30,8 +31,8 @@ public class MainWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
-		
+		// //getButtons().add(button);
+
 		button = new ScreenButton("Memorize Spells", new Rectangle(16, 74, 320, 28));
 		button.addListener(new EventListener() {
 
@@ -41,8 +42,8 @@ public class MainWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
-		
+		// getButtons().add(button);
+
 		button = new ScreenButton("Pray for Spells", new Rectangle(16, 108, 320, 28));
 		button.addListener(new EventListener() {
 
@@ -52,8 +53,8 @@ public class MainWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
-		
+		// getButtons().add(button);
+
 		button = new ScreenButton("Scribe Scrolls", new Rectangle(16, 142, 320, 28));
 		button.addListener(new EventListener() {
 
@@ -63,8 +64,8 @@ public class MainWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
-		
+		// getButtons().add(button);
+
 		button = new ScreenButton("Preferences", new Rectangle(16, 176, 320, 28));
 		button.addListener(new EventListener() {
 
@@ -74,8 +75,8 @@ public class MainWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
-		
+		// getButtons().add(button);
+
 		button = new ScreenButton("Game Options", new Rectangle(16, 210, 320, 28));
 		button.addListener(new EventListener() {
 
@@ -85,8 +86,8 @@ public class MainWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
-		
+		// getButtons().add(button);
+
 		button = new ScreenButton("Exit", new Rectangle(256, 244, 80, 28));
 		button.addListener(new EventListener() {
 
@@ -96,31 +97,31 @@ public class MainWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
+		// getButtons().add(button);
 	}
-	
+
 	protected boolean exitSelected(Event event) {
 		setClosing(true);
 		return false;
 	}
 
 	protected boolean gameOptionsSelected(Event event) {
-		getCamp().addWindow(new GameOptionsWindow(getCamp(), skin));
+		getCamp().addWindow(new GameOptionsWindow(getCamp(), skin, stage));
 		return false;
 	}
-	
+
 	protected boolean preferencesSelected(Event event) {
-		getCamp().addWindow(new PreferencesWindow(getCamp(), skin));
+		getCamp().addWindow(new PreferencesWindow(getCamp(), skin, stage));
 		return false;
 	}
-	
+
 	protected boolean scribeScrollsSelected(Event event) {
-		getCamp().addWindow(new ScribeScrollsWindow(getCamp(), skin));
+		getCamp().addWindow(new ScribeScrollsWindow(getCamp(), skin, stage));
 		return false;
 	}
-	
-	protected boolean prayForSpellsSelected(Event event) {		
-		SpellWindow window = new SpellWindow(getCamp(), skin);
+
+	protected boolean prayForSpellsSelected(Event event) {
+		SpellWindow window = new SpellWindow(getCamp(), skin, stage);
 		window.setMessage("Select a character<br />from your party<br />who would like to<br />pray for spells.");
 		HashSet<HeroClass> filter = new HashSet<HeroClass>();
 		filter.add(HeroClass.Cleric);
@@ -129,9 +130,9 @@ public class MainWindow extends BaseWindow {
 		getCamp().addWindow(window);
 		return false;
 	}
-	
-	protected boolean memorizeSpellsSelected(Event event) {		
-		SpellWindow window = new SpellWindow(getCamp(), skin);
+
+	protected boolean memorizeSpellsSelected(Event event) {
+		SpellWindow window = new SpellWindow(getCamp(), skin, stage);
 		window.setMessage("Select a character<br />from your party<br />who would like to<br />memorize spells.");
 		HashSet<HeroClass> filter = new HashSet<HeroClass>();
 		filter.add(HeroClass.Mage);
@@ -139,10 +140,10 @@ public class MainWindow extends BaseWindow {
 		getCamp().addWindow(window);
 		return false;
 	}
-	
+
 	protected boolean restPartySelected(Event event) {
-		getCamp().addWindow(new RestPartyWindow(getCamp(), skin));
+		getCamp().addWindow(new RestPartyWindow(getCamp(), skin, stage));
 		return false;
 	}
-	
+
 }

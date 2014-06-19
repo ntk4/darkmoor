@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
@@ -19,12 +20,12 @@ public class CampDialog extends DialogBase {
 	private ArrayList<ScreenButton> buttons;
 	private ArrayDeque<BaseWindow> windows;
 
-	public CampDialog(GameScreenBase game, Skin skin) {
+	public CampDialog(GameScreenBase game, Skin skin, Stage stage) {
 		this.game = game;
 		windows = new ArrayDeque<BaseWindow>(); 
 		buttons = new ArrayList<ScreenButton>();
 		rectangle = new Rectangle(0, 0, 352, 288);
-		addWindow(new MainWindow(this, skin));
+		addWindow(new MainWindow(this, skin, stage));
 		Mouse.setTile(0);
 	}
 

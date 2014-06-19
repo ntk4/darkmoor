@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.Hero;
@@ -34,8 +35,8 @@ public class DropNPCWindow extends BaseWindow {
 
 	private Skin skin;
 
-	public DropNPCWindow(CampDialog camp, Skin skin) {
-		super(camp, WINDOW_TITLE, skin);
+	public DropNPCWindow(CampDialog camp, Skin skin, Stage stage) {
+		super(camp, WINDOW_TITLE, skin, stage);
 
 		if (GameScreenBase.getTeam().getHeroCount() <= 4) {
 			setClosing(true);
@@ -55,7 +56,7 @@ public class DropNPCWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
+//		getButtons().add(button);
 
 		rectangleColor = Color.WHITE;
 		message = "Select a character<br />from your party<br />who would like to<br />drop.";

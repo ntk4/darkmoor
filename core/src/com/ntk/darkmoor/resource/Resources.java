@@ -2,20 +2,26 @@ package com.ntk.darkmoor.resource;
 
 import java.io.InputStream;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.ntk.darkmoor.config.LanguagesManager;
 import com.ntk.darkmoor.engine.Item;
 import com.ntk.darkmoor.exception.LoadException;
 
 public class Resources {
 
+	private static final String DEVILSUMMONEREXPAND_TTF = "devilsummonerexpand.ttf";
+	private static final String DALELANDS_ITALIC_TTF = "Dalelands Italic.ttf";
 	private static String resourcePath = "data/";
 	public static final String TEXTURE_SET_FILE = "TextureSet.xml";
 	public static final String FONT_FILE = "fonts/font1.fnt";
 	public static final String FONT_IMAGE_FILE = "fonts/font1.png";
-	private static BitmapFont bitmapFont;
+	private static final String FONT_PATH = getResourcePath() + "fonts/";
+	private static BitmapFont font48, font64;
 
 	private static AssetManager assetManager;
 
@@ -39,7 +45,7 @@ public class Resources {
 		GraphicAssets textureAssets = GraphicAssets.getAssets(TEXTURE_SET_FILE);
 		return textureAssets.load(name);
 	}
-	
+
 	public static Texture createTextureAsset(String name) {
 		return assetManager.get(getResourcePath() + name + ".png");
 	}
@@ -94,9 +100,27 @@ public class Resources {
 		// getAssetManager().load(getResourcePath() + "chargen.png", Texture.class);
 		getAssetManager().load(getResourcePath() + "items.png", Texture.class);
 		getAssetManager().load(getResourcePath() + "mainmenu.png", Texture.class);
+		initFonts();
 		getAssetManager().finishLoading();
 	}
-	
+
+	private static void initFonts() {
+		try {
+			FreeTypeFontGenerator gen = new FreeTypeFontGenerator(Gdx.files.internal(FONT_PATH
+					+ DEVILSUMMONEREXPAND_TTF));
+			FreeTypeFontParameter parameter = new FreeTypeFontParameter();
+			parameter.size = 48;
+			font48 = gen.generateFont(parameter);
+
+			parameter.size = 64;
+			font64 = gen.generateFont(parameter);
+
+			gen.dispose();
+		} catch (Exception e) {
+			throw new LoadException(e);
+		}
+	}
+
 	public static void loadResources() {
 		LanguagesManager.getInstance(getStringTableFile());
 
@@ -104,11 +128,11 @@ public class Resources {
 		// param.minFilter = TextureFilter.Linear;
 		// param.genMipMaps = true;Gdx.files.internal(getResourcePath() + "chargen.png").exists()
 		// param.magFilter = TextureFilter.
-//		getAssetManager().load(getResourcePath() + FONT_FILE, BitmapFont.class);
-		 getAssetManager().load(getResourcePath() + "chargen.png", Texture.class);
-//		getAssetManager().load(getResourcePath() + "items.png", Texture.class);
-//		getAssetManager().load(getResourcePath() + "main menu.png", Texture.class);
-//		getAssetManager().finishLoading();
+		// getAssetManager().load(getResourcePath() + FONT_FILE, BitmapFont.class);
+		getAssetManager().load(getResourcePath() + "chargen.png", Texture.class);
+		// getAssetManager().load(getResourcePath() + "items.png", Texture.class);
+		// getAssetManager().load(getResourcePath() + "main menu.png", Texture.class);
+		// getAssetManager().finishLoading();
 	}
 
 	public static BitmapFont lockSharedFontAsset(String string) {
@@ -126,14 +150,12 @@ public class Resources {
 	}
 
 	public static BitmapFont createFontAsset(String name) {
-		if (bitmapFont != null)
-			return bitmapFont;
-		try {
-			bitmapFont = assetManager.get(getResourcePath() + FONT_FILE, BitmapFont.class);
-			return bitmapFont;
-		} catch (Exception e) {
-			throw new LoadException(e);
-		}
+		if ("font48".equals(name))
+			return font48;
+		else if ("font64".equals(name))
+			return font64;
+		else
+			return font48;
 	}
 
 	public static AssetManager getAssetManager() {

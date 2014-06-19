@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.GameMessage;
@@ -26,8 +27,8 @@ public class RestPartyWindow extends BaseWindow {
 	private Date start;
 	private boolean healParty;
 
-	public RestPartyWindow(CampDialog camp, Skin skin) {
-		super(camp, "Rest Party :", skin);
+	public RestPartyWindow(CampDialog camp, Skin skin, Stage stage) {
+		super(camp, "Rest Party :", skin, stage);
 
 		ScreenButton button;
 
@@ -40,7 +41,7 @@ public class RestPartyWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
+		//getButtons().add(button);
 
 		setMessageBox(new MessageBox("Will your healers<br />heals the party ?", skin, MessageBoxButtons.YesNo));
 		getMessageBox().addListener(new EventListener() {

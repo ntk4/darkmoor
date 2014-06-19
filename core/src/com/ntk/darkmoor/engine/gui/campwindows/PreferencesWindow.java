@@ -3,6 +3,7 @@ package com.ntk.darkmoor.engine.gui.campwindows;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.engine.CampDialog;
@@ -11,8 +12,8 @@ import com.ntk.darkmoor.engine.gui.ScreenButton;
 
 public class PreferencesWindow extends BaseWindow {
 
-	public PreferencesWindow(CampDialog camp, Skin skin) {
-		super(camp, "Preferences :", skin);
+	public PreferencesWindow(CampDialog camp, Skin skin, Stage stage) {
+		super(camp, "Preferences :", skin, stage);
 
 		ScreenButton button;
 
@@ -29,7 +30,7 @@ public class PreferencesWindow extends BaseWindow {
 			button.setText("Music is ON");
 		else
 			button.setText("Music is OFF");
-		getButtons().add(button);
+		//getButtons().add(button);
 
 		button = new ScreenButton("", new Rectangle(16, 74, 320, 28));
 		button.addListener(new EventListener() {
@@ -44,7 +45,7 @@ public class PreferencesWindow extends BaseWindow {
 			button.setText("Sound FX are ON");
 		else
 			button.setText("Sound FX are OFF");
-		getButtons().add(button);
+		//getButtons().add(button);
 
 		button = new ScreenButton("", new Rectangle(16, 108, 320, 28));
 		button.addListener(new EventListener() {
@@ -59,7 +60,7 @@ public class PreferencesWindow extends BaseWindow {
 			button.setText("Bar Graphs are ON");
 		else
 			button.setText("Bar Graphs are OFF");
-		getButtons().add(button);
+		//getButtons().add(button);
 
 		button = new ScreenButton("Exit", new Rectangle(256, 244, 80, 28));
 		button.addListener(new EventListener() {
@@ -70,7 +71,7 @@ public class PreferencesWindow extends BaseWindow {
 			}
 
 		});
-		getButtons().add(button);
+		//getButtons().add(button);
 
 	}
 

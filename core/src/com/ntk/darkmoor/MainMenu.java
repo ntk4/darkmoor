@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
-import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -19,7 +18,6 @@ import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.engine.gui.campwindows.LoadGameWindow;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
-import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class MainMenu extends GameScreenBase {
@@ -74,56 +72,41 @@ public class MainMenu extends GameScreenBase {
 
 		buttons = new TextButton[4];
 
-		buttons[0] = new TextButton(stringTable.getString(languageName, "main", 1), uiSkin,"transparent");
+		buttons[0] = new TextButton(stringTable.getString(languageName, "main", 1), uiSkin, "transparent-font48");
 		buttons[0].setBounds(320, 480, widthUnit, heightUnit);
-		buttons[0].setTouchable(Touchable.enabled);
 		buttons[0].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				loadGame = new LoadGameWindow(null, MainMenu.this.uiSkin);// TODO: ntk: give a skin
+				loadGame = new LoadGameWindow(null, MainMenu.this.uiSkin, stage);// TODO: ntk: give a skin
+				stage.addActor(loadGame);
 				return true;
-			}
-
-			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 			}
 		});
 
-		buttons[1] = new TextButton(stringTable.getString(languageName, "main", 2), uiSkin,"transparent");
+		buttons[1] = new TextButton(stringTable.getString(languageName, "main", 2), uiSkin, "transparent-font48");
 		buttons[1].setBounds(340+widthUnit, 480, widthUnit, heightUnit);
-		buttons[1].setTouchable(Touchable.enabled);
 		buttons[1].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				setScreen(new CharGen(game));
 				exitScreen();
 				return true;
 			}
-
-			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-			}
 		});
 
-		buttons[2] = new TextButton(stringTable.getString(languageName, "main", 3), uiSkin,"transparent");
+		buttons[2] = new TextButton(stringTable.getString(languageName, "main", 3), uiSkin, "transparent-font48");
 		buttons[2].setBounds(320, 330, widthUnit, heightUnit);
-		buttons[2].setTouchable(Touchable.enabled);
 		buttons[2].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				setScreen(new OptionMenu(game));
 				return false;
 			}
-
-			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-			}
 		});
 
-		buttons[3] = new TextButton(stringTable.getString(languageName, "main", 4), uiSkin,"transparent");
+		buttons[3] = new TextButton(stringTable.getString(languageName, "main", 4), uiSkin, "transparent-font48");
 		buttons[3].setBounds(340+widthUnit, 330, widthUnit, heightUnit);
-		buttons[3].setTouchable(Touchable.enabled);
 		buttons[3].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				DarkmoorGame.exit();
 				return true;
-			}
-
-			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 			}
 		});
 	}
@@ -151,12 +134,6 @@ public class MainMenu extends GameScreenBase {
 
 		stage.act(Gdx.graphics.getDeltaTime());
 
-		// Play sound
-		// if (Theme.State != AudioSourceState.Playing)
-		// Theme.Play();
-
-		// ntk
-		// Does the default language change ?
 		if (stringTable == null || !StringUtils.equals(Settings.getLastLoadedInstance().getLanguage(), languageName)) {
 			// StringTable = new StringTable();
 			this.languageName = Settings.getLastLoadedInstance().getLanguage();
@@ -165,27 +142,22 @@ public class MainMenu extends GameScreenBase {
 				buttons[id].setText(stringTable.getString(languageName, "main", id + 1));
 		}
 
-		if (loadGame != null) {
-			// Load a game
-			loadGame.update(delta);
-
-			// A slot is selected
-			if (loadGame.getSelectedSlot() != -1) {
-				// close window
-				loadGame.close();
-
-				// Run the game
-				GameScreen scr = new GameScreen(game);
-				game.setScreen(scr);
-
-				// Load saved game
-				scr.loadGameSlot(loadGame.getSelectedSlot());
-			}
-
-			// Close the window
-			if (loadGame.isClosing())
-				loadGame = null;
-		}
+//		if (loadGame != null) {
+//			// Load a game
+//			loadGame.update(delta);
+//
+//			// A slot is selected
+//			if (loadGame.getSelectedSlot() != -1) {
+//				// close window
+//				loadGame.close();
+//
+//				// Run the game
+//				GameScreen scr = new GameScreen(game);
+//				game.setScreen(scr);
+//
+//				// Load saved game
+//				scr.loadGameSlot(loadGame.getSelectedSlot());
+//			}
 	}
 
 	@Override
@@ -195,9 +167,6 @@ public class MainMenu extends GameScreenBase {
 
 		stage.act(Gdx.graphics.getDeltaTime());
 		stage.draw();
-
-		if (loadGame != null)
-			loadGame.draw(batch, 0.5f);
 
 		batch.end();
 	}

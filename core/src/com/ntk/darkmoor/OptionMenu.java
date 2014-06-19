@@ -20,7 +20,6 @@ public class OptionMenu extends GameScreenBase {
 
 	public OptionMenu(Game game) {
 		super(game);
-
 	}
 
 	@Override
@@ -43,17 +42,22 @@ public class OptionMenu extends GameScreenBase {
 		// uiSkin.getAll(BitmapFont.class)
 		buttons = new TextButton[6];
 
-		buttons[0] = new TextButton("Music : " + (Settings.getLastLoadedInstance().isMusic() ? "ON" : "OFF"), uiSkin);
+		buttons[0] = new TextButton("Music : " + (Settings.getLastLoadedInstance().isMusic() ? "ON" : "OFF"), uiSkin, "transparent-font64");
 		buttons[0].setBounds(widthUnit, heightUnit * 6, widthUnit, heightUnit);
 		buttons[0].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				Settings.getLastLoadedInstance().setMusic(!Settings.getLastLoadedInstance().isMusic());
+				if (Settings.getLastLoadedInstance().isMusic()) {
+					game.resumeMusic();
+				} else {
+					game.pauseMusic();
+				}
 				return true;
 			}
 		});
 
 		buttons[1] = new TextButton("Effects are " + (Settings.getLastLoadedInstance().isEffects() ? "ON" : "OFF"),
-				uiSkin);
+				uiSkin, "transparent-font64");
 		buttons[1].setBounds(widthUnit, heightUnit << 2, widthUnit, heightUnit);
 		buttons[1].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -63,7 +67,7 @@ public class OptionMenu extends GameScreenBase {
 		});
 
 		buttons[2] = new TextButton("Full screen is "
-				+ (Settings.getLastLoadedInstance().isFullScreen() ? "ON" : "OFF"), uiSkin);
+				+ (Settings.getLastLoadedInstance().isFullScreen() ? "ON" : "OFF"), uiSkin, "transparent-font64");
 		buttons[2].setBounds(widthUnit, heightUnit << 1, widthUnit, heightUnit);
 		buttons[2].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -72,7 +76,7 @@ public class OptionMenu extends GameScreenBase {
 			}
 		});
 
-		buttons[3] = new TextButton("HP as bar : " + Settings.getLastLoadedInstance().isHPAsBar(), uiSkin);
+		buttons[3] = new TextButton("HP as bar : " + Settings.getLastLoadedInstance().isHPAsBar(), uiSkin, "transparent-font64");
 		buttons[3].setBounds(widthUnit * 3, heightUnit * 6, widthUnit, heightUnit);
 		buttons[3].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -81,7 +85,7 @@ public class OptionMenu extends GameScreenBase {
 			}
 		});
 
-		buttons[4] = new TextButton("Language : " + Settings.getLastLoadedInstance().getLanguage(), uiSkin);
+		buttons[4] = new TextButton("Language : " + Settings.getLastLoadedInstance().getLanguage(), uiSkin, "transparent-font64");
 		buttons[4].setBounds(widthUnit * 3, heightUnit << 2, widthUnit, heightUnit);
 		buttons[4].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -95,7 +99,7 @@ public class OptionMenu extends GameScreenBase {
 			}
 		});
 
-		buttons[5] = new TextButton("Back", uiSkin);
+		buttons[5] = new TextButton("Back", uiSkin, "transparent-font64");
 		buttons[5].setBounds(widthUnit * 3, heightUnit << 1, widthUnit, heightUnit);
 		buttons[5].setTouchable(Touchable.enabled);
 		buttons[5].addListener(new InputListener() {
