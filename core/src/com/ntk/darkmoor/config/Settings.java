@@ -10,7 +10,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.ntk.darkmoor.exception.InitializationException;
 import com.ntk.darkmoor.exception.SaveException;
-import com.ntk.darkmoor.stub.SaveGame;
 
 public class Settings {
 

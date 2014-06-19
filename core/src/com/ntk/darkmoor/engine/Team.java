@@ -2,7 +2,6 @@ package com.ntk.darkmoor.engine;
 
 import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -145,9 +144,9 @@ public class Team {
 
 			}
 
-			selectedHero = heroes[0];
 		}
 
+		selectedHero = heroes[0];
 		return true;
 	}
 

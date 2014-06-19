@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.ntk.darkmoor.config.SaveGameSlot;
 import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
@@ -14,7 +15,6 @@ import com.ntk.darkmoor.engine.gui.MessageBox;
 import com.ntk.darkmoor.engine.gui.MessageBox.DialogResult;
 import com.ntk.darkmoor.engine.gui.MessageBox.MessageBoxButtons;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
-import com.ntk.darkmoor.stub.SaveGameSlot;
 
 public class SaveGameWindow extends BaseWindow {
 

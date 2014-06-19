@@ -12,15 +12,14 @@ import org.junit.Test;
 
 import com.ntk.darkmoor.config.Settings;
 
-public class SettingsTest {
+public class SettingsTest extends BaseTestCase {
 
 	private static final String SETTINGS_TEMP = "temp.properties";
 	private static final String SETTINGS_CORRECT = "settings_correct.properties";
-	private static final String FOLDER_TEST_RESOURCES = "test/test-resources/";
 
 	@Test
 	public void thatSettingsAreLoaded() throws IOException {
-		Settings s = Settings.loadSettings(FOLDER_TEST_RESOURCES, SETTINGS_CORRECT);
+		Settings s = Settings.loadSettings(TEST_RESOURCES, SETTINGS_CORRECT);
 
 		assertNotNull(s);
 		assertEquals("qwerty", s.getInputScheme());
@@ -34,15 +33,15 @@ public class SettingsTest {
 
 	@Test
 	public void thatSettingsAreStoredAndLoaded() throws IOException {
-		Settings s = Settings.loadSettings(FOLDER_TEST_RESOURCES, SETTINGS_CORRECT);
+		Settings s = Settings.loadSettings(TEST_RESOURCES, SETTINGS_CORRECT);
 
 		assertNotNull(s);
 		
-		s.saveSettings(FOLDER_TEST_RESOURCES, SETTINGS_TEMP);
-		File tempFile = new File(FOLDER_TEST_RESOURCES, SETTINGS_TEMP);
+		s.saveSettings(TEST_RESOURCES, SETTINGS_TEMP);
+		File tempFile = new File(TEST_RESOURCES, SETTINGS_TEMP);
 		assertTrue(tempFile.exists());
 
-		Settings s2 = Settings.loadSettings(FOLDER_TEST_RESOURCES, SETTINGS_TEMP);
+		Settings s2 = Settings.loadSettings(TEST_RESOURCES, SETTINGS_TEMP);
 		assertNotNull(s);
 		assertEquals(s.getInputScheme(), s2.getInputScheme());
 		assertEquals(s.getLanguage(), s2.getLanguage());
@@ -52,7 +51,7 @@ public class SettingsTest {
 		assertEquals(s.isFullScreen(), s2.isFullScreen());
 		assertEquals(s.getSaveSlots(), s2.getSaveSlots());
 		
-		new File(FOLDER_TEST_RESOURCES, SETTINGS_TEMP).deleteOnExit(); // does not work
+		new File(TEST_RESOURCES, SETTINGS_TEMP).deleteOnExit(); // does not work
 	}
 	
 	@Test

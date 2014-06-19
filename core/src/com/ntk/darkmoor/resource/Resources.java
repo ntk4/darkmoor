@@ -8,9 +8,12 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
+import com.badlogic.gdx.utils.XmlReader.Element;
 import com.ntk.darkmoor.config.LanguagesManager;
+import com.ntk.darkmoor.engine.Dungeon;
 import com.ntk.darkmoor.engine.Item;
 import com.ntk.darkmoor.exception.LoadException;
+import com.ntk.darkmoor.exception.ResourceException;
 
 public class Resources {
 
@@ -195,5 +198,31 @@ public class Resources {
 	 */
 	public static void setResourcePath(String resourcePath) {
 		Resources.resourcePath = resourcePath;
+	}
+
+	public static String getSavegameFilename() {
+		return getResourcePath() + "savegame.xml";
+	}
+
+	public static Dungeon createDungeonResource(String dungeonName) {
+		Element root = ResourceUtility.extractRootElement(getResourcePath() + "dungeon.xml");
+
+		if (root == null) {
+			throw new ResourceException("The dungeon file dungeon.xml could not be read");
+		}
+
+		for (Element element : root.getChildrenByName("dungeon")) {
+			if (dungeonName.equalsIgnoreCase(element.getAttribute("name"))) {
+				Dungeon dungeon = new Dungeon();
+				if (!dungeon.load(element))
+					throw new LoadException("Could not load dungeon: " + dungeonName);
+
+				return dungeon;
+
+			}
+
+		}
+		throw new ResourceException("No dungeon exists with the name " + dungeonName);
+
 	}
 }

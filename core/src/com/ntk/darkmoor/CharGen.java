@@ -16,6 +16,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader;
 import com.ntk.darkmoor.config.LanguagesManager;
 import com.ntk.darkmoor.config.Log;
+import com.ntk.darkmoor.config.SaveGame;
 import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.engine.Entity.EntityAlignment;
 import com.ntk.darkmoor.engine.GameColors;
@@ -35,7 +36,6 @@ import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.Display;
 import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameScreenBase;
-import com.ntk.darkmoor.stub.SaveGame;
 
 public class CharGen extends GameScreenBase {
 	enum CharGenStates {
@@ -220,7 +220,7 @@ public class CharGen extends GameScreenBase {
 		GameScreen screen = new GameScreen(game);
 
 		// Generate the team
-		Settings.setSavedGame(new SaveGame());
+		Settings.setSavedGame(new SaveGame(Resources.getSavegameFilename()));
 
 		Team gsteam = new Team();
 		for (int i = 0; i < 4; i++)

@@ -2,13 +2,12 @@ package com.ntk.darkmoor.engine;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Map;
 
 import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.utils.XmlReader;
-import com.badlogic.gdx.utils.XmlWriter;
 import com.badlogic.gdx.utils.XmlReader.Element;
+import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.exception.InitializationException;
 import com.ntk.darkmoor.resource.Resources;

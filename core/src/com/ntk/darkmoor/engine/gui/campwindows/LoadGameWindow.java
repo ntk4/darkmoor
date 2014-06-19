@@ -7,10 +7,10 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.ntk.darkmoor.config.SaveGameSlot;
 import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
-import com.ntk.darkmoor.stub.SaveGameSlot;
 
 public class LoadGameWindow extends BaseWindow {
 
@@ -36,7 +36,6 @@ public class LoadGameWindow extends BaseWindow {
 
 			buttons[id] = new TextButton(slot != null ? slot.getName() : "Empty slot " + (id + 1), uiSkin,
 					"transparent-font64");
-			// buttons[id].setBounds(320, id * heightUnit + 10, widthUnit, heightUnit);
 			buttons[id].addListener(new InputListener() {
 				public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 					slotSelected(slotNumber, event);
@@ -47,9 +46,9 @@ public class LoadGameWindow extends BaseWindow {
 			row().minHeight(150).minWidth(300).fillY().fillX().expandX().expandY();
 
 		}
-		buttons[6] = new TextButton("Cancel", uiSkin, "transparent-font64");
-		// buttons[6].setBounds(100, 7 * heightUnit + 10, widthUnit, heightUnit);
-		buttons[6].addListener(new InputListener() {
+		buttons[Settings.getLastLoadedInstance().getSaveSlots()] = new TextButton("Cancel", uiSkin,
+				"transparent-font64");
+		buttons[Settings.getLastLoadedInstance().getSaveSlots()].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				LoadGameWindow.this.close();
 				stage.getRoot().removeActor(LoadGameWindow.this);
