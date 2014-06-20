@@ -148,6 +148,10 @@ public class AlcoveActor extends SquareActor {
 			if (StringUtils.equals("side", xml.getName())) {
 				CardinalPoint dir = CardinalPoint.valueOf(xml.getAttribute("name"));
 				alcoves[dir.ordinal()].load(xml);
+//			} else if (StringUtils.equals("isactivated", xml.getName())) {
+//				this.setActivated(Boolean.parseBoolean(xml.getText()));
+//			} else if (StringUtils.equals("isenabled", xml.getName())) {
+//				this.setActivated(Boolean.parseBoolean(xml.getText()));
 			} else {
 				super.load(xml);
 			}

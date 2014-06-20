@@ -63,6 +63,7 @@ public class Maze {
 		doorDeco = -1;
 		ceilingPitDeco = -1;
 		floorPitDeco = -1;
+		size = new Vector2();
 
 		disposed = false;
 	}
@@ -403,9 +404,12 @@ public class Maze {
 			} else if ("squares".equalsIgnoreCase(name)) {
 
 				// Resize maze
-				size = new Vector2(Integer.parseInt(node.getAttribute("width")), Integer.parseInt(node
+				Vector2 size = new Vector2(Integer.parseInt(node.getAttribute("width")), Integer.parseInt(node
 						.getAttribute("height")));
 				Vector2 location = new Vector2();
+				squares = new ArrayList<List<Square>>((int)size.y);
+//				this.size = new Vector2(0,0);//force resize() to reinitialize the squares!
+				resize(size);
 
 				for (int j = 0; j < node.getChildCount(); j++) {
 					Element subnode = node.getChild(j);

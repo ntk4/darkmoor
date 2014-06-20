@@ -39,6 +39,7 @@ public class SetTo extends ActionBase {
 
 		for (int i = 0; i < xml.getChildCount(); i++) {
 			if (StringUtils.equals(Square.TAG, xml.getChild(i).getName())) {
+				square = new Square(null);
 				square.load(xml.getChild(i)); // TODO: what if square is null?
 			} else {
 				super.load(xml.getChild(i));

@@ -5,6 +5,7 @@ import java.io.InputStream;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
@@ -224,5 +225,10 @@ public class Resources {
 		}
 		throw new ResourceException("No dungeon exists with the name " + dungeonName);
 
+	}
+
+	public static Animation createAnimationAsset(String string) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

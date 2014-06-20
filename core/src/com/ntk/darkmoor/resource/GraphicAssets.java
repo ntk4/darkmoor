@@ -13,14 +13,14 @@ import com.ntk.darkmoor.exception.LoadException;
 public class GraphicAssets {
 
 	private String fileName;
-	private static Map<String,GraphicAssets> instances;
+	private static Map<String, GraphicAssets> instances;
 
 	public static GraphicAssets getAssets(String fileName) {
 		if (instances == null)
 			instances = new HashMap<String, GraphicAssets>();
-		
+
 		if (instances.get(fileName) == null) {
-			instances.put(fileName,new GraphicAssets(fileName));
+			instances.put(fileName, new GraphicAssets(fileName));
 		}
 		return instances.get(fileName);
 	}

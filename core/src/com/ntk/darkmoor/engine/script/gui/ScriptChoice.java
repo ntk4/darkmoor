@@ -98,41 +98,41 @@ public class ScriptChoice {
 
 			// TODO: missing code: if node.nodeType == XmlNodeType.Comment then continue;
 
-			String lowerName = xml.getName().toLowerCase();
+			String lowerName = node.getName().toLowerCase();
 
 			ActionBase script = null;
 
-			if (StringUtils.equals("teleport", lowerName)) {
+			if ("Teleport".equalsIgnoreCase(lowerName)) {
 				script = new Teleport();
-			} else if (StringUtils.equals("giveexperience", xml.getName())) {
+			} else if (StringUtils.equals("giveexperience", lowerName)) {
 				script = new GiveExperience();
-			} else if (StringUtils.equals("activate", xml.getName())) {
+			} else if (StringUtils.equals("activate", lowerName)) {
 				script = new ActivateTarget();
-			} else if (StringUtils.equals("changepicture", xml.getName())) {
+			} else if (StringUtils.equals("changepicture", lowerName)) {
 				script = new ChangePicture();
-			} else if (StringUtils.equals("changetext", xml.getName())) {
+			} else if (StringUtils.equals("changetext", lowerName)) {
 				script = new ChangeText();
-			} else if (StringUtils.equals("deactivate", xml.getName())) {
+			} else if (StringUtils.equals("deactivate", lowerName)) {
 				script = new DeactivateTarget();
-			} else if (StringUtils.equals("disablechoice", xml.getName())) {
+			} else if (StringUtils.equals("disablechoice", lowerName)) {
 				script = new DisableChoice();
-			} else if (StringUtils.equals("disable", xml.getName())) {
+			} else if (StringUtils.equals("disable", lowerName)) {
 				script = new DisableTarget();
-			} else if (StringUtils.equals("enablechoice", xml.getName())) {
+			} else if (StringUtils.equals("enablechoice", lowerName)) {
 				script = new EnableChoice();
-			} else if (StringUtils.equals("endchoice", xml.getName())) {
+			} else if (StringUtils.equals("endchoice", lowerName)) {
 				script = new EndChoice();
-			} else if (StringUtils.equals("enddialog", xml.getName())) {
+			} else if (StringUtils.equals("enddialog", lowerName)) {
 				script = new EndDialog();
-			} else if (StringUtils.equals("giveitem", xml.getName())) {
+			} else if (StringUtils.equals("giveitem", lowerName)) {
 				script = new GiveItem();
-			} else if (StringUtils.equals("healing", xml.getName())) {
+			} else if (StringUtils.equals("healing", lowerName)) {
 				script = new Healing();
-			} else if (StringUtils.equals("joincharacter", xml.getName())) {
+			} else if (StringUtils.equals("joincharacter", lowerName)) {
 				script = new JoinCharacter();
-			} else if (StringUtils.equals("playsound", xml.getName())) {
+			} else if (StringUtils.equals("playsound", lowerName)) {
 				script = new PlaySound();
-			} else if (StringUtils.equals("toggle", xml.getName())) {
+			} else if (StringUtils.equals("toggle", lowerName)) {
 				script = new ToggleTarget();
 			} else {
 				Log.debug(String.format("[ScriptChoice] LoadActions() : Unknown node \"%s\"", node.getName()));

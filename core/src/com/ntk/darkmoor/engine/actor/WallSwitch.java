@@ -192,8 +192,11 @@ public class WallSwitch extends SquareActor {
 			XmlReader.Element xml = node.getChild(i);
 
 			if (StringUtils.equals("decoration", xml.getName())) {
-				activatedDecoration = Integer.parseInt(node.getAttribute("activated"));
-				deactivatedDecoration = Integer.parseInt(node.getAttribute("deactivated"));
+				activatedDecoration = Integer.parseInt(xml.getAttribute("activated"));
+				deactivatedDecoration = Integer.parseInt(xml.getAttribute("deactivated"));
+
+			} else if (StringUtils.equals("consumeitem", xml.getName())) {
+				consumeItem = Boolean.parseBoolean(xml.getText());
 
 			} else if (StringUtils.equals("reusable", xml.getName())) {
 				reusable = Boolean.parseBoolean(xml.getText());

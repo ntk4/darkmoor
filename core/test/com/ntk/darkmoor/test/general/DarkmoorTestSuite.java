@@ -11,7 +11,8 @@ import org.junit.runners.Suite;
 	ItemTest.class,
 	LanguagesManagerTest.class,
 	GraphicAssetsTest.class,
-	AnimationTest.class
+	AnimationTest.class,
+	SaveLoadGameTest.class
 })
 public class DarkmoorTestSuite {
 

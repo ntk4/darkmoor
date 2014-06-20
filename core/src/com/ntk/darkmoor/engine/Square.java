@@ -221,7 +221,7 @@ public class Square {
 				actor.load(child);
 
 			} else if (Door.TAG.equalsIgnoreCase(name)) {
-				actor = new AlcoveActor(this);
+				actor = new Door(this);
 				actor.load(child);
 
 			} else if (Teleporter.TAG.equalsIgnoreCase(name)) {

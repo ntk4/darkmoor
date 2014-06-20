@@ -48,7 +48,7 @@ public class Teleporter extends SquareActor {
 		teleportItems = true;
 		visible = true;
 
-		anim = Resources.createAsset(Animation.class, "Teleporter");
+		anim = Resources.createAnimationAsset("Teleporter");
 		// TODO: ntk: uncomment the play() call when mapped to Gdx method
 		// anim.play();
 	}

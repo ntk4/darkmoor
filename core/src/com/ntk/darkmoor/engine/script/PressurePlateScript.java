@@ -63,11 +63,10 @@ public class PressurePlateScript extends ScriptBase {
 		PressurcePlateCondition(Integer weight) {
 			this.weight = weight;
 		}
-		
+
 		public int getWeight() {
 			return weight;
 		}
-		
 
 	}
 
@@ -80,11 +79,14 @@ public class PressurePlateScript extends ScriptBase {
 	public boolean load(XmlReader.Element xml) {
 		if (xml == null)
 			return false;
+		for (int i = 0; i < xml.getChildCount(); i++) {
+			XmlReader.Element child = xml.getChild(i);
 
-		if (StringUtils.equals("condition", xml.getName())) {
-			condition = PressurcePlateCondition.valueOf(xml.getText());
-		} else {
-			super.load(xml);
+			if (StringUtils.equals("condition", child.getName())) {
+				condition = PressurcePlateCondition.valueOf(child.getText());
+			} else {
+				super.load(child);
+			}
 		}
 
 		return true;

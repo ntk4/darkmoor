@@ -84,14 +84,14 @@ public class Alcove {
 			if (StringUtils.equals("onaddeditem", xml.getName())) {
 				for (int j = 0; j < xml.getChildCount(); j++) {
 					AlcoveScript script = new AlcoveScript();
-					script.load(node.getChild(j));
+					script.load(xml.getChild(j));
 					onAddedItemScripts.add(script);
 				}
 
 			} else if (StringUtils.equals("onremoveditem", xml.getName())) {
 				for (int j = 0; j < xml.getChildCount(); j++) {
 					AlcoveScript script = new AlcoveScript();
-					script.load(node.getChild(j));
+					script.load(xml.getChild(j));
 					onRemovedItemScripts.add(script);
 				}
 

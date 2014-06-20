@@ -40,7 +40,7 @@ public class DarkmoorGame extends Game {
 		viewport = new FitViewport(DISPLAY_WIDTH, DISPLAY_HEIGHT);
 		mainMenu = new MainMenu(this);
 		setScreen(mainMenu);
-		
+
 		initMusic();
 	}
 
@@ -49,12 +49,12 @@ public class DarkmoorGame extends Game {
 		theme.setLooping(true);
 		theme.play();
 	}
-	
+
 	public void pauseMusic() {
 		if (theme != null && theme.isPlaying())
 			theme.pause();
 	}
-	
+
 	public void resumeMusic() {
 		if (theme != null && !theme.isPlaying())
 			theme.play();
@@ -62,15 +62,15 @@ public class DarkmoorGame extends Game {
 
 	@Override
 	public void pause() {
-		pauseMusic();	
-		
+		pauseMusic();
+
 		super.pause();
 	}
 
 	@Override
 	public void resume() {
 		resumeMusic();
-		
+
 		super.resume();
 	}
 
@@ -78,7 +78,7 @@ public class DarkmoorGame extends Game {
 		Resources.loadGameStartupResources();
 		Resources.loadResources();
 		try {
-			Settings.loadSettings(Gdx.files.internal("settings.properties"));
+			Settings.loadSettings(Gdx.files.internal(Resources.getResourcePath() + "settings.properties"));
 		} catch (IOException e) {
 			exit();
 		}

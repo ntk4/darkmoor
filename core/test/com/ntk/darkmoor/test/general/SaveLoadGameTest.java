@@ -20,7 +20,7 @@ public class SaveLoadGameTest extends BaseTestCase {
 
 	@Before
 	public void setUp() throws IOException {
-		Resources.setResourcePath(TEST_RESOURCES);
+		Resources.setResourcePath("../android/assets/data/");
 		Settings.loadSettings(TEST_RESOURCES, SETTINGS_CORRECT);
 	}
 	

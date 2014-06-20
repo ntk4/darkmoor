@@ -105,8 +105,8 @@ public class PressurePlate extends SquareActor {
 			XmlReader.Element xml = node.getChild(i);
 
 			if (StringUtils.equals("decoration", xml.getName())) {
-				decorationID = Integer.parseInt(node.getAttribute("activated"));
-				Integer.parseInt(node.getAttribute("deactivated"));
+				decorationID = Integer.parseInt(xml.getAttribute("activated"));
+				Integer.parseInt(xml.getAttribute("deactivated"));
 
 			} else if (StringUtils.equals("reusable", xml.getName())) {
 				reusable = Boolean.parseBoolean(xml.getText());
