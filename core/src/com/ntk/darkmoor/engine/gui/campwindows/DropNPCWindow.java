@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.Hero;
@@ -35,8 +34,8 @@ public class DropNPCWindow extends BaseWindow {
 
 	private Skin skin;
 
-	public DropNPCWindow(CampDialog camp, Skin skin, Stage stage) {
-		super(camp, WINDOW_TITLE, skin, stage);
+	public DropNPCWindow(CampDialog camp, GameScreenBase parent) {
+		super(camp, WINDOW_TITLE, parent);
 
 		if (GameScreenBase.getTeam().getHeroCount() <= 4) {
 			setClosing(true);

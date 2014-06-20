@@ -11,14 +11,14 @@ import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.Hero.HeroClass;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class MainWindow extends BaseWindow {
 
 	private Skin skin;
 
-	public MainWindow(CampDialog camp, Skin skin, Stage stage) {
-		super(camp, "Camp :", skin, stage);
-		this.skin = skin;
+	public MainWindow(CampDialog camp, GameScreenBase parent) {
+		super(camp, "Camp :", parent);
 
 		ScreenButton button;
 
@@ -106,22 +106,22 @@ public class MainWindow extends BaseWindow {
 	}
 
 	protected boolean gameOptionsSelected(Event event) {
-		getCamp().addWindow(new GameOptionsWindow(getCamp(), skin, stage));
+		getCamp().addWindow(new GameOptionsWindow(getCamp(), parent));
 		return false;
 	}
 
 	protected boolean preferencesSelected(Event event) {
-		getCamp().addWindow(new PreferencesWindow(getCamp(), skin, stage));
+		getCamp().addWindow(new PreferencesWindow(getCamp(), parent));
 		return false;
 	}
 
 	protected boolean scribeScrollsSelected(Event event) {
-		getCamp().addWindow(new ScribeScrollsWindow(getCamp(), skin, stage));
+		getCamp().addWindow(new ScribeScrollsWindow(getCamp(), parent));
 		return false;
 	}
 
 	protected boolean prayForSpellsSelected(Event event) {
-		SpellWindow window = new SpellWindow(getCamp(), skin, stage);
+		SpellWindow window = new SpellWindow(getCamp(), parent);
 		window.setMessage("Select a character<br />from your party<br />who would like to<br />pray for spells.");
 		HashSet<HeroClass> filter = new HashSet<HeroClass>();
 		filter.add(HeroClass.Cleric);
@@ -132,7 +132,7 @@ public class MainWindow extends BaseWindow {
 	}
 
 	protected boolean memorizeSpellsSelected(Event event) {
-		SpellWindow window = new SpellWindow(getCamp(), skin, stage);
+		SpellWindow window = new SpellWindow(getCamp(), parent);
 		window.setMessage("Select a character<br />from your party<br />who would like to<br />memorize spells.");
 		HashSet<HeroClass> filter = new HashSet<HeroClass>();
 		filter.add(HeroClass.Mage);
@@ -142,7 +142,7 @@ public class MainWindow extends BaseWindow {
 	}
 
 	protected boolean restPartySelected(Event event) {
-		getCamp().addWindow(new RestPartyWindow(getCamp(), skin, stage));
+		getCamp().addWindow(new RestPartyWindow(getCamp(), parent));
 		return false;
 	}
 

@@ -73,12 +73,12 @@ public class GameScreenBase extends ScreenAdapter {
 		// TODO Auto-generated method stub
 
 		
-		BitmapFont font24 = Resources.createFontAsset("font48");
+		BitmapFont font48 = Resources.createFontAsset("font48");
 		BitmapFont font64 = Resources.createFontAsset("font64");
 		
 		uiSkin = new Skin();
 		uiSkin.addRegions(new TextureAtlas(Gdx.files.internal("data/skin/uiskin.atlas")));
-		uiSkin.add("font48", font24);
+		uiSkin.add("font48", font48);
 		uiSkin.add("font64", font64);
 
 		uiSkin.load(Gdx.files.internal("data/skin/uiskin.json"));
@@ -157,5 +157,17 @@ public class GameScreenBase extends ScreenAdapter {
 		// center the camera: sets stage coordinates 0,0 to bottom left instead of screen center
 		stage.getViewport().update(width, height, true);
 
+	}
+
+	public Skin getSkin() {
+		return uiSkin;
+	}
+
+	public Stage getStage() {
+		return stage;
+	}
+
+	public DarkmoorGame getGame() {
+		return game;
 	}
 }

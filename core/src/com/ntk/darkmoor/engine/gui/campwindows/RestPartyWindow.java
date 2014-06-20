@@ -27,8 +27,8 @@ public class RestPartyWindow extends BaseWindow {
 	private Date start;
 	private boolean healParty;
 
-	public RestPartyWindow(CampDialog camp, Skin skin, Stage stage) {
-		super(camp, "Rest Party :", skin, stage);
+	public RestPartyWindow(CampDialog camp, GameScreenBase parent) {
+		super(camp, "Rest Party :", parent);
 
 		ScreenButton button;
 
@@ -41,9 +41,10 @@ public class RestPartyWindow extends BaseWindow {
 			}
 
 		});
-		//getButtons().add(button);
+		// getButtons().add(button);
 
-		setMessageBox(new MessageBox("Will your healers<br />heals the party ?", skin, MessageBoxButtons.YesNo));
+		setMessageBox(new MessageBox("Will your healers<br />heals the party ?", parent.getSkin(),
+				MessageBoxButtons.YesNo));
 		getMessageBox().addListener(new EventListener() {
 
 			@Override
@@ -79,7 +80,7 @@ public class RestPartyWindow extends BaseWindow {
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
-		
+
 		// No answer, waiting
 		if (start == null || start.getTime() == 0)
 			return;
@@ -87,27 +88,24 @@ public class RestPartyWindow extends BaseWindow {
 		Team team = GameScreenBase.getTeam();
 
 		// Number of hour sleeping
-		int hours = (int)(new Date().getTime() - start.getTime())/MILLIS_OF_REAL_TIME_FOR_EACH_HOUR_OF_PARTY_REST;
+		int hours = (int) (new Date().getTime() - start.getTime()) / MILLIS_OF_REAL_TIME_FOR_EACH_HOUR_OF_PARTY_REST;
 
-		//TODO: ntk: check if this is correct drawing
+		// TODO: ntk: check if this is correct drawing
 		// Display
 		GUI.getMenuFont().setColor(Color.WHITE);
 		GUI.getMenuFont().draw(batch, "Hours rested : " + hours, 26, 58);
 
-		//TODO: ntk: Should the next part move to update() method?
-		for (Hero hero : team.getHeroes())
-		{
+		// TODO: ntk: Should the next part move to update() method?
+		for (Hero hero : team.getHeroes()) {
 			if (hero == null)
 				continue;
 
 			// Hero can heal someone ?
-			if (hero.canHeal())
-			{
+			if (hero.canHeal()) {
 
 				// Find the weakest hero and heal him
 				Hero weakest = team.getHeroes()[0];
-				for (Hero h : team.getHeroes())
-				{
+				for (Hero h : team.getHeroes()) {
 					if (h == null)
 						continue;
 
@@ -115,8 +113,7 @@ public class RestPartyWindow extends BaseWindow {
 						weakest = h;
 				}
 
-				if (weakest.getHitPoint().getRatio() < 1.0f)
-				{
+				if (weakest.getHitPoint().getRatio() < 1.0f) {
 					GameMessage.addMessage(hero.getName() + " casts healing on " + weakest.getName());
 					hero.heal(weakest);
 				}

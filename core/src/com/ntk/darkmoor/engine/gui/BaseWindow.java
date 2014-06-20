@@ -1,11 +1,11 @@
 package com.ntk.darkmoor.engine.gui;
 
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.ntk.darkmoor.engine.CampDialog;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class BaseWindow extends Dialog {
 
@@ -14,15 +14,13 @@ public class BaseWindow extends Dialog {
 	private MessageBox messageBox;
 	protected TextButton[] buttons;
 
-	protected Stage stage;
-	protected Skin uiSkin;
+	protected GameScreenBase parent;
 
-	public BaseWindow(CampDialog camp, String title, Skin skin, Stage stage) {
-		super(title, skin);
+	public BaseWindow(CampDialog camp, String title, GameScreenBase parentScreen) {
+		super(title, parentScreen.getSkin());
 		this.camp = camp;
 		closing = false;
-		uiSkin = skin;
-		this.stage = stage;
+		this.parent = parentScreen;
 	}
 
 	public void close() {
@@ -51,13 +49,19 @@ public class BaseWindow extends Dialog {
 			return;
 		}
 	}
+	
+
+	protected void closeAndRemoveFromParent(BaseWindow window) {
+		window.close();
+		parent.getStage().getRoot().removeActor(window);
+	}
 
 	public CampDialog getCamp() {
 		return camp;
 	}
 
 	public void loadContent() {
-		setupButtons(uiSkin);
+		setupButtons(parent.getSkin());
 	}
 
 	protected Image setupBackground() {

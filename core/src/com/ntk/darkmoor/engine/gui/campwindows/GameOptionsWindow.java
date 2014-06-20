@@ -12,16 +12,15 @@ import com.ntk.darkmoor.engine.gui.MessageBox;
 import com.ntk.darkmoor.engine.gui.MessageBox.DialogResult;
 import com.ntk.darkmoor.engine.gui.MessageBox.MessageBoxButtons;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class GameOptionsWindow extends BaseWindow {
 
 	private static final String WINDOW_TITLE = "Game Options:";
 	private Skin skin;
 
-	public GameOptionsWindow(CampDialog camp, Skin skin, Stage stage) {
-		super(camp, WINDOW_TITLE, skin,stage);
-
-		this.skin = skin;
+	public GameOptionsWindow(CampDialog camp, GameScreenBase parent) {
+		super(camp, WINDOW_TITLE, parent);
 
 		ScreenButton button;
 
@@ -107,17 +106,17 @@ public class GameOptionsWindow extends BaseWindow {
 	}
 
 	protected boolean dropHeroSelected(Event event) {
-		getCamp().addWindow(new DropNPCWindow(getCamp(), skin, stage));
+		getCamp().addWindow(new DropNPCWindow(getCamp(), parent));
 		return false;
 	}
 
 	protected boolean saveSelected(Event event) {
-		getCamp().addWindow(new SaveGameWindow(getCamp(), skin, stage));
+		getCamp().addWindow(new SaveGameWindow(getCamp(), parent));
 		return false;
 	}
 
 	protected boolean loadSelected(Event event) {
-		getCamp().addWindow(new LoadGameWindow(getCamp(), skin, stage));
+		getCamp().addWindow(new LoadGameWindow(getCamp(), parent));
 		return false;
 	}
 

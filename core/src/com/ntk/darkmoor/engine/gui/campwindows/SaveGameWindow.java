@@ -5,7 +5,6 @@ import org.ntk.commons.StringUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.config.SaveGameSlot;
 import com.ntk.darkmoor.config.Settings;
@@ -15,6 +14,7 @@ import com.ntk.darkmoor.engine.gui.MessageBox;
 import com.ntk.darkmoor.engine.gui.MessageBox.DialogResult;
 import com.ntk.darkmoor.engine.gui.MessageBox.MessageBoxButtons;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class SaveGameWindow extends BaseWindow {
 
@@ -22,9 +22,8 @@ public class SaveGameWindow extends BaseWindow {
 
 	private Skin skin;
 
-	public SaveGameWindow(CampDialog camp, Skin skin, Stage stage) {
-		super(camp, "Save Game", skin, stage);
-		this.skin = skin;
+	public SaveGameWindow(CampDialog camp, GameScreenBase parent) {
+		super(camp, "Save Game", parent);
 		Settings.getSavedGame().load();
 
 		ScreenButton button;

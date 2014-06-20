@@ -76,7 +76,7 @@ public class MainMenu extends GameScreenBase {
 		buttons[0].setBounds(320, 480, widthUnit, heightUnit);
 		buttons[0].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				loadGame = new LoadGameWindow(null, MainMenu.this.uiSkin, stage);// TODO: ntk: give a skin
+				loadGame = new LoadGameWindow(null, MainMenu.this);// TODO: ntk: give a skin
 				stage.addActor(loadGame);
 				return true;
 			}
@@ -96,7 +96,7 @@ public class MainMenu extends GameScreenBase {
 		buttons[2].setBounds(320, 330, widthUnit, heightUnit);
 		buttons[2].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				setScreen(new OptionMenu(game));
+				stage.addActor(new OptionsWindow(null, MainMenu.this));
 				return false;
 			}
 		});

@@ -9,11 +9,12 @@ import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class PreferencesWindow extends BaseWindow {
 
-	public PreferencesWindow(CampDialog camp, Skin skin, Stage stage) {
-		super(camp, "Preferences :", skin, stage);
+	public PreferencesWindow(CampDialog camp, GameScreenBase parent) {
+		super(camp, "Preferences :", parent);
 
 		ScreenButton button;
 

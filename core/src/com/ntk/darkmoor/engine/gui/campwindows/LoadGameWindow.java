@@ -4,23 +4,23 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.ntk.darkmoor.config.SaveGameSlot;
 import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class LoadGameWindow extends BaseWindow {
 
 	private int selectedSlot;
 
-	public LoadGameWindow(CampDialog camp, Skin skin, Stage stage) {
-		super(camp, "Load Game", skin, stage);
+	public LoadGameWindow(CampDialog camp, GameScreenBase parent) {
+		super(camp, "Load Game", parent);
 		selectedSlot = -1;
 		setupWindow();
-		setupButtons(skin);
+		setupButtons(parent.getSkin());
 		pack();
 	}
 
@@ -50,8 +50,7 @@ public class LoadGameWindow extends BaseWindow {
 				"transparent-font64");
 		buttons[Settings.getLastLoadedInstance().getSaveSlots()].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				LoadGameWindow.this.close();
-				stage.getRoot().removeActor(LoadGameWindow.this);
+				closeAndRemoveFromParent(LoadGameWindow.this);
 				return true;
 			}
 		});
@@ -60,12 +59,13 @@ public class LoadGameWindow extends BaseWindow {
 
 	}
 
+
 	private void setupWindow() {
 		// getButtonTable().add(new TextButton("X", uiSkin)).height(getPadTop());
 		setPosition(Gdx.graphics.getWidth() / 2 - 150, 100);
 		setWidth(Gdx.graphics.getWidth() >> 1);
 		setHeight(Gdx.graphics.getHeight() - 100);
-		defaults().spaceBottom(10);
+		defaults().space(10);
 		row().fill().expandX();
 
 		// addAction(sequence(fadeIn(5000)));

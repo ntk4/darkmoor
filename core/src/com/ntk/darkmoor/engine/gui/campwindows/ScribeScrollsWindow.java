@@ -3,16 +3,15 @@ package com.ntk.darkmoor.engine.gui.campwindows;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
+import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class ScribeScrollsWindow extends BaseWindow {
 
-	public ScribeScrollsWindow(CampDialog camp, Skin skin, Stage stage) {
-		super(camp, "Scribe Scrolls :", skin, stage);
+	public ScribeScrollsWindow(CampDialog camp, GameScreenBase parent) {
+		super(camp, "Scribe Scrolls :", parent);
 		
 		ScreenButton button;
 		

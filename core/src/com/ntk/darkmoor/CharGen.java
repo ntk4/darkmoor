@@ -34,7 +34,6 @@ import com.ntk.darkmoor.resource.ItemAssets;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.Display;
-import com.ntk.darkmoor.stub.GameScreen;
 import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class CharGen extends GameScreenBase {

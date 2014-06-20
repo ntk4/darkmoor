@@ -56,7 +56,7 @@ public class DarkmoorGame extends Game {
 	}
 
 	public void resumeMusic() {
-		if (theme != null && !theme.isPlaying())
+		if (theme != null && !theme.isPlaying() && Settings.getLastLoadedInstance().isMusic())
 			theme.play();
 	}
 
