@@ -1,12 +1,10 @@
 package com.ntk.darkmoor.config;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.ntk.darkmoor.exception.InitializationException;
 import com.ntk.darkmoor.exception.SaveException;
@@ -63,8 +61,16 @@ public class Settings {
 		
 		instance = settings;
 		
+		loadSaveGameFile(handle.sibling("savegame.xml"));
+		
 		return settings;
 
+	}
+
+	private static void loadSaveGameFile(FileHandle handle) {
+		savedGame = new SaveGame(handle.path());
+		if (handle.exists())
+			savedGame.load();
 	}
 
 	public void saveSettings() throws IOException {

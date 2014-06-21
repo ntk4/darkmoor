@@ -13,6 +13,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.Square.SquarePosition;
@@ -26,7 +27,6 @@ import com.ntk.darkmoor.engine.graphics.TileDrawing;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.Display;
-import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.GameTime;
 
 public class Maze {
@@ -688,7 +688,7 @@ public class Maze {
 		if (batch == null)
 			return;
 
-		Team team = GameScreenBase.getTeam();
+		Team team = GameScreen.getTeam();
 
 		Color color;
 

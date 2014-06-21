@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.engine.Alcove;
 import com.ntk.darkmoor.engine.Compass;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
@@ -22,7 +23,6 @@ import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
-import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.MouseButtons;
 
 public class AlcoveActor extends SquareActor {
@@ -108,7 +108,7 @@ public class AlcoveActor extends SquareActor {
 		if (!getSquare().getMaze().getDecoration().isPointInside(alcove.getDecoration(), location))
 			return false;
 
-		Team team = GameScreenBase.getTeam();
+		Team team = GameScreen.getTeam();
 
 		// No item in hand
 		if (team.getItemInHand() != null) {

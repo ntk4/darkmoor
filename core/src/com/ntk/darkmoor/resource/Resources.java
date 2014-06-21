@@ -47,7 +47,7 @@ public class Resources {
 
 	public static TextureSet createTextureSetAsset(String name) {
 		GraphicAssets textureAssets = GraphicAssets.getAssets(TEXTURE_SET_FILE);
-		return textureAssets.load(name);
+		return textureAssets.getTextureSet(name);
 	}
 
 	public static Texture createTextureAsset(String name) {
@@ -133,7 +133,9 @@ public class Resources {
 		// param.genMipMaps = true;Gdx.files.internal(getResourcePath() + "chargen.png").exists()
 		// param.magFilter = TextureFilter.
 		// getAssetManager().load(getResourcePath() + FONT_FILE, BitmapFont.class);
-		getAssetManager().load(getResourcePath() + "chargen.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "heads.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "interface.png", Texture.class);
+		getAssetManager().finishLoading();
 		// getAssetManager().load(getResourcePath() + "items.png", Texture.class);
 		// getAssetManager().load(getResourcePath() + "main menu.png", Texture.class);
 		// getAssetManager().finishLoading();

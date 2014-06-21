@@ -13,6 +13,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.config.GameMechanics;
 import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
@@ -23,7 +24,6 @@ import com.ntk.darkmoor.engine.interfaces.IMonster;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
 import com.ntk.darkmoor.stub.AudioSample;
-import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.GameTime;
 import com.ntk.darkmoor.stub.ScriptInterface;
 
@@ -188,7 +188,7 @@ public class Monster extends Entity {
 		if (!canMove)
 			return false;
 
-		Team team = GameScreenBase.getTeam();
+		Team team = GameScreen.getTeam();
 
 		// Get informations about the destination block
 		Vector2 dst = getLocation().getCoordinates();
@@ -293,10 +293,10 @@ public class Monster extends Entity {
 		if (target == null)
 			return false;
 
-		if (GameScreenBase.getDungeon() == null)
+		if (GameScreen.getDungeon() == null)
 			return false;
 
-		Maze maze = GameScreenBase.getDungeon().getMaze(target.getMaze());
+		Maze maze = GameScreen.getDungeon().getMaze(target.getMaze());
 		if (maze == null)
 			return false;
 
@@ -320,7 +320,7 @@ public class Monster extends Entity {
 
 		// Reward the team for having killed the entity
 		if (isDead() && attack.getStriker() instanceof Hero) {
-			GameScreenBase.getTeam().addExperience(reward);
+			GameScreen.getTeam().addExperience(reward);
 		}
 	}
 
@@ -333,9 +333,9 @@ public class Monster extends Entity {
 			square.dropItem(position, Resources.getItemAsset(item));
 
 		// Reward the team
-		for (Hero hero : GameScreenBase.getTeam().getHeroes())
+		for (Hero hero : GameScreen.getTeam().getHeroes())
 			if (hero != null)
-				hero.addExperience(reward / GameScreenBase.getTeam().getHeroCount());
+				hero.addExperience(reward / GameScreen.getTeam().getHeroCount());
 	}
 
 	/** Fired when the creature is first spawned */
@@ -366,7 +366,7 @@ public class Monster extends Entity {
 		// if (Script.Instance != null)
 		// Script.Instance.OnUpdate(this);
 
-		Team team = GameScreenBase.getTeam();
+		Team team = GameScreen.getTeam();
 
 		// Draw offset
 		if (lastDrawOffset + drawOffsetDuration < new Date().getTime()) {

@@ -41,4 +41,8 @@ public class SaveGameSlot {
 		return name;
 	}
 
+	public boolean isEmpty() {
+		return StringUtils.isEmpty(name);
+	}
+
 }

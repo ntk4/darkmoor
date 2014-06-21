@@ -28,10 +28,10 @@ public class SpellBook {
 	}
 
 	public void loadContent() {
-		textureSet = Resources.lockSharedTextureSetAsset("Interface");
+		textureSet = Resources.createTextureSetAsset("interface");
 	}
 
-	public void Dispose() {
+	public void dispose() {
 		Resources.unlockSharedTextureSetAsset(textureSet);
 		textureSet = null;
 	}

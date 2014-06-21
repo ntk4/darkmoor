@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import org.ntk.commons.StringUtils;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.exception.SaveException;
@@ -31,7 +32,10 @@ public class SaveGame {
 	}
 
 	public boolean load() {
-		if (!new File(fileName).exists()) {
+		if (ResourceUtility.isStandaloneMode()) {
+			if (!new File(fileName).exists())
+				Log.error("SaveGame.load: unable to find save file '%s'!", fileName);
+		} else if (!Gdx.files.internal(fileName).exists()) {
 			Log.error("SaveGame.load: unable to find save file '%s'!", fileName);
 		}
 
@@ -48,11 +52,10 @@ public class SaveGame {
 			Element slot = xml.getChild(i);
 			name = slot.getName();
 
-
 			if ("slot".equalsIgnoreCase(name)) {
 				int id = Integer.parseInt(slot.getAttribute("id"));
 				slots[id].setName(slot.getAttribute("name"));
-				
+
 				for (int j = 0; j < slot.getChildCount(); j++) {
 					Element child = slot.getChild(j);
 					String childname = child.getName();

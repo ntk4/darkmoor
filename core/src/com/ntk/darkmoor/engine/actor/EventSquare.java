@@ -9,6 +9,7 @@ import org.ntk.commons.StringUtils;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.GameMessage;
 import com.ntk.darkmoor.engine.Hero;
@@ -57,7 +58,7 @@ public class EventSquare extends SquareActor {
 		Hero hero = null;
 
 		// Check if a hero detect the event
-		for (Hero h : GameScreenBase.getTeam().getHeroes()) {
+		for (Hero h : GameScreen.getTeam().getHeroes()) {
 			// if (hero.SavingThrow(SavingThrowType.Will) > Dice.GetD20(1))
 			if (h != null && h.savingThrow(SavingThrowType.Will) > intelligence) {
 				hero = h;

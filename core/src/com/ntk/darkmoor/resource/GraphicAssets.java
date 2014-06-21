@@ -14,6 +14,8 @@ public class GraphicAssets {
 
 	private String fileName;
 	private static Map<String, GraphicAssets> instances;
+	
+	private Map<String, TextureSet> textureCache;
 
 	public static GraphicAssets getAssets(String fileName) {
 		if (instances == null)
@@ -27,10 +29,20 @@ public class GraphicAssets {
 
 	private GraphicAssets(String fileName) {
 		this.fileName = fileName;
+		textureCache = new HashMap<String, TextureSet>(1);
+	}
+	
+	public TextureSet getTextureSet(String textureSetName) throws LoadException {
+		TextureSet cachedTextureSet = textureCache.get(textureSetName);
+		if (cachedTextureSet != null )
+			return cachedTextureSet;
+		cachedTextureSet = load(textureSetName);
+		textureCache.put(textureSetName, cachedTextureSet);
+		return cachedTextureSet;
 	}
 
-	public TextureSet load(String textureSetName) throws LoadException {
-
+	private TextureSet load(String textureSetName) throws LoadException {	
+		
 		Element root = ResourceUtility.extractRootElement(Resources.getResourcePath() + fileName);
 
 		TextureSet set = null;

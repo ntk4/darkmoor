@@ -6,7 +6,7 @@ import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
-import com.ntk.darkmoor.stub.GameScreenBase;
+import com.ntk.darkmoor.GameScreen;
 
 public class Teleport extends ActionBase {
 
@@ -23,9 +23,9 @@ public class Teleport extends ActionBase {
 		if (target == null)
 			return false;
 
-		if (GameScreenBase.getTeam().teleport(target)) {
+		if (GameScreen.getTeam().teleport(target)) {
 			if (changeDirection)
-				GameScreenBase.getTeam().setDirection(target.getDirection());
+				GameScreen.getTeam().setDirection(target.getDirection());
 			return true;
 		}
 

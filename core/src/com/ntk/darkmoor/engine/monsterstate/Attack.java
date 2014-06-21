@@ -1,8 +1,8 @@
 package com.ntk.darkmoor.engine.monsterstate;
 
+import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.engine.Monster;
 import com.ntk.darkmoor.engine.Team;
-import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.GameTime;
 
 public class Attack extends MonsterState {
@@ -14,7 +14,7 @@ public class Attack extends MonsterState {
 	@Override
 	public void update(GameTime time)
 	{
-		Team team = GameScreenBase.getTeam();
+		Team team = GameScreen.getTeam();
 
 		// Can see the team anymore
 		if (!getMonster().canSee(team.getLocation()) || !getMonster().canDetect(team.getLocation()))

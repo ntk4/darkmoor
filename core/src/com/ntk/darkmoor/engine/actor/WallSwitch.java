@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.engine.Compass;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.Decoration;
@@ -23,7 +24,6 @@ import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.engine.graphics.TileDrawing;
 import com.ntk.darkmoor.engine.script.WallSwitchScript;
-import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.MouseButtons;
 
 public class WallSwitch extends SquareActor {
@@ -79,14 +79,14 @@ public class WallSwitch extends SquareActor {
 		if (!StringUtils.isEmpty(neededItem)) {
 
 			// No item in hand or not the good item
-			if (GameScreenBase.getTeam().getItemInHand() == null
-					|| !StringUtils.equals(GameScreenBase.getTeam().getItemInHand().getName(), neededItem)) {
+			if (GameScreen.getTeam().getItemInHand() == null
+					|| !StringUtils.equals(GameScreen.getTeam().getItemInHand().getName(), neededItem)) {
 				GameMessage.addMessage("You need a key to open this lock");
 				return true;
 			}
 
 			// Picklock
-			if ("PickLock".equalsIgnoreCase(GameScreenBase.getTeam().getItemInHand().getName())) {
+			if ("PickLock".equalsIgnoreCase(GameScreen.getTeam().getItemInHand().getName())) {
 				// TODO: already unlocked => "It's already unlocked"
 				if (pickLock()) {
 					GameMessage.addMessage("You pick the lock.", GameColors.Green);
@@ -99,7 +99,7 @@ public class WallSwitch extends SquareActor {
 
 			// Consume item
 			if (consumeItem)
-				GameScreenBase.getTeam().setItemInHand(null);
+				GameScreen.getTeam().setItemInHand(null);
 		}
 
 		toggle();

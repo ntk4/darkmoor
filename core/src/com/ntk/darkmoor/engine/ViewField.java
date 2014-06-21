@@ -22,6 +22,14 @@ public class ViewField {
 		public int value() {
 			return value;
 		}
+
+		public static ViewFieldPosition valueOfIgnoreCase(String attribute) {
+			for (ViewFieldPosition value: values()) {
+				if (value.name().equalsIgnoreCase(attribute))
+					return value;
+			}
+			return A; // to be investigated...
+		}
 	}
 
 	private Maze maze;

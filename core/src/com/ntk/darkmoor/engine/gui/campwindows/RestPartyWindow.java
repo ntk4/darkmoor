@@ -7,8 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.GameMessage;
 import com.ntk.darkmoor.engine.Hero;
@@ -85,7 +84,7 @@ public class RestPartyWindow extends BaseWindow {
 		if (start == null || start.getTime() == 0)
 			return;
 
-		Team team = GameScreenBase.getTeam();
+		Team team = GameScreen.getTeam();
 
 		// Number of hour sleeping
 		int hours = (int) (new Date().getTime() - start.getTime()) / MILLIS_OF_REAL_TIME_FOR_EACH_HOUR_OF_PARTY_REST;

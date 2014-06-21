@@ -88,7 +88,7 @@ public class AnimationAssets implements Disposable {
 		String textureSetName = child.getChildByName("tileset").getAttribute("name");
 		boolean loop = "loop".equalsIgnoreCase(child.getChildByName("loop").getAttribute("value"));
 
-		TextureSet textureSet = graphics.load(textureSetName);
+		TextureSet textureSet = graphics.getTextureSet(textureSetName);
 		Array<Element> textureElements = child.getChildrenByName("tile");
 		Array<Sprite> sprites = new Array<Sprite>(textureElements.size);
 

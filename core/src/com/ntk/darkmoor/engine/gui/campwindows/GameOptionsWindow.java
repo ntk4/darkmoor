@@ -3,7 +3,6 @@ package com.ntk.darkmoor.engine.gui.campwindows;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.DarkmoorGame;
 import com.ntk.darkmoor.engine.CampDialog;

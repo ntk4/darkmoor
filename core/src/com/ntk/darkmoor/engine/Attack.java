@@ -2,7 +2,7 @@ package com.ntk.darkmoor.engine;
 
 import java.util.Date;
 
-import com.ntk.darkmoor.stub.GameScreenBase;
+import com.ntk.darkmoor.GameScreen;
 
 /**
  * This class handle an attack between to entities. There is a difference between Attacking and damaging. If you attack
@@ -29,7 +29,7 @@ public class Attack {
 	 * @param item
 	 */
 	public Attack(Entity attacker, Entity target, Item item) {
-		Team team = GameScreenBase.getTeam();
+		Team team = GameScreen.getTeam();
 		time = new Date();
 		this.striker = attacker;
 		this.target = target;

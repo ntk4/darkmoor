@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.Hero;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
@@ -37,7 +38,7 @@ public class DropNPCWindow extends BaseWindow {
 	public DropNPCWindow(CampDialog camp, GameScreenBase parent) {
 		super(camp, WINDOW_TITLE, parent);
 
-		if (GameScreenBase.getTeam().getHeroCount() <= 4) {
+		if (GameScreen.getTeam().getHeroCount() <= 4) {
 			setClosing(true);
 			return;
 		}
@@ -74,7 +75,7 @@ public class DropNPCWindow extends BaseWindow {
 
 		for (int y = 0; y < 3; y++) {
 			for (int x = 0; x < 2; x++) {
-				Hero hero = GameScreenBase.getTeam().getHeroes()[y * 2 + x];
+				Hero hero = GameScreen.getTeam().getHeroes()[y * 2 + x];
 				if (hero == null)
 					continue;
 
@@ -111,7 +112,7 @@ public class DropNPCWindow extends BaseWindow {
 	 * @return if update was handled or should continue
 	 */
 	private boolean updateHero(int y, int x) {
-		Hero hero = GameScreenBase.getTeam().getHeroes()[y * 2 + x];
+		Hero hero = GameScreen.getTeam().getHeroes()[y * 2 + x];
 		if (hero == null)
 			return true;
 
@@ -139,7 +140,7 @@ public class DropNPCWindow extends BaseWindow {
 
 	protected boolean dropAnswer(Event event) {
 		if (((MessageBox) event.getTarget()).getDialogResult() == DialogResult.Yes) {
-			GameScreenBase.getTeam().dropHero(hero);
+			GameScreen.getTeam().dropHero(hero);
 			getCamp().exit();
 		}
 

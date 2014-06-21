@@ -4,10 +4,11 @@ import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.utils.Disposable;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.stub.GameScreenBase;
 
-public class BaseWindow extends Dialog {
+public class BaseWindow extends Dialog implements Disposable {
 
 	private CampDialog camp;
 	private boolean closing;
@@ -91,6 +92,12 @@ public class BaseWindow extends Dialog {
 
 	protected void setMessageBox(MessageBox messageBox) {
 		this.messageBox = messageBox;
+	}
+
+	@Override
+	public void dispose() {
+		unloadContent();
+		
 	}
 
 }

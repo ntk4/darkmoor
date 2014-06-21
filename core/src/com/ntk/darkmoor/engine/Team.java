@@ -5,16 +5,17 @@ import java.util.Date;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.Square.SquarePosition;
 import com.ntk.darkmoor.engine.Square.SquareType;
-import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.Mouse;
 
-public class Team {
+public class Team implements Disposable {
 
 	public enum HeroPosition {
 		FrontLeft(0), FrontRight(1), MiddleLeft(2), MiddleRight(3), RearLeft(4), RearRight(5);
@@ -76,8 +77,8 @@ public class Team {
 		// Set initial location
 		if (location == null) {
 			location = new DungeonLocation();
-			teleport(GameScreenBase.getDungeon().getStartLocation());
-			location.setDirection(GameScreenBase.getDungeon().getStartLocation().getDirection());
+			teleport(GameScreen.getDungeon().getStartLocation());
+			location.setDirection(GameScreen.getDungeon().getStartLocation().getDirection());
 		} else {
 			teleport(location);
 		}
@@ -447,7 +448,7 @@ public class Team {
 	 * @return True if teleportation is ok
 	 */
 	public boolean teleport(DungeonLocation location) {
-		return teleport(location, GameScreenBase.getDungeon());
+		return teleport(location, GameScreen.getDungeon());
 	}
 
 	/**
@@ -847,6 +848,12 @@ public class Team {
 
 	public void setLastMove(long lastMove) {
 		this.lastMove = lastMove;
+	}
+
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

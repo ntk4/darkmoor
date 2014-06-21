@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.ntk.darkmoor.config.SaveGame;
 import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.resource.Resources;
 
@@ -22,14 +23,18 @@ public class DarkmoorGame extends Game {
 
 	public static final String DATA_ASSET_FOLDER = "./data";
 
+	private static DarkmoorGame instance;	
+	
 	private SpriteBatch batch;
 	private OrthographicCamera camera;
 	private Viewport viewport;
 	private MainMenu mainMenu;
+	private GameScreen gameScreen;
 	private Music theme;
 
 	@Override
 	public void create() {
+		instance = this;
 		loadStartupData();
 		camera = new OrthographicCamera(DISPLAY_WIDTH, DISPLAY_HEIGHT);
 		// camera.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -38,8 +43,8 @@ public class DarkmoorGame extends Game {
 		batch = new SpriteBatch();
 
 		viewport = new FitViewport(DISPLAY_WIDTH, DISPLAY_HEIGHT);
-		mainMenu = new MainMenu(this);
-		setScreen(mainMenu);
+//		mainMenu = new MainMenu(this);
+		setScreen(getMainMenu());
 
 		initMusic();
 	}
@@ -76,12 +81,15 @@ public class DarkmoorGame extends Game {
 
 	private void loadStartupData() {
 		Resources.loadGameStartupResources();
-		Resources.loadResources();
 		try {
 			Settings.loadSettings(Gdx.files.internal(Resources.getResourcePath() + "settings.properties"));
 		} catch (IOException e) {
 			exit();
 		}
+	}
+	
+	private void loadInGameData() {
+		Resources.loadResources();
 	}
 
 	// @Override
@@ -122,6 +130,25 @@ public class DarkmoorGame extends Game {
 	}
 
 	public MainMenu getMainMenu() {
-		return new MainMenu(this);
+		if (mainMenu == null) {
+			mainMenu = new MainMenu(this);
+			loadInGameData();
+		}
+		return mainMenu;
+	}
+
+	public void loadGameSlot(int selectedSlot) {
+		getGameScreen().loadGameSlot(selectedSlot);
+	}
+
+	public GameScreen getGameScreen() {
+		if (gameScreen == null) {
+			gameScreen = new GameScreen(this);
+		}
+		return gameScreen;
+	}
+
+	public static DarkmoorGame getInstance() {
+		return instance;
 	}
 }

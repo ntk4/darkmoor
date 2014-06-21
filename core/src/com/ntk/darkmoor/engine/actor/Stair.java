@@ -7,16 +7,16 @@ import org.ntk.commons.StringUtils;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.DungeonLocation;
 import com.ntk.darkmoor.engine.Monster;
 import com.ntk.darkmoor.engine.Square;
+import com.ntk.darkmoor.engine.Square.SquareType;
 import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.ViewField;
-import com.ntk.darkmoor.engine.Square.SquareType;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.resource.TextureSet;
-import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class Stair extends SquareActor {
 
@@ -115,7 +115,7 @@ public class Stair extends SquareActor {
 
 	@Override
 	public boolean onTeamEnter() {
-		Team team = GameScreenBase.getTeam();
+		Team team = GameScreen.getTeam();
 
 		if (team.teleport(target))
 			team.setDirection(target.getDirection());

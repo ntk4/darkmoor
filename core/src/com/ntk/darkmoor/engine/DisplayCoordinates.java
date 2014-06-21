@@ -7,7 +7,7 @@ import org.ntk.commons.StringUtils;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.XmlReader;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.config.Log;
@@ -16,6 +16,7 @@ import com.ntk.darkmoor.engine.Square.SquarePosition;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.engine.graphics.SpriteEffects;
 import com.ntk.darkmoor.engine.graphics.TileDrawing;
+import com.ntk.darkmoor.resource.ResourceUtility;
 import com.ntk.darkmoor.resource.Resources;
 
 /**
@@ -146,9 +147,9 @@ public class DisplayCoordinates {
 
 		pits = new TileDrawing[viewcount];
 		ceilingPits = new TileDrawing[viewcount];
-		stairs = new TileDrawing[][] {}; // (viewcount);
+		stairs = new TileDrawing[viewcount][viewcount<<1]; // (viewcount);
 		for (int i = 0; i < viewcount; i++)
-			stairs[i] = new TileDrawing[] {};
+			stairs[i] = new TileDrawing[viewcount<<1];
 
 		throwRight = new Rectangle(176, 0, 176, 144);
 		trowLeft = new Rectangle(0, 0, 176, 144);
@@ -161,14 +162,21 @@ public class DisplayCoordinates {
 
 		scriptedDialog = new Rectangle(0, 242, 640, 158);
 		scriptedDialogChoices = new Rectangle[] {
-				// 1 choice
-				new Rectangle(442, 378, 190, 18), new Rectangle(), new Rectangle(),
+			// 1 choice
+			new Rectangle(442, 378, 190, 18),
+			new Rectangle(),
+			new Rectangle(),
 
-				// 2 choices
-				new Rectangle(118, 378, 190, 18), new Rectangle(332, 378, 190, 18), new Rectangle(),
+			// 2 choices
+			new Rectangle(118, 378, 190, 18),
+			new Rectangle(332, 378, 190, 18),
+			new Rectangle(),
 
-				// 3 choices
-				new Rectangle(8, 378, 190, 18), new Rectangle(224, 378, 190, 18), new Rectangle(440, 378, 190, 18), };
+			// 3 choices
+			new Rectangle(8, 378, 190, 18),
+			new Rectangle(224, 378, 190, 18),
+			new Rectangle(440, 378, 190, 18),
+		};
 
 		scroll = new Rectangle(0, 0, 352, 350);
 		scrollOk = new Rectangle(152, 324, 190, 18);
@@ -200,7 +208,8 @@ public class DisplayCoordinates {
 		Color.rgb888ToColor(color2, Color.rgba8888(96, 96, 96, 220));
 
 		Color[] colors = new Color[] {
-				Color.WHITE, Color.WHITE, color1, color2, };
+			Color.WHITE, Color.WHITE, color1, color2,
+		};
 		return colors[itemScaleOffset[position.value()]];
 	}
 
@@ -245,12 +254,7 @@ public class DisplayCoordinates {
 			return true;
 
 		Element mazeRoot = null;
-		try {
-			XmlReader reader = new XmlReader();
-			mazeRoot = reader.parse(Resources.load("MazeElements.xml"));
-		} catch (IOException e) {
-			throw e;
-		}
+		mazeRoot = ResourceUtility.extractRootElement(Resources.getResourcePath() + "mazeElements.xml");
 
 		if (mazeRoot == null || !"displaycoordinate".equals(mazeRoot.getName())) {
 			Log.error(String.format("Wrong structure for MazeElements.xml file, root is '%s'", mazeRoot.getName()));
@@ -263,7 +267,7 @@ public class DisplayCoordinates {
 			Element node = mazeRoot.getChild(i);
 
 			if ("stair".equalsIgnoreCase(node.getName())) {
-				ViewFieldPosition view = ViewFieldPosition.valueOf(node.getAttribute("position"));
+				ViewFieldPosition view = ViewFieldPosition.valueOfIgnoreCase(node.getAttribute("position").toUpperCase());
 
 				if (stairs[view.value()].length >= stairIndex - 1) {
 					stairs[view.value()][stairIndex++] = getTileDrawing(node);
@@ -272,41 +276,41 @@ public class DisplayCoordinates {
 				}
 
 			} else if ("ground".equalsIgnoreCase(node.getName())) {
-				ViewFieldPosition view = ViewFieldPosition.valueOf(node.getAttribute("position"));
+				ViewFieldPosition view = ViewFieldPosition.valueOfIgnoreCase(node.getAttribute("position"));
 				SquarePosition squareground = SquarePosition.valueOf(node.getAttribute("coordinate"));
 
 				ground[view.value()][squareground.value()] = new Vector2(Integer.parseInt(node.getAttribute("x")),
 						Integer.parseInt(node.getAttribute("y")));
 
 			} else if ("flyingitem".equalsIgnoreCase(node.getName())) {
-				ViewFieldPosition view = ViewFieldPosition.valueOf(node.getAttribute("position"));
+				ViewFieldPosition view = ViewFieldPosition.valueOfIgnoreCase(node.getAttribute("position"));
 				SquarePosition squareground = SquarePosition.valueOf(node.getAttribute("coordinate"));
 
 				flyingItems[view.value()][squareground.value()] = new Vector2(Integer.parseInt(node.getAttribute("x")),
 						Integer.parseInt(node.getAttribute("y")));
 
 			} else if ("pit".equalsIgnoreCase(node.getName())) {
-				ViewFieldPosition view = ViewFieldPosition.valueOf(node.getAttribute("position"));
+				ViewFieldPosition view = ViewFieldPosition.valueOfIgnoreCase(node.getAttribute("position"));
 
 				pits[view.value()] = getTileDrawing(node);
 
 			} else if ("teleporter".equalsIgnoreCase(node.getName())) {
-				ViewFieldPosition view = ViewFieldPosition.valueOf(node.getAttribute("position"));
+				ViewFieldPosition view = ViewFieldPosition.valueOfIgnoreCase(node.getAttribute("position"));
 
 				teleporters[view.value()] = getTileDrawing(node);
 
 			} else if ("ceilingpit".equalsIgnoreCase(node.getName())) {
-				ViewFieldPosition view = ViewFieldPosition.valueOf(node.getAttribute("position"));
+				ViewFieldPosition view = ViewFieldPosition.valueOfIgnoreCase(node.getAttribute("position"));
 
 				ceilingPits[view.value()] = getTileDrawing(node);
 
 			} else if ("floorplate".equalsIgnoreCase(node.getName())) {
-				ViewFieldPosition view = ViewFieldPosition.valueOf(node.getAttribute("position"));
+				ViewFieldPosition view = ViewFieldPosition.valueOfIgnoreCase(node.getAttribute("position"));
 
 				floorPlates[view.value()] = getTileDrawing(node);
 
 			} else if ("door".equalsIgnoreCase(node.getName())) {
-				ViewFieldPosition view = ViewFieldPosition.valueOf(node.getAttribute("position"));
+				ViewFieldPosition view = ViewFieldPosition.valueOfIgnoreCase(node.getAttribute("position"));
 
 				doors[view.value()] = getTileDrawing(node);
 
@@ -331,12 +335,19 @@ public class DisplayCoordinates {
 
 		// effect
 		SpriteEffects effect = SpriteEffects.NONE;
-		if (node.getAttribute("effect") != null)
-			effect = SpriteEffects.valueOf(node.getAttribute("effect"));
+		try {
+			effect = SpriteEffects.fromDescription(node.getAttribute("effect"));
+		} catch(GdxRuntimeException e) {
+			effect = SpriteEffects.NONE;
+		}
+//		if (node.getAttribute("effect") != null)
+//			effect = SpriteEffects.valueOf(node.getAttribute("effect"));
 
 		CardinalPoint side = CardinalPoint.North;
-		if (node.getAttribute("side") != null)
+		try {
 			side = CardinalPoint.valueOf(node.getAttribute("side"));
+		} catch(GdxRuntimeException e) {
+		}
 
 		return new TileDrawing(id, location, side, effect);
 	}

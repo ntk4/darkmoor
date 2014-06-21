@@ -34,7 +34,7 @@ public class LoadGameWindow extends BaseWindow {
 				slot = Settings.getSavedGame().getSlot(id);
 			final int slotNumber = id;
 
-			buttons[id] = new TextButton(slot != null ? slot.getName() : "Empty slot " + (id + 1), uiSkin,
+			buttons[id] = new TextButton(!slot.isEmpty() ? slot.getName() : "Empty slot " + (id + 1), uiSkin,
 					"transparent-font64");
 			buttons[id].addListener(new InputListener() {
 				public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -59,7 +59,6 @@ public class LoadGameWindow extends BaseWindow {
 
 	}
 
-
 	private void setupWindow() {
 		// getButtonTable().add(new TextButton("X", uiSkin)).height(getPadTop());
 		setPosition(Gdx.graphics.getWidth() / 2 - 150, 100);
@@ -80,8 +79,8 @@ public class LoadGameWindow extends BaseWindow {
 		selectedSlot = slotNumber;
 
 		// If ingame, then load the savegame
+		parent.getGame().loadGameSlot(selectedSlot);
 		if (getCamp() != null) {
-			getCamp().getGame().loadGameSlot(selectedSlot);
 			getCamp().exit();
 		}
 

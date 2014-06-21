@@ -11,6 +11,8 @@ import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.DarkmoorGame;
+import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.config.GameMechanics;
 import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
@@ -18,7 +20,6 @@ import com.ntk.darkmoor.engine.HandAction.ActionResult;
 import com.ntk.darkmoor.engine.Item.BodySlot;
 import com.ntk.darkmoor.engine.Item.ItemType;
 import com.ntk.darkmoor.resource.Resources;
-import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.GameTime;
 
 /**
@@ -844,7 +845,7 @@ public class Hero extends Entity {
 		if (!canUseHand(hand))
 			return;
 
-		Team team = GameScreenBase.getTeam();
+		Team team = GameScreen.getTeam();
 
 		// Find the entity in front of the hero
 		Entity target = team.getFrontEntity(team.getHeroGroundPosition(this));
@@ -924,7 +925,7 @@ public class Hero extends Entity {
 
 		case HolySymbol:
 		case Book: {
-			GameScreenBase.getSpellBook().open(this, item);
+			DarkmoorGame.getInstance().getGameScreen().getSpellBook().open(this, item);
 
 			// Spell spell = ResourceManager.CreateAsset<Spell>("CreateFood");
 			// spell.Init();
