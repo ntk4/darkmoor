@@ -78,9 +78,9 @@ public class Resources {
 		return null;
 	}
 
-	public static TextureSet createSharedTextureSetAsset(String wallTilesetName, String wallTilesetName2) {
-		// TODO Auto-generated method stub
-		return null;
+	public static TextureSet createSharedTextureSetAsset(String textureSet, String textureSet2) {
+		GraphicAssets textureAssets = GraphicAssets.getAssets(TEXTURE_SET_FILE);
+		return textureAssets.getTextureSet(textureSet);
 	}
 
 	public static void unlockSharedTextureSetAsset(TextureSet wallTileset) {
@@ -233,4 +233,5 @@ public class Resources {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }

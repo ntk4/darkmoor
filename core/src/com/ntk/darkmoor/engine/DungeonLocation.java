@@ -72,13 +72,16 @@ public class DungeonLocation {
 		if (!StringUtils.isEmpty(node.getAttribute("maze"))) {
 			maze = node.getAttribute("maze");
 
-		} else if (!StringUtils.isEmpty(node.getAttribute("x")) && !StringUtils.isEmpty(node.getAttribute("y"))) {
+		}
+		if (!StringUtils.isEmpty(node.getAttribute("x")) && !StringUtils.isEmpty(node.getAttribute("y"))) {
 			coordinate = new Vector2(Integer.parseInt(node.getAttribute("x")), Integer.parseInt(node.getAttribute("y")));
 
-		} else if (!StringUtils.isEmpty(node.getAttribute("direction"))) {
+		}
+		if (!StringUtils.isEmpty(node.getAttribute("direction"))) {
 			direction = CardinalPoint.valueOf(node.getAttribute("direction"));
 
-		} else if (!StringUtils.isEmpty(node.getAttribute("position"))) {
+		}
+		if (!StringUtils.isEmpty(node.getAttribute("position"))) {
 			position = SquarePosition.valueOf(node.getAttribute("position"));
 		}
 

@@ -48,7 +48,6 @@ public class Maze {
 	private TextureSet doorTileset;
 	private String description;
 	private Vector2 size;
-	private Rectangle rectangle;
 	private DoorType defaultDoorType;
 	private float experienceMultiplier;
 
@@ -260,14 +259,14 @@ public class Maze {
 	}
 
 	public Square getSquare(Vector2 location) {
-		if (!rectangle.contains(location))
+		if (!getMazeRectangle().contains(location))
 			return new Square(this);
 
 		return squares.get((int) location.y).get((int) location.x);
 	}
 
 	public boolean setSquare(Vector2 location, Square square) {
-		if (square == null || !rectangle.contains(location))
+		if (square == null || !getMazeRectangle().contains(location))
 			return false;
 
 		squares.get((int) location.y).set((int) location.x, square);
@@ -275,6 +274,10 @@ public class Maze {
 		square.setMaze(this);
 
 		return true;
+	}
+
+	private Rectangle getMazeRectangle() {
+		return new Rectangle(0, 0, size.x, size.y);
 	}
 
 	/**
@@ -296,8 +299,7 @@ public class Maze {
 	 * Returns all objects flying depending the view point
 	 * 
 	 * @param location
-	 * @param direction
-	 *            Looking direction
+	 * @param direction Looking direction
 	 * @return Returns an array of flying items: Position 0 : North West, Position 1 : North East, Position 2 : South
 	 *         West, Position 3 : South East
 	 */
@@ -368,7 +370,7 @@ public class Maze {
 
 		Element node = null;
 		String name = null;
-		
+
 		for (int i = 0; i < xml.getChildCount(); i++) {
 			node = xml.getChild(i);
 			name = node.getName();
@@ -407,8 +409,8 @@ public class Maze {
 				Vector2 size = new Vector2(Integer.parseInt(node.getAttribute("width")), Integer.parseInt(node
 						.getAttribute("height")));
 				Vector2 location = new Vector2();
-				squares = new ArrayList<List<Square>>((int)size.y);
-//				this.size = new Vector2(0,0);//force resize() to reinitialize the squares!
+				squares = new ArrayList<List<Square>>((int) size.y);
+				// this.size = new Vector2(0,0);//force resize() to reinitialize the squares!
 				resize(size);
 
 				for (int j = 0; j < node.getChildCount(); j++) {
@@ -650,10 +652,19 @@ public class Maze {
 		// Monsters
 		if (square.getMonsterCount() > 0) {
 			// Drawing order for monsters
-			int[][] order = new int[][] { new int[] { 0, 1, 2, 3 }, // North
-					new int[] { 3, 2, 1, 0 }, // South
-					new int[] { 2, 0, 3, 1 }, // West
-					new int[] { 1, 3, 0, 2 }, // East
+			int[][] order = new int[][] {
+				new int[] {
+					0, 1, 2, 3
+				}, // North
+				new int[] {
+					3, 2, 1, 0
+				}, // South
+				new int[] {
+					2, 0, 3, 1
+				}, // West
+				new int[] {
+					1, 3, 0, 2
+				}, // East
 			};
 
 			for (int i = 0; i < 4; i++) {
@@ -822,10 +833,8 @@ public class Maze {
 	/**
 	 * Offsets EVERY object (monsters, items...) in the maze
 	 * 
-	 * @param zone
-	 *            Each object in this rectangle
-	 * @param offset
-	 *            Offset to move
+	 * @param zone Each object in this rectangle
+	 * @param offset Offset to move
 	 */
 	void OffsetObjects(Rectangle zone, Vector2 offset) {
 		// TODO: ntk: not implemented or not needed?
@@ -933,10 +942,6 @@ public class Maze {
 
 	public TextureSet getDoorTextureset() {
 		return doorTileset;
-	}
-
-	public Rectangle getRectangle() {
-		return rectangle;
 	}
 
 	public DoorType getDefaultDoorType() {
