@@ -80,6 +80,7 @@ public class LoadGameWindow extends BaseWindow {
 
 		// If ingame, then load the savegame
 		parent.getGame().loadGameSlot(selectedSlot);
+		parent.setScreen(parent.getGame().getGameScreen());
 		if (getCamp() != null) {
 			getCamp().exit();
 		}

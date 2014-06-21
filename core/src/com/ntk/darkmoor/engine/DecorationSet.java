@@ -126,8 +126,8 @@ public class DecorationSet {
 				
 			} else if ("decoration".equals(child.getName())) {
 				Decoration deco = new Decoration();
-				deco.load(node);
-				int id = Integer.parseInt(node.getAttribute("id"));
+				deco.load(child);
+				int id = Integer.parseInt(child.getAttribute("id"));
 				decorations.put(Integer.valueOf(id), deco);
 				
 			} else if ("editor".equals(child.getName())) {

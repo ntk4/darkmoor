@@ -108,7 +108,7 @@ public class GameScreenBase extends ScreenAdapter {
 
 	}
 
-	protected void setScreen(GameScreenBase newScreen) {
+	public void setScreen(GameScreenBase newScreen) {
 		this.onLeave();
 		this.unloadContent();
 		game.setScreen(newScreen);
@@ -128,8 +128,10 @@ public class GameScreenBase extends ScreenAdapter {
 		if (background != null)
 			stage.addActor(background);
 
-		for (TextButton button : buttons) {
-			stage.addActor(button);
+		if (buttons != null) {
+			for (TextButton button : buttons) {
+				stage.addActor(button);
+			}
 		}
 
 		Gdx.input.setInputProcessor(stage);

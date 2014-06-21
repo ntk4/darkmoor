@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.ntk.darkmoor.config.LanguagesManager;
+import com.ntk.darkmoor.engine.DecorationSet;
 import com.ntk.darkmoor.engine.Dungeon;
 import com.ntk.darkmoor.engine.Item;
 import com.ntk.darkmoor.exception.LoadException;
@@ -135,10 +136,14 @@ public class Resources {
 		// getAssetManager().load(getResourcePath() + FONT_FILE, BitmapFont.class);
 		getAssetManager().load(getResourcePath() + "heads.png", Texture.class);
 		getAssetManager().load(getResourcePath() + "interface.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "wall-forest.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "wall-temple.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "wall-catacomb.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "decoration-forest.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "decoration-temple.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "decoration-catacomb.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "doors_new.png", Texture.class);
 		getAssetManager().finishLoading();
-		// getAssetManager().load(getResourcePath() + "items.png", Texture.class);
-		// getAssetManager().load(getResourcePath() + "main menu.png", Texture.class);
-		// getAssetManager().finishLoading();
 	}
 
 	public static BitmapFont lockSharedFontAsset(String string) {
@@ -232,6 +237,10 @@ public class Resources {
 	public static Animation createAnimationAsset(String string) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public static DecorationSet createDecorationSetAsset(String decorationName) {
+		return DecorationAssets.getAssets().getTextureSet(decorationName);
 	}
 
 }

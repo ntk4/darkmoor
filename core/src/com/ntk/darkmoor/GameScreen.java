@@ -79,12 +79,14 @@ public class GameScreen extends GameScreenBase {
 			ItemAssets.getItem("left hand"), ItemAssets.getItem("right hand")
 		};
 
+		super.loadContent();
+		
 		Log.debug("[GameScreen] loadContent() - finished ! (%d ms)", new java.util.Date().getTime() - startTime);
 	}
 
 	@Override
 	protected Image setupBackground() {
-		Image mainMenuImage = new Image(textureSet.getSprite(0));
+		Image mainMenuImage = new Image(textureSet.getSprite(1));
 		mainMenuImage.setBounds(0, 0, DarkmoorGame.DISPLAY_WIDTH, DarkmoorGame.DISPLAY_WIDTH);
 		// mainMenuImage.addAction(Actions.fadeIn(2));
 		// mainMenuImage.setZIndex(0);

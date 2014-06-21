@@ -119,7 +119,7 @@ public class Maze {
 		if (decoration != null)
 			decoration.dispose();
 
-		decoration = Resources.createSharedAsset(DecorationSet.class, decorationName, decorationName);
+		decoration = Resources.createDecorationSetAsset(decorationName);
 		if (decoration == null) {
 			Log.error("[Maze] Failed to create decoration '" + decorationName + "' for the maze '" + name + "'.");
 			return false;
