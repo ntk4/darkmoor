@@ -95,6 +95,8 @@ public class Resources {
 	}
 
 	public static void loadGameStartupResources() {
+		assetManager = new AssetManager();
+		
 		LanguagesManager.getInstance(getStringTableFile());
 
 		// TextureParameter param = new TextureParameter();
@@ -134,16 +136,25 @@ public class Resources {
 		// param.genMipMaps = true;Gdx.files.internal(getResourcePath() + "chargen.png").exists()
 		// param.magFilter = TextureFilter.
 		// getAssetManager().load(getResourcePath() + FONT_FILE, BitmapFont.class);
-		getAssetManager().load(getResourcePath() + "heads.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "Heads.png", Texture.class);
 		getAssetManager().load(getResourcePath() + "interface.png", Texture.class);
 		getAssetManager().load(getResourcePath() + "wall-forest.png", Texture.class);
 		getAssetManager().load(getResourcePath() + "wall-temple.png", Texture.class);
 		getAssetManager().load(getResourcePath() + "wall-catacomb.png", Texture.class);
-		getAssetManager().load(getResourcePath() + "decoration-forest.png", Texture.class);
-		getAssetManager().load(getResourcePath() + "decoration-temple.png", Texture.class);
-		getAssetManager().load(getResourcePath() + "decoration-catacomb.png", Texture.class);
-		getAssetManager().load(getResourcePath() + "doors_new.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "Decoration-Forest.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "Decoration-Temple.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "Decoration-Catacomb.png", Texture.class);
+		getAssetManager().load(getResourcePath() + "Doors_new.png", Texture.class);
 		getAssetManager().finishLoading();
+	}
+
+	public static void unloadResources() {
+		LanguagesManager.getInstance(getStringTableFile()).dispose();
+		ItemAssets.unloadAssets();
+		DecorationAssets.unloadAssets();
+		GraphicAssets.unloadAssets();
+		getAssetManager().dispose();
+		assetManager = null;
 	}
 
 	public static BitmapFont lockSharedFontAsset(String string) {
@@ -170,8 +181,6 @@ public class Resources {
 	}
 
 	public static AssetManager getAssetManager() {
-		if (assetManager == null)
-			assetManager = new AssetManager();
 		return assetManager;
 	}
 
@@ -184,7 +193,7 @@ public class Resources {
 	}
 
 	public static String getStringTableFile() {
-		return resourcePath + LanguagesManager.DEFAULT_FILE;
+		return LanguagesManager.DEFAULT_FILE;
 	}
 
 	public static String getTextureSetFile() {
@@ -240,7 +249,7 @@ public class Resources {
 	}
 
 	public static DecorationSet createDecorationSetAsset(String decorationName) {
-		return DecorationAssets.getAssets().getTextureSet(decorationName);
+		return DecorationAssets.getAssets().getDecorationSet(decorationName);
 	}
 
 }

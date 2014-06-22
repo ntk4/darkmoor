@@ -6,18 +6,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.DecorationSet;
 import com.ntk.darkmoor.exception.LoadException;
 
 /**
- * Singleton class Maintains
+ * Singleton class that maintains the decoration set configurations of DecorationSet.xml
  * 
  * @author Nick
  * 
  */
-public class DecorationAssets {
+public class DecorationAssets implements Disposable {
 
 	private final String DECORATION_FILE = "DecorationSet.xml";
 	private static DecorationAssets instance;
@@ -35,7 +36,7 @@ public class DecorationAssets {
 		decorationCache = new HashMap<String, DecorationSet>();
 	}
 
-	public DecorationSet getTextureSet(String decorationSetName) throws LoadException {
+	public DecorationSet getDecorationSet(String decorationSetName) throws LoadException {
 		DecorationSet cachedDecorationSet = decorationCache.get(decorationSetName);
 		if (cachedDecorationSet != null)
 			return cachedDecorationSet;
@@ -83,5 +84,22 @@ public class DecorationAssets {
 		writer.pop();
 
 		writer.close();
+	}
+
+	@Override
+	public void dispose() {
+		if (decorationCache != null) {
+			for (DecorationSet set : decorationCache.values()) {
+				set.dispose();
+			}
+			decorationCache.clear();
+			decorationCache = null;
+		}
+		instance = null;
+
+	}
+
+	public static void unloadAssets() {
+		getAssets().dispose();
 	}
 }

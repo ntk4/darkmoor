@@ -6,15 +6,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.exception.LoadException;
 
-public class GraphicAssets {
+public class GraphicAssets implements Disposable {
 
 	private String fileName;
 	private static Map<String, GraphicAssets> instances;
-	
+
 	private Map<String, TextureSet> textureCache;
 
 	public static GraphicAssets getAssets(String fileName) {
@@ -31,18 +32,18 @@ public class GraphicAssets {
 		this.fileName = fileName;
 		textureCache = new HashMap<String, TextureSet>(1);
 	}
-	
+
 	public TextureSet getTextureSet(String textureSetName) throws LoadException {
 		TextureSet cachedTextureSet = textureCache.get(textureSetName);
-		if (cachedTextureSet != null )
+		if (cachedTextureSet != null)
 			return cachedTextureSet;
 		cachedTextureSet = load(textureSetName);
 		textureCache.put(textureSetName, cachedTextureSet);
 		return cachedTextureSet;
 	}
 
-	private TextureSet load(String textureSetName) throws LoadException {	
-		
+	private TextureSet load(String textureSetName) throws LoadException {
+
 		Element root = ResourceUtility.extractRootElement(Resources.getResourcePath() + fileName);
 
 		TextureSet set = null;
@@ -79,5 +80,24 @@ public class GraphicAssets {
 		writer.pop();
 
 		writer.close();
+	}
+
+	public static void unloadAssets() {
+		if (instances != null) {
+			for (GraphicAssets instance: instances.values()) {
+				instance.dispose();
+			}
+			instances.clear();
+			instances = null;
+		}
+	}
+
+	@Override
+	public void dispose() {
+		for (TextureSet set: textureCache.values()) {
+			set.dispose();
+		}
+		textureCache.clear();
+		textureCache = null;
 	}
 }

@@ -6,11 +6,11 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.ntk.darkmoor.GameScreenBase;
 import com.ntk.darkmoor.config.SaveGameSlot;
 import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
-import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class LoadGameWindow extends BaseWindow {
 

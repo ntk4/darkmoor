@@ -9,6 +9,7 @@ import org.ntk.commons.StringUtils;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.DarkmoorGame;
 import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.GameMessage;
@@ -17,7 +18,6 @@ import com.ntk.darkmoor.engine.SavingThrowType;
 import com.ntk.darkmoor.engine.ScriptedDialog;
 import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.script.gui.ScriptChoice;
-import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class EventSquare extends SquareActor {
 
@@ -76,7 +76,7 @@ public class EventSquare extends SquareActor {
 
 		// Create the scripted dialog if there's a picture to show
 		if (!StringUtils.isEmpty(pictureName))
-			GameScreenBase.setDialog(new ScriptedDialog(getSquare(), this));
+			DarkmoorGame.getInstance().getGameScreen().setDialog(new ScriptedDialog(getSquare(), this));
 
 		// Decrement usage
 		if (remaining > 0)

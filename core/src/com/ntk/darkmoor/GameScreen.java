@@ -16,19 +16,18 @@ import com.ntk.darkmoor.engine.Dungeon;
 import com.ntk.darkmoor.engine.GameColors;
 import com.ntk.darkmoor.engine.GameMessage;
 import com.ntk.darkmoor.engine.Item;
+import com.ntk.darkmoor.engine.ScriptedDialog;
 import com.ntk.darkmoor.engine.SpellBook;
 import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.resource.ItemAssets;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
-import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class GameScreen extends GameScreenBase {
 
 	private static Dungeon dungeon;
 	private static Team team;
-	private static GameScreen instance;
 
 	private SpellBook spellBook;
 	private TextureSet textureSet;
@@ -36,11 +35,10 @@ public class GameScreen extends GameScreenBase {
 	private Item[] hands;
 	private BitmapFont inventoryFont;
 	private BitmapFont outlinedFont;
-	private BaseWindow dialog;
+	private ScriptedDialog dialog;
 
 	public GameScreen(Game game) {
 		super(game);
-		instance = this;
 	}
 
 	@Override
@@ -61,10 +59,10 @@ public class GameScreen extends GameScreenBase {
 		 */
 
 		// Interface tileset
-		textureSet = Resources.createSharedTextureSetAsset("interface", "interface");
+		textureSet = Resources.createSharedTextureSetAsset("Interface", "Interface");
 
 		// Heroe's heads
-		heads = Resources.createTextureSetAsset("heads");
+		heads = Resources.createTextureSetAsset("Heads");
 
 		// Fonts
 		inventoryFont = Resources.createSharedFontAsset("inventory");
@@ -86,11 +84,11 @@ public class GameScreen extends GameScreenBase {
 
 	@Override
 	protected Image setupBackground() {
-		Image mainMenuImage = new Image(textureSet.getSprite(1));
-		mainMenuImage.setBounds(0, 0, DarkmoorGame.DISPLAY_WIDTH, DarkmoorGame.DISPLAY_WIDTH);
+		Image image = new Image(textureSet.getSprite(0));
+		image.setBounds(0, 0, DarkmoorGame.DISPLAY_WIDTH, DarkmoorGame.DISPLAY_WIDTH);
 		// mainMenuImage.addAction(Actions.fadeIn(2));
 		// mainMenuImage.setZIndex(0);
-		return mainMenuImage;
+		return image;
 	}
 
 	public static Team getTeam() {
@@ -205,5 +203,21 @@ public class GameScreen extends GameScreenBase {
 
 	public SpellBook getSpellBook() {
 		return spellBook;
+	}
+
+	public void setDialog(ScriptedDialog scriptedDialog) {
+		if (dialog != null)
+			dialog.dispose();
+
+		dialog = scriptedDialog;
+	}
+
+	public ScriptedDialog getDialog() {
+		return dialog;
+	}
+
+	public void newGame(Team gsteam) {
+		// TODO Auto-generated method stub
+		
 	}
 }

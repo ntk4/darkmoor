@@ -27,7 +27,7 @@ public class DecorationAssetsTest extends BaseTestCase {
 	@Test
 	public void testLoadDecorationAssets() {
 
-		DecorationSet deco = DecorationAssets.getAssets().getTextureSet("Temple");
+		DecorationSet deco = DecorationAssets.getAssets().getDecorationSet("Temple");
 		
 		assertNotNull(deco);
 	}

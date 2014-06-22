@@ -42,7 +42,6 @@ public class DarkmoorGame extends Game {
 		batch = new SpriteBatch();
 
 		viewport = new FitViewport(DISPLAY_WIDTH, DISPLAY_HEIGHT);
-//		mainMenu = new MainMenu(this);
 		setScreen(getMainMenu());
 
 		initMusic();
@@ -57,6 +56,11 @@ public class DarkmoorGame extends Game {
 	public void pauseMusic() {
 		if (theme != null && theme.isPlaying())
 			theme.pause();
+	}
+	
+	public void stopMusic() {
+		if (theme != null && theme.isPlaying())
+			theme.stop();
 	}
 
 	public void resumeMusic() {
@@ -79,12 +83,13 @@ public class DarkmoorGame extends Game {
 	}
 
 	private void loadStartupData() {
-		Resources.loadGameStartupResources();
 		try {
 			Settings.loadSettings(Gdx.files.internal(Resources.getResourcePath() + "settings.properties"));
 		} catch (IOException e) {
 			exit();
 		}
+
+		Resources.loadGameStartupResources();
 	}
 	
 	private void loadInGameData() {
@@ -101,7 +106,22 @@ public class DarkmoorGame extends Game {
 	// }
 
 	public static void exit() {
+		instance = null;
 		Gdx.app.exit();
+	}
+
+	@Override
+	public void dispose() {
+		if (gameScreen != null)
+			gameScreen.dispose();
+		if (mainMenu != null) 
+			mainMenu.dispose();
+		stopMusic();
+		theme.dispose();
+		batch.dispose();
+		
+		Resources.unloadResources();
+		super.dispose();
 	}
 
 	public SpriteBatch getBatch() {

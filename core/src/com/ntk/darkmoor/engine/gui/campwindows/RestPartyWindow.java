@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.ntk.darkmoor.GameScreen;
+import com.ntk.darkmoor.GameScreenBase;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.GameMessage;
 import com.ntk.darkmoor.engine.Hero;
@@ -18,7 +19,6 @@ import com.ntk.darkmoor.engine.gui.MessageBox;
 import com.ntk.darkmoor.engine.gui.MessageBox.DialogResult;
 import com.ntk.darkmoor.engine.gui.MessageBox.MessageBoxButtons;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
-import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class RestPartyWindow extends BaseWindow {
 

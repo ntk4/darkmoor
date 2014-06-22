@@ -6,11 +6,11 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.ntk.darkmoor.GameScreenBase;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.Hero.HeroClass;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
-import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class MainWindow extends BaseWindow {
 

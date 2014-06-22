@@ -17,20 +17,9 @@ public class ItemAssets implements Disposable {
 	private Map<String, Item> itemCache;
 	private Element rootElement;
 
-//	/**
-//	 * Used only for the JUnit tests that can't access Gdx.files.*
-//	 * @param itemsXmlFile
-//	 * @return
-//	 */
-//	public static ItemAssets getInstance(String itemsXmlFile) {
-//		if (instance != null)
-//			return instance;
-//		instance = new ItemAssets(itemsXmlFile);
-//		return instance;
-//	}
-	
 	/**
 	 * Singleton access method to be used internally. For any reference to items see getItem
+	 * 
 	 * @return
 	 */
 	private static ItemAssets getInstance() {
@@ -39,7 +28,7 @@ public class ItemAssets implements Disposable {
 		instance = new ItemAssets(ITEMS_FILE);
 		return instance;
 	}
-	
+
 	public static Item getItem(String itemName) {
 		return getInstance().load(itemName);
 	}
@@ -78,11 +67,18 @@ public class ItemAssets implements Disposable {
 
 	@Override
 	public void dispose() {
-		for (Item item: itemCache.values()) {
-			item.dispose();
+		if (itemCache != null) {
+			for (Item item : itemCache.values()) {
+				item.dispose();
+			}
+			itemCache.clear();
+			itemCache = null;
 		}
-		itemCache.clear();
-		itemCache = null;
 		rootElement = null;
+		instance = null;
+	}
+
+	public static void unloadAssets() {
+		getInstance().dispose();
 	}
 }

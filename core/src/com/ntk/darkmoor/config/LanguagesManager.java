@@ -8,13 +8,14 @@ import java.util.HashMap;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.ntk.darkmoor.resource.Resources;
 
-public class LanguagesManager {
+public class LanguagesManager implements Disposable {
 	private static LanguagesManager _instance = null;
-	public static final String DEFAULT_FILE = "StringTable.xml";
+	public static final String DEFAULT_FILE = Resources.getResourcePath() + "StringTable.xml";
 
 	public static final String DEFAULT_LANGUAGE = "English";
 
@@ -29,6 +30,7 @@ public class LanguagesManager {
 		// Create language map
 		messages = new HashMap<String, String>();
 		fileName = stringTableFile;
+		language = Settings.getLastLoadedInstance().getLanguage();
 
 		InputStream inputStream = null;
 		if (new File(stringTableFile).exists()) {
@@ -38,7 +40,7 @@ public class LanguagesManager {
 				Log.error("[LanguagesManager]: string table file '%s' was not found!", stringTableFile);
 			}
 		} else {
-			inputStream = Gdx.files.internal(Resources.getResourcePath() + DEFAULT_FILE).read();
+			inputStream = Gdx.files.internal(DEFAULT_FILE).read();
 		}
 
 		loadMessages(inputStream);
@@ -63,13 +65,15 @@ public class LanguagesManager {
 		return _instance;
 	}
 
-	private void dispose() {
+	@Override
+	public void dispose() {
+		_instance = null;
 		messages.clear();
 		messages = null;
 	}
 
 	public static String getString(String section, int key) {
-		return getInstance().getString(getInstance().getLanguage(), section, key);
+		return getInstance(DEFAULT_FILE).getString(getInstance().getLanguage(), section, key);
 	}
 
 	public String getString(String languageName, String section, int key) {
@@ -128,7 +132,7 @@ public class LanguagesManager {
 			return false;
 		}
 
-		return false;
+		return true;
 	}
 
 	public String getFileName() {

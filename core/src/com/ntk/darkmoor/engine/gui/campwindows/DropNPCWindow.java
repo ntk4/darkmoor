@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.ntk.darkmoor.GameScreen;
+import com.ntk.darkmoor.GameScreenBase;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.Hero;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
@@ -19,7 +20,6 @@ import com.ntk.darkmoor.engine.gui.MessageBox.MessageBoxButtons;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
-import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class DropNPCWindow extends BaseWindow {
 

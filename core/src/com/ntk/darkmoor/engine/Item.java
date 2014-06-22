@@ -176,6 +176,10 @@ public class Item {
 	}
 
 	public void dispose() {
+		if (allowedHands != null && !allowedHands.isEmpty())
+			allowedHands.clear();
+		allowedHands = null;
+		disposed = true;
 	}
 
 	public boolean save(XmlWriter writer) throws IOException {

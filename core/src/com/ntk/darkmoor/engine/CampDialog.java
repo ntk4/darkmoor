@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.ntk.darkmoor.GameScreen;
+import com.ntk.darkmoor.GameScreenBase;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.engine.gui.ScreenButton;
 import com.ntk.darkmoor.engine.gui.campwindows.MainWindow;
-import com.ntk.darkmoor.stub.GameScreenBase;
 import com.ntk.darkmoor.stub.Mouse;
 
 public class CampDialog extends BaseWindow {

@@ -36,7 +36,7 @@ public class TextureSet implements Disposable {
 			// texture = Resources.getAssetManager().get(Resources.getResourcePath() + textureFile.toLowerCase(),
 			// Texture.class);
 		} else {
-			texture = Resources.getAssetManager().get(Resources.getResourcePath() + textureFile.toLowerCase(),
+			texture = Resources.getAssetManager().get(Resources.getResourcePath() + textureFile,
 					Texture.class);
 		}
 
@@ -118,8 +118,9 @@ public class TextureSet implements Disposable {
 				spriteCache[i] = null;
 		}
 		if (texture != null)
-			texture.dispose();
-		metadata.clear();
+			texture = null;
+		if (metadata != null)
+			metadata.clear();
 		metadata = null;
 	}
 

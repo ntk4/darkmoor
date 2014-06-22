@@ -1,33 +1,37 @@
-package com.ntk.darkmoor.stub;
+package com.ntk.darkmoor;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-import com.ntk.darkmoor.DarkmoorGame;
-import com.ntk.darkmoor.engine.DialogBase;
-import com.ntk.darkmoor.engine.ScriptedDialog;
-import com.ntk.darkmoor.engine.SpellBook;
-import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.resource.Resources;
+import com.ntk.darkmoor.stub.Display;
 
-public class GameScreenBase extends ScreenAdapter {
+public abstract class GameScreenBase extends ScreenAdapter implements Disposable {
 
 	protected TextButton[] buttons;
 	protected DarkmoorGame game;
 	protected Stage stage;
+	private SpriteBatch batch;
 
 	protected Skin uiSkin;
 
+	private FPSLogger fpsLogger;
+
 	public GameScreenBase(Game game) {
 		this.game = (DarkmoorGame) game;
+		batch = this.game.getBatch();
 		loadContent();
+		fpsLogger = new FPSLogger();
 	}
 
 	@Override
@@ -35,31 +39,14 @@ public class GameScreenBase extends ScreenAdapter {
 		super.render(delta);
 		update(delta, true, false);
 		draw(delta);
+		fpsLogger.log();
 
-	}
-
-	public static DialogBase getDialog() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public static void setDialog(ScriptedDialog scriptedDialog) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public SpellBook getSpellBook() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public void loadContent() {
-		// TODO Auto-generated method stub
-
-		
 		BitmapFont font48 = Resources.createFontAsset("font48");
 		BitmapFont font64 = Resources.createFontAsset("font64");
-		
+
 		uiSkin = new Skin();
 		uiSkin.addRegions(new TextureAtlas(Gdx.files.internal("data/skin/uiskin.atlas")));
 		uiSkin.add("font48", font48);
@@ -71,47 +58,52 @@ public class GameScreenBase extends ScreenAdapter {
 		setupStage();
 	}
 
-
 	public void unloadContent() {
+		uiSkin = null;
+		stage = null;
+		game = null;
+		buttons = null;
+		fpsLogger = null;
+	}
+
+	@Override
+	public void dispose() {
 		if (stage != null)
 			stage.dispose();
-
-		buttons = null;
+		if (uiSkin != null)
+			uiSkin.dispose();
+		unloadContent();
+		super.dispose();
 	}
 
 	public void update(float delta, boolean hasFocus, boolean isCovered) {
-
 	}
 
 	public void draw(float delta) {
 		// Clears the background
 		Display.clearBuffers();
-	}
 
-	public void newGame(Team gsteam) {
-		// TODO Auto-generated method stub
+		batch.begin();
 
+		stage.act(Gdx.graphics.getDeltaTime());
+		stage.draw();
+
+		batch.end();
 	}
 
 	public void exitScreen() {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void onLeave() {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void onEnter() {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void setScreen(GameScreenBase newScreen) {
 		this.onLeave();
-		this.unloadContent();
 		game.setScreen(newScreen);
+		this.unloadContent();
 	}
 
 	protected Image setupBackground() {
@@ -142,7 +134,6 @@ public class GameScreenBase extends ScreenAdapter {
 		super.resize(width, height);
 		// center the camera: sets stage coordinates 0,0 to bottom left instead of screen center
 		stage.getViewport().update(width, height, true);
-
 	}
 
 	public Skin getSkin() {

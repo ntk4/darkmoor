@@ -12,7 +12,6 @@ import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.engine.CampDialog;
 import com.ntk.darkmoor.engine.gui.BaseWindow;
-import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class OptionsWindow extends BaseWindow {
 

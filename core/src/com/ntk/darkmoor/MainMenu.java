@@ -6,7 +6,6 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -18,7 +17,6 @@ import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.engine.gui.campwindows.LoadGameWindow;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
-import com.ntk.darkmoor.stub.GameScreenBase;
 
 public class MainMenu extends GameScreenBase {
 
@@ -26,14 +24,11 @@ public class MainMenu extends GameScreenBase {
 	
 	private TextureSet textureSet;
 	private BitmapFont font;
-	private LanguagesManager stringTable;
 
 	private LoadGameWindow loadGame;
 	private String languageName;
 
 	private Texture backgroundTexture;
-
-	private SpriteBatch batch;
 
 	public MainMenu(Game game) {
 		super(game);
@@ -43,14 +38,11 @@ public class MainMenu extends GameScreenBase {
 	public void loadContent() {
 		Log.debug("[MainMenu] loadContent()");
 
-		batch = game.getBatch();
-
 		// Batch = new SpriteBatch();
 		backgroundTexture = Resources.createTextureAsset("mainmenu");
 
 		font = Resources.createSharedFontAsset("intro");
 
-		stringTable = LanguagesManager.getInstance(); // "main";
 		this.languageName = Settings.getLastLoadedInstance().getLanguage();
 		
 		super.loadContent();
@@ -71,8 +63,8 @@ public class MainMenu extends GameScreenBase {
 		int heightUnit = 100;//DarkmoorGame.DISPLAY_HEIGHT / 5;
 
 		buttons = new TextButton[4];
-
-		buttons[0] = new TextButton(stringTable.getString(languageName, "main", 1), uiSkin, "transparent-font48");
+		
+		buttons[0] = new TextButton(LanguagesManager.getString("main", 1), uiSkin, "transparent-font48");
 		buttons[0].setBounds(320, 480, widthUnit, heightUnit);
 		buttons[0].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -82,7 +74,7 @@ public class MainMenu extends GameScreenBase {
 			}
 		});
 
-		buttons[1] = new TextButton(stringTable.getString(languageName, "main", 2), uiSkin, "transparent-font48");
+		buttons[1] = new TextButton(LanguagesManager.getString("main", 2), uiSkin, "transparent-font48");
 		buttons[1].setBounds(340+widthUnit, 480, widthUnit, heightUnit);
 		buttons[1].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -92,7 +84,7 @@ public class MainMenu extends GameScreenBase {
 			}
 		});
 
-		buttons[2] = new TextButton(stringTable.getString(languageName, "main", 3), uiSkin, "transparent-font48");
+		buttons[2] = new TextButton(LanguagesManager.getString("main", 3), uiSkin, "transparent-font48");
 		buttons[2].setBounds(320, 330, widthUnit, heightUnit);
 		buttons[2].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -101,7 +93,7 @@ public class MainMenu extends GameScreenBase {
 			}
 		});
 
-		buttons[3] = new TextButton(stringTable.getString(languageName, "main", 4), uiSkin, "transparent-font48");
+		buttons[3] = new TextButton(LanguagesManager.getString("main", 4), uiSkin, "transparent-font48");
 		buttons[3].setBounds(340+widthUnit, 330, widthUnit, heightUnit);
 		buttons[3].addListener(new InputListener() {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -134,12 +126,12 @@ public class MainMenu extends GameScreenBase {
 
 		stage.act(Gdx.graphics.getDeltaTime());
 
-		if (stringTable == null || !StringUtils.equals(Settings.getLastLoadedInstance().getLanguage(), languageName)) {
+		if (!StringUtils.equals(Settings.getLastLoadedInstance().getLanguage(), languageName)) {
 			// StringTable = new StringTable();
 			this.languageName = Settings.getLastLoadedInstance().getLanguage();
 
 			for (int id = 0; id < buttons.length; id++)
-				buttons[id].setText(stringTable.getString(languageName, "main", id + 1));
+				buttons[id].setText(LanguagesManager.getString("main", id + 1));
 		}
 
 //		if (loadGame != null) {
@@ -158,17 +150,6 @@ public class MainMenu extends GameScreenBase {
 //				// Load saved game
 //				scr.loadGameSlot(loadGame.getSelectedSlot());
 //			}
-	}
-
-	@Override
-	public void draw(float delta) {
-		super.draw(delta);
-		batch.begin();
-
-		stage.act(Gdx.graphics.getDeltaTime());
-		stage.draw();
-
-		batch.end();
 	}
 
 
