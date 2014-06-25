@@ -51,6 +51,8 @@ public class Team implements Disposable {
 
 	public static final String TAG = "Team";
 
+	public static final int MAX_HEROES = 6;
+
 	private DungeonLocation location;
 	private int teamSpeed;
 	private Hero[] heroes;

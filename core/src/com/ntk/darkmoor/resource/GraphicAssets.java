@@ -27,6 +27,10 @@ public class GraphicAssets implements Disposable {
 		}
 		return instances.get(fileName);
 	}
+	
+	public static GraphicAssets getDefault() {
+		return getAssets(Resources.TEXTURE_SET_FILE);
+	}
 
 	private GraphicAssets(String fileName) {
 		this.fileName = fileName;

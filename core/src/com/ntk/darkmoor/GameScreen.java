@@ -19,7 +19,6 @@ import com.ntk.darkmoor.engine.Item;
 import com.ntk.darkmoor.engine.ScriptedDialog;
 import com.ntk.darkmoor.engine.SpellBook;
 import com.ntk.darkmoor.engine.Team;
-import com.ntk.darkmoor.engine.gui.BaseWindow;
 import com.ntk.darkmoor.resource.ItemAssets;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
@@ -31,11 +30,12 @@ public class GameScreen extends GameScreenBase {
 
 	private SpellBook spellBook;
 	private TextureSet textureSet;
-	private TextureSet heads;
 	private Item[] hands;
 	private BitmapFont inventoryFont;
 	private BitmapFont outlinedFont;
 	private ScriptedDialog dialog;
+
+	private GameScreenObjects screenObjects;
 
 	public GameScreen(Game game) {
 		super(game);
@@ -61,9 +61,6 @@ public class GameScreen extends GameScreenBase {
 		// Interface tileset
 		textureSet = Resources.createSharedTextureSetAsset("Interface", "Interface");
 
-		// Heroe's heads
-		heads = Resources.createTextureSetAsset("Heads");
-
 		// Fonts
 		inventoryFont = Resources.createSharedFontAsset("inventory");
 		outlinedFont = Resources.createSharedFontAsset("outline");
@@ -78,7 +75,7 @@ public class GameScreen extends GameScreenBase {
 		};
 
 		super.loadContent();
-		
+
 		Log.debug("[GameScreen] loadContent() - finished ! (%d ms)", new java.util.Date().getTime() - startTime);
 	}
 
@@ -86,8 +83,6 @@ public class GameScreen extends GameScreenBase {
 	protected Image setupBackground() {
 		Image image = new Image(textureSet.getSprite(0));
 		image.setBounds(0, 0, DarkmoorGame.DISPLAY_WIDTH, DarkmoorGame.DISPLAY_WIDTH);
-		// mainMenuImage.addAction(Actions.fadeIn(2));
-		// mainMenuImage.setZIndex(0);
 		return image;
 	}
 
@@ -128,10 +123,6 @@ public class GameScreen extends GameScreenBase {
 		inventoryFont = null;
 		outlinedFont = null;
 
-		if (heads != null)
-			heads.dispose();
-		heads = null;
-
 		if (dialog != null)
 			dialog.dispose();
 		dialog = null;
@@ -139,6 +130,13 @@ public class GameScreen extends GameScreenBase {
 		// if (inputScheme != null)
 		// inputScheme.dispose();
 		// inputScheme = null;
+	}
+
+	private void initScreenObjects() {
+		screenObjects = new GameScreenObjects();
+		screenObjects.team = GameScreen.team;
+		screenObjects.stage = stage;
+		screenObjects.initializeHeads();
 	}
 
 	public boolean loadGameSlot(int slotid) {
@@ -169,6 +167,8 @@ public class GameScreen extends GameScreenBase {
 		team.load(slot.getTeam());
 		team.init();
 
+		initScreenObjects();
+		
 		GameMessage.addMessage("Party loaded...", GameColors.Yellow);
 		return true;
 	}
@@ -218,6 +218,13 @@ public class GameScreen extends GameScreenBase {
 
 	public void newGame(Team gsteam) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	@Override
+	public void update(float delta, boolean hasFocus, boolean isCovered) {
+		super.update(delta, hasFocus, isCovered);
+
+		screenObjects.updateHeads();
 	}
 }
