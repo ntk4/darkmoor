@@ -21,16 +21,16 @@ public class Resources {
 
 	private static final String DEVILSUMMONEREXPAND_TTF = "devilsummonerexpand.ttf";
 	private static final String DALELANDS_ITALIC_TTF = "Dalelands Italic.ttf";
+	private static final String IN_GAME_FONT_TTF = "calibri.ttf";
+	
 	private static String resourcePath = "data/";
 	public static final String TEXTURE_SET_FILE = "TextureSet.xml";
-	public static final String FONT_FILE = "fonts/font1.fnt";
-	public static final String FONT_IMAGE_FILE = "fonts/font1.png";
+//	public static final String FONT_FILE = "fonts/font1.fnt";
+//	public static final String FONT_IMAGE_FILE = "fonts/font1.png";
 	private static final String FONT_PATH = getResourcePath() + "fonts/";
-	private static BitmapFont font48, font64;
+	private static BitmapFont font48, font64, gameFont48;
 
 	private static AssetManager assetManager;
-
-	// private GraphicAssets graphicAssets;
 
 	public static <T> T createAsset(Class<T> class1, String name) {
 
@@ -103,7 +103,7 @@ public class Resources {
 		// param.minFilter = TextureFilter.Linear;
 		// param.genMipMaps = true;Gdx.files.internal(getResourcePath() + "chargen.png").exists()
 		// param.magFilter = TextureFilter.
-		getAssetManager().load(getResourcePath() + FONT_FILE, BitmapFont.class);
+//		getAssetManager().load(getResourcePath() + FONT_FILE, BitmapFont.class);
 		// getAssetManager().load(getResourcePath() + "chargen.png", Texture.class);
 		getAssetManager().load(getResourcePath() + "items.png", Texture.class);
 		getAssetManager().load(getResourcePath() + "mainmenu.png", Texture.class);
@@ -121,6 +121,13 @@ public class Resources {
 
 			parameter.size = 64;
 			font64 = gen.generateFont(parameter);
+			
+			
+			gen = new FreeTypeFontGenerator(Gdx.files.internal(FONT_PATH
+					+ IN_GAME_FONT_TTF));
+			parameter = new FreeTypeFontParameter();
+			parameter.size = 48;
+			gameFont48 = gen.generateFont(parameter);
 
 			gen.dispose();
 		} catch (Exception e) {
@@ -172,10 +179,12 @@ public class Resources {
 	}
 
 	public static BitmapFont createFontAsset(String name) {
-		if ("font48".equals(name))
+		if ("font48".equalsIgnoreCase(name))
 			return font48;
-		else if ("font64".equals(name))
+		else if ("font64".equalsIgnoreCase(name))
 			return font64;
+		else if ("gameFont48".equalsIgnoreCase(name))
+			return gameFont48;
 		else
 			return font48;
 	}
@@ -200,13 +209,13 @@ public class Resources {
 		return resourcePath + TEXTURE_SET_FILE;
 	}
 
-	public static String getFontFile() {
-		return resourcePath + FONT_FILE;
-	}
-
-	public static String getFontImageFile() {
-		return resourcePath + FONT_IMAGE_FILE;
-	}
+//	public static String getFontFile() {
+//		return resourcePath + FONT_FILE;
+//	}
+//
+//	public static String getFontImageFile() {
+//		return resourcePath + FONT_IMAGE_FILE;
+//	}
 
 	/**
 	 * The setter is useful for tests

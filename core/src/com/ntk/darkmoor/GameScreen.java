@@ -136,6 +136,7 @@ public class GameScreen extends GameScreenBase {
 		screenObjects = new GameScreenObjects();
 		screenObjects.team = GameScreen.team;
 		screenObjects.stage = stage;
+		screenObjects.uiSkin = uiSkin;
 		screenObjects.initializeHeads();
 	}
 
@@ -225,6 +226,6 @@ public class GameScreen extends GameScreenBase {
 	public void update(float delta, boolean hasFocus, boolean isCovered) {
 		super.update(delta, hasFocus, isCovered);
 
-		screenObjects.updateHeads();
+		screenObjects.updateHeroes();
 	}
 }

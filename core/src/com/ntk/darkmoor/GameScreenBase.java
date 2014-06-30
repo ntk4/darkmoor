@@ -46,11 +46,13 @@ public abstract class GameScreenBase extends ScreenAdapter implements Disposable
 	public void loadContent() {
 		BitmapFont font48 = Resources.createFontAsset("font48");
 		BitmapFont font64 = Resources.createFontAsset("font64");
+		BitmapFont gameFont48 = Resources.createFontAsset("gameFont48");
 
 		uiSkin = new Skin();
 		uiSkin.addRegions(new TextureAtlas(Gdx.files.internal("data/skin/uiskin.atlas")));
 		uiSkin.add("font48", font48);
 		uiSkin.add("font64", font64);
+		uiSkin.add("gameFont48", gameFont48);
 
 		uiSkin.load(Gdx.files.internal("data/skin/uiskin.json"));
 		uiSkin.remove("default-font", BitmapFont.class);

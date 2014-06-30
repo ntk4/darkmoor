@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.ntk.darkmoor.exception.InitializationException;
 import com.ntk.darkmoor.exception.SaveException;
@@ -60,8 +61,7 @@ public class Settings {
 		settings.setSaveSlots(settings.extractIntProperty(SETTING_SAVE_SLOTS, 6));
 		
 		instance = settings;
-		
-		loadSaveGameFile(handle.sibling("savegame.xml"));
+		loadSaveGameFile(Gdx.files.internal(handle.parent().path() + "/savegame.xml"));
 		
 		return settings;
 
