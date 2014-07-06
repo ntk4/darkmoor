@@ -17,7 +17,6 @@ import com.badlogic.gdx.utils.XmlReader;
 import com.ntk.darkmoor.config.LanguagesManager;
 import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.config.SaveGame;
-import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.engine.Entity.EntityAlignment;
 import com.ntk.darkmoor.engine.GameColors;
 import com.ntk.darkmoor.engine.Hero;
@@ -218,7 +217,7 @@ public class CharGen extends GameScreenBase {
 		GameScreen screen = new GameScreen(game);
 
 		// Generate the team
-		Settings.setSavedGame(new SaveGame(Resources.getSavegameFilename()));
+		game.setSavedGame(new SaveGame(Resources.getSavegameFilename()));
 
 		Team gsteam = new Team();
 		for (int i = 0; i < 4; i++)

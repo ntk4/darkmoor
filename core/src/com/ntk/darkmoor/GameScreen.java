@@ -15,11 +15,9 @@ import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.engine.Dungeon;
 import com.ntk.darkmoor.engine.GameColors;
 import com.ntk.darkmoor.engine.GameMessage;
-import com.ntk.darkmoor.engine.Item;
 import com.ntk.darkmoor.engine.ScriptedDialog;
 import com.ntk.darkmoor.engine.SpellBook;
 import com.ntk.darkmoor.engine.Team;
-import com.ntk.darkmoor.resource.ItemAssets;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
 
@@ -30,7 +28,6 @@ public class GameScreen extends GameScreenBase {
 
 	private SpellBook spellBook;
 	private TextureSet textureSet;
-	private Item[] hands;
 	private BitmapFont inventoryFont;
 	private BitmapFont outlinedFont;
 	private ScriptedDialog dialog;
@@ -69,10 +66,6 @@ public class GameScreen extends GameScreenBase {
 		spellBook = new SpellBook();
 		spellBook.loadContent();
 		GameMessage.init();
-
-		hands = new Item[] {
-			ItemAssets.getItem("left hand"), ItemAssets.getItem("right hand")
-		};
 
 		super.loadContent();
 
@@ -141,7 +134,7 @@ public class GameScreen extends GameScreenBase {
 	}
 
 	public boolean loadGameSlot(int slotid) {
-		SaveGameSlot slot = Settings.getSavedGame().getSlot(slotid);
+		SaveGameSlot slot = game.getSavedGame().getSlot(slotid);
 		if (slot == null) {
 			Log.debug("[GameScreen]LoadGameSlot() : Slot " + slotid + " empty !");
 			return false;
@@ -153,7 +146,7 @@ public class GameScreen extends GameScreenBase {
 
 		// If Shift key is down, create a new dungeon (DEBUG)
 		if (slot.getDungeon() == null || Gdx.input.isKeyPressed(Keys.SHIFT_RIGHT))
-			dungeon = Resources.createDungeonResource(Settings.getSavedGame().getDungeonName());
+			dungeon = Resources.createDungeonResource(game.getSavedGame().getDungeonName());
 		else {
 			dungeon = new Dungeon();
 			dungeon.load(slot.getDungeon());
@@ -178,7 +171,7 @@ public class GameScreen extends GameScreenBase {
 		if (slotid < 0 || slotid >= Settings.getLastLoadedInstance().getSaveSlots())
 			return false;
 
-		SaveGameSlot slot = Settings.getSavedGame().getSlot(slotid);
+		SaveGameSlot slot = game.getSavedGame().getSlot(slotid);
 		slot.setName("slot " + slotid);
 		StringWriter tempStringWriter = new StringWriter();
 		XmlWriter tempXmlWriter = new XmlWriter(tempStringWriter);
@@ -194,7 +187,7 @@ public class GameScreen extends GameScreenBase {
 			// slot.setDungeon(tempXmlWriter.);
 		}
 		// Save the game
-		if (Settings.getSavedGame().save())
+		if (game.getSavedGame().save())
 			GameMessage.addMessage("Game saved.");
 		else
 			GameMessage.addMessage("Game NOT saved !");

@@ -5,11 +5,13 @@ import java.io.IOException;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.ntk.darkmoor.config.SaveGame;
 import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.resource.Resources;
 
@@ -22,14 +24,16 @@ public class DarkmoorGame extends Game {
 
 	public static final String DATA_ASSET_FOLDER = "./data";
 
-	private static DarkmoorGame instance;	
-	
+	private static DarkmoorGame instance;
+
 	private SpriteBatch batch;
 	private OrthographicCamera camera;
 	private Viewport viewport;
 	private MainMenu mainMenu;
 	private GameScreen gameScreen;
 	private Music theme;
+
+	public SaveGame savedGame;
 
 	@Override
 	public void create() {
@@ -57,7 +61,7 @@ public class DarkmoorGame extends Game {
 		if (theme != null && theme.isPlaying())
 			theme.pause();
 	}
-	
+
 	public void stopMusic() {
 		if (theme != null && theme.isPlaying())
 			theme.stop();
@@ -85,13 +89,21 @@ public class DarkmoorGame extends Game {
 	private void loadStartupData() {
 		try {
 			Settings.loadSettings(Gdx.files.internal(Resources.getResourcePath() + "settings.properties"));
+
+			loadSaveGameFile(Gdx.files.internal(Resources.getResourcePath() + "/savegame.xml"));
 		} catch (IOException e) {
 			exit();
 		}
 
 		Resources.loadGameStartupResources();
 	}
-	
+
+	private void loadSaveGameFile(FileHandle handle) {
+		savedGame = new SaveGame(handle.path());
+		if (handle.exists())
+			savedGame.load();
+	}
+
 	private void loadInGameData() {
 		Resources.loadResources();
 	}
@@ -114,12 +126,12 @@ public class DarkmoorGame extends Game {
 	public void dispose() {
 		if (gameScreen != null)
 			gameScreen.dispose();
-		if (mainMenu != null) 
+		if (mainMenu != null)
 			mainMenu.dispose();
 		stopMusic();
 		theme.dispose();
 		batch.dispose();
-		
+
 		Resources.unloadResources();
 		super.dispose();
 	}
@@ -169,5 +181,13 @@ public class DarkmoorGame extends Game {
 
 	public static DarkmoorGame getInstance() {
 		return instance;
+	}
+
+	public SaveGame getSavedGame() {
+		return savedGame;
+	}
+
+	public void setSavedGame(SaveGame savedGame) {
+		this.savedGame = savedGame;
 	}
 }

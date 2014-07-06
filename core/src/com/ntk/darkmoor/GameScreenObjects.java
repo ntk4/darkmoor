@@ -113,15 +113,14 @@ public class GameScreenObjects implements Disposable {
 		stage.addActor(heroHitPointLabels[index]);
 
 		heroHitPointProgressBars[index] = new ProgressBar(hero.getHitPoint().getCurrent(), hero.getHitPoint().getMax(),
-				1, false, uiSkin); // TODO: ntk: regenerate progress bar when a hero gains additional
-									// HP!
+				1, false, uiSkin); // TODO: ntk: regenerate progress bar when a hero gains additional HP!
 		heroHitPointProgressBars[index].setPosition(HERO_WINDOW_X + 4 + HERO_WINDOW_WIDTH * y,
 				948 - (x * HERO_WINDOW_HEIGHT));
 		heroHitPointProgressBars[index].setHeight(60);
 		heroHitPointProgressBars[index].setWidth(240);
 		stage.addActor(heroHitPointProgressBars[index]);
 
-		// Hands
+		// Hands // TODO: ntk: change the image when a different item is selected
 		Item item = hero.getInventoryItem(InventoryPosition.Primary);
 		rightHands[index] = new Image(item == null ? emptyHandRight : new SpriteDrawable(GraphicAssets.getDefault()
 				.getTextureSet("items").getSprite(item.getTextureID())));

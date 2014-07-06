@@ -15,6 +15,6 @@ import org.junit.runners.Suite;
 	SaveLoadGameTest.class,
 	MazeElementsTest.class
 })
-public class DarkmoorTestSuite {
+public class AllTests {
 
 }

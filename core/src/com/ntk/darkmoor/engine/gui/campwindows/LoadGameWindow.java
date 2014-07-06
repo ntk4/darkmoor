@@ -30,8 +30,8 @@ public class LoadGameWindow extends BaseWindow {
 
 		for (int id = 0; id < Settings.getLastLoadedInstance().getSaveSlots(); id++) {
 			SaveGameSlot slot = null;
-			if (Settings.getSavedGame() != null)
-				slot = Settings.getSavedGame().getSlot(id);
+			if (parent.getGame().getSavedGame() != null)
+				slot = parent.getGame().getSavedGame().getSlot(id);
 			final int slotNumber = id;
 
 			buttons[id] = new TextButton(!slot.isEmpty() ? slot.getName() : "Empty slot " + (id + 1), uiSkin,

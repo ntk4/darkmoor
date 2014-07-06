@@ -24,11 +24,11 @@ public class SaveGameWindow extends BaseWindow {
 
 	public SaveGameWindow(CampDialog camp, GameScreenBase parent) {
 		super(camp, "Save Game", parent);
-		Settings.getSavedGame().load();
+		parent.getGame().getSavedGame().load();
 
 		ScreenButton button;
 		for (int id = 0; id < Settings.getLastLoadedInstance().getSaveSlots(); id++) {
-			SaveGameSlot slot = Settings.getSavedGame().getSlot(id);
+			SaveGameSlot slot = parent.getGame().getSavedGame().getSlot(id);
 
 			button = new ScreenButton(slot != null ? slot.getName() : "", new Rectangle(16, 40 + id * 34, 320, 28));
 			button.addListener(new EventListener() {
@@ -86,7 +86,7 @@ public class SaveGameWindow extends BaseWindow {
 
 		// If ingame, then load the savegame
 		if (getCamp() != null) {
-			Settings.getSavedGame().getSlot(selectedSlot);
+			parent.getGame().getSavedGame().getSlot(selectedSlot);
 			getCamp().exit();
 		}
 		return true;
@@ -94,7 +94,7 @@ public class SaveGameWindow extends BaseWindow {
 
 	protected boolean messageBoxSelected(Event event) {
 		if (((MessageBox) event.getTarget()).getDialogResult() == DialogResult.Yes && getCamp() != null) {
-			Settings.getSavedGame().getSlot(selectedSlot);
+			parent.getGame().getSavedGame().getSlot(selectedSlot);
 			getCamp().exit();
 		}
 		return true;

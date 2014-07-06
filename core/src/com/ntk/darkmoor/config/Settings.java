@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.ntk.darkmoor.exception.InitializationException;
 import com.ntk.darkmoor.exception.SaveException;
@@ -33,8 +32,6 @@ public class Settings {
 	private boolean fullScreen;
 	private int saveSlots;
 
-	public static SaveGame savedGame;
-
 	// the properties that hold all settings
 	private Properties props;
 	private File settingsFile;
@@ -61,16 +58,9 @@ public class Settings {
 		settings.setSaveSlots(settings.extractIntProperty(SETTING_SAVE_SLOTS, 6));
 		
 		instance = settings;
-		loadSaveGameFile(Gdx.files.internal(handle.parent().path() + "/savegame.xml"));
 		
 		return settings;
 
-	}
-
-	private static void loadSaveGameFile(FileHandle handle) {
-		savedGame = new SaveGame(handle.path());
-		if (handle.exists())
-			savedGame.load();
 	}
 
 	public void saveSettings() throws IOException {
@@ -193,14 +183,6 @@ public class Settings {
 			this.saveSlots = saveSlots;
 		} else 
 			this.saveSlots = 6;
-	}
-
-	public static SaveGame getSavedGame() {
-		return savedGame;
-	}
-
-	public static void setSavedGame(SaveGame savedGame) {
-		Settings.savedGame = savedGame;
 	}
 
 	public static Settings getLastLoadedInstance() {
