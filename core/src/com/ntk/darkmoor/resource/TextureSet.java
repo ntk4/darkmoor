@@ -1,6 +1,8 @@
 package com.ntk.darkmoor.resource;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.ntk.commons.StringUtils;
 
@@ -21,10 +23,10 @@ public class TextureSet implements Disposable {
 	private String textureFile;
 	private Texture texture;
 	private Sprite[] spriteCache;
-	private Array<TextureMetadata> metadata;
+	private Map<Integer, TextureMetadata> metadata;
 
 	public TextureSet(int capacity) {
-		metadata = new Array<TextureMetadata>(capacity);
+		metadata = new HashMap<Integer, TextureMetadata>(capacity);
 		spriteCache = new Sprite[capacity];
 	}
 
@@ -57,7 +59,7 @@ public class TextureSet implements Disposable {
 
 				TextureMetadata textureMetadata = new TextureMetadata();
 				if (textureMetadata.load(child)) {
-					metadata.add(textureMetadata);
+					metadata.put(textureMetadata.getId(), textureMetadata);
 				} else {
 					throw new LoadException("Could not load texture metadata node: " + child.toString());
 				}
@@ -81,7 +83,7 @@ public class TextureSet implements Disposable {
 		writer.element(TAG).attribute("name", name);
 		writer.element("texture").attribute("file", textureFile).pop();
 
-		for (TextureMetadata texture : metadata) {
+		for (TextureMetadata texture : metadata.values()) {
 			texture.save(writer);
 		}
 
@@ -136,7 +138,7 @@ public class TextureSet implements Disposable {
 		return textureFile;
 	}
 
-	public Array<TextureMetadata> getMetadata() {
+	public Map<Integer, TextureMetadata> getMetadata() {
 		return metadata;
 	}
 
