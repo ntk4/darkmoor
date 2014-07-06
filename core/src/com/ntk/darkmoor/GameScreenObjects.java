@@ -17,6 +17,10 @@ import com.ntk.darkmoor.resource.GraphicAssets;
 
 public class GameScreenObjects implements Disposable {
 
+	private static final int HERO_WINDOW_X = 736;
+	private static final int HERO_WINDOW_HEIGHT = 334;
+	private static final int HERO_WINDOW_WIDTH = 288;
+
 	public Stage stage;
 	public Team team;
 	public Skin uiSkin;
@@ -37,7 +41,12 @@ public class GameScreenObjects implements Disposable {
 	// temporary objects
 	private Hero heroToSwap;
 
-	public void initializeHeads() {
+	/**
+	 * Initializes the structures needed for the hero windows. Has to be called when initializing the game screen and
+	 * not on every frame. On every frame call updateHeroes()
+	 * 
+	 */
+	public void initializeHeroRectangles() {
 		// Hero heads
 		// don't initialize to current (e.g. 4 heroes) but to max in order to avoid resizing
 		heads = new Image[Team.MAX_HEROES];
@@ -62,7 +71,7 @@ public class GameScreenObjects implements Disposable {
 				heads[index] = new Image(heroHeads[index]);
 
 				// initialize the positions once, not on every frame
-				heads[index].setPosition(736 + 288 * x, 1024 - (y * 334 + 18));
+				heads[index].setPosition(HERO_WINDOW_X + HERO_WINDOW_WIDTH * x, 1024 - (y * HERO_WINDOW_HEIGHT + 18));
 				heads[index].setSize(128, 202);
 
 				stage.addActor(heads[index]);
@@ -70,18 +79,22 @@ public class GameScreenObjects implements Disposable {
 				// Names
 				heroNameLabels[index] = new Label(team.getHeroes()[index].getName(), uiSkin, "gameFont48",
 						GameColors.Black);
-				heroNameLabels[index].setPosition(740 + 288 * y, 1210 - (x * 334));
+				heroNameLabels[index].setPosition(HERO_WINDOW_X + 4 + HERO_WINDOW_WIDTH * y,
+						1210 - (x * HERO_WINDOW_HEIGHT));
 				stage.addActor(heroNameLabels[index]);
 
 				// Hit points
 				heroHitPointLabels[index] = new Label(team.getHeroes()[index].getName(), uiSkin, "gameFont48",
 						GameColors.Black);
-				heroHitPointLabels[index].setPosition(740 + 288 * y, 948 - (x * 334));
+				heroHitPointLabels[index].setPosition(HERO_WINDOW_X + 4 + HERO_WINDOW_WIDTH * y,
+						948 - (x * HERO_WINDOW_HEIGHT));
 				stage.addActor(heroHitPointLabels[index]);
 
 				heroHitPointProgressBars[index] = new ProgressBar(hero.getHitPoint().getCurrent(), hero.getHitPoint()
-						.getMax(), 1, false, uiSkin); //TODO: ntk: regenerate progress bar when a hero gains additional HP!
-				heroHitPointProgressBars[index].setPosition(740 + 288 * y, 948 - (x * 334));
+						.getMax(), 1, false, uiSkin); // TODO: ntk: regenerate progress bar when a hero gains additional
+														// HP!
+				heroHitPointProgressBars[index].setPosition(HERO_WINDOW_X + 4 + HERO_WINDOW_WIDTH * y,
+						948 - (x * HERO_WINDOW_HEIGHT));
 				heroHitPointProgressBars[index].setHeight(60);
 				heroHitPointProgressBars[index].setWidth(240);
 				stage.addActor(heroHitPointProgressBars[index]);
@@ -92,6 +105,9 @@ public class GameScreenObjects implements Disposable {
 		deadHero = new SpriteDrawable(GraphicAssets.getDefault().getTextureSet("heads").getSprite(4));
 	}
 
+	/**
+	 * Updates the hero information/images on screen. This method is intended to be called on every frame. It presumes that all the structures have already been initialized with a call to initializeHeroRectangles, otherwise will throw exception.
+	 */
 	public void updateHeroes() {
 		for (int y = 0; y < 3; y++) {
 			for (int x = 0; x < 2; x++) {
@@ -102,7 +118,6 @@ public class GameScreenObjects implements Disposable {
 					continue;
 				if (team.getHeroes()[index] == null)
 					continue;
-				heroHitPointLabels[index].setPosition(740 + 288 * y, 948 - (x * 334));
 
 				updateHero(index);
 
@@ -134,7 +149,7 @@ public class GameScreenObjects implements Disposable {
 			heroNameLabels[index].setColor(GameColors.Black);
 			heroNameLabels[index].setText(hero.getName());
 		}
-		
+
 		// HP
 		if (Settings.getLastLoadedInstance().isHPAsBar()) {
 			float percent = (float) hero.getHitPoint().getCurrent() / (float) hero.getHitPoint().getMax();

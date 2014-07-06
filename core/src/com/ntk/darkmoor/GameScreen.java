@@ -137,7 +137,7 @@ public class GameScreen extends GameScreenBase {
 		screenObjects.team = GameScreen.team;
 		screenObjects.stage = stage;
 		screenObjects.uiSkin = uiSkin;
-		screenObjects.initializeHeads();
+		screenObjects.initializeHeroRectangles();
 	}
 
 	public boolean loadGameSlot(int slotid) {
