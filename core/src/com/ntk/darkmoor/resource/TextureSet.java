@@ -8,6 +8,7 @@ import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.XmlReader.Element;
@@ -39,6 +40,7 @@ public class TextureSet implements Disposable {
 		} else {
 			texture = Resources.getAssetManager().get(Resources.getResourcePath() + textureFile,
 					Texture.class);
+			texture.setFilter(TextureFilter.Nearest, TextureFilter.Linear);
 		}
 
 	}

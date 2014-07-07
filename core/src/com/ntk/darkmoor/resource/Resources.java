@@ -21,7 +21,7 @@ public class Resources {
 
 	private static final String DEVILSUMMONEREXPAND_TTF = "devilsummonerexpand.ttf";
 	private static final String DALELANDS_ITALIC_TTF = "Dalelands Italic.ttf";
-	private static final String IN_GAME_FONT_TTF = "calibri.ttf";
+	private static final String IN_GAME_FONT_TTF = "tahoma.ttf";
 	
 	private static String resourcePath = "data/";
 	public static final String TEXTURE_SET_FILE = "TextureSet.xml";
@@ -231,10 +231,9 @@ public class Resources {
 	}
 
 	public static Dungeon createDungeonResource(String dungeonName) {
-		Element root = ResourceUtility.extractRootElement(getResourcePath() + "dungeon.xml");
-
+		Element root = ResourceUtility.extractRootElement(getResourcePath() + "Dungeon.xml");
 		if (root == null) {
-			throw new ResourceException("The dungeon file dungeon.xml could not be read");
+			throw new ResourceException("The dungeon file Dungeon.xml could not be read");
 		}
 
 		for (Element element : root.getChildrenByName("dungeon")) {

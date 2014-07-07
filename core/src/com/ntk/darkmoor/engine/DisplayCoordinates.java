@@ -254,7 +254,7 @@ public class DisplayCoordinates {
 			return true;
 
 		Element mazeRoot = null;
-		mazeRoot = ResourceUtility.extractRootElement(Resources.getResourcePath() + "mazeElements.xml");
+		mazeRoot = ResourceUtility.extractRootElement(Resources.getResourcePath() + "MazeElements.xml");
 
 		if (mazeRoot == null || !"displaycoordinate".equals(mazeRoot.getName())) {
 			Log.error(String.format("Wrong structure for MazeElements.xml file, root is '%s'", mazeRoot.getName()));
