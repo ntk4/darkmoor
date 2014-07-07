@@ -79,8 +79,8 @@ public class LoadGameWindow extends BaseWindow {
 		selectedSlot = slotNumber;
 
 		// If ingame, then load the savegame
-		parent.getGame().loadGameSlot(selectedSlot);
-		parent.setScreen(parent.getGame().getGameScreen());
+		if (parent.getGame().loadGameSlot(selectedSlot))
+			parent.setScreen(parent.getGame().getGameScreen());
 		if (getCamp() != null) {
 			getCamp().exit();
 		}

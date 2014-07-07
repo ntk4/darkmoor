@@ -55,7 +55,7 @@ public class Settings {
 		settings.setMusic(settings.extractBooleanProperty(SETTING_MUSIC, true));
 		settings.setEffects(settings.extractBooleanProperty(SETTING_EFFECTS, true));
 		settings.setFullScreen(settings.extractBooleanProperty(SETTING_FULL_SCREEN, false));
-		settings.setSaveSlots(settings.extractIntProperty(SETTING_SAVE_SLOTS, 6));
+		settings.setSaveSlots(settings.extractIntProperty(SETTING_SAVE_SLOTS, 4));
 		
 		instance = settings;
 		
@@ -182,7 +182,7 @@ public class Settings {
 		if (saveSlots >= 0) {
 			this.saveSlots = saveSlots;
 		} else 
-			this.saveSlots = 6;
+			this.saveSlots = 4;
 	}
 
 	public static Settings getLastLoadedInstance() {

@@ -168,8 +168,11 @@ public class DarkmoorGame extends Game {
 		return mainMenu;
 	}
 
-	public void loadGameSlot(int selectedSlot) {
+	public boolean loadGameSlot(int selectedSlot) {
+		if (savedGame.isSlotEmpty(selectedSlot))
+			return false;
 		getGameScreen().loadGameSlot(selectedSlot);
+		return true;
 	}
 
 	public GameScreen getGameScreen() {

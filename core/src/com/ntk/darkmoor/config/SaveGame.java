@@ -30,6 +30,11 @@ public class SaveGame {
 		}
 		return null;
 	}
+	
+	public boolean isSlotEmpty(int id) {
+		SaveGameSlot slot = getSlot(id);
+		return (slot != null && slot.getTeam() == null);
+	}
 
 	public boolean load() {
 		if (ResourceUtility.isStandaloneMode()) {
