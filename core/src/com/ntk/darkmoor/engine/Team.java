@@ -57,8 +57,6 @@ public class Team implements Disposable {
 	private int teamSpeed;
 	private Hero[] heroes;
 	private Hero selectedHero;
-	private CardinalPoint direction;
-	private Square frontSquare;
 	private Item itemInHand;
 	private Maze maze;
 	private boolean canMove;
@@ -113,9 +111,9 @@ public class Team implements Disposable {
 						1, 1, 2, 2 }, // From SE
 		};
 
-		SquarePosition pos = SquarePosition.valueOf(id[position.value()][direction.value()]);
+		SquarePosition pos = SquarePosition.valueOf(id[position.value()][getDirection().value()]);
 
-		return frontSquare.getMonster(pos);
+		return getFrontSquare().getMonster(pos);
 	}
 
 	public boolean load(Element xml) {
@@ -763,7 +761,7 @@ public class Team implements Disposable {
 	}
 
 	public CardinalPoint getFrontWallSide() {
-		return Compass.getOppositeDirection(direction);
+		return Compass.getOppositeDirection(getDirection());
 	}
 
 	public void setDirection(CardinalPoint direction) {

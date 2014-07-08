@@ -32,7 +32,7 @@ public class GameScreen extends GameScreenBase {
 	private BitmapFont outlinedFont;
 	private ScriptedDialog dialog;
 
-	private GameScreenObjects screenObjects;
+	private HeroInterfaceObjects heroInterfaceObjects;
 
 	public GameScreen(Game game) {
 		super(game);
@@ -126,11 +126,11 @@ public class GameScreen extends GameScreenBase {
 	}
 
 	private void initScreenObjects() {
-		screenObjects = new GameScreenObjects();
-		screenObjects.team = GameScreen.team;
-		screenObjects.stage = stage;
-		screenObjects.uiSkin = uiSkin;
-		screenObjects.initializeHeroRectangles();
+		heroInterfaceObjects = new HeroInterfaceObjects();
+		heroInterfaceObjects.team = GameScreen.team;
+		heroInterfaceObjects.stage = stage;
+		heroInterfaceObjects.uiSkin = uiSkin;
+		heroInterfaceObjects.initializeHeroRectangles();
 	}
 
 	public boolean loadGameSlot(int slotid) {
@@ -219,6 +219,6 @@ public class GameScreen extends GameScreenBase {
 	public void update(float delta, boolean hasFocus, boolean isCovered) {
 		super.update(delta, hasFocus, isCovered);
 
-		screenObjects.updateHeroes();
+		heroInterfaceObjects.updateHeroes();
 	}
 }
