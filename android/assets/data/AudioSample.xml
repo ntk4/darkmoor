@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<bank>
+	<audio name="ring">
+		<file name="the_ring_that_fell.wav" />
+	</audio>
+	<audio name="hit">
+		<file name="hit.wav" />
+	</audio>
+	<audio name="miss">
+		<file name="miss.wav" />
+	</audio>
+	<audio name="door open">
+		<file name="door1_open.wav" />
+	</audio>
+	<audio name="door close">
+		<file name="door1_close.wav" />
+	</audio>
+</bank>

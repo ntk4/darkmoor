@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<bank>
+	<inputscheme name="azerty">
+		<input name="MoveForward" input="Keyboard" key="Z" />
+		<input name="MoveBackward" input="Keyboard" key="S" />
+		<input name="StrafeLeft" input="Keyboard" key="Q" />
+		<input name="StrafeRight" input="Keyboard" key="D" />
+		<input name="TurnLeft" input="Keyboard" key="A" />
+		<input name="TurnRight" input="Keyboard" key="E" />
+		<input name="Inventory" input="Keyboard" key="I" />
+		<input name="SelectHero1" input="Keyboard" key="D1" />
+		<input name="SelectHero2" input="Keyboard" key="D2" />
+		<input name="SelectHero3" input="Keyboard" key="D3" />
+		<input name="SelectHero4" input="Keyboard" key="D4" />
+		<input name="SelectHero5" input="Keyboard" key="D5" />
+		<input name="SelectHero6" input="Keyboard" key="D6" />
+	</inputscheme>
+	<inputscheme name="qwerty">
+		<input name="MoveForward" input="Keyboard" key="W" />
+		<input name="MoveBackward" input="Keyboard" key="S" />
+		<input name="StrafeLeft" input="Keyboard" key="A" />
+		<input name="StrafeRight" input="Keyboard" key="D" />
+		<input name="TurnLeft" input="Keyboard" key="Q" />
+		<input name="TurnRight" input="Keyboard" key="E" />
+		<input name="Inventory" input="Keyboard" key="I" />
+		<input name="SelectHero1" input="Keyboard" key="D1" />
+		<input name="SelectHero2" input="Keyboard" key="D2" />
+		<input name="SelectHero3" input="Keyboard" key="D3" />
+		<input name="SelectHero4" input="Keyboard" key="D4" />
+		<input name="SelectHero5" input="Keyboard" key="D5" />
+		<input name="SelectHero6" input="Keyboard" key="D6" />
+	</inputscheme>
+</bank>

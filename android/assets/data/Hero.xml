@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<bank>
+	<hero name="Valanau">
+		<hitpoint current="34" max="34" />
+		<strength value="6" />
+		<intelligence value="12" />
+		<wisdom value="12" />
+		<dexterity value="8" />
+		<constitution value="13" />
+		<charisma value="9" />
+		<alignment value="LawfulNeutral" />
+		<movespeed value="0" />
+		<quiver count="0" />
+		<head id="35" />
+		<food value="99" />
+		<npc value="True" />
+		<race value="ElfFemale" />
+		<profession>
+			<class name="Mage" />
+			<xp points="1213423" />
+		</profession>
+		<profession>
+			<class name="Thief" />
+			<xp points="43291" />
+		</profession>
+		<inventory position="Primary" name="Spell book" />
+		<spell name="Armor" />
+		<spell name="Detect Magic" />
+		<spell name="Dispell Magic" />
+		<spell name="Protect From Evil" />
+		<learnedspell name="Armor" />
+		<learnedspell name="Detect Magic" />
+		<learnedspell name="Magic Missile" />
+		<learnedspell name="Shield" />
+		<learnedspell name="Blur" />
+		<learnedspell name="Improved Identity" />
+		<learnedspell name="Dispel Magic" />
+		<learnedspell name="Fireball" />
+		<learnedspell name="Haste" />
+		<learnedspell name="Lightning Bolt" />
+		<learnedspell name="Vampiric Touch" />
+		<learnedspell name="Fear" />
+		<learnedspell name="Ice Storm" />
+		<learnedspell name="Remove Curse" />
+		<learnedspell name="Burning Hands" />
+		<learnedspell name="Shocking Grasp" />
+		<learnedspell name="Detect Invisibility" />
+		<learnedspell name="Improved Identify" />
+		<learnedspell name="Invisibility" />
+		<learnedspell name="Melf's Acid Arrow" />
+		<learnedspell name="Dispell Magic" />
+		<learnedspell name="Hold Person" />
+		<learnedspell name="Invisibility 10' Radius" />
+		<learnedspell name="Vampiric touch" />
+		<learnedspell name="Improved Invisibility" />
+		<learnedspell name="Cone of Cold" />
+		<learnedspell name="Hold Monster" />
+		<learnedspell name="Wall of Force" />
+		<learnedspell name="Desintegrate" />
+		<learnedspell name="Flesh to Stone" />
+		<learnedspell name="Harm" />
+		<learnedspell name="Stone to Flesh" />
+		<learnedspell name="True Seeing" />
+	</hero>
+	<hero name="Calandra">
+		<hitpoint current="43" max="76" />
+		<strength value="18" />
+		<intelligence value="13" />
+		<wisdom value="8" />
+		<dexterity value="15" />
+		<constitution value="16" />
+		<charisma value="14" />
+		<alignment value="ChaoticGood" />
+		<movespeed value="0" />
+		<quiver count="0" />
+		<head id="46" />
+		<food value="90" />
+		<race value="HumanFemale" />
+		<profession>
+			<class name="Fighter" />
+			<xp points="379191" />
+		</profession>
+		<inventory position="Armor" name="Plate Mail +2" />
+		<inventory position="Secondary" name="Shield +1" />
+		<inventory position="Primary" name="Long Sword +1" />
+		<inventory position="Helmet" name="Helmet +1" />
+		<backpack position="0" name="Spell book" />
+		<backpack position="1" name="Skull Key" />
+		<backpack position="2" name="Iron Ration" />
+	</hero>
+	<hero name="Tanglor">
+		<hitpoint current="50" max="53" />
+		<strength value="16" />
+		<intelligence value="13" />
+		<wisdom value="16" />
+		<dexterity value="15" />
+		<constitution value="11" />
+		<charisma value="12" />
+		<alignment value="NeutralGood" />
+		<movespeed value="1000" />
+		<quiver count="0" />
+		<head id="48" />
+		<food value="88" />
+		<race value="HalfElfMale" />
+		<profession>
+			<class name="Cleric" />
+			<xp points="324234" />
+		</profession>
+		<profession>
+			<class name="Fighter" />
+			<xp points="432323" />
+		</profession>
+		<inventory position="Armor" name="Plate Mail" />
+		<inventory position="Secondary" name="Shield +1" />
+		<inventory position="Primary" name="Short Sword +1" />
+		<backpack position="0" name="Cleric Holy Symbol" />
+		<backpack position="1" name="Dagger" />
+	</hero>
+	<hero name="Amber">
+		<hitpoint current="-10" max="36" />
+		<strength value="14" />
+		<intelligence value="17" />
+		<wisdom value="12" />
+		<dexterity value="18" />
+		<constitution value="9" />
+		<charisma value="17" />
+		<alignment value="NeutralGood" />
+		<movespeed value="1000" />
+		<quiver count="0" />
+		<head id="49" />
+		<food value="81" />
+		<race value="ElfFemale" />
+		<profession>
+			<class name="Thief" />
+			<xp points="123123" />
+		</profession>
+		<profession>
+			<class name="Mage" />
+			<xp points="234234" />
+		</profession>
+		<backpack position="0" name="Magic Dust" />
+	</hero>
+	<hero name="Insal">
+		<hitpoint current="12" max="39" />
+		<strength value="15" />
+		<intelligence value="13" />
+		<wisdom value="11" />
+		<dexterity value="17" />
+		<constitution value="16" />
+		<charisma value="9" />
+		<alignment value="ChaoticGood" />
+		<movespeed value="1000" />
+		<quiver count="0" />
+		<head id="44" />
+		<food value="64" />
+		<race value="HalflingMale" />
+		<profession>
+			<class name="Thief" />
+			<xp points="223123" />
+		</profession>
+	</hero>
+</bank>

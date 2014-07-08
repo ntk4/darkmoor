@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<bank>
+	<scene name="intro">
+		<tileset name="intro_b" scalew="2" scaleh="2" />
+		<stringtable name="Intro" />
+		<font name="Intro" />
+		<layer>
+			<id value="1" />
+			<name value="wall" />
+			<viewport x="0" y="0" width="640" height="336" />
+			<keyframe>
+				<bgcolor r="0" g="0" b="0" a="255" />
+				<time value="00:00:00" />
+				<tile id="0" x="192" y="-274" />
+			</keyframe>
+			<keyframe>
+				<time value="00:00:08" />
+				<tile id="0" x="192" y="0" />
+			</keyframe>
+			<keyframe>
+				<time value="00:00:12" />
+				<tile id="-1" x="192" y="0" />
+			</keyframe>
+		</layer>
+		<layer>
+			<id value="0" />
+			<name value="clerics" />
+			<viewport x="0" y="0" width="640" height="336" />
+			<keyframe>
+				<bgcolor r="0" g="0" b="0" a="255" />
+				<time value="00:00:00" />
+				<tile id="1" x="240" y="82" />
+			</keyframe>
+			<keyframe>
+				<bgcolor r="0" g="0" b="0" a="255" />
+				<time value="00:00:12" />
+				<tile id="-1" x="240" y="82" />
+			</keyframe>
+		</layer>
+		<layer>
+			<id value="1" />
+			<name value="Cristal ball" />
+			<viewport x="0" y="0" width="640" height="336" />
+			<keyframe>
+				<time value="00:00:12" />
+				<tile id="2" x="168" y="58" />
+			</keyframe>
+		</layer>
+		<layer>
+			<id value="2" />
+			<name value="text" />
+			<viewport x="0" y="336" width="640" height="304" />
+			<keyframe>
+				<text id="1" r="255" g="255" b="255" a="255" x="2" y="360" width="640" height="304" align="center" />
+				<bgcolor r="0" g="0" b="0" a="255" />
+				<time value="00:00:00" />
+			</keyframe>
+			<keyframe>
+				<text id="2" r="255" g="255" b="255" a="255" x="2" y="360" width="640" height="304" align="center" />
+				<bgcolor r="0" g="0" b="0" a="255" />
+				<time value="00:00:08" />
+			</keyframe>
+		</layer>
+	</scene>
+</bank>

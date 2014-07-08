@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<bank>
+	<spell name="Create Food">
+		<description>Creates food</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<range value="Team" />
+		<level value="3" />
+		<script script="Spells" interface="CreateFood" />
+		<class value="Cleric" />
+	</spell>
+	<spell name="Cure Minor Wounds">
+		<description>This is an extremely weak healing spell. At higher levels, using a round to heal just one hp isn't very useful, especially when your figthers will have dozens of hitpoints.</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="1" />
+		<script script="Spells" interface="CureMinorWounds" />
+	</spell>
+	<spell name="Armor">
+		<description>Armor</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="1" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Burning Hands">
+		<description>Burning hands</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="1" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Detect Magic">
+		<description>Detect magic</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="1" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Magic Missile">
+		<description>Magic Missile</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="1" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Shield">
+		<description>Shield</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="1" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Shocking Grasp">
+		<description>Shocking grasp</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="1" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Blur">
+		<description>Blur</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="2" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Bless">
+		<description>Bless</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="1" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Protect From Evil">
+		<description>Protect from Evil</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="1" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Prayer">
+		<description>Prayer</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="3" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Harm">
+		<description>Harm</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="6" />
+		<script script="Spells" interface="" />
+	</spell>
+	<spell name="Detect Invisibility">
+		<description>Detect Invisibility</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="2" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Invisibility">
+		<description>Invisibility</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="2" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Improved Identify">
+		<description>Improved Identify</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="2" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Melf's Acid Arrow">
+		<description>Melf's Acid Arrow</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="2" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Dispell Magic">
+		<description>Dispell magic</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="3" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Fireball">
+		<description>Fireball</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="3" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Haste">
+		<description>Haste</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="3" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Hold Person">
+		<description>Hold person</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="3" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Invisibility 10' Radius">
+		<description>Invisibility 10' radius</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="3" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Lightning Bolt">
+		<description>Lightning Bolt</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="3" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Vampiric touch">
+		<description>Vampiric Touch</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="3" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Fear">
+		<description>Fear</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="4" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Ice Storm">
+		<description>Ice Storm</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="4" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Improved Invisibility">
+		<description>Improved Invisibility</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="4" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Remove Curse">
+		<description>Remove Curse</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="4" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Cone of Cold">
+		<description>Cone of Cold</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="5" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Hold Monster">
+		<description>Hold Monster</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="5" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Wall of Force">
+		<description>Wall of Force</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="5" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Desintegrate">
+		<description>Disintegrate</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="6" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Flesh to Stone">
+		<description>Flesh to Stone</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="6" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Stone to Flesh">
+		<description>Stone to Flesh</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="6" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="True Seeing">
+		<description>True Seeing</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Mage" />
+		<range value="Personal" />
+		<level value="6" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Cause Light Wounds">
+		<description>Cause Light Wounds</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="1" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Cure Light Wounds">
+		<description>Cure Light Wounds</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="1" />
+		<script script="Spells" interface="CureLightWounds" />
+	</spell>
+	<spell name="Aid">
+		<description>Aid</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="2" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Flame Blade">
+		<description>Flame Blade</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="2" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Slow Poison">
+		<description>Slow Poison</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="2" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Magical Vestment">
+		<description>Magical Vestment</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="3" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Remove Paralysis">
+		<description>Remove Paralysis</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="3" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Cause Serious Wounds">
+		<description>Cause Serious Wounds</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="4" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Cure Serious Wounds">
+		<description>Cure Serious Wounds</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="4" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Neutralize Poison">
+		<description>neutralize Poison</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="4" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Protect from Evil 10' Radius">
+		<description>Protect from Evil 10' Radius</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="4" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Cause Critical wounds">
+		<description>Cause Critical Wounds</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="5" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Cure Critical Wounds">
+		<description>Cure Critical Wounds</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="5" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Flame Strike">
+		<description>Flame Strike</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="5" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Raise Dead">
+		<description>Raise Dead</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="5" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Slay Living">
+		<description>Slay Living</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="5" />
+		<script script="" interface="" />
+	</spell>
+	<spell name="Heal">
+		<description>Heal</description>
+		<duration value="00:00:00" />
+		<castingtime value="00:00:00" />
+		<class value="Cleric" />
+		<range value="Personal" />
+		<level value="6" />
+		<script script="" interface="" />
+	</spell>
+</bank>

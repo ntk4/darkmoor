@@ -1,0 +1,1031 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<bank>
+	<monster name="Dwarf" position="NorthWest">
+		<hitpoint current="24" max="24" />
+		<strength value="13" />
+		<intelligence value="10" />
+		<wisdom value="11" />
+		<dexterity value="11" />
+		<constitution value="10" />
+		<charisma value="7" />
+		<alignment value="LawfulGood" />
+		<movespeed value="1200" />
+		<script script="" interface="Dwarf" />
+		<damage throws="1" faces="1" modifier="2" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="96" />
+		<direction value="North" />
+		<armorclass value="6" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="200" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="True" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="True" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="True" />
+		<smartai value="True" />
+		<teleports value="True" />
+		<pickuprate value="0,09" />
+		<stealrate value="0,09" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="True" />
+		<nonmaterial value="True" />
+		<attackspeed value="1200" />
+	</monster>
+	<monster name="DisplacerBeast" position="NorthWest">
+		<hitpoint current="45" max="45" />
+		<strength value="8" />
+		<intelligence value="14" />
+		<wisdom value="11" />
+		<dexterity value="14" />
+		<constitution value="14" />
+		<charisma value="5" />
+		<alignment value="LawfulGood" />
+		<movespeed value="600" />
+		<script script="" interface="" />
+		<damage throws="1" faces="0" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="72" />
+		<direction value="North" />
+		<armorclass value="9" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="250" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="600" />
+	</monster>
+	<monster name="Drider" position="NorthWest">
+		<hitpoint current="45" max="45" />
+		<strength value="8" />
+		<intelligence value="9" />
+		<wisdom value="10" />
+		<dexterity value="8" />
+		<constitution value="11" />
+		<charisma value="7" />
+		<alignment value="LawfulGood" />
+		<movespeed value="1200" />
+		<script script="" interface="" />
+		<damage throws="1" faces="1" modifier="1" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="78" />
+		<direction value="North" />
+		<armorclass value="6" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="400" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="1200" />
+	</monster>
+	<monster name="Skeleton" position="NorthWest">
+		<hitpoint current="45" max="45" />
+		<strength value="10" />
+		<intelligence value="6" />
+		<wisdom value="13" />
+		<dexterity value="14" />
+		<constitution value="13" />
+		<charisma value="11" />
+		<alignment value="LawfulGood" />
+		<movespeed value="2300" />
+		<script script="" interface="" />
+		<damage throws="1" faces="6" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="12" />
+		<direction value="North" />
+		<armorclass value="9" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="400" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="2300" />
+	</monster>
+	<monster name="StoneGolem" position="NorthWest">
+		<hitpoint current="45" max="45" />
+		<strength value="9" />
+		<intelligence value="6" />
+		<wisdom value="11" />
+		<dexterity value="12" />
+		<constitution value="12" />
+		<charisma value="8" />
+		<alignment value="LawfulGood" />
+		<movespeed value="1800" />
+		<script script="" interface="" />
+		<damage throws="1" faces="1" modifier="1" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="6" />
+		<direction value="North" />
+		<armorclass value="15" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="2000" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="1800" />
+	</monster>
+	<monster name="Zombie" position="NorthWest">
+		<hitpoint current="42" max="45" />
+		<strength value="10" />
+		<intelligence value="13" />
+		<wisdom value="12" />
+		<dexterity value="7" />
+		<constitution value="11" />
+		<charisma value="11" />
+		<alignment value="ChaoticNeutral" />
+		<movespeed value="1400" />
+		<script script="" interface="" />
+		<damage throws="1" faces="6" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="0" />
+		<direction value="North" />
+		<armorclass value="6" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="200" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="0" />
+	</monster>
+	<monster name="Xanathar" position="NorthWest">
+		<hitpoint current="45" max="125" />
+		<strength value="13" />
+		<intelligence value="9" />
+		<wisdom value="10" />
+		<dexterity value="12" />
+		<constitution value="8" />
+		<charisma value="13" />
+		<alignment value="ChaoticNeutral" />
+		<movespeed value="1300" />
+		<script script="" interface="" />
+		<damage throws="1" faces="6" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="24" />
+		<direction value="North" />
+		<armorclass value="15" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="10000" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="1300" />
+	</monster>
+	<monster name="Xorn" position="NorthWest">
+		<hitpoint current="45" max="45" />
+		<strength value="8" />
+		<intelligence value="14" />
+		<wisdom value="10" />
+		<dexterity value="7" />
+		<constitution value="13" />
+		<charisma value="10" />
+		<alignment value="TrueNeutral" />
+		<movespeed value="1290" />
+		<script script="" interface="" />
+		<damage throws="1" faces="1" modifier="1" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="18" />
+		<direction value="North" />
+		<armorclass value="13" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="1000" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="1290" />
+	</monster>
+	<monster name="Flind" position="NorthWest">
+		<hitpoint current="30" max="30" />
+		<strength value="11" />
+		<intelligence value="12" />
+		<wisdom value="12" />
+		<dexterity value="13" />
+		<constitution value="9" />
+		<charisma value="9" />
+		<alignment value="LawfulGood" />
+		<movespeed value="1300" />
+		<script script="" interface="" />
+		<damage throws="1" faces="6" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="66" />
+		<direction value="North" />
+		<armorclass value="6" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="200" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="1300" />
+	</monster>
+	<monster name="DrowElf" position="NorthWest">
+		<hitpoint current="45" max="45" />
+		<strength value="11" />
+		<intelligence value="13" />
+		<wisdom value="8" />
+		<dexterity value="14" />
+		<constitution value="13" />
+		<charisma value="11" />
+		<alignment value="LawfulGood" />
+		<movespeed value="1100" />
+		<script script="" interface="" />
+		<damage throws="1" faces="0" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="102" />
+		<direction value="North" />
+		<armorclass value="6" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="400" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="1100" />
+	</monster>
+	<monster name="RustMonster" position="NorthWest">
+		<hitpoint current="45" max="45" />
+		<strength value="11" />
+		<intelligence value="12" />
+		<wisdom value="10" />
+		<dexterity value="11" />
+		<constitution value="15" />
+		<charisma value="7" />
+		<alignment value="LawfulGood" />
+		<movespeed value="2000" />
+		<script script="" interface="RustMonster" />
+		<damage throws="1" faces="8" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="30" />
+		<direction value="North" />
+		<armorclass value="11" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="900" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="2000" />
+	</monster>
+	<monster name="SkeletalLord" position="NorthWest">
+		<hitpoint current="45" max="45" />
+		<strength value="11" />
+		<intelligence value="8" />
+		<wisdom value="8" />
+		<dexterity value="13" />
+		<constitution value="12" />
+		<charisma value="13" />
+		<alignment value="ChaoticEvil" />
+		<movespeed value="2100" />
+		<script script="" interface="" />
+		<damage throws="1" faces="9" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="36" />
+		<direction value="North" />
+		<armorclass value="12" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="9040" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="2100" />
+	</monster>
+	<monster name="MindFlayer" position="NorthWest">
+		<hitpoint current="45" max="45" />
+		<strength value="14" />
+		<intelligence value="7" />
+		<wisdom value="12" />
+		<dexterity value="8" />
+		<constitution value="14" />
+		<charisma value="14" />
+		<alignment value="LawfulGood" />
+		<movespeed value="700" />
+		<script script="" interface="" />
+		<damage throws="1" faces="1" modifier="1" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="84" />
+		<direction value="North" />
+		<armorclass value="15" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="9000" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="700" />
+	</monster>
+	<monster name="Mantis" position="NorthWest">
+		<hitpoint current="45" max="45" />
+		<strength value="12" />
+		<intelligence value="15" />
+		<wisdom value="8" />
+		<dexterity value="11" />
+		<constitution value="9" />
+		<charisma value="7" />
+		<alignment value="LawfulGood" />
+		<movespeed value="800" />
+		<script script="" interface="" />
+		<damage throws="1" faces="5" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="54" />
+		<direction value="North" />
+		<armorclass value="12" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="0" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="800" />
+	</monster>
+	<monster name="KenKu" position="NorthWest">
+		<hitpoint current="42" max="45" />
+		<strength value="12" />
+		<intelligence value="10" />
+		<wisdom value="12" />
+		<dexterity value="9" />
+		<constitution value="9" />
+		<charisma value="6" />
+		<alignment value="LawfulGood" />
+		<movespeed value="1000" />
+		<script script="" interface="" />
+		<damage throws="1" faces="0" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="114" />
+		<direction value="North" />
+		<armorclass value="0" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="0" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<cansseinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="1000" />
+	</monster>
+	<monster name="HellHound" position="NorthWest">
+		<hitpoint current="30" max="30" />
+		<strength value="8" />
+		<intelligence value="8" />
+		<wisdom value="11" />
+		<dexterity value="12" />
+		<constitution value="7" />
+		<charisma value="7" />
+		<alignment value="LawfulGood" />
+		<movespeed value="1200" />
+		<script script="" interface="" />
+		<damage throws="1" faces="6" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="60" />
+		<direction value="North" />
+		<armorclass value="10" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="500" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="1200" />
+	</monster>
+	<monster name="GiantLeech" position="NorthWest">
+		<hitpoint current="15" max="15" />
+		<strength value="10" />
+		<intelligence value="9" />
+		<wisdom value="8" />
+		<dexterity value="8" />
+		<constitution value="12" />
+		<charisma value="8" />
+		<alignment value="NeutralEvil" />
+		<movespeed value="2000" />
+		<script script="" interface="" />
+		<damage throws="1" faces="3" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="108" />
+		<direction value="North" />
+		<armorclass value="9" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="300" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="300" />
+	</monster>
+	<monster name="GiantSpider" position="NorthWest">
+		<hitpoint current="45" max="45" />
+		<strength value="10" />
+		<intelligence value="9" />
+		<wisdom value="14" />
+		<dexterity value="12" />
+		<constitution value="9" />
+		<charisma value="12" />
+		<alignment value="TrueNeutral" />
+		<movespeed value="900" />
+		<script script="" interface="GiantSpider" />
+		<damage throws="1" faces="1" modifier="2" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="42" />
+		<direction value="North" />
+		<armorclass value="11" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="600" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="True" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="True" />
+		<nonmaterial value="False" />
+		<attackspeed value="900" />
+	</monster>
+	<monster name="Kobold" position="NorthWest">
+		<hitpoint current="10" max="10" />
+		<strength value="12" />
+		<intelligence value="13" />
+		<wisdom value="10" />
+		<dexterity value="11" />
+		<constitution value="10" />
+		<charisma value="11" />
+		<alignment value="LawfulGood" />
+		<movespeed value="900" />
+		<script script="" interface="" />
+		<damage throws="1" faces="3" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="90" />
+		<direction value="North" />
+		<armorclass value="6" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="200" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="900" />
+	</monster>
+	<monster name="KuoToa" position="NorthWest">
+		<hitpoint current="45" max="45" />
+		<strength value="8" />
+		<intelligence value="11" />
+		<wisdom value="10" />
+		<dexterity value="13" />
+		<constitution value="8" />
+		<charisma value="13" />
+		<alignment value="LawfulGood" />
+		<movespeed value="800" />
+		<script script="" interface="" />
+		<damage throws="1" faces="0" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB1" id="48" />
+		<direction value="North" />
+		<armorclass value="12" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="0" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="800" />
+	</monster>
+	<monster name="Wolf" position="NorthWest">
+		<hitpoint current="10" max="16" />
+		<strength value="11" />
+		<intelligence value="10" />
+		<wisdom value="10" />
+		<dexterity value="8" />
+		<constitution value="9" />
+		<charisma value="3" />
+		<alignment value="LawfulGood" />
+		<movespeed value="750" />
+		<damage throws="0" faces="1" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB2" id="126" />
+		<direction value="North" />
+		<armorclass value="3" />
+		<baseattack value="0" />
+		<sightrange value="1" />
+		<reward value="500" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="1000" />
+	</monster>
+	<monster name="Dire Wolf" position="NorthWest">
+		<hitpoint current="16" max="16" />
+		<strength value="10" />
+		<intelligence value="12" />
+		<wisdom value="10" />
+		<dexterity value="13" />
+		<constitution value="9" />
+		<charisma value="11" />
+		<alignment value="LawfulGood" />
+		<movespeed value="1000" />
+		<damage throws="0" faces="1" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB2" id="132" />
+		<direction value="North" />
+		<armorclass value="0" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="0" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="0" />
+	</monster>
+	<monster name="Cleric" position="NorthWest">
+		<hitpoint current="13" max="13" />
+		<strength value="8" />
+		<intelligence value="9" />
+		<wisdom value="7" />
+		<dexterity value="6" />
+		<constitution value="12" />
+		<charisma value="9" />
+		<alignment value="LawfulGood" />
+		<movespeed value="1000" />
+		<damage throws="0" faces="1" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB2" id="30" />
+		<direction value="North" />
+		<armorclass value="0" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="0" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="0" />
+	</monster>
+	<monster name="Darkmoon Guard" position="NorthWest">
+		<hitpoint current="35" max="35" />
+		<strength value="12" />
+		<intelligence value="6" />
+		<wisdom value="12" />
+		<dexterity value="12" />
+		<constitution value="9" />
+		<charisma value="10" />
+		<alignment value="LawfulGood" />
+		<movespeed value="1000" />
+		<damage throws="0" faces="1" modifier="0" />
+		<hitdice throws="0" faces="1" modifier="0" />
+		<tiles name="Monsters_EOB2" id="114" />
+		<direction value="North" />
+		<armorclass value="0" />
+		<baseattack value="0" />
+		<sightrange value="0" />
+		<reward value="0" />
+		<sound event="hit" name="" />
+		<sound event="hurt" name="" />
+		<sound event="walk" name="" />
+		<sound event="die" name="" />
+		<behaviour default="Aggressive" current="Aggressive" />
+		<fillsquare value="False" />
+		<flees value="False" />
+		<drains value="False" />
+		<heals value="False" />
+		<castinglevel value="0" />
+		<throwweapons value="False" />
+		<weaponname name="" />
+		<usestairs value="False" />
+		<flying value="False" />
+		<smartai value="False" />
+		<teleports value="False" />
+		<pickuprate value="0" />
+		<stealrate value="0" />
+		<backrowattack value="False" />
+		<canseeinvisible value="False" />
+		<poisonimmunity value="False" />
+		<nonmaterial value="False" />
+		<attackspeed value="0" />
+	</monster>
+</bank>

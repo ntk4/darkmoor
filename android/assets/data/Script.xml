@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<bank>
+	<script name="maze_01">
+		<language name="CSharp" />
+		<source>using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Reflection;
+using System.Text;
+using System.Windows.Forms;
+using System.Xml;
+using ArcEngine;
+using ArcEngine.Asset;
+using ArcEngine.Editor;
+using ArcEngine.Forms;
+using ArcEngine.Graphic;
+using DungeonEye;
+
+class Maze_01
+{
+	///
+	///
+	///	
+	public static void OnEnter(Team team, Square block)
+	{
+		Square blk = team.Location.Maze.GetBlock(new Point(1, 0));
+		blk.Pit = null;
+	}
+	
+	
+	
+	///
+	///
+	///
+	public static void OnLeave(Team team, Square block)
+	{
+		Square blk = team.Location.Maze.GetBlock(new Point(1, 0));
+		blk.Pit = new Pit(blk);
+	}
+
+
+		
+	///
+	///
+	///
+	public static void OpenDoor(Team team, Square block)
+	{
+		team.AddMessage("Sezam open !");
+
+		Square blk = team.Location.Maze.GetBlock(new Point(4, 4));
+		if (blk.Door != null)
+		{
+			if (blk.Door.IsOpen)
+				blk.Door.Close();
+			else
+				blk.Door.Open();
+		}
+	
+	
+		Trace.WriteLine("Sezam, open !");
+	}
+
+
+}
+</source>
+	</script>
+	<script name="Monster">
+		<language name="CSharp" />
+		<source>using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Reflection;
+using System.Text;
+using System.Windows.Forms;
+using System.Xml;
+using ArcEngine;
+using ArcEngine.Asset;
+using ArcEngine.Editor;
+using ArcEngine.Forms;
+using ArcEngine.Graphic;
+using DungeonEye;
+using DungeonEye.Interfaces;
+
+
+public class RustMonster : IMonster
+{
+	public RustMonster()
+	{
+		//Trace.WriteLine("RustMonster()");
+	}
+	
+	/// &lt;summary&gt;
+	/// 
+	/// &lt;/summary&gt;
+	/// &lt;param name="monster"&gt;&lt;/param&gt;
+	public void OnUpdate(Monster monster)
+	{
+	}
+
+
+	/// &lt;summary&gt;
+	/// 
+	/// &lt;/summary&gt;
+	/// &lt;param name="monster"&gt;&lt;/param&gt;
+	public void OnDraw(Monster monster)
+	{
+	}
+	
+	
+	/// &lt;summary&gt;
+	/// Fired when the monster is killed
+	/// &lt;/summary&gt;
+	/// &lt;param name="monster"&gt;&lt;/param&gt;
+	public void OnDeath(Monster monster)
+	{
+	}
+}
+
+
+
+public class Dwarf : IMonster
+{
+	/// &lt;summary&gt;
+	/// 
+	/// &lt;/summary&gt;
+	/// &lt;param name="monster"&gt;&lt;/param&gt;
+	public void OnUpdate(Monster monster)
+	{
+		//Trace.WriteLine("Update Dwarf");			
+	}
+
+
+	/// &lt;summary&gt;
+	/// 
+	/// &lt;/summary&gt;
+	/// &lt;param name="monster"&gt;&lt;/param&gt;
+	public void OnDraw(Monster monster)
+	{
+	}
+
+	/// &lt;summary&gt;
+	/// Fired when the monster is killed
+	/// &lt;/summary&gt;
+	/// &lt;param name="monster"&gt;&lt;/param&gt;
+	public void OnDeath(Monster monster)
+	{
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+public class GiantSpider : IMonster
+{
+	
+	public void OnUpdate(Monster monster)
+	{
+		//Trace.WriteLine("Update GiantSpider");			
+	}
+
+	public void OnDraw(Monster monster)
+	{
+	}
+
+	/// &lt;summary&gt;
+	/// Fired when the monster is killed
+	/// &lt;/summary&gt;
+	/// &lt;param name="monster"&gt;&lt;/param&gt;
+	public void OnDeath(Monster monster)
+	{
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</source>
+	</script>
+	<script name="Items">
+		<language name="CSharp" />
+		<source>using DungeonEye;
+using DungeonEye.Interfaces;
+using ArcEngine;
+
+
+
+public class ShortBow : IItem
+{
+	
+	public void OnCollect(Item item, Hero hero)
+	{
+	}
+
+	public void OnDrop(Item item, Hero hero, MazeBlock block)
+	{
+	}
+
+	public void OnUse(Item item, Hero hero)
+	{
+		if (hero.Quiver &gt; 0)
+		{
+			hero.Quiver--;	
+		}
+
+
+	}
+
+	public void OnEquip(Item item, Hero hero)
+	{
+	}
+
+	public void OnUnequip(Item item, Hero hero)
+	{
+	}
+
+}
+
+	
+public class Boots : IItem
+{
+	
+	public void OnCollect(DungeonEye.Item item, DungeonEye.Hero hero)
+	{
+	}
+
+	public void OnDrop(DungeonEye.Item item, DungeonEye.Hero hero, DungeonEye.MazeBlock block)
+	{
+	}
+
+	public void OnUse(DungeonEye.Item item, DungeonEye.Hero hero)
+	{
+	}
+
+	public void OnEquip(DungeonEye.Item item, DungeonEye.Hero hero)
+	{
+	}
+
+	public void OnUnequip(DungeonEye.Item item, DungeonEye.Hero hero)
+	{
+	}
+
+}
+
+
+
+	
+public class RottenFood : IItem
+{
+	
+	public void OnCollect(DungeonEye.Item item, DungeonEye.Hero hero)
+	{
+	}
+	
+	public void OnDrop(DungeonEye.Item item, DungeonEye.Hero hero, DungeonEye.MazeBlock block)
+	{
+	}
+	
+	public void OnUse(DungeonEye.Item item, DungeonEye.Hero hero)
+	{
+		hero.Food -= 35;
+	}
+	
+	public void OnEquip(DungeonEye.Item item, DungeonEye.Hero hero)
+	{
+	}
+	
+	public void OnUnequip(DungeonEye.Item item, DungeonEye.Hero hero)
+	{
+	}
+
+}
+
+
+
+
+	
+public class Ration : IItem
+{
+	
+	public void OnCollect(DungeonEye.Item item, DungeonEye.Hero hero)
+	{
+	}
+	
+	public void OnDrop(DungeonEye.Item item, DungeonEye.Hero hero, DungeonEye.MazeBlock block)
+	{
+	}
+	
+	public void OnUse(DungeonEye.Item item, DungeonEye.Hero hero)
+	{
+		hero.Food += 15;
+	}
+	
+	public void OnEquip(DungeonEye.Item item, DungeonEye.Hero hero)
+	{
+	}
+	
+	public void OnUnequip(DungeonEye.Item item, DungeonEye.Hero hero)
+	{
+	}
+
+}
+
+
+
+
+	
+public class IronRation : IItem
+{
+	
+	public void OnCollect(DungeonEye.Item item, DungeonEye.Hero hero)
+	{
+	}
+	
+	public void OnDrop(DungeonEye.Item item, DungeonEye.Hero hero, DungeonEye.MazeBlock block)
+	{
+	}
+	
+	public void OnUse(DungeonEye.Item item, DungeonEye.Hero hero)
+	{
+		hero.Food += 25;
+	}
+	
+	public void OnEquip(DungeonEye.Item item, DungeonEye.Hero hero)
+	{
+	}
+	
+	public void OnUnequip(DungeonEye.Item item, DungeonEye.Hero hero)
+	{
+	}
+
+}
+
+
+
+</source>
+	</script>
+	<script name="Spells">
+		<language name="CSharp" />
+		<source>using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Reflection;
+using System.Text;
+using System.Windows.Forms;
+using System.Xml;
+using ArcEngine;
+using ArcEngine.Asset;
+using ArcEngine.Editor;
+using ArcEngine.Forms;
+using ArcEngine.Graphic;
+using DungeonEye;
+using DungeonEye.Interfaces;
+
+
+
+
+public class CreateFood : ISpell
+{
+	
+	public void OnCast(DungeonEye.Spell spell, DungeonEye.Hero hero)
+	{
+		hero.AddToInventory(ResourceManager.CreateAsset&lt;Item&gt;("Iron Ration"));
+	}
+
+}
+
+public class CureLightWounds : ISpell
+{
+	
+	public void OnCast(Spell spell, Hero hero)
+	{
+		if (hero == null)
+			return;
+			
+		Dice dice = new Dice(1, 8, 0);
+		hero.HitPoint.Current += dice.Roll();
+	}
+
+}
+public class CureMinorWounds : ISpell
+{
+	
+	public void OnCast(DungeonEye.Spell spell, DungeonEye.Hero hero)
+	{
+		
+	}
+
+}
+</source>
+	</script>
+</bank>

@@ -1,0 +1,950 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<bank>
+	<decorationset name="Temple">
+		<tileset name="Decoration-Temple" />
+		<editor tileset="Wall-Temple" />
+		<decoration id="0" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="2" x="147" y="59" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="4" x="0" y="56" swap="False" />
+			<G id="6" x="100" y="48" swap="False" />
+			<H id="1" x="122" y="46" swap="False" />
+			<I id="6" x="227" y="48" swap="True" />
+			<J id="4" x="329" y="56" swap="True" />
+			<K id="5" x="58" y="20" swap="False" />
+			<L id="0" x="92" y="24" swap="False" />
+			<M id="5" x="263" y="21" swap="True" />
+			<N id="3" x="0" y="0" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="3" x="320" y="0" swap="True" />
+		</decoration>
+		<decoration id="1" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="12" x="38" y="77" swap="False" />
+			<B id="12" x="134" y="80" swap="False" />
+			<C id="9" x="169" y="72" swap="False" />
+			<D id="12" x="214" y="77" swap="True" />
+			<E id="12" x="311" y="77" swap="True" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="11" x="108" y="72" swap="False" />
+			<H id="8" x="161" y="69" swap="False" />
+			<I id="11" x="236" y="71" swap="True" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="10" x="68" y="66" swap="False" />
+			<L id="7" x="156" y="66" swap="False" />
+			<M id="10" x="267" y="63" swap="True" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="2" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="15" x="170" y="92" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="15" x="107" y="94" swap="False" />
+			<H id="17" x="153" y="98" swap="False" />
+			<I id="15" x="231" y="94" swap="True" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="14" x="59" y="102" swap="False" />
+			<L id="13" x="144" y="110" swap="False" />
+			<M id="14" x="261" y="102" swap="True" />
+			<N id="18" x="0" y="116" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="18" x="328" y="116" swap="True" />
+		</decoration>
+		<decoration id="3" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="26" x="167" y="71" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="27" x="9" y="73" swap="False" />
+			<G id="27" x="108" y="70" swap="False" />
+			<H id="25" x="156" y="67" swap="False" />
+			<I id="27" x="233" y="76" swap="True" />
+			<J id="27" x="332" y="73" swap="True" />
+			<K id="28" x="70" y="63" swap="False" />
+			<L id="24" x="145" y="59" swap="False" />
+			<M id="28" x="273" y="63" swap="True" />
+			<N id="29" x="2" y="54" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="29" x="345" y="54" swap="True" />
+		</decoration>
+		<decoration id="4" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="33" x="38" y="70" swap="False" />
+			<B id="56" x="134" y="74" swap="False" />
+			<C id="32" x="164" y="72" swap="False" />
+			<D id="56" x="215" y="75" swap="True" />
+			<E id="33" x="304" y="70" swap="True" />
+			<F id="56" x="11" y="74" swap="False" />
+			<G id="55" x="107" y="70" swap="False" />
+			<H id="31" x="152" y="70" swap="False" />
+			<I id="55" x="237" y="70" swap="True" />
+			<J id="56" x="334" y="78" swap="True" />
+			<K id="54" x="64" y="64" swap="False" />
+			<L id="30" x="138" y="60" swap="False" />
+			<M id="54" x="274" y="64" swap="True" />
+			<N id="53" x="0" y="54" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="53" x="336" y="54" swap="True" />
+		</decoration>
+		<decoration id="5" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="37" x="35" y="71" swap="False" />
+			<B id="56" x="134" y="74" swap="False" />
+			<C id="36" x="164" y="72" swap="False" />
+			<D id="56" x="215" y="75" swap="True" />
+			<E id="37" x="304" y="70" swap="True" />
+			<F id="56" x="11" y="74" swap="False" />
+			<G id="55" x="107" y="70" swap="False" />
+			<H id="35" x="152" y="70" swap="False" />
+			<I id="55" x="237" y="70" swap="True" />
+			<J id="56" x="334" y="78" swap="True" />
+			<K id="54" x="64" y="64" swap="False" />
+			<L id="34" x="138" y="60" swap="False" />
+			<M id="54" x="274" y="64" swap="True" />
+			<N id="53" x="0" y="54" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="53" x="336" y="54" swap="True" />
+		</decoration>
+		<decoration id="6" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="43" x="44" y="72" swap="False" />
+			<B id="52" x="132" y="72" swap="False" />
+			<C id="40" x="156" y="62" swap="False" />
+			<D id="52" x="212" y="72" swap="True" />
+			<E id="43" x="291" y="72" swap="True" />
+			<F id="44" x="0" y="68" swap="False" />
+			<G id="51" x="104" y="66" swap="False" />
+			<H id="39" x="140" y="60" swap="False" />
+			<I id="51" x="231" y="66" swap="True" />
+			<J id="44" x="332" y="68" swap="True" />
+			<K id="42" x="60" y="58" swap="False" />
+			<L id="38" x="112" y="44" swap="False" />
+			<M id="42" x="266" y="58" swap="True" />
+			<N id="41" x="0" y="50" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="41" x="332" y="50" swap="True" />
+		</decoration>
+		<decoration id="7" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="21" x="172" y="74" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="23" x="108" y="74" swap="False" />
+			<H id="20" x="164" y="72" swap="False" />
+			<I id="23" x="237" y="75" swap="True" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="22" x="67" y="70" swap="False" />
+			<L id="19" x="160" y="70" swap="False" />
+			<M id="22" x="275" y="69" swap="True" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="8" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="-1" x="-999" y="-999" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="60" x="142" y="132" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="59" x="119" y="166" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="58" x="90" y="230" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="9" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="65" x="128" y="56" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="64" x="111" y="42" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="-1" x="-999" y="-999" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="10" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="47" x="166" y="78" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="46" x="152" y="74" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="45" x="136" y="78" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="48" x="0" y="88" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="48" x="320" y="87" swap="True" />
+		</decoration>
+		<decoration id="11" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="69" x="128" y="104" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="68" x="96" y="128" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="67" x="48" y="175" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="70" x="0" y="160" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="70" x="242" y="160" swap="True" />
+		</decoration>
+		<decoration id="12" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="45" y="1" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="73" x="161" y="89" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="79" x="106" y="83" swap="False" />
+			<H id="72" x="146" y="96" swap="False" />
+			<I id="79" x="232" y="88" swap="True" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="77" x="66" y="98" swap="False" />
+			<L id="71" x="128" y="106" swap="False" />
+			<M id="77" x="265" y="98" swap="True" />
+			<N id="74" x="0" y="112" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="74" x="320" y="112" swap="True" />
+		</decoration>
+		<decoration id="13" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="47" y="18" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="82" x="160" y="84" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="76" x="106" y="84" swap="False" />
+			<H id="81" x="145" y="90" swap="False" />
+			<I id="76" x="228" y="84" swap="True" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="75" x="65" y="90" swap="False" />
+			<L id="80" x="128" y="92" swap="False" />
+			<M id="75" x="266" y="90" swap="True" />
+			<N id="83" x="0" y="90" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="83" x="320" y="90" swap="True" />
+		</decoration>
+		<decoration id="14" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="122" x="148" y="60" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="85" x="128" y="49" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="86" x="64" y="36" swap="False" />
+			<L id="84" x="101" y="28" swap="False" />
+			<M id="86" x="272" y="36" swap="True" />
+			<N id="87" x="0" y="14" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="87" x="336" y="14" swap="True" />
+		</decoration>
+		<decoration id="15" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="91" x="174" y="90" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="93" x="12" y="94" swap="False" />
+			<G id="93" x="108" y="92" swap="False" />
+			<H id="90" x="172" y="98" swap="False" />
+			<I id="93" x="238" y="94" swap="True" />
+			<J id="93" x="335" y="94" swap="True" />
+			<K id="92" x="68" y="102" swap="False" />
+			<L id="89" x="172" y="110" swap="False" />
+			<M id="92" x="277" y="102" swap="True" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="16" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="96" x="174" y="90" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="93" x="12" y="92" swap="False" />
+			<G id="93" x="108" y="92" swap="False" />
+			<H id="95" x="172" y="98" swap="False" />
+			<I id="93" x="238" y="94" swap="True" />
+			<J id="93" x="334" y="94" swap="False" />
+			<K id="97" x="70" y="100" swap="False" />
+			<L id="94" x="172" y="110" swap="False" />
+			<M id="97" x="277" y="102" swap="True" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="17" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="-1" x="-999" y="-999" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="-1" x="-999" y="-999" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="-1" x="-999" y="-999" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="88" x="160" y="0" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+	</decorationset>
+	<decorationset name="Forest">
+		<tileset name="Decoration-Forest" />
+		<editor tileset="Wall-Forest" />
+		<decoration id="0" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="2" x="139" y="54" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="1" x="110" y="43" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="0" x="59" y="18" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="1" isblocking="False" forcedisplay="True" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="6" x="157" y="109" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="5" x="133" y="118" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="4" x="102" y="145" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="3" x="83" y="211" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="2" isblocking="False" forcedisplay="True" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="10" x="162" y="111" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="9" x="145" y="118" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="8" x="123" y="132" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="7" x="152" y="206" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="3" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="-1" x="-999" y="-999" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="-1" x="-999" y="-999" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="-1" x="-999" y="-999" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+	</decorationset>
+	<decorationset name="Catacomb">
+		<tileset name="Decoration-Catacomb" />
+		<editor tileset="Wall-Catacomb" />
+		<decoration id="0" isblocking="True" forcedisplay="True" onhack="23" onbash="23" onclick="-1" hideitems="True">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="3" x="161" y="92" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="2" x="151" y="100" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="0" x="130" y="108" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="1" isblocking="False" forcedisplay="True" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="42" x="151" y="116" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="7" x="130" y="124" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="6" x="90" y="157" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="5" x="32" y="213" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="2" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="16" x="40" y="76" swap="False" />
+			<B id="16" x="134" y="76" swap="False" />
+			<C id="13" x="170" y="76" swap="False" />
+			<D id="16" x="216" y="76" swap="True" />
+			<E id="16" x="310" y="76" swap="True" />
+			<F id="15" x="16" y="76" swap="False" />
+			<G id="15" x="112" y="78" swap="False" />
+			<H id="12" x="174" y="74" swap="False" />
+			<I id="15" x="228" y="76" swap="True" />
+			<J id="15" x="328" y="76" swap="True" />
+			<K id="14" x="72" y="66" swap="False" />
+			<L id="49" x="162" y="52" swap="False" />
+			<M id="14" x="256" y="66" swap="True" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="3" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="50" x="40" y="78" swap="False" />
+			<B id="50" x="134" y="78" swap="False" />
+			<C id="20" x="170" y="82" swap="False" />
+			<D id="50" x="216" y="76" swap="True" />
+			<E id="50" x="310" y="78" swap="True" />
+			<F id="21" x="16" y="78" swap="False" />
+			<G id="21" x="112" y="80" swap="False" />
+			<H id="19" x="174" y="82" swap="False" />
+			<I id="21" x="228" y="78" swap="True" />
+			<J id="21" x="328" y="78" swap="True" />
+			<K id="18" x="72" y="70" swap="False" />
+			<L id="17" x="162" y="64" swap="False" />
+			<M id="18" x="256" y="70" swap="True" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="4" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="38" x="136" y="76" swap="False" />
+			<C id="34" x="169" y="76" swap="False" />
+			<D id="38" x="216" y="76" swap="True" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="36" x="14" y="78" swap="False" />
+			<G id="36" x="112" y="78" swap="False" />
+			<H id="33" x="160" y="74" swap="False" />
+			<I id="36" x="233" y="78" swap="True" />
+			<J id="36" x="329" y="78" swap="True" />
+			<K id="35" x="72" y="82" swap="False" />
+			<L id="32" x="152" y="76" swap="False" />
+			<M id="35" x="273" y="82" swap="True" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="5" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="49" y="29" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="28" x="160" y="76" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="31" x="112" y="82" swap="False" />
+			<H id="27" x="144" y="72" swap="False" />
+			<I id="31" x="240" y="82" swap="True" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="30" x="70" y="84" swap="False" />
+			<L id="26" x="122" y="78" swap="False" />
+			<M id="30" x="274" y="82" swap="True" />
+			<N id="29" x="0" y="84" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="29" x="330" y="84" swap="True" />
+		</decoration>
+		<decoration id="6" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="True">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="24" x="127" y="83" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="23" x="96" y="90" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="22" x="48" y="106" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="25" x="0" y="100" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="25" x="242" y="99" swap="True" />
+		</decoration>
+		<decoration id="7" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="45" x="160" y="112" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="44" x="144" y="130" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="43" x="128" y="166" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="8" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="True">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="96" x="166" y="73" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="98" x="10" y="70" swap="False" />
+			<G id="98" x="110" y="70" swap="False" />
+			<H id="95" x="162" y="70" swap="False" />
+			<I id="98" x="236" y="70" swap="True" />
+			<J id="98" x="334" y="70" swap="True" />
+			<K id="97" x="70" y="70" swap="False" />
+			<L id="94" x="150" y="61" swap="False" />
+			<M id="97" x="269" y="70" swap="True" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="9" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="93" x="41" y="73" swap="False" />
+			<B id="93" x="134" y="73" swap="False" />
+			<C id="90" x="170" y="70" swap="False" />
+			<D id="93" x="214" y="73" swap="True" />
+			<E id="93" x="306" y="76" swap="True" />
+			<F id="92" x="10" y="68" swap="False" />
+			<G id="92" x="111" y="68" swap="False" />
+			<H id="89" x="168" y="68" swap="False" />
+			<I id="92" x="234" y="68" swap="True" />
+			<J id="92" x="330" y="71" swap="True" />
+			<K id="91" x="74" y="66" swap="False" />
+			<L id="88" x="160" y="60" swap="False" />
+			<M id="91" x="269" y="70" swap="True" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="10" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="67" x="168" y="82" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="69" x="12" y="81" swap="False" />
+			<G id="69" x="108" y="81" swap="False" />
+			<H id="66" x="160" y="88" swap="False" />
+			<I id="69" x="234" y="81" swap="True" />
+			<J id="69" x="331" y="81" swap="True" />
+			<K id="68" x="70" y="90" swap="False" />
+			<L id="65" x="154" y="95" swap="False" />
+			<M id="68" x="269" y="90" swap="True" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="11" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="72" x="168" y="82" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="74" x="15" y="81" swap="False" />
+			<G id="74" x="110" y="81" swap="False" />
+			<H id="71" x="160" y="88" swap="False" />
+			<I id="74" x="236" y="81" swap="True" />
+			<J id="74" x="334" y="81" swap="True" />
+			<K id="73" x="70" y="90" swap="False" />
+			<L id="70" x="154" y="95" swap="False" />
+			<M id="73" x="269" y="90" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="12" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="True">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="56" x="160" y="90" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="55" x="151" y="101" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="58" x="68" y="114" swap="False" />
+			<L id="54" x="130" y="106" swap="False" />
+			<M id="58" x="260" y="114" swap="True" />
+			<N id="57" x="0" y="126" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="57" x="310" y="126" swap="True" />
+		</decoration>
+		<decoration id="54" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="-1" x="-999" y="-999" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="-1" x="-999" y="-999" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="-1" x="-999" y="-999" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="13" isblocking="False" forcedisplay="True" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="48" x="160" y="112" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="47" x="144" y="136" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="46" x="128" y="166" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="14" isblocking="False" forcedisplay="True" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="41" x="120" y="44" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="40" x="88" y="20" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="39" x="36" y="0" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="15" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="61" x="168" y="76" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="63" x="11" y="80" swap="False" />
+			<G id="63" x="112" y="80" swap="False" />
+			<H id="60" x="160" y="74" swap="False" />
+			<I id="63" x="234" y="80" swap="True" />
+			<J id="63" x="333" y="80" swap="True" />
+			<K id="62" x="68" y="76" swap="False" />
+			<L id="59" x="148" y="66" swap="False" />
+			<M id="62" x="265" y="76" swap="True" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="16" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="77" x="187" y="94" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="76" x="195" y="103" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="81" x="76" y="113" swap="False" />
+			<L id="75" x="207" y="115" swap="False" />
+			<M id="81" x="270" y="113" swap="True" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="17" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="80" x="187" y="94" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="79" x="195" y="103" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="81" x="76" y="113" swap="False" />
+			<L id="78" x="207" y="115" swap="False" />
+			<M id="81" x="270" y="113" swap="True" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="18" isblocking="True" forcedisplay="True" onhack="19" onbash="19" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="101" x="136" y="60" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="100" x="112" y="48" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="99" x="80" y="32" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="19" isblocking="False" forcedisplay="True" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="104" x="136" y="60" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="103" x="112" y="48" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="102" x="80" y="32" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="20" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="True">
+			<item x="0" y="0" />
+			<A id="114" x="36" y="106" swap="False" />
+			<B id="114" x="130" y="106" swap="False" />
+			<C id="118" x="158" y="105" swap="False" />
+			<D id="114" x="202" y="105" swap="True" />
+			<E id="114" x="296" y="106" swap="True" />
+			<F id="112" x="6" y="112" swap="False" />
+			<G id="112" x="106" y="112" swap="False" />
+			<H id="109" x="143" y="122" swap="False" />
+			<I id="112" x="224" y="112" swap="True" />
+			<J id="112" x="324" y="112" swap="True" />
+			<K id="111" x="64" y="129" swap="False" />
+			<L id="108" x="111" y="142" swap="False" />
+			<M id="111" x="260" y="129" swap="True" />
+			<N id="110" x="0" y="174" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="110" x="320" y="173" swap="True" />
+		</decoration>
+		<decoration id="21" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="True">
+			<item x="0" y="0" />
+			<A id="122" x="36" y="106" swap="False" />
+			<B id="122" x="130" y="107" swap="False" />
+			<C id="117" x="158" y="105" swap="False" />
+			<D id="122" x="202" y="105" swap="True" />
+			<E id="122" x="296" y="106" swap="True" />
+			<F id="121" x="6" y="112" swap="False" />
+			<G id="121" x="106" y="112" swap="False" />
+			<H id="116" x="143" y="122" swap="False" />
+			<I id="121" x="224" y="112" swap="True" />
+			<J id="121" x="324" y="112" swap="True" />
+			<K id="120" x="64" y="129" swap="False" />
+			<L id="115" x="111" y="142" swap="False" />
+			<M id="120" x="260" y="130" swap="True" />
+			<N id="119" x="0" y="174" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="119" x="320" y="173" swap="True" />
+		</decoration>
+		<decoration id="22" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="137" x="36" y="77" swap="False" />
+			<B id="137" x="133" y="77" swap="False" />
+			<C id="134" x="168" y="76" swap="False" />
+			<D id="137" x="217" y="77" swap="True" />
+			<E id="137" x="312" y="77" swap="True" />
+			<F id="136" x="11" y="80" swap="False" />
+			<G id="136" x="112" y="80" swap="False" />
+			<H id="133" x="160" y="74" swap="False" />
+			<I id="136" x="234" y="80" swap="True" />
+			<J id="136" x="333" y="80" swap="True" />
+			<K id="135" x="68" y="76" swap="False" />
+			<L id="132" x="148" y="66" swap="False" />
+			<M id="135" x="265" y="76" swap="True" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="23" isblocking="False" forcedisplay="True" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="85" y="52" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="11" x="147" y="117" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="10" x="123" y="127" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="9" x="89" y="154" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="8" x="129" y="216" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+		<decoration id="24" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="-1" x="-999" y="-999" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="-1" x="-999" y="-999" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="-1" x="-999" y="-999" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+	</decorationset>
+	<decorationset name="Silver Tower">
+		<tileset name="" />
+		<editor tileset="AutoMap" />
+		<decoration id="0" isblocking="False" forcedisplay="False" onhack="-1" onbash="-1" onclick="-1" hideitems="False">
+			<item x="0" y="0" />
+			<A id="-1" x="-999" y="-999" swap="False" />
+			<B id="-1" x="-999" y="-999" swap="False" />
+			<C id="-1" x="-999" y="-999" swap="False" />
+			<D id="-1" x="-999" y="-999" swap="False" />
+			<E id="-1" x="-999" y="-999" swap="False" />
+			<F id="-1" x="-999" y="-999" swap="False" />
+			<G id="-1" x="-999" y="-999" swap="False" />
+			<H id="-1" x="-999" y="-999" swap="False" />
+			<I id="-1" x="-999" y="-999" swap="False" />
+			<J id="-1" x="-999" y="-999" swap="False" />
+			<K id="-1" x="-999" y="-999" swap="False" />
+			<L id="-1" x="0" y="0" swap="False" />
+			<M id="-1" x="-999" y="-999" swap="False" />
+			<N id="-1" x="-999" y="-999" swap="False" />
+			<Team id="-1" x="-999" y="-999" swap="False" />
+			<O id="-1" x="-999" y="-999" swap="False" />
+		</decoration>
+	</decorationset>
+</bank>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<bank>
+	<animation name="Animations">
+		<framerate value="00:00:00.0600000" />
+		<tileset name="CharGen" />
+		<loop value="Loop" />
+		<tile id="30" />
+		<tile id="31" />
+		<tile id="32" />
+		<tile id="33" />
+		<tile id="34" />
+		<tile id="35" />
+		<tile id="36" />
+		<tile id="37" />
+		<tile id="38" />
+		<tile id="39" />
+	</animation>
+	<animation name="Teleporter">
+		<framerate value="00:00:00.5000000" />
+		<tileset name="Items" />
+		<loop value="Loop" />
+		<tile id="170" />
+		<tile id="171" />
+	</animation>
+</bank>

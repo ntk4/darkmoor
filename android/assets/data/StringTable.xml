@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<bank>
+	<stringtable name="Intro">
+		<default name="English" />
+		<language name="English">
+			<string id="1">We, the Lords of Waterdeep, have gathered<br />to purge our city of an ancient evil,</string>
+			<string id="2">Give call to the heroes of the land, and<br />let us choose our champions.</string>
+			<string id="3">Master....</string>
+			<string id="4">They think they have found a solution.</string>
+			<string id="5">We commission you to find the nature of<br />this evil, and destroy it if you are able.</string>
+			<string id="6">Prepare for the dangerous journey.</string>
+			<string id="7">Begin your search below the city.</string>
+			<string id="8">We have them.</string>
+			<string id="9">Their fate is sealed.</string>
+		</language>
+		<language name="Francais">
+			<string id="1">Nous, les Lords de WaterDeep, sommes<br />reunis pour purger notre ville d'un mal.</string>
+			<string id="2">Donnez appel aux heros de la terre, et<br />laissez-nous choisir nos champions.</string>
+			<string id="3">Maitre...</string>
+			<string id="4">Ils pensent avoir trouve une solution.</string>
+			<string id="5">Nous vous chargeons de trouver la nature de<br />ce mal, et d&#xE9;truisez-le si vous en &#xEA;tes capable.</string>
+			<string id="6">Pr&#xE9;parez vous pour ce dangeureux voyage.</string>
+			<string id="7">Commencez votre recherche sous la ville.</string>
+			<string id="8">Nous les avons.</string>
+			<string id="9">Leur sort est scell&#xE9;.</string>
+		</language>
+	</stringtable>
+	<stringtable name="Spells">
+		<default name="English" />
+		<language name="English">
+			<string id="1">Armor</string>
+			<string id="2">Burning Hands</string>
+			<string id="3">Detect Magic</string>
+			<string id="4">Magic Missile</string>
+		</language>
+		<language name="French">
+			<string id="1">Armure</string>
+			<string id="2">Mains brulantes</string>
+			<string id="3">Detection de la magie</string>
+			<string id="4">Missile magique</string>
+		</language>
+	</stringtable>
+	<stringtable name="generation">
+		<default name="English" />
+		<language name="Francais">
+			<string id="1">Choisissez le personnage que vous voulez creer ou voir.</string>
+		</language>
+		<language name="English">
+			<string id="1">Select the box of the character you wish to create or view.</string>
+		</language>
+	</stringtable>
+	<stringtable name="option">
+		<default name="English" />
+		<language name="Francais">
+			<string id="1">CLAVIER : </string>
+			<string id="2">LANGUE : </string>
+			<string id="3">RETOUR</string>
+		</language>
+		<language name="English">
+			<string id="1">KEYBOARD : </string>
+			<string id="2">LANGUAGE : </string>
+			<string id="3">BACK</string>
+		</language>
+	</stringtable>
+	<stringtable name="main">
+		<default name="English" />
+		<language name="Francais">
+			<string id="1">CHARGER LA PARTIE</string>
+			<string id="2">NOUVELLE PARTIE</string>
+			<string id="3">OPTIONS</string>
+			<string id="4">QUITTER</string>
+		</language>
+		<language name="English">
+			<string id="1">LOAD GAME IN PROGRESS</string>
+			<string id="2">START A NEW PARTY</string>
+			<string id="3">OPTIONS</string>
+			<string id="4">EXIT</string>
+			<string id="5">Test 1</string>
+			<string id="6">Test 2</string>
+		</language>
+	</stringtable>
+	<stringtable name="game">
+		<default name="English" />
+		<language name="Francais">
+			<string id="1">Vous ne pouvez pas aller par la.</string>
+			<string id="2">{0} pris.</string>
+		</language>
+		<language name="English">
+			<string id="1">You can't go that way !</string>
+			<string id="2">{0} taken.</string>
+		</language>
+	</stringtable>
+	<stringtable name="Camp">
+		<default name="English" />
+		<language name="English">
+			<string id="1">Rest party</string>
+			<string id="2">Memorize Spells</string>
+			<string id="3">Pray for Spells</string>
+			<string id="4">Scribe Scrolls</string>
+			<string id="5">Preferences</string>
+			<string id="6">Game Options</string>
+			<string id="7">Exit</string>
+		</language>
+		<language name="Francais">
+			<string id="1">Dormir</string>
+			<string id="2">Apprendre des sorts</string>
+			<string id="3">Meditation</string>
+			<string id="4">Ecritures</string>
+			<string id="5">Preferences</string>
+			<string id="6">Options</string>
+			<string id="7">Sortir</string>
+		</language>
+	</stringtable>
+	<stringtable name="Chargen">
+		<default name="English" />
+		<language name="English">
+			<string id="1">Select the box of<br />the character you<br />wish to create or<br />view.</string>
+			<string id="2">SELECT CLASS :</string>
+			<string id="3">FIGHTER</string>
+			<string id="4">RANGER</string>
+			<string id="5">MAGE</string>
+			<string id="6">CLERIC</string>
+			<string id="7">THIEF</string>
+			<string id="8">FIGHTER/THIEF</string>
+			<string id="9">FIGHTER/MAGE</string>
+			<string id="10">FIGHTER/MAGE/THIEF</string>
+			<string id="11">THIEF/MAGE</string>
+			<string id="12">SELECT ALIGNMENT :</string>
+			<string id="13">LAWFUL GOOD</string>
+			<string id="14">NEUTRAL GOOD</string>
+			<string id="15">CHAOTIC GOOD</string>
+			<string id="16">LAWFUL NEUTRAL</string>
+			<string id="17">TRUE NEUTRAL</string>
+			<string id="18">CHAOTIC NEUTRAL</string>
+			<string id="19">LAWFUL EVIL</string>
+			<string id="20">NEUTRAL EVIL</string>
+			<string id="21">CHAOTIC EVIL</string>
+			<string id="22">HUMAN MALE</string>
+			<string id="23">HUMAN FEMALE</string>
+			<string id="24">ELF MALE</string>
+			<string id="25">ELF FEMALE</string>
+			<string id="26">HALF-ELF MALE</string>
+			<string id="27">HALF-ELF FEMALE</string>
+			<string id="28">DWARF MALE</string>
+			<string id="29">DWARF FEMALE</string>
+			<string id="30">GNOME MALE</string>
+			<string id="31">GNOME FEMALE</string>
+			<string id="32">HALFLING MALE</string>
+			<string id="33">HALFLING FEMALE</string>
+			<string id="34">SELECT RACE:</string>
+		</language>
+		<language name="Francais">
+			<string id="1">Selectionnez le<br />personnage que<br />vous voulez editer<br />ou voir.</string>
+			<string id="2">CLASSE DU HERO :</string>
+			<string id="3">GUERRIER</string>
+			<string id="4">RANGER</string>
+			<string id="5">MAGE</string>
+			<string id="6">CLERC</string>
+			<string id="7">VOLEUR</string>
+			<string id="8">GUERRIER/VOLEUR</string>
+			<string id="9">GUERRIER/MAGE</string>
+			<string id="10">GUERRIER/MAGE/VOLEUR</string>
+			<string id="11">VOLEUR/MAGE</string>
+			<string id="12">SELECTIONNER L'ALIGNEMENT :</string>
+			<string id="13">LOYAL BON</string>
+			<string id="14">NEUTRE BON</string>
+			<string id="15">CHAOTIQUE BON</string>
+			<string id="16">LOYAL NEUTRE</string>
+			<string id="17">VRAI NEUTRE</string>
+			<string id="18">CHAOTIQUE NEUTRE</string>
+			<string id="19">LOYAL MAUVAIS</string>
+			<string id="20">NEUTRE MAUVAIS</string>
+			<string id="21">CHAOTIQUE MAUVAIS</string>
+			<string id="22">HOMME HUMAIN</string>
+			<string id="23">FEMME HUMAIN</string>
+			<string id="24">HOMME ELFE</string>
+			<string id="25">FEMME ELFE</string>
+			<string id="26">HOMME DEMI-ELFE</string>
+			<string id="27">FEMME DEMI-ELFE</string>
+			<string id="28">HOMME NAIN</string>
+			<string id="29">FEMME NAIN</string>
+			<string id="30">HOMME GNOME</string>
+			<string id="31">FEMME GNOME</string>
+			<string id="32">HOMME SEMI-HOMME</string>
+			<string id="33">FEMME SEMI-HOMME</string>
+			<string id="34">SELECTIONNER LA RACE:</string>
+		</language>
+	</stringtable>
+</bank>

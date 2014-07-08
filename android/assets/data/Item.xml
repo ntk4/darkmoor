@@ -1,0 +1,1330 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<bank>
+	<item name="boots">
+		<tile name="Items" inventory="103" ground="13" incoming="13" moveaway="13" />
+		<type value="Adornment" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Feet" />
+		<classes value="Ranger, Mage, Thief" />
+		<weight value="2000" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="Boots" />
+		<allowedhands value="Primary" />
+		<shortname />
+		<identifiedname />
+		<speed value="1000" />
+	</item>
+	<item name="short sword">
+		<tile name="Items" inventory="88" ground="2" incoming="2" moveaway="2" />
+		<type value="Weapon" />
+		<damagetype value="Pierce" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Thief" />
+		<weight value="1000" />
+		<damage throws="1" faces="6" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="19" max="20" multiplier="2" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>short sword</shortname>
+		<identifiedname>short sword</identifiedname>
+		<speed value="500" />
+	</item>
+	<item name="short bow">
+		<tile name="Items" inventory="96" ground="29" incoming="29" moveaway="29" />
+		<type value="Weapon" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="2000" />
+		<damage throws="1" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="20" max="20" multiplier="3" />
+		<script script="" interface="ShortBow" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>short bow</shortname>
+		<identifiedname>short bow</identifiedname>
+		<speed value="750" />
+	</item>
+	<item name="light steel shield">
+		<tile name="Items" inventory="104" ground="26" incoming="26" moveaway="26" />
+		<type value="Shield" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="6000" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="20" max="20" multiplier="2" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname />
+		<identifiedname />
+		<speed value="0" />
+	</item>
+	<item name="arrow">
+		<tile name="Items" inventory="38" ground="30" incoming="69" moveaway="68" />
+		<type value="Ammo" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary, Quiver" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="100" />
+		<damage throws="1" faces="3" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>Arrow</shortname>
+		<identifiedname>Arrow</identifiedname>
+		<speed value="1000" />
+	</item>
+	<item name="leather armor">
+		<tile name="Items" inventory="113" ground="5" incoming="5" moveaway="5" />
+		<type value="Armor" />
+		<damagetype value="0" />
+		<ac value="2" />
+		<slot value="Torso" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="15000" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>Leather armor</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="bracers">
+		<tile name="Items" inventory="107" ground="10" incoming="10" moveaway="10" />
+		<type value="Adornment" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Wrists" />
+		<classes value="Fighter, Paladin, Cleric" />
+		<weight value="500" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname />
+		<identifiedname />
+		<speed value="0" />
+	</item>
+	<item name="ring">
+		<tile name="Items" inventory="150" ground="6" incoming="6" moveaway="6" />
+		<type value="Adornment" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Fingers" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="100" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>ring</shortname>
+		<identifiedname>ring</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="poison ring">
+		<tile name="Items" inventory="52" ground="6" incoming="6" moveaway="6" />
+		<type value="Adornment" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Fingers" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="100" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<iscursed value="True" />
+		<canidentify value="True" />
+		<allowedhands value="Primary" />
+		<shortname>ring</shortname>
+		<identifiedname>poison ring</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="helmet">
+		<tile name="Items" inventory="102" ground="9" incoming="9" moveaway="9" />
+		<type value="Adornment" />
+		<damagetype value="0" />
+		<ac value="1" />
+		<slot value="Head" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="1000" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname />
+		<identifiedname />
+		<speed value="0" />
+	</item>
+	<item name="dart">
+		<tile name="Items" inventory="100" ground="8" incoming="71" moveaway="70" />
+		<type value="Ammo" />
+		<damagetype value="Pierce" />
+		<ac value="0" />
+		<slot value="Primary, Secondary, Belt" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="600" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="20" max="20" multiplier="2" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname />
+		<identifiedname />
+		<speed value="1000" />
+	</item>
+	<item name="necklace">
+		<tile name="Items" inventory="115" ground="32" incoming="32" moveaway="32" />
+		<type value="Adornment" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Neck" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="200" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname />
+		<identifiedname />
+		<speed value="0" />
+	</item>
+	<item name="rations">
+		<tile name="Items" inventory="50" ground="1" incoming="1" moveaway="1" />
+		<type value="Consumable" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="None" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="250" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="Items" interface="Ration" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>rations</shortname>
+		<identifiedname>rations</identifiedname>
+		<speed value="10" />
+	</item>
+	<item name="rock">
+		<tile name="Items" inventory="45" ground="17" incoming="17" moveaway="17" />
+		<type value="Ammo" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary, Belt" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="105" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>rock</shortname>
+		<identifiedname>rock</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="left hand">
+		<tile name="Items" inventory="155" ground="-1" incoming="-1" moveaway="-1" />
+		<type value="Miscellaneous" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname />
+		<identifiedname />
+		<speed value="1000" />
+	</item>
+	<item name="right hand">
+		<tile name="Items" inventory="156" ground="-1" incoming="-1" moveaway="-1" />
+		<type value="Miscellaneous" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname />
+		<identifiedname />
+		<speed value="1000" />
+	</item>
+	<item name="test item">
+		<tile name="Items" inventory="-1" ground="-1" incoming="-1" moveaway="-1" />
+		<type value="Adornment" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary, Quiver, Torso, Neck, Fingers, Feet, Head, Belt" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname />
+		<identifiedname />
+		<speed value="0" />
+	</item>
+	<item name="spell book">
+		<tile name="Items" inventory="117" ground="23" incoming="23" moveaway="23" />
+		<type value="Book" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Mage, Cleric" />
+		<weight value="0" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="0" modifier="0" />
+		<damagevssmall throws="0" faces="0" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname />
+		<identifiedname />
+		<speed value="0" />
+	</item>
+	<item name="iron ration">
+		<tile name="Items" inventory="49" ground="1" incoming="1" moveaway="1" />
+		<type value="Consumable" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="None" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="1500" />
+		<damage throws="1" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="Items" interface="IronRation" />
+		<allowedhands value="Primary" />
+		<shortname>Iron ration</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="helmet +1">
+		<tile name="Items" inventory="102" ground="9" incoming="9" moveaway="9" />
+		<type value="Adornment" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Head" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname />
+		<identifiedname />
+		<speed value="0" />
+	</item>
+	<item name="long sword +1">
+		<tile name="Items" inventory="87" ground="2" incoming="2" moveaway="2" />
+		<type value="Adornment" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname />
+		<identifiedname />
+		<speed value="0" />
+	</item>
+	<item name="shield +1">
+		<tile name="Items" inventory="105" ground="26" incoming="26" moveaway="26" />
+		<type value="Shield" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>shield</shortname>
+		<identifiedname>shield +1</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="plate mail +2">
+		<tile name="Items" inventory="111" ground="5" incoming="5" moveaway="5" />
+		<type value="Armor" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Torso" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>plate mail</shortname>
+		<identifiedname>plate mail +2</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="skull key">
+		<tile name="Items" inventory="130" ground="19" incoming="19" moveaway="19" />
+		<type value="Key" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Secondary" />
+		<shortname>skull key</shortname>
+		<identifiedname>skull key</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="short sword +1">
+		<tile name="Items" inventory="88" ground="2" incoming="2" moveaway="2" />
+		<type value="Weapon" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>short sword</shortname>
+		<identifiedname>short sword +1</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="plate mail">
+		<tile name="Items" inventory="111" ground="5" incoming="5" moveaway="5" />
+		<type value="Armor" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Torso" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>plate mail</shortname>
+		<identifiedname>plate mail</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="dagger">
+		<tile name="Items" inventory="101" ground="24" incoming="24" moveaway="24" />
+		<type value="Weapon" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname />
+		<identifiedname />
+		<speed value="0" />
+	</item>
+	<item name="rusty dagger">
+		<tile name="Items" inventory="101" ground="24" incoming="73" moveaway="72" />
+		<type value="Weapon" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>rusty dagger</shortname>
+		<identifiedname>rusty dagger</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="rotten food">
+		<tile name="Items" inventory="50" ground="1" incoming="1" moveaway="1" />
+		<type value="Consumable" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="Items" interface="RottenFood" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>rotten food</shortname>
+		<identifiedname>rotten food</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="leather armor +2">
+		<tile name="Items" inventory="113" ground="5" incoming="5" moveaway="5" />
+		<type value="Armor" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Torso" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="1500" />
+		<damage throws="1" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>Leather armor</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="femur">
+		<tile name="Items" inventory="122" ground="21" incoming="21" moveaway="21" />
+		<type value="Miscellaneous" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="0" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>Femur</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="scroll of invisibility">
+		<tile name="Items" inventory="40" ground="34" incoming="34" moveaway="34" />
+		<type value="Scroll" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>Scroll of invisibility</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="grey key">
+		<tile name="Items" inventory="126" ground="19" incoming="19" moveaway="19" />
+		<type value="Key" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="100" />
+		<damage throws="1" faces="1" modifier="1" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname />
+		<identifiedname />
+		<speed value="0" />
+	</item>
+	<item name="picklock">
+		<tile name="Items" inventory="41" ground="14" incoming="14" moveaway="14" />
+		<type value="Miscellaneous" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>Picklock</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="scroll of raise dead">
+		<tile name="Items" inventory="40" ground="34" incoming="34" moveaway="34" />
+		<type value="Scroll" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="0" />
+		<classes value="Cleric" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>Cleric Scroll of raise dead</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="parchment">
+		<tile name="Items" inventory="158" ground="34" incoming="34" moveaway="34" />
+		<type value="Scroll" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="0" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>Parchment</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="south wind">
+		<tile name="Items" inventory="62" ground="25" incoming="25" moveaway="25" />
+		<type value="Miscellaneous" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="0" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>North Wind</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="east wind">
+		<tile name="Items" inventory="62" ground="25" incoming="25" moveaway="25" />
+		<type value="Miscellaneous" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="0" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>East Wind</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="west wind">
+		<tile name="Items" inventory="62" ground="25" incoming="25" moveaway="25" />
+		<type value="Miscellaneous" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="0" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>West Wind</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="magic dust">
+		<tile name="Items" inventory="58" ground="15" incoming="15" moveaway="15" />
+		<type value="Miscellaneous" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="0" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>Magic Dust</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="copper key">
+		<tile name="Items" inventory="127" ground="19" incoming="19" moveaway="19" />
+		<type value="Key" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="1" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>Copper Key</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="scroll of blur">
+		<tile name="Items" inventory="40" ground="34" incoming="34" moveaway="34" />
+		<type value="Scroll" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="0" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>Blur scroll</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="skull">
+		<tile name="Items" inventory="162" ground="21" incoming="21" moveaway="21" />
+		<type value="Adornment" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="0" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Secondary" />
+		<shortname>skull</shortname>
+		<identifiedname>skull</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="flail">
+		<tile name="Items" inventory="91" ground="28" incoming="28" moveaway="28" />
+		<type value="Weapon" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>Flail</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="scroll of true seeing">
+		<tile name="Items" inventory="157" ground="34" incoming="34" moveaway="34" />
+		<type value="Scroll" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="0" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>Scroll of true seeing</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="scroll of neutralize poison">
+		<tile name="Items" inventory="157" ground="34" incoming="34" moveaway="4" />
+		<type value="Scroll" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="0" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>Scroll of neutralize poison</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="map of catacomb level 1">
+		<tile name="Items" inventory="158" ground="34" incoming="34" moveaway="34" />
+		<type value="Scroll" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="0" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Secondary" />
+		<shortname>Map of catacomb level 1</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="dagger +1">
+		<tile name="Items" inventory="101" ground="24" incoming="73" moveaway="72" />
+		<type value="Weapon" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="0" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Secondary" />
+		<shortname>Dagger +1</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="sling">
+		<tile name="Items" inventory="44" ground="35" incoming="35" moveaway="35" />
+		<type value="Weapon" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="Items" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>Sling</shortname>
+		<identifiedname>Sling</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="mace -2">
+		<tile name="Items" inventory="90" ground="3" incoming="3" moveaway="3" />
+		<type value="Weapon" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="1000" />
+		<damage throws="2" faces="2" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<iscursed value="True" />
+		<canidentify value="True" />
+		<isbig value="True" />
+		<allowedhands value="Secondary" />
+		<shortname>mace</shortname>
+		<identifiedname>mace -2</identifiedname>
+		<speed value="500" />
+	</item>
+	<item name="dagger -2">
+		<tile name="Items" inventory="101" ground="24" incoming="73" moveaway="72" />
+		<type value="Weapon" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="0" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<iscursed value="True" />
+		<allowedhands value="Primary" />
+		<shortname>Dagger</shortname>
+		<identifiedname>Dagger - 2</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="robe">
+		<tile name="Items" inventory="114" ground="4" incoming="4" moveaway="4" />
+		<type value="Adornment" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Torso" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>robe</shortname>
+		<identifiedname>robe</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="robe +1">
+		<tile name="Items" inventory="114" ground="4" incoming="4" moveaway="4" />
+		<type value="Adornment" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Torso" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>robe</shortname>
+		<identifiedname>robe +1</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="potion of vitality">
+		<tile name="Items" inventory="118" ground="22" incoming="22" moveaway="22" />
+		<type value="Potion" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Secondary" />
+		<shortname>Poition of vitality</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="potion of cure poison">
+		<tile name="Items" inventory="118" ground="22" incoming="22" moveaway="22" />
+		<type value="Potion" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Secondary" />
+		<shortname>Potion of cure poison</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="potion of extra healing">
+		<tile name="Items" inventory="118" ground="22" incoming="22" moveaway="22" />
+		<type value="Potion" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="250" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<isidentified value="False" />
+		<allowedhands value="Secondary" />
+		<shortname>Potion of extra healing</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="scalemail +1">
+		<tile name="Items" inventory="112" ground="5" incoming="5" moveaway="5" />
+		<type value="Armor" />
+		<damagetype value="0" />
+		<ac value="2" />
+		<slot value="Torso" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="15000" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>scalemail</shortname>
+		<identifiedname>scalemail +1</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="long sword">
+		<tile name="Items" inventory="87" ground="2" incoming="2" moveaway="2" />
+		<type value="Weapon" />
+		<damagetype value="Pierce" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Thief" />
+		<weight value="1000" />
+		<damage throws="1" faces="6" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="19" max="20" multiplier="2" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Secondary" />
+		<shortname>long sword</shortname>
+		<identifiedname>long sword</identifiedname>
+		<speed value="500" />
+	</item>
+	<item name="mage scroll of fireball">
+		<tile name="Items" inventory="157" ground="34" incoming="34" moveaway="4" />
+		<type value="Scroll" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Secondary" />
+		<shortname>mga scroll of fireball</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="shield">
+		<tile name="Items" inventory="105" ground="26" incoming="26" moveaway="26" />
+		<type value="Shield" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>shield</shortname>
+		<identifiedname>shield</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="chainmail +1">
+		<tile name="Items" inventory="111" ground="5" incoming="5" moveaway="5" />
+		<type value="Armor" />
+		<damagetype value="0" />
+		<ac value="2" />
+		<slot value="Torso" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="15000" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>chainmail</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="mage scroll of magic missile">
+		<tile name="Items" inventory="157" ground="34" incoming="34" moveaway="4" />
+		<type value="Scroll" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Secondary" />
+		<shortname>mga scroll of magic missile</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="paladin holy symbol">
+		<tile name="Items" inventory="133" ground="33" incoming="33" moveaway="33" />
+		<type value="HolySymbol" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Cleric" />
+		<weight value="0" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Secondary" />
+		<shortname>paladin holy symbol</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="mage scroll of cure serious wounds">
+		<tile name="Items" inventory="157" ground="34" incoming="34" moveaway="34" />
+		<type value="Scroll" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Secondary" />
+		<shortname>mage scroll of cure serious wounds</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="mace +1">
+		<tile name="Items" inventory="90" ground="3" incoming="3" moveaway="3" />
+		<type value="Weapon" />
+		<damagetype value="Slash, Bludge" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="1000" />
+		<damage throws="1" faces="1" modifier="1" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Secondary" />
+		<shortname>mace</shortname>
+		<identifiedname>mace +1</identifiedname>
+		<speed value="500" />
+	</item>
+	<item name="lock picks">
+		<tile name="Items" inventory="41" ground="14" incoming="14" moveaway="14" />
+		<type value="Miscellaneous" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Secondary" />
+		<shortname>lock picks</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="cleric holy symbol">
+		<tile name="Items" inventory="133" ground="33" incoming="33" moveaway="33" />
+		<type value="HolySymbol" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Cleric" />
+		<weight value="0" />
+		<damage throws="1" faces="0" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<isidentified value="False" />
+		<allowedhands value="Secondary" />
+		<shortname>cleric holy symbol</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="cleric scroll of cure serious wounds">
+		<tile name="Items" inventory="157" ground="34" incoming="34" moveaway="34" />
+		<type value="Scroll" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<isidentified value="False" />
+		<allowedhands value="Secondary" />
+		<shortname>cleric scroll of cure serious wounds</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="leather armor +1">
+		<tile name="Items" inventory="113" ground="5" incoming="5" moveaway="5" />
+		<type value="Armor" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Torso" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="1500" />
+		<damage throws="1" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>leather armor</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="long sword -3">
+		<tile name="Items" inventory="87" ground="2" incoming="2" moveaway="2" />
+		<type value="Weapon" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<iscursed value="True" />
+		<isbig value="True" />
+		<allowedhands value="Secondary" />
+		<shortname>long sword</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="north wind">
+		<tile name="Items" inventory="62" ground="25" incoming="25" moveaway="25" />
+		<type value="Miscellaneous" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="0" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="0" faces="1" modifier="0" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<allowedhands value="Primary" />
+		<shortname>North Wind</shortname>
+		<identifiedname>Is Identified</identifiedname>
+		<speed value="0" />
+	</item>
+	<item name="crimson key">
+		<tile name="Items" inventory="131" ground="19" incoming="19" moveaway="19" />
+		<type value="Key" />
+		<damagetype value="0" />
+		<ac value="0" />
+		<slot value="Primary, Secondary" />
+		<classes value="Fighter, Ranger, Paladin, Mage, Cleric, Thief" />
+		<weight value="0" />
+		<damage throws="1" faces="1" modifier="1" />
+		<damagevsbig throws="0" faces="1" modifier="0" />
+		<damagevssmall throws="0" faces="1" modifier="0" />
+		<critical min="0" max="0" multiplier="0" />
+		<script script="" interface="" />
+		<canidentify value="False" />
+		<allowedhands value="Primary" />
+		<shortname>crimson key</shortname>
+		<identifiedname>crimson key</identifiedname>
+		<speed value="0" />
+	</item>
+</bank>

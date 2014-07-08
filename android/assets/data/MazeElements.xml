@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<displaycoordinate>
+	<stair position="a"			x="32"		y="56" 		tile="25"/>
+	<stair position="a"			x="-64" 	y="56" 		tile="21"/>
+	<stair position="b"			x="32"  	y="54" 		tile="21"/>
+	<stair position="b"			x="128" 	y="56" 		tile="25"/>
+	<stair position="c"			x="128" 	y="54" 		tile="21"/>
+	<stair position="d"			x="224" 	y="54" 		tile="21"/>
+	<stair position="d"			x="208" 	y="56" 		tile="25" 		effect="FlipHorizontally"/>
+	<stair position="e"			x="320" 	y="54" 		tile="21"/>
+	<stair position="e"			x="304" 	y="56" 		tile="25"		effect="FlipHorizontally, FlipVertically"/>
+	<stair position="f"			x="0"   	y="40" 		tile="24"/>		
+	<stair position="g"			x="-64" 	y="40" 		tile="20"/>
+	<stair position="g"			x="96"  	y="40" 		tile="24"/>
+	<stair position="h"			x="96"  	y="40"		tile="20"/>
+	<stair position="i"			x="256" 	y="40" 		tile="20"/>
+	<stair position="i"			x="224" 	y="40" 		tile="24"		effect="FlipHorizontally"/>
+	<stair position="j"			x="320" 	y="40" 		tile="24"		effect="FlipHorizontally"/>
+	<stair position="k"			x="-208"	y="14"		tile="19"/>
+	<stair position="k"			x="48"  	y="14" 		tile="23"/>
+	<stair position="l"			x="48"  	y="14" 		tile="19"/>
+	<stair position="m"			x="304" 	y="14" 		tile="19"/>
+	<stair position="m"			x="256" 	y="14" 		tile="23"		effect="FlipHorizontally"/>
+	<stair position="n"			x="0"   	y="0"  		tile="22"/>
+	<stair position="o"			x="304" 	y="0"  		tile="22"		effect="FlipHorizontally"/>
+
+
+
+	<door position="a"		x="-64"		y="54"		tile="30"	/>
+	<door position="b"		x="42"		y="54"		tile="30"	/>
+	<door position="c"		x="128"		y="54"		tile="30"	/>
+	<door position="d"		x="224"		y="54"		tile="30"	/>
+	<door position="e"		x="320"		y="54"		tile="30"	/>
+	<door position="g"		x="0"		y="40"		tile="-1"	/>
+	<door position="h"		x="96"		y="40"		tile="29"	/>
+	<door position="i"		x="204"		y="40"		tile="-1"	/>
+	<door position="k"		x="-152"	y="14"		tile="-1"	/>
+	<door position="l"		x="48"		y="14"		tile="28"	/>
+	<door position="m"		x="248"		y="14"		tile="-1"	/>
+	<door position="team"	x="154"		y="0" 		tile="0"	/>
+
+
+
+	<ground position="a"		coordinate="Center"				x="0"   	y="116" />
+	<ground position="a"		coordinate="SouthEast"			x="12"   	y="116" />
+
+	<ground position="b"		coordinate="Center"				x="80"	 	y="116" />
+	<ground position="b"		coordinate="SouthWest"			x="52"  	y="116" />
+	<ground position="b"		coordinate="SouthEast"			x="104" 	y="116" />
+	
+	<ground position="c"		coordinate="NorthWest"			x="146"  	y="110" />
+	<ground position="c"		coordinate="NorthEast"			x="190" 	y="110" />
+	<ground position="c"		coordinate="Center"				x="174" 	y="116" />
+	<ground position="c"		coordinate="SouthWest"			x="146"  	y="116" />
+	<ground position="c"		coordinate="SouthEast"			x="190" 	y="116" />
+	
+	<ground position="d"		coordinate="NorthWest"			x="240" 	y="116" />
+	<ground position="d"		coordinate="NorthEast"			x="286" 	y="116" />
+	<ground position="d"		coordinate="Center"				x="240" 	y="116" />
+	<ground position="d"		coordinate="SouthWest"			x="240" 	y="116" />
+	<ground position="d"		coordinate="SouthEast"			x="286" 	y="116" />
+	
+	<ground position="e"		coordinate="NorthWest"			x="340" 	y="116" />
+	<ground position="e"		coordinate="Center"				x="340" 	y="116" />
+	<ground position="e"		coordinate="SouthWest"			x="330" 	y="116" />
+
+
+	<ground position="g"		coordinate="NorthWest"			x="30"	 	y="128" />
+	<ground position="g"		coordinate="NorthEast"			x="90"	 	y="128" />
+	<ground position="g"		coordinate="Center"				x="60"	 	y="146" />
+	<ground position="g"		coordinate="SouthWest"			x="10"	 	y="146" />
+	<ground position="g"		coordinate="SouthEast"			x="76"   	y="146" />
+	
+	<ground position="h"		coordinate="NorthWest"			x="140" 	y="128" />
+	<ground position="h"		coordinate="NorthEast"			x="196"  	y="128" />
+	<ground position="h"		coordinate="Center"				x="176"  	y="146" />
+	<ground position="h"		coordinate="SouthWest"			x="132"  	y="146"	/>
+	<ground position="h"		coordinate="SouthEast"			x="204" 	y="146" />
+
+	<ground position="i"		coordinate="NorthWest"			x="250" 	y="128" />
+	<ground position="i"		coordinate="NorthEast"			x="300" 	y="128" />
+	<ground position="i"		coordinate="Center"				x="290"		y="146"	/>
+	<ground position="i"		coordinate="SouthWest"			x="266"		y="146"	/>
+	<ground position="i"		coordinate="SouthEast"			x="320"  	y="146" />
+
+	
+	<ground position="k"		coordinate="NorthWest"			x="-50" 	y="168" />
+	<ground position="k"		coordinate="NorthEast"			x="50"  	y="168" />
+	<ground position="k"		coordinate="Center"				x="30" 		y="206" />
+	<ground position="k"		coordinate="SouthEast"			x="30" 		y="196" />
+
+	<ground position="l"		coordinate="NorthWest"			x="116" 	y="168" />
+	<ground position="l"		coordinate="NorthEast"			x="214"   	y="168" />
+	<ground position="l"		coordinate="Center"				x="184" 	y="206" />
+	<ground position="l"		coordinate="SouthWest"			x="106" 	y="196" />
+	<ground position="l"		coordinate="SouthEast"			x="234" 	y="196" />
+
+	<ground position="m"		coordinate="NorthWest"			x="280" 	y="168" />
+	<ground position="m"		coordinate="NorthEast"			x="376" 	y="168" />
+	<ground position="m"		coordinate="Center"				x="320" 	y="206" />
+	<ground position="m"		coordinate="SouthWest"			x="298" 	y="196" />
+
+	
+	<ground position="Team"		coordinate="NorthWest"			x="86" 		y="232" />
+	<ground position="Team"		coordinate="NorthEast"			x="262" 	y="232" />
+	
+	
+	<flyingitem position="b"		coordinate="SouthWest"			x="52"  	y="100" />
+	<flyingitem position="b"		coordinate="SouthEast"			x="104" 	y="100" />
+	<flyingitem position="b"		coordinate="Center"				x="78" 		y="100" />
+	<flyingitem position="c"		coordinate="SouthWest"			x="150"  	y="100" />
+	<flyingitem position="c"		coordinate="SouthEast"			x="190" 	y="100" />
+	<flyingitem position="c"		coordinate="Center"				x="170" 	y="100" />
+	<flyingitem position="d"		coordinate="SouthWest"			x="240" 	y="100" />
+	<flyingitem position="d"		coordinate="SouthEast"			x="286" 	y="100" />
+	<flyingitem position="d"		coordinate="Center"				x="260" 	y="100" />
+	<flyingitem position="g"		coordinate="NorthWest"			x="90"	 	y="100" />
+	<flyingitem position="g"		coordinate="NorthEast"			x="30"	 	y="100" />
+	<flyingitem position="g"		coordinate="SouthWest"			x="10"	 	y="100" />
+	<flyingitem position="g"		coordinate="SouthEast"			x="76"   	y="100" />
+	<flyingitem position="g"		coordinate="Center"				x="58"	 	y="100" />
+	<flyingitem position="h"		coordinate="NorthWest"			x="140" 	y="100" />
+	<flyingitem position="h"		coordinate="NorthEast"			x="196"  	y="100" />
+	<flyingitem position="h"		coordinate="SouthWest"			x="132"  	y="100"	/>
+	<flyingitem position="h"		coordinate="Center"				x="168" 	y="100" />
+	<flyingitem position="h"		coordinate="SouthEast"			x="204" 	y="100" />
+	<flyingitem position="i"		coordinate="NorthWest"			x="250" 	y="100" />
+	<flyingitem position="i"		coordinate="NorthEast"			x="300" 	y="100" />
+	<flyingitem position="i"		coordinate="SouthWest"			x="266"		y="100"	/>
+	<flyingitem position="i"		coordinate="SouthEast"			x="320"  	y="100" />
+	<flyingitem position="i"		coordinate="Center"				x="274" 	y="100" />
+	<flyingitem position="k"		coordinate="NorthEast"			x="50"  	y="100" />
+	<flyingitem position="k"		coordinate="SouthEast"			x="30" 		y="100" />
+	<flyingitem position="l"		coordinate="NorthWest"			x="116" 	y="100" />
+	<flyingitem position="l"		coordinate="NorthEast"			x="214"   	y="100" />
+	<flyingitem position="l"		coordinate="SouthWest"			x="106" 	y="100" />
+	<flyingitem position="l"		coordinate="SouthEast"			x="234" 	y="100" />
+	<flyingitem position="l"		coordinate="Center"				x="162" 	y="100" />
+	<flyingitem position="m"		coordinate="NorthWest"			x="280" 	y="100" />
+	<flyingitem position="m"		coordinate="SouthWest"			x="298" 	y="100" />
+
+	<teleporter position="a"		x="-16"		y="50"		tile="170"	/>
+	<teleporter position="b"		x="64"		y="50"		tile="170"	/>
+	<teleporter position="c"		x="144"		y="50"		tile="170"	/>
+	<teleporter position="d"		x="224"		y="50"		tile="170"	/>
+	<teleporter position="e"		x="304"		y="50"		tile="170"	/>
+	<teleporter position="g"		x="10"		y="40"		tile="170"	/>
+	<teleporter position="h"		x="128"		y="40"		tile="170"	/>
+	<teleporter position="i"		x="242"		y="40"		tile="170"	/>
+	<teleporter position="k"		x="-84"		y="20"		tile="170"	/>
+	<teleporter position="l"		x="94"		y="20"		tile="170"	/>
+	<teleporter position="m"		x="266"		y="20"		tile="170"	/>
+
+	<pit position="a"		x="-16"		y="112"		tile="4"	/>
+	<pit position="b"		x="64"		y="112"		tile="4"	/>
+	<pit position="c"		x="144"		y="112"		tile="4"	/>
+	<pit position="d"		x="224"		y="112"		tile="4"	/>
+	<pit position="e"		x="304"		y="112"		tile="4"	/>
+	<pit position="g"		x="10"		y="130"		tile="3"	/>
+	<pit position="h"		x="128"		y="130"		tile="3"	/>
+	<pit position="i"		x="242"		y="130"		tile="3"	/>
+	<pit position="k"		x="-84"		y="162"		tile="2"	/>
+	<pit position="l"		x="90"		y="162"		tile="2"	/>
+	<pit position="m"		x="266"		y="162"		tile="2"	/>
+	<pit position="team"	x="32"		y="214"		tile="1"	/>
+	
+	
+	<ceilingpit position="team"		x="38"		y="0"		tile="5" />
+	<ceilingpit position="l"		x="90"		y="20"		tile="6" />
+	<ceilingpit position="i"		x="240"		y="44"		tile="7" />
+	<ceilingpit position="c"		x="144"		y="56"		tile="8" />
+	<ceilingpit position="m"		x="286"		y="19"		tile="6" />
+	<ceilingpit position="h"		x="126"		y="43"		tile="7" />
+	<ceilingpit position="k"		x="-84"		y="19"		tile="6" />
+	<ceilingpit position="d"		x="224"		y="55"		tile="8" />
+	<ceilingpit position="b"		x="64"		y="55"		tile="8" />
+	<ceilingpit position="a"		x="0"		y="55"		tile="8" />
+	<ceilingpit position="g"		x="-40"		y="43"		tile="7" />
+	<ceilingpit position="e"		x="306"		y="55"		tile="8" />
+	
+	
+	<floorplate position="a"		x="-12"		y="114"		tile="11"	/>
+	<floorplate position="b"		x="64"		y="114"		tile="11"/>
+	<floorplate position="c"		x="158"		y="114"		tile="11"/>
+	<floorplate position="d"		x="260"		y="114"		tile="11"/>
+	<floorplate position="e"		x="338"		y="114"		tile="11"/>
+	<floorplate position="g"		x="20"		y="136"		tile="10"/>
+	<floorplate position="h"		x="142"		y="136"		tile="10"/>
+	<floorplate position="i"		x="280"		y="136"		tile="10"/>
+	<floorplate position="k"		x="-48"		y="172"		tile="9"/>
+	<floorplate position="l"		x="124"		y="172"		tile="9"/>
+	<floorplate position="m"		x="304"		y="172"		tile="9"/>
+
+	
+</displaycoordinate>
