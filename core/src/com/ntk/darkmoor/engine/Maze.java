@@ -409,8 +409,7 @@ public class Maze {
 				Vector2 size = new Vector2(Integer.parseInt(node.getAttribute("width")), Integer.parseInt(node
 						.getAttribute("height")));
 				Vector2 location = new Vector2();
-				squares = new ArrayList<List<Square>>((int) size.y);
-				// this.size = new Vector2(0,0);//force resize() to reinitialize the squares!
+				initializeSquares(size);
 				resize(size);
 
 				for (int j = 0; j < node.getChildCount(); j++) {
@@ -435,6 +434,16 @@ public class Maze {
 		}
 
 		return true;
+	}
+
+	private void initializeSquares(Vector2 size) {
+		squares = new ArrayList<List<Square>>((int) size.y);
+		for (int j = 0; j < size.y; j++) {
+			squares.add(new ArrayList<Square>((int) size.x));
+			for (int z=0;z<size.x;z++) {
+				squares.get(j).add(new Square(this));
+			}
+		}
 	}
 
 	public boolean save(XmlWriter writer) throws IOException {
