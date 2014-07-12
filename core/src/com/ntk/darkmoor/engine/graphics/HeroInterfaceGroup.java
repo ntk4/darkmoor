@@ -1,20 +1,16 @@
-package com.ntk.darkmoor;
+package com.ntk.darkmoor.engine.graphics;
+
 
 import java.util.Date;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.scenes.scene2d.Event;
-import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
-import com.badlogic.gdx.utils.Disposable;
 import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.engine.Attack;
 import com.ntk.darkmoor.engine.GameColors;
@@ -28,27 +24,25 @@ import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.resource.GraphicAssets;
 import com.ntk.darkmoor.resource.ItemAssets;
 
-public class HeroInterfaceObjects implements Disposable {
+public class HeroInterfaceGroup extends GameScreenGroup {
 
 	private static final String ATTACK_LABEL_MISS = "MISS";
 	private static final int HERO_FACE_HEIGHT = 202;
 	private static final int HERO_FACE_WIDTH = 128;
-	private static final int HERO_WINDOW_X = 736;
 	private static final int HAND_X = HERO_WINDOW_X + HERO_FACE_WIDTH + 24;
-	private static final int HERO_WINDOW_HEIGHT = 334;
-	private static final int HERO_WINDOW_WIDTH = 288;
-
-	public Stage stage;
-	public Team team;
-	public Skin uiSkin;
+	
 
 	// internal graphics cache
 
 	/** default hero heads in normal state */
-	private SpriteDrawable[] heroHeads;
-	private SpriteDrawable unconsciousHero;
-	private SpriteDrawable deadHero;
-	private SpriteDrawable emptyHandLeft, emptyHandRight, handShadow, attackHitSprite, heroHitSprite;
+	SpriteDrawable[] heroHeads;
+	SpriteDrawable unconsciousHero;
+	SpriteDrawable deadHero;
+	SpriteDrawable emptyHandLeft;
+	SpriteDrawable emptyHandRight;
+	SpriteDrawable handShadow;
+	SpriteDrawable attackHitSprite;
+	private SpriteDrawable heroHitSprite;
 
 	// Scene2d Actors
 	public Image[] heads, heroHitImages;
@@ -63,14 +57,9 @@ public class HeroInterfaceObjects implements Disposable {
 
 	// temporary objects
 	private Hero heroToSwap;
-	private Date now;
-
-	/**
-	 * Initializes the structures needed for the hero windows. Has to be called when initializing the game screen and
-	 * not on every frame. On every frame call updateHeroes()
-	 * 
-	 */
-	public void initializeHeroRectangles() {
+	
+	@Override
+	public void initialize() {
 		// Hero heads
 		// don't initialize to current (e.g. 4 heroes) but to max in order to avoid resizing
 		heads = new Image[Team.MAX_HEROES];
@@ -86,7 +75,7 @@ public class HeroInterfaceObjects implements Disposable {
 		leftHandAttackLabels = new Label[Team.MAX_HEROES];
 		heroHitImages = new Image[Team.MAX_HEROES];
 		heroHitLabels = new Label[Team.MAX_HEROES];
-
+	
 		unconsciousHero = new SpriteDrawable(GraphicAssets.getDefault().getTextureSet("heads").getSprite(2));
 		deadHero = new SpriteDrawable(GraphicAssets.getDefault().getTextureSet("heads").getSprite(4));
 		emptyHandRight = new SpriteDrawable(GraphicAssets.getDefault().getTextureSet("items")
@@ -96,17 +85,17 @@ public class HeroInterfaceObjects implements Disposable {
 		handShadow = new SpriteDrawable(GraphicAssets.getDefault().getTextureSet("interface").getSprite(3));
 		heroHitSprite = new SpriteDrawable(GraphicAssets.getDefault().getTextureSet("interface").getSprite(20));
 		attackHitSprite = new SpriteDrawable(GraphicAssets.getDefault().getTextureSet("interface").getSprite(21));
-
+	
 		for (int y = 0; y < 3; y++) {
 			for (int x = 0; x < 2; x++) {
-
+	
 				initializeHero(x, y);
-
+	
 			}
 		}
 	}
-
-	private void initializeHero(int x, int y) {
+	
+	void initializeHero(int x, int y) {
 		int index = getHeroIndexInArrays(x, y);
 		if (index > team.getHeroCount())
 			return;
@@ -129,25 +118,26 @@ public class HeroInterfaceObjects implements Disposable {
 	 * that all the structures have already been initialized with a call to initializeHeroRectangles, otherwise will
 	 * throw exception.
 	 */
-	public void updateHeroes() {
+	@Override
+	public void update() {
 		now = new Date(); // TODO: check for unnecessary memory consumption here!
-
+	
 		for (int y = 0; y < 3; y++) {
 			for (int x = 0; x < 2; x++) {
-
+	
 				int index = getHeroIndexInArrays(x, y);
-
+	
 				if (index > team.getHeroCount())
 					continue;
 				if (team.getHeroes()[index] == null)
 					continue;
-
+	
 				updateHero(index);
-
+	
 			}
 		}
 	}
-
+	
 	private Hero updateHero(int index) {
 		Hero hero = team.getHeroes()[index];
 		if (hero == null)
@@ -174,26 +164,26 @@ public class HeroInterfaceObjects implements Disposable {
 		heads[index].setPosition(HERO_WINDOW_X + HERO_WINDOW_WIDTH * x, 1024 - (y * HERO_WINDOW_HEIGHT + 18));
 		heads[index].setSize(HERO_FACE_WIDTH, HERO_FACE_HEIGHT);
 
-		stage.addActor(heads[index]);
+		addActor(heads[index]);
 
 		heroHitImages[index] = new Image(heroHitSprite);
 		heroHitImages[index].setPosition(HERO_WINDOW_X + HERO_WINDOW_WIDTH * x, 1024 - (y * HERO_WINDOW_HEIGHT + 18));
 		heroHitImages[index].setSize(HERO_FACE_WIDTH, HERO_FACE_HEIGHT);
 		heroHitImages[index].setVisible(false);
-		stage.addActor(heroHitImages[index]);
+		addActor(heroHitImages[index]);
 
 		heroHitLabels[index] = new Label("", uiSkin, "gameFont48", GameColors.White);
 		heroHitLabels[index].setPosition(HERO_WINDOW_X + HERO_WINDOW_WIDTH * x, 1024 - (y * HERO_WINDOW_HEIGHT + 18));
 		heroHitLabels[index].setSize(HERO_FACE_WIDTH, HERO_FACE_HEIGHT);
 		heroHitLabels[index].setVisible(false);
-		stage.addActor(heroHitLabels[index]);
+		addActor(heroHitLabels[index]);
 	}
 
 	private void initializeName(int x, int y, int index) {
 		// Names
 		heroNameLabels[index] = new Label(team.getHeroes()[index].getName(), uiSkin, "gameFont48", GameColors.Black);
 		heroNameLabels[index].setPosition(HERO_WINDOW_X + 4 + HERO_WINDOW_WIDTH * y, 1210 - (x * HERO_WINDOW_HEIGHT));
-		stage.addActor(heroNameLabels[index]);
+		addActor(heroNameLabels[index]);
 	}
 
 	private void initializeHitPoints(int x, int y, int index, Hero hero) {
@@ -201,7 +191,7 @@ public class HeroInterfaceObjects implements Disposable {
 		heroHitPointLabels[index] = new Label(team.getHeroes()[index].getName(), uiSkin, "gameFont48", GameColors.Black);
 		heroHitPointLabels[index]
 				.setPosition(HERO_WINDOW_X + 4 + HERO_WINDOW_WIDTH * y, 948 - (x * HERO_WINDOW_HEIGHT));
-		stage.addActor(heroHitPointLabels[index]);
+		addActor(heroHitPointLabels[index]);
 
 		heroHitPointProgressBars[index] = new ProgressBar(hero.getHitPoint().getCurrent(), hero.getHitPoint().getMax(),
 				1, false, uiSkin); // TODO: ntk: regenerate progress bar when a hero gains additional HP!
@@ -209,7 +199,7 @@ public class HeroInterfaceObjects implements Disposable {
 				948 - (x * HERO_WINDOW_HEIGHT));
 		heroHitPointProgressBars[index].setHeight(60);
 		heroHitPointProgressBars[index].setWidth(240);
-		stage.addActor(heroHitPointProgressBars[index]);
+		addActor(heroHitPointProgressBars[index]);
 	}
 
 	private void initializeHands(int x, int y, int index, final Hero hero) {
@@ -229,7 +219,7 @@ public class HeroInterfaceObjects implements Disposable {
 	        }
 
 	    });
-		stage.addActor(rightHands[index]);
+		addActor(rightHands[index]);
 
 		final Item item2 = hero.getInventoryItem(InventoryPosition.Secondary);
 		leftHands[index] = new Image(item2 == null ? emptyHandLeft : new SpriteDrawable(GraphicAssets.getDefault()
@@ -245,36 +235,36 @@ public class HeroInterfaceObjects implements Disposable {
 	        }
 
 	    });
-		stage.addActor(leftHands[index]);
+		addActor(leftHands[index]);
 
 		// Hand shadows
 		rightHandShadows[index] = new Image(handShadow);
 		rightHandShadows[index].setPosition(HAND_X + HERO_WINDOW_WIDTH * x, 1110 - (y * HERO_WINDOW_HEIGHT));
 		rightHandShadows[index].setSize(64, 96);
 		rightHandShadows[index].setVisible(false); // invisible by default
-		stage.addActor(rightHandShadows[index]);
+		addActor(rightHandShadows[index]);
 
 		leftHandShadows[index] = new Image(handShadow);
 		leftHandShadows[index].setPosition(HAND_X + HERO_WINDOW_WIDTH * x, 1012 - (y * HERO_WINDOW_HEIGHT));
 		leftHandShadows[index].setSize(64, 96);
 		leftHandShadows[index].setVisible(false); // invisible by default
-		stage.addActor(leftHandShadows[index]);
+		addActor(leftHandShadows[index]);
 
 		// Attack labels
 		rightHandAttackLabels[index] = new Label(ATTACK_LABEL_MISS, uiSkin, "gameFont48", GameColors.White);
 		rightHandAttackLabels[index].setPosition(HAND_X + HERO_WINDOW_WIDTH * x, 1110 - (y * HERO_WINDOW_HEIGHT));
 		rightHandAttackLabels[index].setSize(64, 96);
 		rightHandAttackLabels[index].setVisible(false); // invisible by default
-		stage.addActor(rightHandAttackLabels[index]);
+		addActor(rightHandAttackLabels[index]);
 
 		leftHandAttackLabels[index] = new Label(ATTACK_LABEL_MISS, uiSkin, "gameFont48", GameColors.White);
 		leftHandAttackLabels[index].setPosition(HAND_X + HERO_WINDOW_WIDTH * x, 1012 - (y * HERO_WINDOW_HEIGHT));
 		leftHandAttackLabels[index].setSize(64, 96);
 		leftHandAttackLabels[index].setVisible(false); // invisible by default
-		stage.addActor(leftHandAttackLabels[index]);
+		addActor(leftHandAttackLabels[index]);
 	}
 
-	private int getHeroIndexInArrays(int x, int y) {
+	int getHeroIndexInArrays(int x, int y) {
 		return y * 2 + x;
 	}
 
@@ -390,7 +380,7 @@ public class HeroInterfaceObjects implements Disposable {
 			heroHitPointLabels[index].setVisible(true);
 		}
 	}
-
+	
 	@Override
 	public void dispose() {
 		heads = null;

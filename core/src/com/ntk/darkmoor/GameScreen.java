@@ -18,10 +18,17 @@ import com.ntk.darkmoor.engine.GameMessage;
 import com.ntk.darkmoor.engine.ScriptedDialog;
 import com.ntk.darkmoor.engine.SpellBook;
 import com.ntk.darkmoor.engine.Team;
+import com.ntk.darkmoor.engine.graphics.GameScreenGroup;
+import com.ntk.darkmoor.engine.graphics.HeroInterfaceGroup;
+import com.ntk.darkmoor.engine.graphics.InventoryGroup;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
 
 public class GameScreen extends GameScreenBase {
+
+	public enum TeamInterface {
+		Main, Inventory, Statistic
+	}
 
 	private static Dungeon dungeon;
 	private static Team team;
@@ -32,7 +39,9 @@ public class GameScreen extends GameScreenBase {
 	private BitmapFont outlinedFont;
 	private ScriptedDialog dialog;
 
-	private HeroInterfaceObjects heroInterfaceObjects;
+	// parts of the screen as scene2d actors
+	private GameScreenGroup heroInterfaceGroup;
+	private InventoryGroup inventoryGroup;
 
 	public GameScreen(Game game) {
 		super(game);
@@ -126,11 +135,18 @@ public class GameScreen extends GameScreenBase {
 	}
 
 	private void initScreenObjects() {
-		heroInterfaceObjects = new HeroInterfaceObjects();
-		heroInterfaceObjects.team = GameScreen.team;
-		heroInterfaceObjects.stage = stage;
-		heroInterfaceObjects.uiSkin = uiSkin;
-		heroInterfaceObjects.initializeHeroRectangles();
+		heroInterfaceGroup = new HeroInterfaceGroup();
+		heroInterfaceGroup.team = GameScreen.team;
+		heroInterfaceGroup.uiSkin = uiSkin;
+		heroInterfaceGroup.initialize();
+		stage.addActor(heroInterfaceGroup);
+		
+		inventoryGroup = new InventoryGroup();
+		inventoryGroup.team = GameScreen.team;
+		inventoryGroup.uiSkin = uiSkin;
+		inventoryGroup.initialize();
+		stage.addActor(inventoryGroup);
+		
 	}
 
 	public boolean loadGameSlot(int slotid) {
@@ -162,7 +178,7 @@ public class GameScreen extends GameScreenBase {
 		team.init();
 
 		initScreenObjects();
-		
+
 		GameMessage.addMessage("Party loaded...", GameColors.Yellow);
 		return true;
 	}
@@ -219,6 +235,6 @@ public class GameScreen extends GameScreenBase {
 	public void update(float delta, boolean hasFocus, boolean isCovered) {
 		super.update(delta, hasFocus, isCovered);
 
-		heroInterfaceObjects.updateHeroes();
+		heroInterfaceGroup.update();
 	}
 }
