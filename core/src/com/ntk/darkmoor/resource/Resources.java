@@ -230,7 +230,7 @@ public class Resources {
 		return getResourcePath() + "savegame.xml";
 	}
 
-	public static Dungeon createDungeonResource(String dungeonName) {
+	public static Dungeon createDungeonResource(String dungeonName, String mazeName) {
 		Element root = ResourceUtility.extractRootElement(getResourcePath() + "Dungeon.xml");
 		if (root == null) {
 			throw new ResourceException("The dungeon file Dungeon.xml could not be read");
@@ -239,7 +239,7 @@ public class Resources {
 		for (Element element : root.getChildrenByName("dungeon")) {
 			if (dungeonName.equalsIgnoreCase(element.getAttribute("name"))) {
 				Dungeon dungeon = new Dungeon();
-				if (!dungeon.load(element))
+				if (!dungeon.load(element, mazeName))
 					throw new LoadException("Could not load dungeon: " + dungeonName);
 
 				return dungeon;

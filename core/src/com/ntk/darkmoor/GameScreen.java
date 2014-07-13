@@ -169,21 +169,16 @@ public class GameScreen extends GameScreenBase {
 		if (dungeon != null)
 			dungeon.dispose();
 
-		// If Shift key is down, create a new dungeon (DEBUG)
-		if (slot.getDungeon() == null || Gdx.input.isKeyPressed(Keys.SHIFT_RIGHT))
-			dungeon = Resources.createDungeonResource(game.getSavedGame().getDungeonName());
-		else {
-			dungeon = new Dungeon();
-			dungeon.load(slot.getDungeon());
-		}
-		dungeon.init();
-
 		// Load team
 		if (team != null)
 			team.dispose();
 		else
 			team = new Team();
 		team.load(slot.getTeam());
+
+		dungeon = Resources.createDungeonResource(game.getSavedGame().getDungeonName(), team.getLocation().getMaze());
+		dungeon.init();
+
 		team.init();
 
 		newGame(team);
@@ -247,20 +242,20 @@ public class GameScreen extends GameScreenBase {
 			mazeGroup.update();
 
 		if (interfaceType == TeamInterface.Main) {
-			
+
 			heroInterfaceGroup.setVisible(true);
 			inventoryGroup.setVisible(false);
 			statisticsGroup.setVisible(false);
 			heroInterfaceGroup.update();
-			
+
 		} else if (interfaceType == TeamInterface.Inventory) {
 			heroInterfaceGroup.setVisible(false);
 			inventoryGroup.setVisible(true);
 			statisticsGroup.setVisible(false);
 			inventoryGroup.update();
-			
+
 		} else if (interfaceType == TeamInterface.Statistic) {
-			
+
 			heroInterfaceGroup.setVisible(false);
 			inventoryGroup.setVisible(false);
 			statisticsGroup.setVisible(true);

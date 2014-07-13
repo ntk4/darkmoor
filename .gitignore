@@ -62,3 +62,11 @@ nb-configuration.xml
 
 .gradle
 build/
+Dungeon.xml
+TextureSet.xml
+dungeon.ogg
+Dalelands Italic.ttf
+IceCaps.ttf
+main.ogg
+gdx-freetype.jar
+gdx-freetype-natives.jar

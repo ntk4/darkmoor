@@ -36,7 +36,7 @@ public class SaveLoadGameTest extends BaseTestCase {
 		
 		Team team = new Team();
 		assertEquals(true, team.load(save.getSlot(0).getTeam()));
-		Dungeon dungeon = Resources.createDungeonResource(save.getDungeonName());
+		Dungeon dungeon = Resources.createDungeonResource(save.getDungeonName(), "Temple_01");
 		assertNotNull(dungeon);
 	}
 

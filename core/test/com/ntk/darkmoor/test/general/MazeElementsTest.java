@@ -32,7 +32,7 @@ public class MazeElementsTest extends BaseTestCase {
 		
 		testLoadMazeElements();
 		
-		Dungeon dungeon = Resources.createDungeonResource("EOB_2");
+		Dungeon dungeon = Resources.createDungeonResource("EOB_2", "Temple_01");
 		assertNotNull(dungeon);
 		assertTrue(dungeon.init());
 	}

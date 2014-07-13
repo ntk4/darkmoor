@@ -80,7 +80,12 @@ public class Dungeon {
 		disposed = true;
 	}
 
-	public boolean load(XmlReader.Element xml) {
+	public boolean load(XmlReader.Element xml, String mazeName) {
+		Maze maze = mazes.get(mazeName);
+		if (maze != null) {
+			return true;
+		}
+		
 		if (xml == null || !StringUtils.equals(xml.getName(), TAG)) {
 			Log.error("[Dungeon] expecting \"" + TAG + "\" in node header, found \"" + xml.getName()
 					+ "\" when loading Dungeon.");
@@ -96,15 +101,19 @@ public class Dungeon {
 			child = xml.getChild(i);
 			name = child.getName();
 
+			
+			
 			if ("items".equalsIgnoreCase(name)) {
 				itemTextureSetName = child.getAttribute("tileset");
 
 			} else if (Maze.TAG.equalsIgnoreCase(name)) {
 				String nameAttr = child.getAttribute("name");
-				Maze maze = new Maze(this);
-				maze.setName(nameAttr);
-				mazes.put(nameAttr, maze);
-				maze.load(child);
+				if (mazeName.equalsIgnoreCase(nameAttr)) {
+					maze = new Maze(this);
+					maze.setName(nameAttr);
+					mazes.put(nameAttr, maze);
+					maze.load(child);
+				}
 
 			} else if ("start".equalsIgnoreCase(child.getName())) {
 				startLocation = new DungeonLocation(child);
