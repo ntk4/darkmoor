@@ -2,8 +2,7 @@ package com.ntk.darkmoor.engine;
 
 import com.badlogic.gdx.math.Rectangle;
 
-public class InterfaceCoordinates
-{
+public class InterfaceCoordinates {
 
 	// Main window
 
@@ -114,7 +113,7 @@ public class InterfaceCoordinates
 	static public Rectangle PreviousHero = new Rectangle(546, 68, 40, 30);
 
 	static public Rectangle NextHero = new Rectangle(592, 68, 40, 30);
-	
+
 	static public Rectangle Quiver = new Rectangle(446, 108, 36, 36);
 
 	static public Rectangle Armor = new Rectangle(444, 148, 36, 36);

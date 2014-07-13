@@ -21,6 +21,8 @@ import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.graphics.GameScreenGroup;
 import com.ntk.darkmoor.engine.graphics.HeroInterfaceGroup;
 import com.ntk.darkmoor.engine.graphics.InventoryGroup;
+import com.ntk.darkmoor.engine.graphics.MazeGroup;
+import com.ntk.darkmoor.engine.graphics.StatisticsGroup;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
 
@@ -39,9 +41,13 @@ public class GameScreen extends GameScreenBase {
 	private BitmapFont outlinedFont;
 	private ScriptedDialog dialog;
 
+	private TeamInterface interfaceType;
+
 	// parts of the screen as scene2d actors
 	private GameScreenGroup heroInterfaceGroup;
 	private InventoryGroup inventoryGroup;
+	private MazeGroup mazeGroup;
+	private StatisticsGroup statisticsGroup;
 
 	public GameScreen(Game game) {
 		super(game);
@@ -88,18 +94,6 @@ public class GameScreen extends GameScreenBase {
 		return image;
 	}
 
-	public static Team getTeam() {
-		return team;
-	}
-
-	public static Dungeon getDungeon() {
-		return dungeon;
-	}
-
-	protected static void setDungeon(Dungeon dungeon) {
-		GameScreen.dungeon = dungeon;
-	}
-
 	@Override
 	public void unloadContent() {
 		Log.debug("[team] : UnloadContent");
@@ -135,18 +129,33 @@ public class GameScreen extends GameScreenBase {
 	}
 
 	private void initScreenObjects() {
+
+		interfaceType = TeamInterface.Main;
+
+		mazeGroup = new MazeGroup();
+		mazeGroup.team = GameScreen.team;
+		mazeGroup.uiSkin = uiSkin;
+		mazeGroup.initialize();
+		stage.addActor(mazeGroup);
+
 		heroInterfaceGroup = new HeroInterfaceGroup();
 		heroInterfaceGroup.team = GameScreen.team;
 		heroInterfaceGroup.uiSkin = uiSkin;
 		heroInterfaceGroup.initialize();
 		stage.addActor(heroInterfaceGroup);
-		
+
 		inventoryGroup = new InventoryGroup();
 		inventoryGroup.team = GameScreen.team;
 		inventoryGroup.uiSkin = uiSkin;
 		inventoryGroup.initialize();
 		stage.addActor(inventoryGroup);
-		
+
+		statisticsGroup = new StatisticsGroup();
+		statisticsGroup.team = GameScreen.team;
+		statisticsGroup.uiSkin = uiSkin;
+		statisticsGroup.initialize();
+		stage.addActor(statisticsGroup);
+
 	}
 
 	public boolean loadGameSlot(int slotid) {
@@ -177,7 +186,7 @@ public class GameScreen extends GameScreenBase {
 		team.load(slot.getTeam());
 		team.init();
 
-		initScreenObjects();
+		newGame(team);
 
 		GameMessage.addMessage("Party loaded...", GameColors.Yellow);
 		return true;
@@ -227,14 +236,47 @@ public class GameScreen extends GameScreenBase {
 	}
 
 	public void newGame(Team gsteam) {
-		// TODO Auto-generated method stub
-
+		initScreenObjects();
 	}
 
 	@Override
 	public void update(float delta, boolean hasFocus, boolean isCovered) {
 		super.update(delta, hasFocus, isCovered);
 
-		heroInterfaceGroup.update();
+		if (team.getMaze() != null)
+			mazeGroup.update();
+
+		if (interfaceType == TeamInterface.Main) {
+			
+			heroInterfaceGroup.setVisible(true);
+			inventoryGroup.setVisible(false);
+			statisticsGroup.setVisible(false);
+			heroInterfaceGroup.update();
+			
+		} else if (interfaceType == TeamInterface.Inventory) {
+			heroInterfaceGroup.setVisible(false);
+			inventoryGroup.setVisible(true);
+			statisticsGroup.setVisible(false);
+			inventoryGroup.update();
+			
+		} else if (interfaceType == TeamInterface.Statistic) {
+			
+			heroInterfaceGroup.setVisible(false);
+			inventoryGroup.setVisible(false);
+			statisticsGroup.setVisible(true);
+			statisticsGroup.update();
+		}
+	}
+
+	public static Team getTeam() {
+		return team;
+	}
+
+	public static Dungeon getDungeon() {
+		return dungeon;
+	}
+
+	protected static void setDungeon(Dungeon dungeon) {
+		GameScreen.dungeon = dungeon;
 	}
 }

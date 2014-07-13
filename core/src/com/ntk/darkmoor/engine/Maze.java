@@ -440,7 +440,7 @@ public class Maze {
 		squares = new ArrayList<List<Square>>((int) size.y);
 		for (int j = 0; j < size.y; j++) {
 			squares.add(new ArrayList<Square>((int) size.x));
-			for (int z=0;z<size.x;z++) {
+			for (int z = 0; z < size.x; z++) {
 				squares.get(j).add(new Square(this));
 			}
 		}
@@ -507,7 +507,6 @@ public class Maze {
 		boolean flipbackdrop = ((int) (location.getCoordinates().x + location.getCoordinates().y + location
 				.getDirection().value()) & 1) == 0;
 		SpriteEffects effect = flipbackdrop ? SpriteEffects.FLIP_HORIZONTALLY : SpriteEffects.NONE;
-
 		// TODO: ntk: draw the texture
 		// batch.drawTile(wallTileset, 0, new Vector2(), Color.WHITE, 0.0f, effect, 0.0f);
 

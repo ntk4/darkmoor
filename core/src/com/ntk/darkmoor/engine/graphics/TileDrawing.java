@@ -3,20 +3,17 @@ package com.ntk.darkmoor.engine.graphics;
 import com.badlogic.gdx.math.Vector2;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 
-public class TileDrawing
-{
+public class TileDrawing {
 	private int ID;
 	private Vector2 location;
 	public SpriteEffects effect;
 	public CardinalPoint side;
-	
-	public TileDrawing(int id, Vector2 location, CardinalPoint side)
-	{
+
+	public TileDrawing(int id, Vector2 location, CardinalPoint side) {
 		this(id, location, side, SpriteEffects.NONE);
 	}
 
-	public TileDrawing(int id, Vector2 location, CardinalPoint side, SpriteEffects effect)
-	{
+	public TileDrawing(int id, Vector2 location, CardinalPoint side, SpriteEffects effect) {
 		this.ID = id;
 		this.location = location;
 		this.effect = effect;
