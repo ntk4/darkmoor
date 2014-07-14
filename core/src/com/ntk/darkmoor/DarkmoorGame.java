@@ -9,13 +9,16 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.ntk.darkmoor.config.SaveGame;
 import com.ntk.darkmoor.config.Settings;
+import com.ntk.darkmoor.engine.Dungeon;
 import com.ntk.darkmoor.resource.Resources;
 
 public class DarkmoorGame extends Game {
+	private static final int MAX_THREADS = 4;
 	public static final int GAME_HEIGHT = 400;
 	public static final int GAME_WIDTH = 640;
 
@@ -34,6 +37,7 @@ public class DarkmoorGame extends Game {
 	private Music theme;
 
 	public SaveGame savedGame;
+	
 
 	@Override
 	public void create() {
@@ -47,8 +51,7 @@ public class DarkmoorGame extends Game {
 
 		viewport = new FitViewport(DISPLAY_WIDTH, DISPLAY_HEIGHT);
 		setScreen(getMainMenu());
-
-		initMusic();
+//		initMusic();
 	}
 
 	private void initMusic() {
@@ -129,7 +132,7 @@ public class DarkmoorGame extends Game {
 		if (mainMenu != null)
 			mainMenu.dispose();
 		stopMusic();
-		theme.dispose();
+//		theme.dispose();
 		batch.dispose();
 
 		Resources.unloadResources();
@@ -173,6 +176,10 @@ public class DarkmoorGame extends Game {
 			return false;
 		getGameScreen().loadGameSlot(selectedSlot);
 		return true;
+	}
+	
+	public void submitTask(Timer.Task task) {
+		Timer.schedule(task, 0);
 	}
 
 	public GameScreen getGameScreen() {

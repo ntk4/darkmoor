@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.utils.XmlReader.Element;
+import com.ntk.darkmoor.DarkmoorGame;
 import com.ntk.darkmoor.config.LanguagesManager;
 import com.ntk.darkmoor.engine.DecorationSet;
 import com.ntk.darkmoor.engine.Dungeon;
@@ -20,17 +21,19 @@ import com.ntk.darkmoor.exception.ResourceException;
 public class Resources {
 
 	private static final String DEVILSUMMONEREXPAND_TTF = "devilsummonerexpand.ttf";
-	private static final String DALELANDS_ITALIC_TTF = "Dalelands Italic.ttf";
+	// private static final String DALELANDS_ITALIC_TTF = "Dalelands Italic.ttf";
 	private static final String IN_GAME_FONT_TTF = "tahoma.ttf";
-	
+
 	private static String resourcePath = "data/";
 	public static final String TEXTURE_SET_FILE = "TextureSet.xml";
-//	public static final String FONT_FILE = "fonts/font1.fnt";
-//	public static final String FONT_IMAGE_FILE = "fonts/font1.png";
+	// public static final String FONT_FILE = "fonts/font1.fnt";
+	// public static final String FONT_IMAGE_FILE = "fonts/font1.png";
 	private static final String FONT_PATH = getResourcePath() + "fonts/";
 	private static BitmapFont font48, font64, gameFont48;
 
 	private static AssetManager assetManager;
+
+	private static Dungeon dungeon;
 
 	public static <T> T createAsset(Class<T> class1, String name) {
 
@@ -96,16 +99,16 @@ public class Resources {
 
 	public static void loadGameStartupResources() {
 		assetManager = new AssetManager();
-		
+
 		LanguagesManager.getInstance(getStringTableFile());
 
 		// TextureParameter param = new TextureParameter();
 		// param.minFilter = TextureFilter.Linear;
 		// param.genMipMaps = true;Gdx.files.internal(getResourcePath() + "chargen.png").exists()
 		// param.magFilter = TextureFilter.
-//		getAssetManager().load(getResourcePath() + FONT_FILE, BitmapFont.class);
+		// getAssetManager().load(getResourcePath() + FONT_FILE, BitmapFont.class);
 		// getAssetManager().load(getResourcePath() + "chargen.png", Texture.class);
-		getAssetManager().load(getResourcePath() + "items.png", Texture.class);
+
 		getAssetManager().load(getResourcePath() + "mainmenu.png", Texture.class);
 		initFonts();
 		getAssetManager().finishLoading();
@@ -121,10 +124,8 @@ public class Resources {
 
 			parameter.size = 64;
 			font64 = gen.generateFont(parameter);
-			
-			
-			gen = new FreeTypeFontGenerator(Gdx.files.internal(FONT_PATH
-					+ IN_GAME_FONT_TTF));
+
+			gen = new FreeTypeFontGenerator(Gdx.files.internal(FONT_PATH + IN_GAME_FONT_TTF));
 			parameter = new FreeTypeFontParameter();
 			parameter.size = 48;
 			gameFont48 = gen.generateFont(parameter);
@@ -136,23 +137,9 @@ public class Resources {
 	}
 
 	public static void loadResources() {
-		LanguagesManager.getInstance(getStringTableFile());
-
-		// TextureParameter param = new TextureParameter();
-		// param.minFilter = TextureFilter.Linear;
-		// param.genMipMaps = true;Gdx.files.internal(getResourcePath() + "chargen.png").exists()
-		// param.magFilter = TextureFilter.
-		// getAssetManager().load(getResourcePath() + FONT_FILE, BitmapFont.class);
-		getAssetManager().load(getResourcePath() + "Heads.png", Texture.class);
-		getAssetManager().load(getResourcePath() + "interface.png", Texture.class);
-		getAssetManager().load(getResourcePath() + "wall-forest.png", Texture.class);
-		getAssetManager().load(getResourcePath() + "wall-temple.png", Texture.class);
-		getAssetManager().load(getResourcePath() + "wall-catacomb.png", Texture.class);
-		getAssetManager().load(getResourcePath() + "Decoration-Forest.png", Texture.class);
-		getAssetManager().load(getResourcePath() + "Decoration-Temple.png", Texture.class);
-		getAssetManager().load(getResourcePath() + "Decoration-Catacomb.png", Texture.class);
-		getAssetManager().load(getResourcePath() + "Doors_new.png", Texture.class);
-		getAssetManager().finishLoading();
+		DarkmoorGame.getInstance().submitTask(
+				new AssetLoadingTask(assetManager, getResourcePath(), DarkmoorGame.getInstance().getSavedGame()
+						.getDungeonName()));
 	}
 
 	public static void unloadResources() {
@@ -209,13 +196,13 @@ public class Resources {
 		return resourcePath + TEXTURE_SET_FILE;
 	}
 
-//	public static String getFontFile() {
-//		return resourcePath + FONT_FILE;
-//	}
-//
-//	public static String getFontImageFile() {
-//		return resourcePath + FONT_IMAGE_FILE;
-//	}
+	// public static String getFontFile() {
+	// return resourcePath + FONT_FILE;
+	// }
+	//
+	// public static String getFontImageFile() {
+	// return resourcePath + FONT_IMAGE_FILE;
+	// }
 
 	/**
 	 * The setter is useful for tests
@@ -231,6 +218,9 @@ public class Resources {
 	}
 
 	public static Dungeon createDungeonResource(String dungeonName, String mazeName) {
+		if (getDungeon() != null)
+			return getDungeon();
+
 		Element root = ResourceUtility.extractRootElement(getResourcePath() + "Dungeon.xml");
 		if (root == null) {
 			throw new ResourceException("The dungeon file Dungeon.xml could not be read");
@@ -258,6 +248,14 @@ public class Resources {
 
 	public static DecorationSet createDecorationSetAsset(String decorationName) {
 		return DecorationAssets.getAssets().getDecorationSet(decorationName);
+	}
+
+	public static void setDungeon(Dungeon dungeon) {
+		Resources.dungeon = dungeon;
+	}
+
+	public static Dungeon getDungeon() {
+		return dungeon;
 	}
 
 }

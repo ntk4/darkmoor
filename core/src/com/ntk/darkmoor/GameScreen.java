@@ -169,15 +169,14 @@ public class GameScreen extends GameScreenBase {
 		if (dungeon != null)
 			dungeon.dispose();
 
+		dungeon = Resources.getDungeon();
+		
 		// Load team
 		if (team != null)
 			team.dispose();
 		else
 			team = new Team();
 		team.load(slot.getTeam());
-
-		dungeon = Resources.createDungeonResource(game.getSavedGame().getDungeonName(), team.getLocation().getMaze());
-		dungeon.init();
 
 		team.init();
 

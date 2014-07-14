@@ -81,9 +81,11 @@ public class Dungeon {
 	}
 
 	public boolean load(XmlReader.Element xml, String mazeName) {
-		Maze maze = mazes.get(mazeName);
-		if (maze != null) {
-			return true;
+		if (!StringUtils.isEmpty(mazeName)) {
+			Maze maze = mazes.get(mazeName);
+			if (maze != null) {
+				return true;
+			}
 		}
 		
 		if (xml == null || !StringUtils.equals(xml.getName(), TAG)) {
@@ -108,8 +110,8 @@ public class Dungeon {
 
 			} else if (Maze.TAG.equalsIgnoreCase(name)) {
 				String nameAttr = child.getAttribute("name");
-				if (mazeName.equalsIgnoreCase(nameAttr)) {
-					maze = new Maze(this);
+				if (mazeName == null || mazeName.equalsIgnoreCase(nameAttr)) {
+					Maze maze = new Maze(this);
 					maze.setName(nameAttr);
 					mazes.put(nameAttr, maze);
 					maze.load(child);
