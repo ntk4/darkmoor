@@ -77,7 +77,7 @@ public class LoadGameWindow extends BaseWindow {
 
 	protected boolean slotSelected(int slotNumber, Event event) {
 		selectedSlot = slotNumber;
-
+		this.close();
 		// If ingame, then load the savegame
 		if (parent.getGame().loadGameSlot(selectedSlot))
 			parent.setScreen(parent.getGame().getGameScreen());

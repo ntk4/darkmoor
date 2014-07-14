@@ -9,7 +9,8 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Timer;
+import com.badlogic.gdx.utils.async.AsyncExecutor;
+import com.badlogic.gdx.utils.async.AsyncTask;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.ntk.darkmoor.config.SaveGame;
@@ -18,7 +19,7 @@ import com.ntk.darkmoor.engine.Dungeon;
 import com.ntk.darkmoor.resource.Resources;
 
 public class DarkmoorGame extends Game {
-	private static final int MAX_THREADS = 4;
+	private static final int MAX_THREADS = 2;
 	public static final int GAME_HEIGHT = 400;
 	public static final int GAME_WIDTH = 640;
 
@@ -35,6 +36,7 @@ public class DarkmoorGame extends Game {
 	private MainMenu mainMenu;
 	private GameScreen gameScreen;
 	private Music theme;
+	private AsyncExecutor executor;
 
 	public SaveGame savedGame;
 	
@@ -42,6 +44,7 @@ public class DarkmoorGame extends Game {
 	@Override
 	public void create() {
 		instance = this;
+		executor = new AsyncExecutor(MAX_THREADS);
 		loadStartupData();
 		camera = new OrthographicCamera(DISPLAY_WIDTH, DISPLAY_HEIGHT);
 		// camera.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -108,7 +111,7 @@ public class DarkmoorGame extends Game {
 	}
 
 	private void loadInGameData() {
-		Resources.loadResources();
+		Resources.loadGameResources();
 	}
 
 	// @Override
@@ -178,8 +181,9 @@ public class DarkmoorGame extends Game {
 		return true;
 	}
 	
-	public void submitTask(Timer.Task task) {
-		Timer.schedule(task, 0);
+	public void submitTask(AsyncTask<Dungeon> task) {
+//		timer.scheduleTask(task, 1);
+		executor.submit(task);
 	}
 
 	public GameScreen getGameScreen() {

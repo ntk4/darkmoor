@@ -4,13 +4,16 @@ import java.io.InputStream;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.assets.loaders.TextureLoader.TextureParameter;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.ntk.darkmoor.DarkmoorGame;
+import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.config.LanguagesManager;
 import com.ntk.darkmoor.engine.DecorationSet;
 import com.ntk.darkmoor.engine.Dungeon;
@@ -136,10 +139,26 @@ public class Resources {
 		}
 	}
 
-	public static void loadResources() {
+	public static void loadGameResources() {
 		DarkmoorGame.getInstance().submitTask(
-				new AssetLoadingTask(assetManager, getResourcePath(), DarkmoorGame.getInstance().getSavedGame()
-						.getDungeonName()));
+				new DungeonLoadingTask(DarkmoorGame.getInstance().getSavedGame().getDungeonName()));
+		
+		TextureParameter param = new TextureParameter();
+		param.minFilter = TextureFilter.Nearest;
+		param.genMipMaps = true;
+		param.magFilter = TextureFilter.Linear;
+
+		assetManager.load(resourcePath + "items.png", Texture.class, param);
+		assetManager.load(resourcePath + "Heads.png", Texture.class, param);
+		assetManager.load(resourcePath + "interface.png", Texture.class, param);
+		assetManager.load(resourcePath + "wall-forest.png", Texture.class, param);
+		assetManager.load(resourcePath + "wall-temple.png", Texture.class, param);
+		assetManager.load(resourcePath + "wall-catacomb.png", Texture.class, param);
+		assetManager.load(resourcePath + "Decoration-Forest.png", Texture.class, param);
+		assetManager.load(resourcePath + "Decoration-Temple.png", Texture.class, param);
+		assetManager.load(resourcePath + "Decoration-Catacomb.png", Texture.class, param);
+		assetManager.load(resourcePath + "Doors_new.png", Texture.class, param);
+		assetManager.finishLoading();
 	}
 
 	public static void unloadResources() {
@@ -148,6 +167,9 @@ public class Resources {
 		DecorationAssets.unloadAssets();
 		GraphicAssets.unloadAssets();
 		getAssetManager().dispose();
+		if (dungeon != null)
+			dungeon.dispose();
+		dungeon = null;
 		assetManager = null;
 	}
 

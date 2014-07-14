@@ -13,6 +13,7 @@ import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.Square.SquarePosition;
 import com.ntk.darkmoor.engine.Square.SquareType;
+import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.stub.Mouse;
 
 public class Team implements Disposable {
@@ -77,8 +78,8 @@ public class Team implements Disposable {
 		// Set initial location
 		if (location == null) {
 			location = new DungeonLocation();
-			teleport(GameScreen.getDungeon().getStartLocation());
-			location.setDirection(GameScreen.getDungeon().getStartLocation().getDirection());
+			teleport(Resources.getDungeon().getStartLocation());
+			location.setDirection(Resources.getDungeon().getStartLocation().getDirection());
 		} else {
 			teleport(location);
 		}
@@ -448,7 +449,7 @@ public class Team implements Disposable {
 	 * @return True if teleportation is ok
 	 */
 	public boolean teleport(DungeonLocation location) {
-		return teleport(location, GameScreen.getDungeon());
+		return teleport(location, Resources.getDungeon());
 	}
 
 	/**

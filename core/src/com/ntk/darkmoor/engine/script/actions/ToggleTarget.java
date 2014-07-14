@@ -4,8 +4,8 @@ import java.io.IOException;
 
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
-import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.engine.Square;
+import com.ntk.darkmoor.resource.Resources;
 
 public class ToggleTarget extends ActionBase {
 
@@ -20,7 +20,7 @@ public class ToggleTarget extends ActionBase {
 		if (target == null)
 			return false;
 
-		Square square = target.getSquare(GameScreen.getDungeon());
+		Square square = target.getSquare(Resources.getDungeon());
 		if (square == null)
 			return false;
 

@@ -293,10 +293,10 @@ public class Monster extends Entity {
 		if (target == null)
 			return false;
 
-		if (GameScreen.getDungeon() == null)
+		if (Resources.getDungeon() == null)
 			return false;
 
-		Maze maze = GameScreen.getDungeon().getMaze(target.getMaze());
+		Maze maze = Resources.getDungeon().getMaze(target.getMaze());
 		if (maze == null)
 			return false;
 

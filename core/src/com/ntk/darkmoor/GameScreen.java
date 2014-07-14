@@ -9,6 +9,7 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.badlogic.gdx.utils.async.ThreadUtils;
 import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.config.SaveGameSlot;
 import com.ntk.darkmoor.config.Settings;
@@ -32,7 +33,6 @@ public class GameScreen extends GameScreenBase {
 		Main, Inventory, Statistic
 	}
 
-	private static Dungeon dungeon;
 	private static Team team;
 
 	private SpellBook spellBook;
@@ -98,10 +98,6 @@ public class GameScreen extends GameScreenBase {
 	public void unloadContent() {
 		Log.debug("[team] : UnloadContent");
 
-		if (GameScreen.getDungeon() != null)
-			GameScreen.getDungeon().dispose();
-		GameScreen.setDungeon(null);
-
 		if (team != null)
 			team.dispose();
 		team = null;
@@ -165,11 +161,11 @@ public class GameScreen extends GameScreenBase {
 			return false;
 		}
 
-		// Load dungeon
-		if (dungeon != null)
-			dungeon.dispose();
-
-		dungeon = Resources.getDungeon();
+		while (Resources.getDungeon() == null)
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+			}
 		
 		// Load team
 		if (team != null)
@@ -264,13 +260,5 @@ public class GameScreen extends GameScreenBase {
 
 	public static Team getTeam() {
 		return team;
-	}
-
-	public static Dungeon getDungeon() {
-		return dungeon;
-	}
-
-	protected static void setDungeon(Dungeon dungeon) {
-		GameScreen.dungeon = dungeon;
 	}
 }

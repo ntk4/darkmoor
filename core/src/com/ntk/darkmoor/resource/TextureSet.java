@@ -40,7 +40,7 @@ public class TextureSet implements Disposable {
 		} else {
 			texture = Resources.getAssetManager().get(Resources.getResourcePath() + textureFile,
 					Texture.class);
-			texture.setFilter(TextureFilter.Nearest, TextureFilter.Linear);
+//			texture.setFilter(TextureFilter.Nearest, TextureFilter.Linear);
 		}
 
 	}
