@@ -39,7 +39,7 @@ public abstract class GameScreenBase extends ScreenAdapter implements Disposable
 		super.render(delta);
 		update(delta, true, false);
 		draw(delta);
-		fpsLogger.log();
+//		fpsLogger.log();
 
 	}
 

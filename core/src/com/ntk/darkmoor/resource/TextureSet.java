@@ -8,7 +8,6 @@ import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.XmlReader.Element;
@@ -22,12 +21,21 @@ public class TextureSet implements Disposable {
 	private String name;
 	private String textureFile;
 	private Texture texture;
+
+	/** Sprite cache */
 	private Sprite[] spriteCache;
+	/**
+	 * We maintain also an x-flipped array of the sprites because a sprite is actually a TextureRegion and if we flip
+	 * it, all instances on the screen are flipped
+	 */
+	private Sprite[] xFlippedSpriteCache;
+
 	private Map<Integer, TextureMetadata> metadata;
 
 	public TextureSet(int capacity) {
 		metadata = new HashMap<Integer, TextureMetadata>(capacity);
 		spriteCache = new Sprite[capacity];
+		xFlippedSpriteCache = new Sprite[capacity];
 	}
 
 	private void loadTexture() {
@@ -38,9 +46,7 @@ public class TextureSet implements Disposable {
 			// texture = Resources.getAssetManager().get(Resources.getResourcePath() + textureFile.toLowerCase(),
 			// Texture.class);
 		} else {
-			texture = Resources.getAssetManager().get(Resources.getResourcePath() + textureFile,
-					Texture.class);
-//			texture.setFilter(TextureFilter.Nearest, TextureFilter.Linear);
+			texture = Resources.getAssetManager().get(Resources.getResourcePath() + textureFile, Texture.class);
 		}
 
 	}
@@ -92,10 +98,12 @@ public class TextureSet implements Disposable {
 		return true;
 	}
 
-	public Sprite getSprite(int spriteId) {
-
-		if (spriteId >= 0 && spriteId < spriteCache.length && spriteCache[spriteId] != null)
-			return spriteCache[spriteId];
+	public Sprite getSprite(int spriteId, boolean flipped) {
+		Sprite[] spriteArray = flipped?spriteCache:xFlippedSpriteCache;
+		
+		if (spriteId >= 0 && spriteId < spriteArray.length && spriteArray[spriteId] != null) {
+			return spriteArray[spriteId];
+		}
 
 		if (texture == null) {
 			loadTexture();
@@ -103,15 +111,21 @@ public class TextureSet implements Disposable {
 		try {
 			TextureMetadata textureInfo = metadata.get(spriteId);
 
-			spriteCache[spriteId] = new Sprite(texture, (int) textureInfo.getRectangle().x,
+			spriteArray[spriteId] = new Sprite(texture, (int) textureInfo.getRectangle().x,
 					(int) textureInfo.getRectangle().y, (int) textureInfo.getRectangle().width,
 					(int) textureInfo.getRectangle().height);
+			if (flipped)
+				spriteArray[spriteId].flip(true, false);
 
-			return spriteCache[spriteId];
+			return spriteArray[spriteId];
 
 		} catch (Exception e) {
 			throw new ResourceException(e);
 		}
+	}
+
+	public Sprite getSprite(int spriteId) {
+		return getSprite(spriteId, false);
 	}
 
 	@Override
@@ -119,6 +133,10 @@ public class TextureSet implements Disposable {
 		for (int i = 0; i < spriteCache.length; i++) {
 			if (spriteCache[i] != null)
 				spriteCache[i] = null;
+		}
+		for (int i = 0; i < xFlippedSpriteCache.length; i++) {
+			if (xFlippedSpriteCache[i] != null)
+				xFlippedSpriteCache[i] = null;
 		}
 		if (texture != null)
 			texture = null;

@@ -105,6 +105,99 @@ public class DisplayCoordinates {
 					   0, 0, 0,
 					   0, 0, 0,
 				};
+		static TileDrawing[][] walls = new TileDrawing[][]
+		{
+			// A
+			new TileDrawing[]
+			{
+				new TileDrawing(7, new Vector2(32, 56), CardinalPoint.East, SpriteEffects.NONE),
+				new TileDrawing(3, new Vector2(-64, 54), CardinalPoint.South, SpriteEffects.NONE),
+			},
+			// B
+			new TileDrawing[]
+			{
+				new TileDrawing(3, new Vector2(32, 54), CardinalPoint.South, SpriteEffects.NONE),
+				new TileDrawing(7, new Vector2(128, 54), CardinalPoint.East, SpriteEffects.NONE),
+			},
+			// C
+			new TileDrawing[]
+			{
+				new TileDrawing(3, new Vector2(128, 54), CardinalPoint.South, SpriteEffects.NONE),
+			},
+			// D
+			new TileDrawing[]
+			{
+				new TileDrawing(3, new Vector2(224, 54), CardinalPoint.South, SpriteEffects.NONE),
+				new TileDrawing(7, new Vector2(208, 56), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
+			},
+			// E
+			new TileDrawing[]
+			{
+				new TileDrawing(3, new Vector2(320, 54), CardinalPoint.South, SpriteEffects.NONE),
+				new TileDrawing(7, new Vector2(304, 56), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
+			},
+
+			// F
+			new TileDrawing[]
+			{
+				new TileDrawing(6, new Vector2(0, 40), CardinalPoint.East, SpriteEffects.NONE),
+			},
+			// G
+			new TileDrawing[]
+			{
+				new TileDrawing(2, new Vector2(-64, 40), CardinalPoint.South, SpriteEffects.NONE),
+				new TileDrawing(6, new Vector2(96, 38), CardinalPoint.East, SpriteEffects.NONE),
+			},
+			// H
+			new TileDrawing[]
+			{
+				new TileDrawing(2, new Vector2(96, 40), CardinalPoint.South, SpriteEffects.NONE),
+			},
+			// I
+			new TileDrawing[]
+			{
+				new TileDrawing(2, new Vector2(256, 40), CardinalPoint.South, SpriteEffects.NONE),
+				new TileDrawing(6, new Vector2(224, 40), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
+			},
+			// J
+			new TileDrawing[]
+			{
+				new TileDrawing(6, new Vector2(320, 40), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
+			},
+
+			// K
+			new TileDrawing[]
+			{
+				new TileDrawing(1, new Vector2(-208, 14), CardinalPoint.South, SpriteEffects.NONE),
+				new TileDrawing(5, new Vector2(48, 14), CardinalPoint.East, SpriteEffects.NONE),
+			},
+			// L
+			new TileDrawing[]
+			{
+				new TileDrawing(1, new Vector2(48, 14), CardinalPoint.South, SpriteEffects.NONE),
+			},
+			// M
+			new TileDrawing[]
+			{
+				new TileDrawing(1, new Vector2(304, 14), CardinalPoint.South, SpriteEffects.NONE),
+				new TileDrawing(5, new Vector2(256, 14), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
+			},
+
+			// N
+			new TileDrawing[]
+			{
+				new TileDrawing(4, new Vector2(0, 0), CardinalPoint.East, SpriteEffects.NONE),
+			},
+
+			// Team
+			new TileDrawing[] {},
+
+			// O
+			new TileDrawing[]
+			{
+				new TileDrawing(4, new Vector2(304, 0), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
+			},
+		};
 		//@formatter:on
 
 	private static TileDrawing[] doors;
@@ -127,7 +220,6 @@ public class DisplayCoordinates {
 	private static Rectangle[] scriptedDialogChoices;
 	private static Rectangle scroll;
 	private static Rectangle scrollOk;
-	private static TileDrawing[][] walls;
 
 	private static boolean loaded;
 
@@ -147,9 +239,9 @@ public class DisplayCoordinates {
 
 		pits = new TileDrawing[viewcount];
 		ceilingPits = new TileDrawing[viewcount];
-		stairs = new TileDrawing[viewcount][viewcount<<1]; // (viewcount);
+		stairs = new TileDrawing[viewcount][viewcount << 1]; // (viewcount);
 		for (int i = 0; i < viewcount; i++)
-			stairs[i] = new TileDrawing[viewcount<<1];
+			stairs[i] = new TileDrawing[viewcount << 1];
 
 		throwRight = new Rectangle(176, 0, 176, 144);
 		trowLeft = new Rectangle(0, 0, 176, 144);
@@ -267,7 +359,8 @@ public class DisplayCoordinates {
 			Element node = mazeRoot.getChild(i);
 
 			if ("stair".equalsIgnoreCase(node.getName())) {
-				ViewFieldPosition view = ViewFieldPosition.valueOfIgnoreCase(node.getAttribute("position").toUpperCase());
+				ViewFieldPosition view = ViewFieldPosition.valueOfIgnoreCase(node.getAttribute("position")
+						.toUpperCase());
 
 				if (stairs[view.value()].length >= stairIndex - 1) {
 					stairs[view.value()][stairIndex++] = getTileDrawing(node);
@@ -337,16 +430,16 @@ public class DisplayCoordinates {
 		SpriteEffects effect = SpriteEffects.NONE;
 		try {
 			effect = SpriteEffects.fromDescription(node.getAttribute("effect"));
-		} catch(GdxRuntimeException e) {
+		} catch (GdxRuntimeException e) {
 			effect = SpriteEffects.NONE;
 		}
-//		if (node.getAttribute("effect") != null)
-//			effect = SpriteEffects.valueOf(node.getAttribute("effect"));
+		// if (node.getAttribute("effect") != null)
+		// effect = SpriteEffects.valueOf(node.getAttribute("effect"));
 
 		CardinalPoint side = CardinalPoint.North;
 		try {
 			side = CardinalPoint.valueOf(node.getAttribute("side"));
-		} catch(GdxRuntimeException e) {
+		} catch (GdxRuntimeException e) {
 		}
 
 		return new TileDrawing(id, location, side, effect);

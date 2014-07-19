@@ -144,7 +144,9 @@ public class Square {
 		this.type = SquareType.Wall;
 		this.monsters = new Monster[4];
 
-		this.decorations = new int[] { -1, -1, -1, -1 };
+		this.decorations = new int[] {
+			-1, -1, -1, -1
+		};
 
 		this.items = new ArrayList<List<Item>>(4);
 		items.add(new ArrayList<Item>());
@@ -604,10 +606,16 @@ public class Square {
 
 	public List<Item> getItems(CardinalPoint from, SquarePosition position) {
 		CardinalPoint[][] tab = new CardinalPoint[][] {
-				{ CardinalPoint.North, CardinalPoint.South, CardinalPoint.West, CardinalPoint.East },
-				{ CardinalPoint.South, CardinalPoint.North, CardinalPoint.East, CardinalPoint.West },
-				{ CardinalPoint.West, CardinalPoint.East, CardinalPoint.South, CardinalPoint.North },
-				{ CardinalPoint.East, CardinalPoint.West, CardinalPoint.North, CardinalPoint.South }, };
+			{
+				CardinalPoint.North, CardinalPoint.South, CardinalPoint.West, CardinalPoint.East
+			}, {
+				CardinalPoint.South, CardinalPoint.North, CardinalPoint.East, CardinalPoint.West
+			}, {
+				CardinalPoint.West, CardinalPoint.East, CardinalPoint.South, CardinalPoint.North
+			}, {
+				CardinalPoint.East, CardinalPoint.West, CardinalPoint.North, CardinalPoint.South
+			},
+		};
 
 		// TODO: ntk: result to be checked! we map enum values without seeming similar
 		return getItems(SquarePosition.valueOf(tab[from.value()][position.value()].value()));
@@ -655,40 +663,48 @@ public class Square {
 
 	public List<List<Item>> getItems(CardinalPoint location) {
 		// List of items
-		List<List<Item>> items = new ArrayList<List<Item>>();
+		List<List<Item>> items = new ArrayList<List<Item>>(4);
+		for (int i = 0; i < 4; i++)
+			items.add(new ArrayList<Item>());
 
 		switch (location) {
 		case North: {
-			items.set(0, this.items.get(0));
-			items.set(1, this.items.get(1));
-			items.set(2, this.items.get(2));
-			items.set(3, this.items.get(3));
+			items.set(0, getItemSafe(0));
+			items.set(1, getItemSafe(1));
+			items.set(2, getItemSafe(2));
+			items.set(3, getItemSafe(3));
 		}
 			break;
 		case East: {
-			items.set(0, this.items.get(1));
-			items.set(1, this.items.get(3));
-			items.set(2, this.items.get(0));
-			items.set(3, this.items.get(2));
+			items.set(0, getItemSafe(1));
+			items.set(1, getItemSafe(3));
+			items.set(2, getItemSafe(0));
+			items.set(3, getItemSafe(2));
 		}
 			break;
 		case South: {
-			items.set(0, this.items.get(3));
-			items.set(1, this.items.get(2));
-			items.set(2, this.items.get(1));
-			items.set(3, this.items.get(0));
+			items.set(0, getItemSafe(3));
+			items.set(1, getItemSafe(2));
+			items.set(2, getItemSafe(1));
+			items.set(3, getItemSafe(0));
 		}
 			break;
 		case West: {
-			items.set(0, this.items.get(2));
-			items.set(1, this.items.get(0));
-			items.set(2, this.items.get(3));
-			items.set(3, this.items.get(1));
+			items.set(0, getItemSafe(2));
+			items.set(1, getItemSafe(0));
+			items.set(2, getItemSafe(3));
+			items.set(3, getItemSafe(1));
 		}
 			break;
 		}
 
 		return items;
+	}
+
+	private List<Item> getItemSafe(int index) {
+		if (items.size() >= index)
+			return this.items.get(index);
+		return null;
 	}
 
 	public boolean isBlocking() {

@@ -13,7 +13,6 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.ntk.darkmoor.DarkmoorGame;
-import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.config.LanguagesManager;
 import com.ntk.darkmoor.engine.DecorationSet;
 import com.ntk.darkmoor.engine.Dungeon;
