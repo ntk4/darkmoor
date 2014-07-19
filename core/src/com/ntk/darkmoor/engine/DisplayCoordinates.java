@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
+import com.ntk.darkmoor.DarkmoorGame;
 import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.Square.SquarePosition;
@@ -30,6 +31,11 @@ import com.ntk.darkmoor.resource.Resources;
  */
 
 public class DisplayCoordinates {
+
+	public static final int TOP_LEFT_X = 0;
+	public static final int TOP_LEFT_Y = DarkmoorGame.DISPLAY_HEIGHT - 215;
+	public static final int PLAYABLE_WINDOW_WIDTH = 712;
+	public static final int PLAYABLE_WINDOW_HEIGHT = 775;
 
 	static private CardinalPoint[][] drawingWallSides = {//@formatter:off
 			new CardinalPoint[] {CardinalPoint.East, CardinalPoint.South},			// A
@@ -64,141 +70,142 @@ public class DisplayCoordinates {
 				new Vector2(0.33f, 0.33f)
 			};
 
+	static int[] itemScaleOffset = new int[]
+		{
+			3, 3, 3, 3, 3,
+			2, 2, 2, 2, 2,
+			   1, 1, 1,
+			   0, 0, 0,
+		};
+	
+	static Vector2[][] monsterLocations = 
+		{
+			//			North West				North East					South West			South East				Middle
+			new Vector2[]{new Vector2(20, 132),		new Vector2(48, 132),		new Vector2(-999, -999),	new Vector2(20, 140),		new Vector2(36, 156)},		// A
+			new Vector2[]{new Vector2(84, 132),		new Vector2(116, 132),	new Vector2(64, 140),		new Vector2(108, 140),	new Vector2(88, 136)},		// B
+			new Vector2[]{new Vector2(160, 132),	new Vector2(184, 132),	new Vector2(152, 140),	new Vector2(192, 140),	new Vector2(192, 136)},		// C
+			new Vector2[]{new Vector2(224, 128),	new Vector2(256, 128),	new Vector2(236, 140),	new Vector2(276, 140),	new Vector2(256, 136)},		// D
+			new Vector2[]{new Vector2(292, 128),	new Vector2(328, 128),	new Vector2(320, 140),	new Vector2(-999, -999),	new Vector2(312, 136)},		// E
 
+			new Vector2[]{new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999)},		// F
+			new Vector2[]{new Vector2(44, 152),		new Vector2(100, 152),	new Vector2(12, 164),		new Vector2(80, 164),		new Vector2(48, 156)},		// G
+			new Vector2[]{new Vector2(148, 152),	new Vector2(200, 152),	new Vector2(144, 164),	new Vector2(208, 164),	new Vector2(196, 156)},		// H
+			new Vector2[]{new Vector2(252, 152),	new Vector2(304, 152),	new Vector2(280, 164),	new Vector2(344, 164),	new Vector2(312, 156)},		// I
+			new Vector2[]{new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999)},		// J
 
-		static int[] itemScaleOffset = new int[]
+			new Vector2[]{new Vector2(-999, -999),	new Vector2(44, 184),		new Vector2(-999, -999),	new Vector2(12, 212),		new Vector2(28, 200)},		// K
+			new Vector2[]{new Vector2(132, 184),	new Vector2(224, 184),	new Vector2(124, 212),	new Vector2(232, 212),	new Vector2(195, 200)},		// L
+			new Vector2[]{new Vector2(312, 184),	new Vector2(-999, -999),	new Vector2(344, 212),	new Vector2(-999, -999),	new Vector2(360, 200)},		// M
+
+			new Vector2[]{new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999)},		// N
+			new Vector2[]{new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999)},		// Team
+			new Vector2[]{new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999)},		// O
+		};
+	
+	static int[] monsterScaleOffset = new int[]
 			{
-				3, 3, 3, 3, 3,
 				2, 2, 2, 2, 2,
-				   1, 1, 1,
+				1, 1, 1, 1, 1,
+				   0, 0, 0,
 				   0, 0, 0,
 			};
-		
-		static Vector2[][] monsterLocations = 
-			{
-				//			North West				North East					South West			South East				Middle
-				new Vector2[]{new Vector2(20, 132),		new Vector2(48, 132),		new Vector2(-999, -999),	new Vector2(20, 140),		new Vector2(36, 156)},		// A
-				new Vector2[]{new Vector2(84, 132),		new Vector2(116, 132),	new Vector2(64, 140),		new Vector2(108, 140),	new Vector2(88, 136)},		// B
-				new Vector2[]{new Vector2(160, 132),	new Vector2(184, 132),	new Vector2(152, 140),	new Vector2(192, 140),	new Vector2(192, 136)},		// C
-				new Vector2[]{new Vector2(224, 128),	new Vector2(256, 128),	new Vector2(236, 140),	new Vector2(276, 140),	new Vector2(256, 136)},		// D
-				new Vector2[]{new Vector2(292, 128),	new Vector2(328, 128),	new Vector2(320, 140),	new Vector2(-999, -999),	new Vector2(312, 136)},		// E
-
-				new Vector2[]{new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999)},		// F
-				new Vector2[]{new Vector2(44, 152),		new Vector2(100, 152),	new Vector2(12, 164),		new Vector2(80, 164),		new Vector2(48, 156)},		// G
-				new Vector2[]{new Vector2(148, 152),	new Vector2(200, 152),	new Vector2(144, 164),	new Vector2(208, 164),	new Vector2(196, 156)},		// H
-				new Vector2[]{new Vector2(252, 152),	new Vector2(304, 152),	new Vector2(280, 164),	new Vector2(344, 164),	new Vector2(312, 156)},		// I
-				new Vector2[]{new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999)},		// J
-
-				new Vector2[]{new Vector2(-999, -999),	new Vector2(44, 184),		new Vector2(-999, -999),	new Vector2(12, 212),		new Vector2(28, 200)},		// K
-				new Vector2[]{new Vector2(132, 184),	new Vector2(224, 184),	new Vector2(124, 212),	new Vector2(232, 212),	new Vector2(195, 200)},		// L
-				new Vector2[]{new Vector2(312, 184),	new Vector2(-999, -999),	new Vector2(344, 212),	new Vector2(-999, -999),	new Vector2(360, 200)},		// M
-
-				new Vector2[]{new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999)},		// N
-				new Vector2[]{new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999)},		// Team
-				new Vector2[]{new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999),	new Vector2(-999, -999)},		// O
-			};
-		
-		static int[] monsterScaleOffset = new int[]
-				{
-					2, 2, 2, 2, 2,
-					1, 1, 1, 1, 1,
-					   0, 0, 0,
-					   0, 0, 0,
-				};
-		static TileDrawing[][] walls = new TileDrawing[][]
+	static TileDrawing[][] walls = new TileDrawing[][]
+	{
+		// A
+		new TileDrawing[]
 		{
-			// A
-			new TileDrawing[]
-			{
-				new TileDrawing(7, new Vector2(32, 56), CardinalPoint.East, SpriteEffects.NONE),
-				new TileDrawing(3, new Vector2(-64, 54), CardinalPoint.South, SpriteEffects.NONE),
-			},
-			// B
-			new TileDrawing[]
-			{
-				new TileDrawing(3, new Vector2(32, 54), CardinalPoint.South, SpriteEffects.NONE),
-				new TileDrawing(7, new Vector2(128, 54), CardinalPoint.East, SpriteEffects.NONE),
-			},
-			// C
-			new TileDrawing[]
-			{
-				new TileDrawing(3, new Vector2(128, 54), CardinalPoint.South, SpriteEffects.NONE),
-			},
-			// D
-			new TileDrawing[]
-			{
-				new TileDrawing(3, new Vector2(224, 54), CardinalPoint.South, SpriteEffects.NONE),
-				new TileDrawing(7, new Vector2(208, 56), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
-			},
-			// E
-			new TileDrawing[]
-			{
-				new TileDrawing(3, new Vector2(320, 54), CardinalPoint.South, SpriteEffects.NONE),
-				new TileDrawing(7, new Vector2(304, 56), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
-			},
+			new TileDrawing(7, new Vector2(32, 56), CardinalPoint.East, SpriteEffects.NONE),
+			new TileDrawing(3, new Vector2(-64, 54), CardinalPoint.South, SpriteEffects.NONE),
+		},
+		// B
+		new TileDrawing[]
+		{
+			new TileDrawing(3, new Vector2(32, 54), CardinalPoint.South, SpriteEffects.NONE),
+			new TileDrawing(7, new Vector2(128, 54), CardinalPoint.East, SpriteEffects.NONE),
+		},
+		// C
+		new TileDrawing[]
+		{
+			new TileDrawing(3, new Vector2(128, 54), CardinalPoint.South, SpriteEffects.NONE),
+		},
+		// D
+		new TileDrawing[]
+		{
+			new TileDrawing(3, new Vector2(224, 54), CardinalPoint.South, SpriteEffects.NONE),
+			new TileDrawing(7, new Vector2(208, 56), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
+		},
+		// E
+		new TileDrawing[]
+		{
+			new TileDrawing(3, new Vector2(320, 54), CardinalPoint.South, SpriteEffects.NONE),
+			new TileDrawing(7, new Vector2(304, 56), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
+		},
 
-			// F
-			new TileDrawing[]
-			{
-				new TileDrawing(6, new Vector2(0, 40), CardinalPoint.East, SpriteEffects.NONE),
-			},
-			// G
-			new TileDrawing[]
-			{
-				new TileDrawing(2, new Vector2(-64, 40), CardinalPoint.South, SpriteEffects.NONE),
-				new TileDrawing(6, new Vector2(96, 38), CardinalPoint.East, SpriteEffects.NONE),
-			},
-			// H
-			new TileDrawing[]
-			{
-				new TileDrawing(2, new Vector2(96, 40), CardinalPoint.South, SpriteEffects.NONE),
-			},
-			// I
-			new TileDrawing[]
-			{
-				new TileDrawing(2, new Vector2(256, 40), CardinalPoint.South, SpriteEffects.NONE),
-				new TileDrawing(6, new Vector2(224, 40), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
-			},
-			// J
-			new TileDrawing[]
-			{
-				new TileDrawing(6, new Vector2(320, 40), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
-			},
+		// F
+		new TileDrawing[]
+		{
+			new TileDrawing(6, new Vector2(0, 40), CardinalPoint.East, SpriteEffects.NONE),
+		},
+		// G
+		new TileDrawing[]
+		{
+			new TileDrawing(2, new Vector2(-64, 40), CardinalPoint.South, SpriteEffects.NONE),
+			new TileDrawing(6, new Vector2(96, 38), CardinalPoint.East, SpriteEffects.NONE),
+		},
+		// H
+		new TileDrawing[]
+		{
+			new TileDrawing(2, new Vector2(96, 40), CardinalPoint.South, SpriteEffects.NONE),
+		},
+		// I
+		new TileDrawing[]
+		{
+			new TileDrawing(2, new Vector2(256, 40), CardinalPoint.South, SpriteEffects.NONE),
+			new TileDrawing(6, new Vector2(224, 40), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
+		},
+		// J
+		new TileDrawing[]
+		{
+			new TileDrawing(6, new Vector2(320, 40), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
+		},
 
-			// K
-			new TileDrawing[]
-			{
-				new TileDrawing(1, new Vector2(-208, 14), CardinalPoint.South, SpriteEffects.NONE),
-				new TileDrawing(5, new Vector2(48, 14), CardinalPoint.East, SpriteEffects.NONE),
-			},
-			// L
-			new TileDrawing[]
-			{
-				new TileDrawing(1, new Vector2(48, 14), CardinalPoint.South, SpriteEffects.NONE),
-			},
-			// M
-			new TileDrawing[]
-			{
-				new TileDrawing(1, new Vector2(304, 14), CardinalPoint.South, SpriteEffects.NONE),
-				new TileDrawing(5, new Vector2(256, 14), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
-			},
+		// K
+		new TileDrawing[]
+		{
+			new TileDrawing(1, new Vector2(-208, 14), CardinalPoint.South, SpriteEffects.NONE),
+			new TileDrawing(5, new Vector2(48, 14), CardinalPoint.East, SpriteEffects.NONE),
+		},
+		// L
+		new TileDrawing[]
+		{
+			new TileDrawing(1, new Vector2(48, 14), CardinalPoint.South, SpriteEffects.NONE),
+		},
+		// M
+		new TileDrawing[]
+		{
+			new TileDrawing(1, new Vector2(304, 14), CardinalPoint.South, SpriteEffects.NONE),
+			new TileDrawing(5, new Vector2(256, 14), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
+		},
 
-			// N
-			new TileDrawing[]
-			{
-				new TileDrawing(4, new Vector2(0, 0), CardinalPoint.East, SpriteEffects.NONE),
-			},
+		// N
+		new TileDrawing[]
+		{
+			new TileDrawing(4, new Vector2(0, DisplayCoordinates.TOP_LEFT_Y), 
+					CardinalPoint.East, SpriteEffects.NONE, 112, PLAYABLE_WINDOW_HEIGHT),
+		},
 
-			// Team
-			new TileDrawing[] {},
+		// Team
+		new TileDrawing[] {},
 
-			// O
-			new TileDrawing[]
-			{
-				new TileDrawing(4, new Vector2(304, 0), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
-			},
-		};
-		//@formatter:on
+		// O
+		new TileDrawing[]
+		{
+			new TileDrawing(4, new Vector2(598, DisplayCoordinates.TOP_LEFT_Y - 2 * 0), 
+					CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY, 112, PLAYABLE_WINDOW_HEIGHT),
+//				new TileDrawing(4, new Vector2(304, 0), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
+		},
+	};
+	//@formatter:on
 
 	private static TileDrawing[] doors;
 	private static TileDrawing[] teleporters;

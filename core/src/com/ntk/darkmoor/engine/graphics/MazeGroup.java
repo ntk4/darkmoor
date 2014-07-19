@@ -24,10 +24,6 @@ import com.ntk.darkmoor.resource.GraphicAssets;
 
 public class MazeGroup extends GameScreenGroup implements Disposable {
 
-	private static final int TOP_LEFT_X = 0;
-	private static final int TOP_LEFT_Y = DarkmoorGame.DISPLAY_HEIGHT - 215;
-	private static final int PLAYABLE_WINDOW_WIDTH = 712;
-	private static final int PLAYABLE_WINDOW_HEIGHT = 775;
 	private static final int MAX_SPRITES = 20;
 	public Team team;
 	public Skin uiSkin;
@@ -51,9 +47,9 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 		// set background, floor and ceiling
 		sprites[imageIndex].setDrawable(new SpriteDrawable(GraphicAssets.getDefault()
 				.getTextureSet(maze.getWallTilesetName()).getSprite(0)));
-		sprites[imageIndex].setPosition(TOP_LEFT_X, TOP_LEFT_Y);
-		sprites[imageIndex].setHeight(PLAYABLE_WINDOW_HEIGHT);
-		sprites[imageIndex++].setWidth(PLAYABLE_WINDOW_WIDTH);
+		sprites[imageIndex].setPosition(DisplayCoordinates.TOP_LEFT_X, DisplayCoordinates.TOP_LEFT_Y);
+		sprites[imageIndex].setHeight(DisplayCoordinates.PLAYABLE_WINDOW_HEIGHT);
+		sprites[imageIndex++].setWidth(DisplayCoordinates.PLAYABLE_WINDOW_WIDTH);
 	}
 
 	@Override
@@ -85,7 +81,7 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 		// row 3
 		// updateSquare(pov, ViewFieldPosition.A, location.getDirection());
 		// updateSquare(pov, ViewFieldPosition.E, location.getDirection());
-		// updateSquare(pov, ViewFieldPosition.B, location.getDirection());
+//		updateSquare(pov, ViewFieldPosition.B, location.getDirection());
 		// updateSquare(pov, ViewFieldPosition.D, location.getDirection());
 		// updateSquare(pov, ViewFieldPosition.C, location.getDirection());
 
@@ -102,9 +98,9 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 		// updateSquare(pov, ViewFieldPosition.L, location.getDirection());
 
 		// row 0
-		updateSquare(pov, ViewFieldPosition.N, location.getDirection());
-		updateSquare(pov, ViewFieldPosition.Team, location.getDirection());
-		updateSquare(pov, ViewFieldPosition.O, location.getDirection());
+		 updateSquare(pov, ViewFieldPosition.N, location.getDirection());
+		 updateSquare(pov, ViewFieldPosition.Team, location.getDirection());
+		 updateSquare(pov, ViewFieldPosition.O, location.getDirection());
 
 		for (int i = imageIndex; i < MAX_SPRITES; i++) {
 			sprites[i].setDrawable(null);
@@ -130,9 +126,9 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 						.getTextureSet(maze.getWallTilesetName())
 						.getSprite(tmp.getID(), getFlipHorizontally(tmp, position)));
 				sprites[imageIndex].setDrawable(sprite);
-				sprites[imageIndex].setWidth(112);
-				sprites[imageIndex].setHeight(PLAYABLE_WINDOW_HEIGHT);
-				sprites[imageIndex].setPosition(tmp.getLocation().x * 2 - 10, TOP_LEFT_Y - 2 * tmp.getLocation().y);
+				sprites[imageIndex].setWidth(tmp.getWidth());
+				sprites[imageIndex].setHeight(tmp.getHeight());
+				sprites[imageIndex].setPosition(tmp.getLocation().x, tmp.getLocation().y);
 				sprites[imageIndex++].setVisible(true);
 			}
 		}
