@@ -11,8 +11,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.async.AsyncExecutor;
 import com.badlogic.gdx.utils.async.AsyncTask;
-import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
 import com.ntk.darkmoor.config.SaveGame;
 import com.ntk.darkmoor.config.Settings;
 import com.ntk.darkmoor.engine.Dungeon;
@@ -32,7 +30,6 @@ public class DarkmoorGame extends Game {
 
 	private SpriteBatch batch;
 	private OrthographicCamera camera;
-	private Viewport viewport;
 	private MainMenu mainMenu;
 	private GameScreen gameScreen;
 	private Music theme;
@@ -46,13 +43,12 @@ public class DarkmoorGame extends Game {
 		instance = this;
 		executor = new AsyncExecutor(MAX_THREADS);
 		loadStartupData();
-		camera = new OrthographicCamera(DISPLAY_WIDTH, DISPLAY_HEIGHT);
+		camera = new OrthographicCamera();
 		// camera.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		// camera.update();
 
 		batch = new SpriteBatch();
 
-		viewport = new FitViewport(DISPLAY_WIDTH, DISPLAY_HEIGHT);
 		setScreen(getMainMenu());
 //		initMusic();
 	}
@@ -146,18 +142,8 @@ public class DarkmoorGame extends Game {
 		return batch;
 	}
 
-	@Override
-	public void resize(int width, int height) {
-		super.resize(width, height);
-		viewport.update(width, height);
-	}
-
 	public OrthographicCamera getCamera() {
 		return camera;
-	}
-
-	public Viewport getViewport() {
-		return viewport;
 	}
 
 	public Vector2 getInputCoordinates(Vector2 position) {

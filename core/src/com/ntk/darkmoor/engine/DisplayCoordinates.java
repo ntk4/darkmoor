@@ -120,8 +120,10 @@ public class DisplayCoordinates {
 		// B
 		new TileDrawing[]
 		{
-			new TileDrawing(3, new Vector2(32, 54), CardinalPoint.South, SpriteEffects.NONE),
-			new TileDrawing(7, new Vector2(128, 54), CardinalPoint.East, SpriteEffects.NONE),
+			new TileDrawing(3, new Vector2(64, DisplayCoordinates.TOP_LEFT_Y + 360), 
+					CardinalPoint.South, SpriteEffects.NONE, 2f, 3.40f),
+			new TileDrawing(7, new Vector2(256, DisplayCoordinates.TOP_LEFT_Y + 360), 
+					CardinalPoint.East, SpriteEffects.NONE,1.4f, 3.55f),
 		},
 		// C
 		new TileDrawing[]
@@ -190,8 +192,8 @@ public class DisplayCoordinates {
 		// N
 		new TileDrawing[]
 		{
-			new TileDrawing(4, new Vector2(0, DisplayCoordinates.TOP_LEFT_Y), 
-					CardinalPoint.East, SpriteEffects.NONE, 112, PLAYABLE_WINDOW_HEIGHT),
+			new TileDrawing(4, new Vector2(0, TOP_LEFT_Y), 
+					CardinalPoint.East, SpriteEffects.NONE, 2.2f, 3.23f),
 		},
 
 		// Team
@@ -200,8 +202,8 @@ public class DisplayCoordinates {
 		// O
 		new TileDrawing[]
 		{
-			new TileDrawing(4, new Vector2(598, DisplayCoordinates.TOP_LEFT_Y - 2 * 0), 
-					CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY, 112, PLAYABLE_WINDOW_HEIGHT),
+			new TileDrawing(4, new Vector2(610, DisplayCoordinates.TOP_LEFT_Y - 2 * 0), 
+					CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY, 2.15f, 3.23f),
 //				new TileDrawing(4, new Vector2(304, 0), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
 		},
 	};

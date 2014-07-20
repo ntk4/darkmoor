@@ -8,8 +8,8 @@ public class TileDrawing {
 	private Vector2 location;
 	public SpriteEffects effect;
 	public CardinalPoint side;
-	private int width;
-	private int height;
+	private float xScale;
+	private float yScale;
 
 	public TileDrawing(int id, Vector2 location, CardinalPoint side) {
 		this(id, location, side, SpriteEffects.NONE);
@@ -22,13 +22,13 @@ public class TileDrawing {
 		this.side = side;
 	}
 	
-	public TileDrawing(int id, Vector2 location, CardinalPoint side, SpriteEffects effect, int width, int height) {
+	public TileDrawing(int id, Vector2 location, CardinalPoint side, SpriteEffects effect, float xScale, float yScale) {
 		this.ID = id;
 		this.location = location;
 		this.effect = effect;
 		this.side = side;
-		this.width = width;
-		this.height = height;
+		this.xScale = xScale;
+		this.yScale = yScale;
 	}
 
 	public int getID() {
@@ -63,19 +63,19 @@ public class TileDrawing {
 		this.side = side;
 	}
 
-	public int getWidth() {
-		return width;
+	public float getXScale() {
+		return xScale;
 	}
 
-	public void setWidth(int width) {
-		this.width = width;
+	public void setXScale(float xScale) {
+		this.xScale = xScale;
 	}
 
-	public int getHeight() {
-		return height;
+	public float getYScale() {
+		return yScale;
 	}
 
-	public void setHeight(int height) {
-		this.height = height;
+	public void setYScale(float yScale) {
+		this.yScale = yScale;
 	}
 }
