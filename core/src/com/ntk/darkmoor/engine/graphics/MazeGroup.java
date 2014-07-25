@@ -57,18 +57,20 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 				.getTextureSet(team.getMaze().getWallTilesetName())
 				.getSprite(0, effect == SpriteEffects.FLIP_HORIZONTALLY)));
 
+		//@formatter:off
 		// maze block draw order
 		// A E B D C
 		// F J G I H
 		//   K M L
 		//   N ^ O
+		//@formatter:on
 
 		// row 3
-		 updateSquare(pov, ViewFieldPosition.A, location.getDirection());
-		 updateSquare(pov, ViewFieldPosition.E, location.getDirection());
+		// updateSquare(pov, ViewFieldPosition.A, location.getDirection());
+		updateSquare(pov, ViewFieldPosition.E, location.getDirection());
 		updateSquare(pov, ViewFieldPosition.B, location.getDirection());
-		 updateSquare(pov, ViewFieldPosition.D, location.getDirection());
-//		 updateSquare(pov, ViewFieldPosition.C, location.getDirection());
+		updateSquare(pov, ViewFieldPosition.D, location.getDirection());
+		// updateSquare(pov, ViewFieldPosition.C, location.getDirection());
 
 		// row 2
 		// updateSquare(pov, ViewFieldPosition.F, location.getDirection());
@@ -83,9 +85,9 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 		// updateSquare(pov, ViewFieldPosition.L, location.getDirection());
 
 		// row 0
-		 updateSquare(pov, ViewFieldPosition.N, location.getDirection());
-		 updateSquare(pov, ViewFieldPosition.Team, location.getDirection());
-		 updateSquare(pov, ViewFieldPosition.O, location.getDirection());
+		updateSquare(pov, ViewFieldPosition.N, location.getDirection());
+		updateSquare(pov, ViewFieldPosition.Team, location.getDirection());
+		updateSquare(pov, ViewFieldPosition.O, location.getDirection());
 
 		for (int i = imageIndex; i < MAX_SPRITES; i++) {
 			sprites[i].setDrawable(null);
@@ -106,13 +108,17 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 		// Walls
 		if (square.isWall()) {
 			// Walls
-//			TileDrawing[] drawings = {
-//				new TileDrawing(3, new Vector2(64, DisplayCoordinates.TOP_LEFT_Y + 360), 
-//						CardinalPoint.South, SpriteEffects.NONE, 2f, 3.40f),
-//				new TileDrawing(7, new Vector2(256, DisplayCoordinates.TOP_LEFT_Y + 360), 
-//						CardinalPoint.East, SpriteEffects.NONE,1.4f, 3.55f),
-//			}; 
-			for (TileDrawing tmp : DisplayCoordinates.getWalls(position)) {//drawings) {// 
+			// TileDrawing[] drawings =
+			// new TileDrawing[]
+			// {
+			// new TileDrawing(3, new Vector2(448, DisplayCoordinates.TOP_LEFT_Y + 360),//108),
+			// CardinalPoint.South, SpriteEffects.NONE, 2f, 3.40f),
+			// new TileDrawing(7, new Vector2(426, DisplayCoordinates.TOP_LEFT_Y + 360),//112),
+			// CardinalPoint.East, SpriteEffects.FLIP_HORIZONTALLY,1.4f, 3.55f)
+			//
+			// };
+
+			for (TileDrawing tmp : DisplayCoordinates.getWalls(position)) {// drawings) {//
 				SpriteDrawable sprite = new SpriteDrawable(GraphicAssets.getDefault()
 						.getTextureSet(maze.getWallTilesetName())
 						.getSprite(tmp.getID(), getFlipHorizontally(tmp, position)));

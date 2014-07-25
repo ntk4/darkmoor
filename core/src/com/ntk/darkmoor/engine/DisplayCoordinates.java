@@ -133,8 +133,13 @@ public class DisplayCoordinates {
 		// D
 		new TileDrawing[]
 		{
-			new TileDrawing(3, new Vector2(224, 54), CardinalPoint.South, SpriteEffects.NONE),
-			new TileDrawing(7, new Vector2(208, 56), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
+			new TileDrawing(3, new Vector2(448, DisplayCoordinates.TOP_LEFT_Y + 360),//108), 
+					CardinalPoint.South, SpriteEffects.NONE, 2f, 3.40f),
+			new TileDrawing(7, new Vector2(426, DisplayCoordinates.TOP_LEFT_Y + 360),//112), 
+					CardinalPoint.East, SpriteEffects.FLIP_HORIZONTALLY,1.4f, 3.55f),
+					
+//			new TileDrawing(3, new Vector2(224, 54), CardinalPoint.South, SpriteEffects.NONE),
+//			new TileDrawing(7, new Vector2(208, 56), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
 		},
 		// E
 		new TileDrawing[]
