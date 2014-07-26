@@ -9,7 +9,6 @@ import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.badlogic.gdx.utils.XmlWriter;
-import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
 import com.ntk.darkmoor.engine.Square.SquarePosition;
 import com.ntk.darkmoor.engine.Square.SquareType;
@@ -60,7 +59,6 @@ public class Team implements Disposable {
 	private Hero selectedHero;
 	private Item itemInHand;
 	private Maze maze;
-	private boolean canMove;
 	private Square square;
 	private long lastMove;
 	private boolean hasMoved;
@@ -390,7 +388,7 @@ public class Team implements Disposable {
 	// / <returns>True if the team moved, or false</returns>
 	private boolean move(Vector2 offset) {
 		// Can't move and force is false
-		if (!canMove)
+		if (!canMove())
 			return false;
 
 		// Get informations about the destination square
@@ -821,10 +819,6 @@ public class Team implements Disposable {
 
 	public Maze getMaze() {
 		return maze;
-	}
-
-	public boolean isCanMove() {
-		return canMove;
 	}
 
 	public Square getSquare() {

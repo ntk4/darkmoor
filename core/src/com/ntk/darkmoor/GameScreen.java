@@ -21,6 +21,7 @@ import com.ntk.darkmoor.engine.graphics.GameScreenGroup;
 import com.ntk.darkmoor.engine.graphics.HeroInterfaceGroup;
 import com.ntk.darkmoor.engine.graphics.InventoryGroup;
 import com.ntk.darkmoor.engine.graphics.MazeGroup;
+import com.ntk.darkmoor.engine.graphics.NavigationControlsGroup;
 import com.ntk.darkmoor.engine.graphics.StatisticsGroup;
 import com.ntk.darkmoor.resource.Resources;
 import com.ntk.darkmoor.resource.TextureSet;
@@ -46,6 +47,7 @@ public class GameScreen extends GameScreenBase {
 	private InventoryGroup inventoryGroup;
 	private MazeGroup mazeGroup;
 	private StatisticsGroup statisticsGroup;
+	private NavigationControlsGroup navControlsGroup;
 
 	public GameScreen(Game game) {
 		super(game);
@@ -149,6 +151,13 @@ public class GameScreen extends GameScreenBase {
 		statisticsGroup.uiSkin = uiSkin;
 		statisticsGroup.initialize();
 		stage.addActor(statisticsGroup);
+		
+		navControlsGroup = new NavigationControlsGroup();
+		navControlsGroup.team = GameScreen.team;
+		navControlsGroup.uiSkin = uiSkin;
+		navControlsGroup.initialize();
+		stage.addActor(navControlsGroup);
+		
 
 	}
 
@@ -239,12 +248,14 @@ public class GameScreen extends GameScreenBase {
 			heroInterfaceGroup.setVisible(true);
 			inventoryGroup.setVisible(false);
 			statisticsGroup.setVisible(false);
+			navControlsGroup.setVisible(true);
 			heroInterfaceGroup.update();
 
 		} else if (interfaceType == TeamInterface.Inventory) {
 			heroInterfaceGroup.setVisible(false);
 			inventoryGroup.setVisible(true);
 			statisticsGroup.setVisible(false);
+			navControlsGroup.setVisible(false);
 			inventoryGroup.update();
 
 		} else if (interfaceType == TeamInterface.Statistic) {
@@ -252,8 +263,11 @@ public class GameScreen extends GameScreenBase {
 			heroInterfaceGroup.setVisible(false);
 			inventoryGroup.setVisible(false);
 			statisticsGroup.setVisible(true);
+			navControlsGroup.setVisible(false);
 			statisticsGroup.update();
 		}
+
+		navControlsGroup.update();
 	}
 
 	public static Team getTeam() {
