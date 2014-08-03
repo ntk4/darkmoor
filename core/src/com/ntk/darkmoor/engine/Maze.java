@@ -261,8 +261,10 @@ public class Maze {
 	public Square getSquare(Vector2 location) {
 		if (!getMazeRectangle().contains(location))
 			return new Square(this);
-
-		return squares.get((int) location.y).get((int) location.x);
+		
+		if (squares.size() > location.y && squares.get((int) location.y).size() > location.x)
+			return squares.get((int) location.y).get((int) location.x);
+		return null;
 	}
 
 	public boolean setSquare(Vector2 location, Square square) {

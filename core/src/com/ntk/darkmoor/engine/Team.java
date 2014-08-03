@@ -392,7 +392,7 @@ public class Team implements Disposable {
 			return false;
 
 		// Get informations about the destination square
-		Vector2 dst = location.getCoordinates();
+		Vector2 dst = new Vector2(location.getCoordinates().x, location.getCoordinates().y);
 		dst.add(offset);
 
 		// Check all blocking states

@@ -20,14 +20,14 @@ public class NavigationControlsGroup extends GameScreenGroup implements Disposab
 	public Skin uiSkin;
 
 	// Scene2d Actors
-	private Image strafeLeft, forward, strafeRight, left, back, right;
+	private Image turnLeft, forward, turnRight, left, back, right;
 
 	@Override
 	public void initialize() {
-		strafeLeft = new Image();
-		strafeLeft.setBounds(NAVIGATION_AREA_LEFT, NAVIGATION_AREA_TOP, BUTTON_WIDTH, BUTTON_HEIGHT);
+		turnLeft = new Image();
+		turnLeft.setBounds(NAVIGATION_AREA_LEFT, NAVIGATION_AREA_TOP, BUTTON_WIDTH, BUTTON_HEIGHT);
 		// strafeLeft.setDrawable(new SpriteDrawable(GraphicAssets.getDefault().getTextureSet("heads").getSprite(2)));
-		strafeLeft.addListener(new InputListener() {
+		turnLeft.addListener(new InputListener() {
 
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				team.getLocation().setDirection(
@@ -36,7 +36,7 @@ public class NavigationControlsGroup extends GameScreenGroup implements Disposab
 			}
 
 		});
-		addActor(strafeLeft);
+		addActor(turnLeft);
 
 		forward = new Image();
 		forward.setBounds(NAVIGATION_AREA_LEFT + BUTTON_WIDTH, NAVIGATION_AREA_TOP, BUTTON_WIDTH, BUTTON_HEIGHT);
@@ -50,10 +50,10 @@ public class NavigationControlsGroup extends GameScreenGroup implements Disposab
 		});
 		addActor(forward);
 
-		strafeRight = new Image();
-		strafeRight
+		turnRight = new Image();
+		turnRight
 				.setBounds(NAVIGATION_AREA_LEFT + 2 * BUTTON_WIDTH, NAVIGATION_AREA_TOP, BUTTON_WIDTH, BUTTON_HEIGHT);
-		strafeRight.addListener(new InputListener() {
+		turnRight.addListener(new InputListener() {
 
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				team.getLocation().setDirection(
@@ -62,7 +62,7 @@ public class NavigationControlsGroup extends GameScreenGroup implements Disposab
 			}
 
 		});
-		addActor(strafeRight);
+		addActor(turnRight);
 
 		left = new Image();
 		left.setBounds(NAVIGATION_AREA_LEFT, NAVIGATION_AREA_TOP - BUTTON_HEIGHT, BUTTON_WIDTH, BUTTON_HEIGHT);

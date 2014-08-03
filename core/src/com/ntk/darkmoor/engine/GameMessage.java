@@ -94,7 +94,7 @@ public class GameMessage {
 		int maxlen = 47;
 		for (String line : lines) {
 			for (int i = 0; i < line.length(); i += maxlen)
-				messages.add(new ScreenMessage(line.substring(i, Math.min(line.length() - i, maxlen) - i), color));
+				messages.add(new ScreenMessage(line.substring(i, i + Math.min(Math.abs(line.length() - i), line.length())), color));
 		}
 	}
 

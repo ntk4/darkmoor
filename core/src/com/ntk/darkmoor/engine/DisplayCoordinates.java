@@ -109,13 +109,18 @@ public class DisplayCoordinates {
 				   0, 0, 0,
 				   0, 0, 0,
 			};
+	
 	static TileDrawing[][] walls = new TileDrawing[][]
 	{
 		// A
 		new TileDrawing[]
 		{
-			new TileDrawing(7, new Vector2(32, 56), CardinalPoint.East, SpriteEffects.NONE),
-			new TileDrawing(3, new Vector2(-64, 54), CardinalPoint.South, SpriteEffects.NONE),
+			new TileDrawing(7, new Vector2(62, DisplayCoordinates.TOP_LEFT_Y + 360), 
+					CardinalPoint.East, SpriteEffects.NONE,1.4f, 3.55f),
+			new TileDrawing(3, new Vector2(-128, DisplayCoordinates.TOP_LEFT_Y + 360), 
+					CardinalPoint.South, SpriteEffects.NONE, 2f, 3.40f),
+//			new TileDrawing(7, new Vector2(32, 56), CardinalPoint.East, SpriteEffects.NONE),
+//			new TileDrawing(3, new Vector2(-64, 54), CardinalPoint.South, SpriteEffects.NONE),
 		},
 		// B
 		new TileDrawing[]
@@ -128,7 +133,9 @@ public class DisplayCoordinates {
 		// C
 		new TileDrawing[]
 		{
-			new TileDrawing(3, new Vector2(128, 54), CardinalPoint.South, SpriteEffects.NONE),
+			new TileDrawing(3, new Vector2(256, DisplayCoordinates.TOP_LEFT_Y + 360), 
+					CardinalPoint.South, SpriteEffects.NONE, 2f, 3.40f),
+//			new TileDrawing(3, new Vector2(128, 54), CardinalPoint.South, SpriteEffects.NONE),
 		},
 		// D
 		new TileDrawing[]
@@ -144,8 +151,12 @@ public class DisplayCoordinates {
 		// E
 		new TileDrawing[]
 		{
-			new TileDrawing(3, new Vector2(320, 54), CardinalPoint.South, SpriteEffects.NONE),
-			new TileDrawing(7, new Vector2(304, 56), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
+			new TileDrawing(3, new Vector2(640, DisplayCoordinates.TOP_LEFT_Y + 360), 
+					CardinalPoint.South, SpriteEffects.NONE, 2f, 3.40f),
+			new TileDrawing(7, new Vector2(619, DisplayCoordinates.TOP_LEFT_Y + 360), 
+					CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY,1.4f, 3.55f),
+//			new TileDrawing(3, new Vector2(320, 54), CardinalPoint.South, SpriteEffects.NONE),
+//			new TileDrawing(7, new Vector2(304, 56), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
 		},
 
 		// F
@@ -156,19 +167,29 @@ public class DisplayCoordinates {
 		// G
 		new TileDrawing[]
 		{
-			new TileDrawing(2, new Vector2(-64, 40), CardinalPoint.South, SpriteEffects.NONE),
-			new TileDrawing(6, new Vector2(96, 38), CardinalPoint.East, SpriteEffects.NONE),
+			new TileDrawing(2, new Vector2(-128, DisplayCoordinates.TOP_LEFT_Y + 270), 
+					CardinalPoint.South, SpriteEffects.NONE, 2f, 3.15f),
+			new TileDrawing(6, new Vector2(192, DisplayCoordinates.TOP_LEFT_Y + 272), 
+					CardinalPoint.East, SpriteEffects.NONE,1.4f, 3.14f),
+//			new TileDrawing(2, new Vector2(-64, 40), CardinalPoint.South, SpriteEffects.NONE),
+//			new TileDrawing(6, new Vector2(96, 38), CardinalPoint.East, SpriteEffects.NONE),
 		},
 		// H
 		new TileDrawing[]
 		{
-			new TileDrawing(2, new Vector2(96, 40), CardinalPoint.South, SpriteEffects.NONE),
+			new TileDrawing(2, new Vector2(191,  DisplayCoordinates.TOP_LEFT_Y + 270), 
+					CardinalPoint.South, SpriteEffects.NONE, 2.025f, 3.15f),
+//			new TileDrawing(2, new Vector2(96, 40), CardinalPoint.South, SpriteEffects.NONE),
 		},
 		// I
 		new TileDrawing[]
 		{
-			new TileDrawing(2, new Vector2(256, 40), CardinalPoint.South, SpriteEffects.NONE),
-			new TileDrawing(6, new Vector2(224, 40), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
+			new TileDrawing(2, new Vector2(512, DisplayCoordinates.TOP_LEFT_Y + 270), 
+					CardinalPoint.South, SpriteEffects.NONE, 2f, 3.15f),
+			new TileDrawing(6, new Vector2(470, DisplayCoordinates.TOP_LEFT_Y + 272), 
+					CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY,1.4f, 3.14f),
+//			new TileDrawing(2, new Vector2(256, 40), CardinalPoint.South, SpriteEffects.NONE),
+//			new TileDrawing(6, new Vector2(224, 40), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
 		},
 		// J
 		new TileDrawing[]
@@ -179,26 +200,35 @@ public class DisplayCoordinates {
 		// K
 		new TileDrawing[]
 		{
-			new TileDrawing(1, new Vector2(-208, 14), CardinalPoint.South, SpriteEffects.NONE),
-			new TileDrawing(5, new Vector2(48, 14), CardinalPoint.East, SpriteEffects.NONE),
+			new TileDrawing(5, new Vector2(96, DisplayCoordinates.TOP_LEFT_Y+105), 
+					CardinalPoint.East, SpriteEffects.NONE, 2.0f,3.24f),
+			new TileDrawing(1, new Vector2(-415, DisplayCoordinates.TOP_LEFT_Y+105), 
+					CardinalPoint.South, SpriteEffects.NONE,2f, 3.24f)
+//			new TileDrawing(1, new Vector2(-208, 14), CardinalPoint.South, SpriteEffects.NONE),
+//			new TileDrawing(5, new Vector2(48, 14), CardinalPoint.East, SpriteEffects.NONE),
 		},
 		// L
 		new TileDrawing[]
 		{
-			new TileDrawing(1, new Vector2(48, 14), CardinalPoint.South, SpriteEffects.NONE),
+			new TileDrawing(1, new Vector2(96, DisplayCoordinates.TOP_LEFT_Y+105), 
+					CardinalPoint.South, SpriteEffects.NONE,2.06f, 3.24f)
+//			new TileDrawing(1, new Vector2(48, 14), CardinalPoint.South, SpriteEffects.NONE),
 		},
 		// M
 		new TileDrawing[]
 		{
-			new TileDrawing(1, new Vector2(304, 14), CardinalPoint.South, SpriteEffects.NONE),
-			new TileDrawing(5, new Vector2(256, 14), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
+			new TileDrawing(5, new Vector2(525, DisplayCoordinates.TOP_LEFT_Y+105), 
+					CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY, 2.0f,3.24f),
+			new TileDrawing(1, new Vector2(620,DisplayCoordinates.TOP_LEFT_Y+105), 
+					CardinalPoint.South, SpriteEffects.NONE,2f, 3.24f),
+//			new TileDrawing(1, new Vector2(608, DisplayCoordinates.TOP_LEFT_Y + 28), CardinalPoint.South, SpriteEffects.NONE),
+//			new TileDrawing(5, new Vector2(512, DisplayCoordinates.TOP_LEFT_Y + 28), CardinalPoint.West, SpriteEffects.FLIP_HORIZONTALLY),
 		},
 
 		// N
 		new TileDrawing[]
 		{
-			new TileDrawing(4, new Vector2(0, TOP_LEFT_Y), 
-					CardinalPoint.East, SpriteEffects.NONE, 2.2f, 3.23f),
+			new TileDrawing(4, new Vector2(0, TOP_LEFT_Y), CardinalPoint.East, SpriteEffects.NONE, 2.2f, 3.23f),
 		},
 
 		// Team

@@ -7,11 +7,13 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.config.Log;
 import com.ntk.darkmoor.config.SaveGameSlot;
 import com.ntk.darkmoor.config.Settings;
+import com.ntk.darkmoor.engine.DisplayCoordinates;
 import com.ntk.darkmoor.engine.GameColors;
 import com.ntk.darkmoor.engine.GameMessage;
 import com.ntk.darkmoor.engine.ScriptedDialog;
@@ -132,6 +134,10 @@ public class GameScreen extends GameScreenBase {
 		mazeGroup.team = GameScreen.team;
 		mazeGroup.uiSkin = uiSkin;
 		mazeGroup.initialize();
+		mazeGroup.setBounds(0, 0, DisplayCoordinates.PLAYABLE_WINDOW_WIDTH, DisplayCoordinates.PLAYABLE_WINDOW_HEIGHT);
+		mazeGroup.setCullingArea(new Rectangle(0, DisplayCoordinates.TOP_LEFT_Y, DisplayCoordinates.PLAYABLE_WINDOW_WIDTH,
+				DisplayCoordinates.PLAYABLE_WINDOW_HEIGHT));
+		mazeGroup.setZIndex(0);
 		stage.addActor(mazeGroup);
 
 		heroInterfaceGroup = new HeroInterfaceGroup();
@@ -151,13 +157,12 @@ public class GameScreen extends GameScreenBase {
 		statisticsGroup.uiSkin = uiSkin;
 		statisticsGroup.initialize();
 		stage.addActor(statisticsGroup);
-		
+
 		navControlsGroup = new NavigationControlsGroup();
 		navControlsGroup.team = GameScreen.team;
 		navControlsGroup.uiSkin = uiSkin;
 		navControlsGroup.initialize();
 		stage.addActor(navControlsGroup);
-		
 
 	}
 
@@ -173,7 +178,7 @@ public class GameScreen extends GameScreenBase {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 			}
-		
+
 		// Load team
 		if (team != null)
 			team.dispose();
