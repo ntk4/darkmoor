@@ -419,7 +419,7 @@ public class Maze {
 					if (Square.TAG.equalsIgnoreCase(subnode.getName())) {
 						// Add a row
 						block = new Square(this);
-						block.setLocation(location);
+						block.setLocation(new Vector2(location));
 						block.load(subnode);
 
 						squares.get((int) location.y).set((int) location.x, block);

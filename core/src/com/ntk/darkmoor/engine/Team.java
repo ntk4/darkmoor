@@ -473,9 +473,9 @@ public class Team implements Disposable {
 			square.onTeamLeave();
 
 		// Change location
-		location.setCoordinates(location.getCoordinates());
-		location.setMaze(maze.getName());
-		location.setDirection(location.getDirection());
+		this.location.setCoordinates(location.getCoordinates());
+		this.location.setMaze(maze.getName());
+		this.location.setDirection(location.getDirection());
 
 		// New block
 		square = maze.getSquare(location.getCoordinates());
