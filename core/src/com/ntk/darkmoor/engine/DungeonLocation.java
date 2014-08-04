@@ -180,7 +180,8 @@ public class DungeonLocation {
 	}
 
 	public void setCoordinates(Vector2 coordinate) {
-		this.coordinate = coordinate;
+		this.coordinate.x = coordinate.x;
+		this.coordinate.y = coordinate.y;
 	}
 
 	public SquarePosition getPosition() {
