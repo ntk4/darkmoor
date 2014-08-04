@@ -44,7 +44,7 @@ public class PressurePlate extends SquareActor {
 	}
 
 	@Override
-	public void draw(SpriteBatch batch, ViewField field, ViewFieldPosition position, CardinalPoint direction) {
+	public void draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
 		if (getDecoration() == null || hidden)
 			return;
 
@@ -52,7 +52,7 @@ public class PressurePlate extends SquareActor {
 		if (td == null)
 			return;
 
-		getDecoration().draw(batch, decorationID, position);
+		getDecoration().draw(decorationID, position);
 	}
 
 	private void runScript(PressurcePlateCondition condition) {

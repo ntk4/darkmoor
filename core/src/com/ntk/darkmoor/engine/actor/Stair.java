@@ -44,7 +44,7 @@ public class Stair extends SquareActor {
 	}
 
 	@Override
-	public void draw(SpriteBatch batch, ViewField field, ViewFieldPosition position, CardinalPoint direction) {
+	public void draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
 		if (getTextureSet() == null)
 			return;
 

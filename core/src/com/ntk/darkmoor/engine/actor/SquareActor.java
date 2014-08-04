@@ -37,7 +37,7 @@ public abstract class SquareActor {
 
 	}
 
-	public void draw(SpriteBatch batch, ViewField field, ViewFieldPosition position, CardinalPoint direction) {
+	public void draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
 	}
 
 	public void update(GameTime time) {

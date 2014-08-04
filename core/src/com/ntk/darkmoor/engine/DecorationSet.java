@@ -97,8 +97,8 @@ public class DecorationSet {
 		return false;
 	}
 
-	public void draw(SpriteBatch batch, int id, ViewFieldPosition position) {
-		if (batch == null || id == -1)
+	public void draw(int id, ViewFieldPosition position) {
+		if (id == -1)
 			return;
 
 		Decoration deco =  decorations.get(Integer.valueOf(id));

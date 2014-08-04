@@ -20,7 +20,7 @@ import com.ntk.darkmoor.engine.graphics.TileDrawing;
 public class Pit extends SquareActor {
 
 	public static final String TAG = "pit";
-	
+
 	private Dice damage;
 	private boolean hidden;
 	private DecorationSet decoration;
@@ -28,7 +28,6 @@ public class Pit extends SquareActor {
 	private int difficulty;
 	private boolean illusion;
 	private boolean monsterTrigger;
-	
 
 	public Pit(Square block) {
 		super(block);
@@ -43,7 +42,7 @@ public class Pit extends SquareActor {
 	}
 
 	@Override
-	public void draw(SpriteBatch batch, ViewField field, ViewFieldPosition position, CardinalPoint direction) {
+	public void draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
 		if (decoration == null || hidden)
 			return;
 
@@ -51,25 +50,26 @@ public class Pit extends SquareActor {
 		if (td == null)
 			return;
 
-		if (isActivated())
-			// batch.FillRectangle(new Rectangle(td.Location, new Size(50, 50)), Color.Red);
-			decoration.draw(batch, field.getMaze().getFloorPitDeco(), position);
+		// if (isActivated())
+		// batch.FillRectangle(new Rectangle(td.Location, new Size(50, 50)), Color.Red);
+		// TODO: ntk: draw the decoration
+		// decoration.draw(batch, field.getMaze().getFloorPitDeco(), position);
 		// TODO (ntk: commented also in the original code)
 		// if (td != null && !IsHidden)
 		// batch.DrawTile(TextureSet, td.ID, td.Location, Color.White, 0.0f, td.Effect, 0.0f);
 	}
-	
+
 	@Override
-	public DungeonLocation[] getTargets()
-	{
-		DungeonLocation[] targets = new DungeonLocation[] { this.target };
+	public DungeonLocation[] getTargets() {
+		DungeonLocation[] targets = new DungeonLocation[] {
+			this.target
+		};
 
 		return targets;
 	}
-	
+
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append("Pit (");
@@ -78,12 +78,12 @@ public class Pit extends SquareActor {
 
 		if (damage != null)
 			sb.append(". Difficulty : " + damage);
-		
+
 		sb.append(")");
 
 		return sb.toString();
 	}
-	
+
 	public boolean load(XmlReader.Element node) {
 		if (node == null)
 			return false;
@@ -110,7 +110,7 @@ public class Pit extends SquareActor {
 
 		return true;
 	}
-	
+
 	public boolean save(XmlWriter writer) throws IOException {
 		if (writer == null)
 			return false;
@@ -119,12 +119,12 @@ public class Pit extends SquareActor {
 
 		super.save(writer);
 
-		if (target != null) 
+		if (target != null)
 			target.save("target", writer);
-		
+
 		writer.element("hidden").attribute("value", hidden).pop();
 		writer.element("difficulty").attribute("value", difficulty).pop();
-		
+
 		damage.save("damage", writer);
 
 		writer.pop();

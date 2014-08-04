@@ -38,7 +38,7 @@ public class AlcoveActor extends SquareActor {
 	}
 
 	@Override
-	public void draw(SpriteBatch batch, ViewField field, ViewFieldPosition position, CardinalPoint direction) {
+	public void draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
 		if (field.getMaze().geDecoration() == null)
 			return;
 
@@ -51,8 +51,8 @@ public class AlcoveActor extends SquareActor {
 			if (deco == null)
 				continue;
 
-			// Draw the decoration
-			deco.drawDecoration(batch, field.getMaze().getDecoration(), position, side == CardinalPoint.South);
+			// TODO: ntk: Draw the decoration
+//			deco.drawDecoration(batch, field.getMaze().getDecoration(), position, side == CardinalPoint.South);
 
 			// Hide items
 			if (alcove.isHideItems() || side != CardinalPoint.South)

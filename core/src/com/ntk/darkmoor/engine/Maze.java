@@ -614,7 +614,7 @@ public class Maze {
 			for (int i = 0; i < 4; i++) {
 				deco = decoration.getDecoration(square.getDecorationId(CardinalPoint.valueOf(i)));
 				if (deco != null && deco.isForceDisplay())
-					deco.drawDecoration(batch, decoration, position, true);
+					deco.drawDecoration(decoration, position, true);
 			}
 
 			// For each directions, draws the decoration
@@ -624,13 +624,13 @@ public class Maze {
 				if (deco == null)
 					continue;
 
-				deco.drawDecoration(batch, decoration, position, side == CardinalPoint.South);
+				deco.drawDecoration(decoration, position, side == CardinalPoint.South);
 			}
 		}
 
 		// Actor
 		if (square.getActor() != null)
-			square.getActor().draw(batch, field, position, view);
+			square.getActor().draw(field, position, view);
 
 		// Items on ground after a door
 		if (!square.isWall()) {

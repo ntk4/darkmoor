@@ -17,6 +17,7 @@ import com.ntk.darkmoor.engine.Square;
 import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
+import com.ntk.darkmoor.engine.actor.SquareActor;
 import com.ntk.darkmoor.resource.GraphicAssets;
 
 public class MazeGroup extends GameScreenGroup implements Disposable {
@@ -71,18 +72,18 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 		//@formatter:on
 
 		// row 3
-		 updateSquare(pov, ViewFieldPosition.A, location.getDirection());
-		 updateSquare(pov, ViewFieldPosition.E, location.getDirection());
-		 updateSquare(pov, ViewFieldPosition.B, location.getDirection());
-		 updateSquare(pov, ViewFieldPosition.D, location.getDirection());
-		 updateSquare(pov, ViewFieldPosition.C, location.getDirection());
+		updateSquare(pov, ViewFieldPosition.A, location.getDirection());
+		updateSquare(pov, ViewFieldPosition.E, location.getDirection());
+		updateSquare(pov, ViewFieldPosition.B, location.getDirection());
+		updateSquare(pov, ViewFieldPosition.D, location.getDirection());
+		updateSquare(pov, ViewFieldPosition.C, location.getDirection());
 
 		// row 2
-		 updateSquare(pov, ViewFieldPosition.F, location.getDirection());
-		 updateSquare(pov, ViewFieldPosition.J, location.getDirection());
-		 updateSquare(pov, ViewFieldPosition.G, location.getDirection());
-		 updateSquare(pov, ViewFieldPosition.I, location.getDirection());
-		 updateSquare(pov, ViewFieldPosition.H, location.getDirection());
+		updateSquare(pov, ViewFieldPosition.F, location.getDirection());
+		updateSquare(pov, ViewFieldPosition.J, location.getDirection());
+		updateSquare(pov, ViewFieldPosition.G, location.getDirection());
+		updateSquare(pov, ViewFieldPosition.I, location.getDirection());
+		updateSquare(pov, ViewFieldPosition.H, location.getDirection());
 
 		// row 1
 		updateSquare(pov, ViewFieldPosition.K, location.getDirection());
@@ -114,29 +115,43 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 		// List<List<Item>> list = square.getItems(view);
 
 		// Walls
-		if (square.isWall()) {
-			// Walls
-			TileDrawing[] drawings = new TileDrawing[] {
-				new TileDrawing(1, new Vector2(96, DisplayCoordinates.TOP_LEFT_Y+105), 
-						CardinalPoint.South, SpriteEffects.NONE,2.06f, 3.24f),
-						
-				new TileDrawing(4, new Vector2(0, DisplayCoordinates.TOP_LEFT_Y), CardinalPoint.East, SpriteEffects.NONE, 2.2f, 3.23f)
-				
-			};
+		if (square.isWall()) 
+			drawWallSquare(position, maze);
+		
+		// Actor
+		if (square.getActor() != null) 
+			drawActor(square.getActor(), field, position, view);
+//			square.getActor().draw(batch, field, position, view);
+	}
 
-			for (TileDrawing tmp : DisplayCoordinates.getWalls(position)) {// drawings) {//
-				// tmp.init();
-				SpriteDrawable sprite = new SpriteDrawable(GraphicAssets.getDefault()
-						.getTextureSet(maze.getWallTilesetName())
-						.getSprite(tmp.getID(), getFlipHorizontally(tmp, position)));
-				sprites[imageIndex].setDrawable(sprite);
-				sprites[imageIndex].setWidth((int) (sprite.getSprite().getRegionWidth() * tmp.getXScale()));
-				sprites[imageIndex].setHeight((int) (sprite.getSprite().getRegionHeight() * tmp.getYScale()));
-				// sprites[imageIndex].setWidth((int) tmp.getWidth());
-				// sprites[imageIndex].setHeight((int) tmp.getHeight());
-				sprites[imageIndex].setPosition(tmp.getLocation().x, tmp.getLocation().y);
-				sprites[imageIndex++].setVisible(true);
-			}
+	private void drawActor(SquareActor actor, ViewField field, ViewFieldPosition position, CardinalPoint view) {
+
+	}
+
+	private void drawWallSquare(ViewFieldPosition position, Maze maze) {
+		// Walls
+		
+		// TileDrawing[] drawings = new TileDrawing[] {
+		// new TileDrawing(1, new Vector2(96, DisplayCoordinates.TOP_LEFT_Y+105),
+		// CardinalPoint.South, SpriteEffects.NONE,2.06f, 3.24f),
+		//
+		// new TileDrawing(4, new Vector2(0, DisplayCoordinates.TOP_LEFT_Y), CardinalPoint.East, SpriteEffects.NONE,
+		// 2.2f, 3.23f)
+		//
+		// };
+
+		for (TileDrawing tmp : DisplayCoordinates.getWalls(position)) {// drawings) {//
+			// tmp.init();
+			SpriteDrawable sprite = new SpriteDrawable(GraphicAssets.getDefault()
+					.getTextureSet(maze.getWallTilesetName())
+					.getSprite(tmp.getID(), getFlipHorizontally(tmp, position)));
+			sprites[imageIndex].setDrawable(sprite);
+			sprites[imageIndex].setWidth((int) (sprite.getSprite().getRegionWidth() * tmp.getXScale()));
+			sprites[imageIndex].setHeight((int) (sprite.getSprite().getRegionHeight() * tmp.getYScale()));
+			// sprites[imageIndex].setWidth((int) tmp.getWidth());
+			// sprites[imageIndex].setHeight((int) tmp.getHeight());
+			sprites[imageIndex].setPosition(tmp.getLocation().x, tmp.getLocation().y);
+			sprites[imageIndex++].setVisible(true);
 		}
 	}
 

@@ -83,7 +83,7 @@ public class Door extends SquareActor {
 	}
 
 	@Override
-	public void draw(SpriteBatch batch, ViewField field, ViewFieldPosition position, CardinalPoint view) {
+	public void draw(ViewField field, ViewFieldPosition position, CardinalPoint view) {
 		if (getTextureSet() == null)
 			return;
 
@@ -96,7 +96,7 @@ public class Door extends SquareActor {
 			// if (td != null)
 			// batch.DrawTile(overlay, td.ID, td.Location, Color.White, 0.0f, td.Effect, 0.0f);
 			if (field.getMaze().getDecoration() != null) {
-				field.getMaze().getDecoration().draw(batch, field.getMaze().getDoorDeco(), position);
+				field.getMaze().getDecoration().draw(field.getMaze().getDoorDeco(), position);
 			}
 		}
 
@@ -113,31 +113,31 @@ public class Door extends SquareActor {
 
 				switch (type) {
 				case Grid:
-					drawSimpleDoor(batch, 1, td.getLocation(), position);
+					drawSimpleDoor(1, td.getLocation(), position);
 					break;
 				case Forest:
-					drawSimpleDoor(batch, 6, td.getLocation(), position);
+					drawSimpleDoor(6, td.getLocation(), position);
 					break;
 				case Iron:
-					drawSimpleDoor(batch, 0, td.getLocation(), position);
+					drawSimpleDoor(0, td.getLocation(), position);
 					break;
 				case Monster:
-					drawSimpleDoor(batch, 2, td.getLocation(), position);
+					drawSimpleDoor(2, td.getLocation(), position);
 					break;
 				case Azure:
-					drawSimpleDoor(batch, 8, td.getLocation(), position);
+					drawSimpleDoor(8, td.getLocation(), position);
 					break;
 				case Crimson:
-					drawSimpleDoor(batch, 9, td.getLocation(), position);
+					drawSimpleDoor(9, td.getLocation(), position);
 					break;
 				case Temple:
-					drawSimpleDoor(batch, 10, td.getLocation(), position);
+					drawSimpleDoor(10, td.getLocation(), position);
 					break;
 				case Silver:
-					drawSimpleDoor(batch, 11, td.getLocation(), position);
+					drawSimpleDoor(11, td.getLocation(), position);
 					break;
 				case Mantis:
-					drawSimpleDoor(batch, 12, td.getLocation(), position);
+					drawSimpleDoor(12, td.getLocation(), position);
 					break;
 				}
 			}
@@ -218,31 +218,30 @@ public class Door extends SquareActor {
 	 * @param location
 	 * @param scissor
 	 * @param scale
-	 * @param color
-	 *            normally Gdx Color. Changed to int because it's helpful for the next method
+	 * @param color normally Gdx Color. Changed to int because it's helpful for the next method
 	 */
-	void internalDraw(SpriteBatch batch, TextureSet textureset, int id, Vector2 location, Rectangle scissor, Vector2 scale,
-			int color) {
-		if (batch == null)
-			return;
+	void internalDraw(TextureSet textureset, int id, Vector2 location, Rectangle scissor, Vector2 scale, int color) {
+		//TODO: ntk: all commented lines should be uncommented. Scissors are used to show only 
+		// parts of the door texture
+		
+		// if (batch == null)
+		// return;
 
-		// ntk: why end here??
-		batch.end();
+		// batch.end();
 
-		// ntk: what does the PushScissor method do?
 		Display.pushScissor(scissor);
 
-		batch.begin();
+		// batch.begin();
 		// TODO: uncomment the next line (ONLY 1 line) after finding what drawTile corresponds to, in GDX
 		// batch.drawTile(textureset, id, location, color, 0.0f, scale, SpriteEffects.NONE, 0.0f);
-		batch.end();
+		// batch.end();
 
 		Display.popScissor();
 
-		batch.begin();
+		// batch.begin();
 	}
 
-	private void drawSimpleDoor(SpriteBatch batch, int tileid, Vector2 location, ViewFieldPosition distance) {
+	private void drawSimpleDoor(int tileid, Vector2 location, ViewFieldPosition distance) {
 		Vector2 scale = new Vector2();
 		int color = Color.WHITE.toIntBits(); // ntk: not sure handling color as int is ok here
 		Vector2 button = new Vector2();
@@ -283,7 +282,7 @@ public class Door extends SquareActor {
 
 		}
 
-		internalDraw(batch, getTextureSet(), tileid, new Vector2(location.x, location.y + VPosition * 5), new Rectangle(
+		internalDraw(getTextureSet(), tileid, new Vector2(location.x, location.y + VPosition * 5), new Rectangle(
 				location.x, location.y, 144, 150), scale, color);
 
 		// TODO: uncomment the next 2 lines after finding what drawTile corresponds to, in GDX
@@ -345,11 +344,12 @@ public class Door extends SquareActor {
 		}
 
 		// Upper part
-		internalDraw(batch, getTextureSet(), textureID, new Vector2(location.x, location.y + offset[0]), clip, scale, color);
+		internalDraw(getTextureSet(), textureID, new Vector2(location.x, location.y + offset[0]), clip, scale,
+				color);
 
 		// Lower part
-		internalDraw(batch, getTextureSet(), textureID + 1, new Vector2(location.x, location.y + offset[1]), clip, scale,
-				color);
+		internalDraw(getTextureSet(), textureID + 1, new Vector2(location.x, location.y + offset[1]), clip,
+				scale, color);
 
 		// TODO: uncomment the next 2 lines after finding what drawTile corresponds to, in GDX
 		// Button

@@ -134,7 +134,7 @@ public class WallSwitch extends SquareActor {
 	}
 
 	@Override
-	public void draw(SpriteBatch batch, ViewField field, ViewFieldPosition position, CardinalPoint direction) {
+	public void draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
 		// Foreach wall side
 		for (TileDrawing td : DisplayCoordinates.getWalls(position)) {
 			// Not the good side
@@ -149,7 +149,7 @@ public class WallSwitch extends SquareActor {
 			if (deco == null)
 				return;
 
-			deco.drawDecoration(batch, decoset, position, Compass.isSideFacing(direction, side));
+			deco.drawDecoration(decoset, position, Compass.isSideFacing(direction, side));
 		}
 	}
 

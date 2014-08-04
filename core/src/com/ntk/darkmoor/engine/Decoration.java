@@ -86,8 +86,8 @@ public class Decoration {
 		blocking = false;
 	}
 
-	public void drawDecoration(SpriteBatch batch, DecorationSet set, ViewFieldPosition position, boolean alignView) {
-		if (batch == null || set == null)
+	public void drawDecoration(DecorationSet set, ViewFieldPosition position, boolean alignView) {
+		if (set == null)
 			return;
 
 		// Location of the decoration on the screen
