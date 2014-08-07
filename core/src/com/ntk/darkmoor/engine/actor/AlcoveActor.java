@@ -7,8 +7,8 @@ import java.util.List;
 
 import org.ntk.commons.StringUtils;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.GameScreen;
@@ -38,9 +38,9 @@ public class AlcoveActor extends SquareActor {
 	}
 
 	@Override
-	public void draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
+	public Image draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
 		if (field.getMaze().geDecoration() == null)
-			return;
+			return null;
 
 		// For each wall side, draws the decoration
 		for (CardinalPoint side : DisplayCoordinates.getDrawingWallSides()[position.ordinal()]) {
@@ -72,6 +72,7 @@ public class AlcoveActor extends SquareActor {
 				// DisplayCoordinates.getMonsterScaleFactor(position), SpriteEffects.NONE, 0.0f);
 			}
 		}
+		return null;
 	}
 
 	private Alcove getAlcove(CardinalPoint side) {

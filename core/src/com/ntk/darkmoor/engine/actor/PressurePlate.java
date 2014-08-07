@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.ntk.commons.StringUtils;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
@@ -44,15 +44,17 @@ public class PressurePlate extends SquareActor {
 	}
 
 	@Override
-	public void draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
+	public Image draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
 		if (getDecoration() == null || hidden)
-			return;
+			return null;
 
 		TileDrawing td = DisplayCoordinates.getFloorPlate(position);
 		if (td == null)
-			return;
+			return null;
 
 		getDecoration().draw(decorationID, position);
+
+		return null;
 	}
 
 	private void runScript(PressurcePlateCondition condition) {

@@ -100,7 +100,7 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 		}
 	}
 
-	private void updateSquare(ViewField field, ViewFieldPosition position, CardinalPoint view) {
+	private void updateSquare(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
 
 		if (field == null)
 			return;
@@ -115,22 +115,25 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 		// List<List<Item>> list = square.getItems(view);
 
 		// Walls
-		if (square.isWall()) 
+		if (square.isWall())
 			drawWallSquare(position, maze);
-		
+
 		// Actor
-		if (square.getActor() != null) 
-			drawActor(square.getActor(), field, position, view);
-//			square.getActor().draw(batch, field, position, view);
+//		if (square.getActor() != null)
+//			drawActor(square.getActor(), field, position, direction);
 	}
 
-	private void drawActor(SquareActor actor, ViewField field, ViewFieldPosition position, CardinalPoint view) {
-
+	private void drawActor(SquareActor actor, ViewField field, ViewFieldPosition position, CardinalPoint direction) {
+		if (actor != null) {
+			Image image = actor.draw(field, position, direction);
+			if (image != null)
+				sprites[imageIndex++] = image;
+		}
 	}
 
 	private void drawWallSquare(ViewFieldPosition position, Maze maze) {
 		// Walls
-		
+
 		// TileDrawing[] drawings = new TileDrawing[] {
 		// new TileDrawing(1, new Vector2(96, DisplayCoordinates.TOP_LEFT_Y+105),
 		// CardinalPoint.South, SpriteEffects.NONE,2.06f, 3.24f),
@@ -155,6 +158,9 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 		}
 	}
 
+	/**
+	 * draws only the visible part of the game screen so as not to overlap with the heroes and interface controls
+	 */
 	@Override
 	public void drawChildren(Batch batch, float parentAlpha) {
 		Rectangle scissors = new Rectangle();

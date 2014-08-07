@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.ntk.commons.StringUtils;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
@@ -42,13 +42,13 @@ public class Pit extends SquareActor {
 	}
 
 	@Override
-	public void draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
+	public Image draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
 		if (decoration == null || hidden)
-			return;
+			return null;
 
 		TileDrawing td = DisplayCoordinates.getPit(position);
 		if (td == null)
-			return;
+			return null;
 
 		// if (isActivated())
 		// batch.FillRectangle(new Rectangle(td.Location, new Size(50, 50)), Color.Red);
@@ -57,6 +57,8 @@ public class Pit extends SquareActor {
 		// TODO (ntk: commented also in the original code)
 		// if (td != null && !IsHidden)
 		// batch.DrawTile(TextureSet, td.ID, td.Location, Color.White, 0.0f, td.Effect, 0.0f);
+		
+		return null;
 	}
 
 	@Override

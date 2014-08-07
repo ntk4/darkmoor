@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
@@ -83,9 +84,9 @@ public class Door extends SquareActor {
 	}
 
 	@Override
-	public void draw(ViewField field, ViewFieldPosition position, CardinalPoint view) {
+	public Image draw(ViewField field, ViewFieldPosition position, CardinalPoint view) {
 		if (getTextureSet() == null)
-			return;
+			return null;
 
 		TileDrawing td = null;
 		TextureSet wall = getSquare().getMaze().getWallTileset();
@@ -142,6 +143,8 @@ public class Door extends SquareActor {
 				}
 			}
 		}
+		
+		return null; //TODO: replace by the actual image
 
 	}
 

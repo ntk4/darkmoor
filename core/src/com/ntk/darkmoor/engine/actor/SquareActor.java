@@ -4,8 +4,8 @@ import java.io.IOException;
 
 import org.ntk.commons.StringUtils;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.config.Log;
@@ -37,7 +37,8 @@ public abstract class SquareActor {
 
 	}
 
-	public void draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
+	public Image draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
+		return null;
 	}
 
 	public void update(GameTime time) {

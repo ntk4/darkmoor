@@ -4,11 +4,13 @@ import java.io.IOException;
 
 import org.ntk.commons.StringUtils;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.GameScreen;
 import com.ntk.darkmoor.engine.Compass.CardinalPoint;
+import com.ntk.darkmoor.engine.DisplayCoordinates;
 import com.ntk.darkmoor.engine.DungeonLocation;
 import com.ntk.darkmoor.engine.Monster;
 import com.ntk.darkmoor.engine.Square;
@@ -16,6 +18,8 @@ import com.ntk.darkmoor.engine.Square.SquareType;
 import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
+import com.ntk.darkmoor.engine.graphics.TileDrawing;
+import com.ntk.darkmoor.resource.GraphicAssets;
 import com.ntk.darkmoor.resource.TextureSet;
 
 public class Stair extends SquareActor {
@@ -33,7 +37,7 @@ public class Stair extends SquareActor {
 
 	public Stair(Square block) {
 		super(block);
-		
+
 		if (block == null)
 			throw new IllegalArgumentException("block");
 
@@ -44,22 +48,39 @@ public class Stair extends SquareActor {
 	}
 
 	@Override
-	public void draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
+	public Image draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
 		if (getTextureSet() == null)
-			return;
+			return null;
 
 		// Upstair or downstair ?
 		int delta = (type == StairType.Up ? 0 : 13);
 
 		// TODO: ntk: the following loop should be uncommented when drawTile is mapped to a GDX method
-		// for (TileDrawing tmp : DisplayCoordinates.getStairs(position))
-		// batch.drawTile(getTextureSet(), tmp.getID()+ delta, tmp.getLocation(), Color.WHITE, 0.0f, tmp.getEffect(), 0.0f);
-
+		for (TileDrawing tmp : DisplayCoordinates.getStairs(position)) {
+			if (tmp == null) 
+				continue;
+			
+			SpriteDrawable sprite = new SpriteDrawable(GraphicAssets.getDefault()
+					.getTextureSet(GameScreen.getTeam().getMaze().getWallTilesetName())
+					.getSprite(tmp.getID()+delta, false));
+			
+			Image image = new Image(sprite);
+			image.setPosition(200, 500);
+			image.setWidth((int) (sprite.getSprite().getRegionWidth() * 2));
+			image.setHeight((int) (sprite.getSprite().getRegionHeight() * 2));
+//			image.setPosition((int)tmp.getLocation().x << 1, DisplayCoordinates.TOP_LEFT_Y - (int)tmp.getLocation().y<<1);
+			return image;
+		}
+//			batch.drawTile(getTextureSet(), tmp.getID() + delta, tmp.getLocation(), Color.WHITE, 0.0f, tmp.getEffect(),
+//					0.0f);
+		return null;
 	}
 
 	@Override
 	public DungeonLocation[] getTargets() {
-		DungeonLocation[] targets = new DungeonLocation[] { target };
+		DungeonLocation[] targets = new DungeonLocation[] {
+			target
+		};
 
 		return targets;
 	}
@@ -137,7 +158,7 @@ public class Stair extends SquareActor {
 	public TextureSet getTextureSet() {
 		if (getSquare() == null)
 			return null;
-		
+
 		return getSquare().getMaze().getWallTileset();
 	}
 

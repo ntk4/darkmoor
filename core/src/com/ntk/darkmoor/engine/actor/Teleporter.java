@@ -6,6 +6,7 @@ import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.GameScreen;
@@ -63,18 +64,20 @@ public class Teleporter extends SquareActor {
 	}
 
 	@Override
-	public void draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
+	public Image draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
 		if (!visible)
-			return;
+			return null;
 
 		TileDrawing td = DisplayCoordinates.getTeleporter(position);
 		if (td == null)
-			return;
+			return null;
 
 		// TODO: ntk: uncomment call to draw when the best way to draw in Gdx is found
 		// anim.draw(batch, td.getLocation(), 0.0f, SpriteEffects.NONE,
 		// DisplayCoordinates.getDistantColor(position),
 		// DisplayCoordinates.getMonsterScaleFactor(position));
+		
+		return null;
 	}
 
 	@Override

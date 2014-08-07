@@ -8,6 +8,7 @@ import org.ntk.commons.StringUtils;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlWriter;
 import com.ntk.darkmoor.GameScreen;
@@ -134,7 +135,7 @@ public class WallSwitch extends SquareActor {
 	}
 
 	@Override
-	public void draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
+	public Image draw(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
 		// Foreach wall side
 		for (TileDrawing td : DisplayCoordinates.getWalls(position)) {
 			// Not the good side
@@ -143,14 +144,15 @@ public class WallSwitch extends SquareActor {
 
 			DecorationSet decoset = field.getMaze().getDecoration();
 			if (decoset == null)
-				return;
+				return null;
 
 			Decoration deco = decoset.getDecoration(isActivated() ? activatedDecoration : deactivatedDecoration);
 			if (deco == null)
-				return;
+				return null;
 
 			deco.drawDecoration(decoset, position, Compass.isSideFacing(direction, side));
 		}
+		return null;
 	}
 
 	@Override
