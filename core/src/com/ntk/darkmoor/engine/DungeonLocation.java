@@ -30,9 +30,12 @@ public class DungeonLocation {
 			return;
 
 		maze = loc.getMaze();
-		coordinate = new Vector2(loc.getCoordinates());
 		position = loc.getPosition();
 		direction = loc.getDirection();
+		if (coordinate != null) 
+			coordinate.set(loc.getCoordinates());
+		else 
+			coordinate = new Vector2(loc.getCoordinates());
 	}
 
 	public DungeonLocation(String maze, Vector2 coordinate) {
