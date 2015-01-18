@@ -26,6 +26,10 @@ import com.ntk.darkmoor.resource.ItemAssets;
 
 public class HeroInterfaceGroup extends GameScreenGroup {
 
+	protected static final int HERO_WINDOW_X = 736;
+	protected static final int HERO_WINDOW_HEIGHT = 334;
+	protected static final int HERO_WINDOW_WIDTH = 288;
+	
 	private static final String ATTACK_LABEL_MISS = "MISS";
 	private static final int HERO_FACE_HEIGHT = 202;
 	private static final int HERO_FACE_WIDTH = 128;

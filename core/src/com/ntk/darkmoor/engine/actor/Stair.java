@@ -55,25 +55,28 @@ public class Stair extends SquareActor {
 		// Upstair or downstair ?
 		int delta = (type == StairType.Up ? 0 : 13);
 
-		// TODO: ntk: the following loop should be uncommented when drawTile is mapped to a GDX method
+		Image image = null;
+
+		TileDrawing correspondingWall = DisplayCoordinates.getWalls(position)[0];
+
+		SpriteDrawable sprite = null;
 		for (TileDrawing tmp : DisplayCoordinates.getStairs(position)) {
-			if (tmp == null) 
+			if (tmp == null)
 				continue;
-			
-			SpriteDrawable sprite = new SpriteDrawable(GraphicAssets.getDefault()
-					.getTextureSet(GameScreen.getTeam().getMaze().getWallTilesetName())
-					.getSprite(tmp.getID()+delta, false));
-			
-			Image image = new Image(sprite);
-			image.setPosition(200, 500);
-			image.setWidth((int) (sprite.getSprite().getRegionWidth() * 2));
-			image.setHeight((int) (sprite.getSprite().getRegionHeight() * 2));
-//			image.setPosition((int)tmp.getLocation().x << 1, DisplayCoordinates.TOP_LEFT_Y - (int)tmp.getLocation().y<<1);
-			return image;
+
+			sprite = new SpriteDrawable(GraphicAssets.getDefault()
+					.getTextureSet(getSquare().getMaze().getWallTilesetName()).getSprite(tmp.getID() + delta, false));
+
+			image = new Image(sprite);
+			image.setWidth((int) (sprite.getSprite().getRegionWidth() * correspondingWall.getXScale()));
+			image.setHeight((int) (sprite.getSprite().getRegionHeight() * correspondingWall.getYScale()));
+			image.setPosition(correspondingWall.getLocation().x, correspondingWall.getLocation().y);
+			image.setVisible(true);
+
 		}
-//			batch.drawTile(getTextureSet(), tmp.getID() + delta, tmp.getLocation(), Color.WHITE, 0.0f, tmp.getEffect(),
-//					0.0f);
-		return null;
+		// batch.drawTile(getTextureSet(), tmp.getID() + delta, tmp.getLocation(), Color.WHITE, 0.0f, tmp.getEffect(),
+		// 0.0f);
+		return image;
 	}
 
 	@Override

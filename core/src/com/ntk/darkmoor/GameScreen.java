@@ -19,7 +19,6 @@ import com.ntk.darkmoor.engine.GameMessage;
 import com.ntk.darkmoor.engine.ScriptedDialog;
 import com.ntk.darkmoor.engine.SpellBook;
 import com.ntk.darkmoor.engine.Team;
-import com.ntk.darkmoor.engine.graphics.GameScreenGroup;
 import com.ntk.darkmoor.engine.graphics.HeroInterfaceGroup;
 import com.ntk.darkmoor.engine.graphics.InventoryGroup;
 import com.ntk.darkmoor.engine.graphics.MazeGroup;
@@ -45,7 +44,7 @@ public class GameScreen extends GameScreenBase {
 	private TeamInterface interfaceType;
 
 	// parts of the screen as scene2d actors
-	private GameScreenGroup heroInterfaceGroup;
+	private HeroInterfaceGroup heroInterfaceGroup;
 	private InventoryGroup inventoryGroup;
 	private MazeGroup mazeGroup;
 	private StatisticsGroup statisticsGroup;

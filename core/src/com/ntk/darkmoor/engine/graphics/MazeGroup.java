@@ -2,7 +2,6 @@ package com.ntk.darkmoor.engine.graphics;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.ScissorStack;
@@ -18,6 +17,7 @@ import com.ntk.darkmoor.engine.Team;
 import com.ntk.darkmoor.engine.ViewField;
 import com.ntk.darkmoor.engine.ViewField.ViewFieldPosition;
 import com.ntk.darkmoor.engine.actor.SquareActor;
+import com.ntk.darkmoor.engine.actor.Stair;
 import com.ntk.darkmoor.resource.GraphicAssets;
 
 public class MazeGroup extends GameScreenGroup implements Disposable {
@@ -50,6 +50,10 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 	public void update() {
 		DungeonLocation location = team.getLocation();
 		imageIndex = 1;
+
+		for (int i = 0; i < MAX_SPRITES; i++) {
+			sprites[i].setDrawable(null);
+		}
 
 		ViewField pov = new ViewField(team.getMaze(), location);
 
@@ -94,10 +98,6 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 		updateSquare(pov, ViewFieldPosition.N, location.getDirection());
 		updateSquare(pov, ViewFieldPosition.Team, location.getDirection());
 		updateSquare(pov, ViewFieldPosition.O, location.getDirection());
-
-		for (int i = imageIndex; i < MAX_SPRITES; i++) {
-			sprites[i].setDrawable(null);
-		}
 	}
 
 	private void updateSquare(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
@@ -119,15 +119,21 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 			drawWallSquare(position, maze);
 
 		// Actor
-//		if (square.getActor() != null)
-//			drawActor(square.getActor(), field, position, direction);
+		if (square.getActor() != null)
+			drawActor(square.getActor(), field, position, direction);
 	}
 
 	private void drawActor(SquareActor actor, ViewField field, ViewFieldPosition position, CardinalPoint direction) {
-		if (actor != null) {
+		if (actor != null && Stair.class == actor.getClass()) {
 			Image image = actor.draw(field, position, direction);
-			if (image != null)
-				sprites[imageIndex++] = image;
+			if (image != null) {
+				sprites[imageIndex].setDrawable(image.getDrawable());
+				sprites[imageIndex].setWidth(image.getWidth());
+				sprites[imageIndex].setHeight(image.getHeight());
+				sprites[imageIndex].setVisible(image.isVisible());
+				sprites[imageIndex++].setPosition(image.getX(), image.getY());
+
+			}
 		}
 	}
 
@@ -155,7 +161,9 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 			// sprites[imageIndex].setHeight((int) tmp.getHeight());
 			sprites[imageIndex].setPosition(tmp.getLocation().x, tmp.getLocation().y);
 			sprites[imageIndex++].setVisible(true);
+
 		}
+
 	}
 
 	/**

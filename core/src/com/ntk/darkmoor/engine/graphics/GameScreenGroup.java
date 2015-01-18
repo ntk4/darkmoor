@@ -9,9 +9,6 @@ import com.ntk.darkmoor.engine.Team;
 
 public abstract class GameScreenGroup extends Group  implements Disposable {
 
-	protected static final int HERO_WINDOW_X = 736;
-	protected static final int HERO_WINDOW_HEIGHT = 334;
-	protected static final int HERO_WINDOW_WIDTH = 288;
 	public Team team;
 	public Skin uiSkin;
 	protected Date now;
@@ -22,7 +19,7 @@ public abstract class GameScreenGroup extends Group  implements Disposable {
 
 	/**
 	 * Initializes the structures needed for the hero windows. Has to be called when initializing the game screen and
-	 * not on every frame. On every frame call updateHeroes()
+	 * not on every frame. On every frame call update()
 	 * 
 	 */
 	public abstract void initialize();
