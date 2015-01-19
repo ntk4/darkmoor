@@ -147,7 +147,7 @@ public class Item {
 
 	/**
 	 * Any attack at less than this distance is not penalized for range. However, each full range increment imposes a
-	 * cumulative –2 penalty on the attack roll. A thrown weapon has a maximum range of five range increments. A
+	 * cumulative -2 penalty on the attack roll. A thrown weapon has a maximum range of five range increments. A
 	 * projectile weapon can shoot out to ten range increments.
 	 */
 	private int range;

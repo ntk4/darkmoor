@@ -40,8 +40,8 @@ import com.ntk.darkmoor.stub.ScriptInterface;
 public class Monster extends Entity {
 
 	/**
-	 * A size modifier applies to the creature’s Armor Class (AC) and attack bonus,as well as to certain skills. A
-	 * creature’s size also determines how far it can reach to make a melee attack and how much space it occupies in a
+	 * A size modifier applies to the creature's Armor Class (AC) and attack bonus,as well as to certain skills. A
+	 * creature's size also determines how far it can reach to make a melee attack and how much space it occupies in a
 	 * block.
 	 */
 	public enum MonsterSize {
@@ -769,14 +769,18 @@ public class Monster extends Entity {
 
 		// Translate subsquare position according looking point
 		int[][] sub = new int[][] {
-				new int[] {
-						0, 1, 2, 3, 4 }, // North
-				new int[] {
-						3, 2, 1, 0, 4 }, // South
-				new int[] {
-						1, 3, 0, 2, 4 }, // West
-				new int[] {
-						2, 0, 3, 1, 4 }, // East
+			new int[] {
+				0, 1, 2, 3, 4
+			}, // North
+			new int[] {
+				3, 2, 1, 0, 4
+			}, // South
+			new int[] {
+				1, 3, 0, 2, 4
+			}, // West
+			new int[] {
+				2, 0, 3, 1, 4
+			}, // East
 		};
 
 		// Find the good square location
@@ -813,15 +817,19 @@ public class Monster extends Entity {
 	 */
 	private int getTileID(CardinalPoint point) {
 		int[][] id = new int[][] {
-				// From N S W E Looking
-				new int[] {
-						3, 0, 2, 1 }, // North
-				new int[] {
-						0, 3, 1, 2 }, // South
-				new int[] {
-						1, 2, 3, 0 }, // West
-				new int[] {
-						2, 1, 0, 3 }, // East
+			// From N S W E Looking
+			new int[] {
+				3, 0, 2, 1
+			}, // North
+			new int[] {
+				0, 3, 1, 2
+			}, // South
+			new int[] {
+				1, 2, 3, 0
+			}, // West
+			new int[] {
+				2, 1, 0, 3
+			}, // East
 		};
 
 		return id[direction.value()][point.value()] + texture;
@@ -835,15 +843,19 @@ public class Monster extends Entity {
 	 */
 	private boolean needSwapSprite(CardinalPoint point) {
 		boolean[][] id = new boolean[][] {
-				// From N S W E Looking
-				new boolean[] {
-						false, false, true, false }, // North
-				new boolean[] {
-						false, false, false, true }, // South
-				new boolean[] {
-						false, true, false, false }, // West
-				new boolean[] {
-						true, false, false, false }, // East
+			// From N S W E Looking
+			new boolean[] {
+				false, false, true, false
+			}, // North
+			new boolean[] {
+				false, false, false, true
+			}, // South
+			new boolean[] {
+				false, true, false, false
+			}, // West
+			new boolean[] {
+				true, false, false, false
+			}, // East
 		};
 
 		return id[direction.value()][point.value()];

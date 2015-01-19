@@ -1,11 +1,16 @@
+
 apply plugin: "java"
 apply plugin: "jetty"
-
+	
 gwt {
     gwtVersion='2.6.0' // Should match the gwt version used for building the gwt backend
     maxHeapSize="1G" // Default 256m is not enough for gwt compiler. GWT is HUNGRY
     minHeapSize="1G"
 
+	dependencies {
+		compile fileTree(dir: '../libs', include: '*.jar')
+    }
+	
     src = files(file("src/")) // Needs to be in front of "modules" below.
     modules 'com.ntk.darkmoor.GdxDefinition'
     devModules 'com.ntk.darkmoor.GdxDefinitionSuperdev'
@@ -17,7 +22,7 @@ gwt {
         disableCastChecking = true;
     }
 }
-
+	
 task draftRun(type: JettyRunWar) {
     dependsOn draftWar
     dependsOn.remove('war')
@@ -27,7 +32,9 @@ task draftRun(type: JettyRunWar) {
 
 task superDev(type: de.richsource.gradle.plugins.gwt.GwtSuperDev) {
     dependsOn draftRun
-    gwt.modules = gwt.devModules
+    doFirst {
+    	gwt.modules = gwt.devModules
+    }
 }
 
 task dist(dependsOn: [clean, compileGwt]) {
@@ -52,9 +59,15 @@ draftWar {
    from "war"
 }
 
+task addSource << {
+	sourceSets.main.compileClasspath += files(project(':core').sourceSets.main.allJava.srcDirs)
+}
+
+tasks.compileGwt.dependsOn(addSource)
+tasks.draftCompileGwt.dependsOn(addSource)
+
 sourceCompatibility = 1.6
 sourceSets.main.java.srcDirs = [ "src/" ]
-sourceSets.main.compileClasspath += files(project(':core').sourceSets.main.allJava.srcDirs)
 
 
 eclipse.project {

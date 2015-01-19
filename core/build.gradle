@@ -9,3 +9,7 @@ sourceSets.main.java.srcDirs = [ "src/" ]
 eclipse.project {
     name = appName + "-core"
 }
+    dependencies {
+        compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+		compile fileTree(dir: '../libs', include: '*.jar')
+    }
