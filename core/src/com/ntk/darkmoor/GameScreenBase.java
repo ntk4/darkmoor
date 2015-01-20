@@ -119,8 +119,9 @@ public abstract class GameScreenBase extends ScreenAdapter implements Disposable
 		stage = new Stage(new StretchViewport(DarkmoorGame.DISPLAY_WIDTH, DarkmoorGame.DISPLAY_WIDTH));
 
 		Image background = setupBackground();
-		if (background != null)
+		if (background != null) {
 			stage.addActor(background);
+		}
 
 		if (buttons != null) {
 			for (TextButton button : buttons) {

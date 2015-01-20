@@ -32,8 +32,15 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 	// temporary objects
 	private int imageIndex;
 
+	/**
+	 * Initializes the images array to having all images pre-created as a pool. Warning: NO IMAGE SHOULD BE CREATED
+	 * after this and assigned to any element of the sprites array. Otherwise rendering problems may appear. For example
+	 * when I tried drawing the Stair actor as a new image set to this array, the results were unpredictable in the
+	 * sense that existing walls did not appear and certainly the Stairs didn't appear.
+	 */
 	@Override
 	public void initialize() {
+
 		sprites = new Image[MAX_SPRITES];
 		for (int i = 0; i < MAX_SPRITES; i++) {
 			sprites[i] = new Image();
@@ -46,26 +53,20 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 		sprites[imageIndex++].setWidth(DisplayCoordinates.PLAYABLE_WINDOW_WIDTH);
 	}
 
+	/**
+	 * Performs the actual drawing of the game screen. The view at any point is split into squares A to O, from the far
+	 * left to the immediately right of the team.
+	 */
 	@Override
 	public void update() {
 		DungeonLocation location = team.getLocation();
 		imageIndex = 1;
 
-		for (int i = 0; i < MAX_SPRITES; i++) {
-			sprites[i].setDrawable(null);
-		}
+		initializeAllSprites();
 
 		ViewField pov = new ViewField(team.getMaze(), location);
 
-		// The background is assumed to be x-flipped when party.x & party.y & party.direction = 1.
-		// I.e. all kind of moves and rotations from the current position will result in the background being x-flipped.
-		boolean flipbackdrop = ((int) (location.getCoordinates().x + location.getCoordinates().y + location
-				.getDirection().value()) & 1) == 0;
-		SpriteEffects effect = flipbackdrop ? SpriteEffects.FLIP_HORIZONTALLY : SpriteEffects.NONE;
-
-		sprites[0].setDrawable(new SpriteDrawable(GraphicAssets.getDefault()
-				.getTextureSet(team.getMaze().getWallTilesetName())
-				.getSprite(0, effect == SpriteEffects.FLIP_HORIZONTALLY)));
+		setUpBackground(location);
 
 		//@formatter:off
 		// maze block draw order
@@ -98,6 +99,32 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 		updateSquare(pov, ViewFieldPosition.N, location.getDirection());
 		updateSquare(pov, ViewFieldPosition.Team, location.getDirection());
 		updateSquare(pov, ViewFieldPosition.O, location.getDirection());
+	}
+
+	/**
+	 * Initializes all created sprites (in this case scene2d Image instances) to having no Drawable
+	 */
+	private void initializeAllSprites() {
+		for (int i = 0; i < MAX_SPRITES; i++) {
+			sprites[i].setDrawable(null);
+		}
+	}
+
+	/**
+	 * Displays the background of a maze, taking care to show it either normal or flipped
+	 * 
+	 * @param location the current team location in the maze
+	 */
+	private void setUpBackground(DungeonLocation location) {
+		// The background is assumed to be x-flipped when party.x & party.y & party.direction = 1.
+		// I.e. all kind of moves and rotations from the current position will result in the background being x-flipped.
+		boolean flipbackdrop = ((int) (location.getCoordinates().x + location.getCoordinates().y + location
+				.getDirection().value()) & 1) == 0;
+		SpriteEffects effect = flipbackdrop ? SpriteEffects.FLIP_HORIZONTALLY : SpriteEffects.NONE;
+
+		sprites[0].setDrawable(new SpriteDrawable(GraphicAssets.getDefault()
+				.getTextureSet(team.getMaze().getWallTilesetName())
+				.getSprite(0, effect == SpriteEffects.FLIP_HORIZONTALLY)));
 	}
 
 	private void updateSquare(ViewField field, ViewFieldPosition position, CardinalPoint direction) {
@@ -172,12 +199,16 @@ public class MazeGroup extends GameScreenGroup implements Disposable {
 	@Override
 	public void drawChildren(Batch batch, float parentAlpha) {
 		Rectangle scissors = new Rectangle();
-		Rectangle clipBounds = new Rectangle(-1, -10, 1.111f, 90);
+		Rectangle clipBounds = new Rectangle(-1f, -0.21f, 1.111f, 1.25f);
 		ScissorStack.calculateScissors(DarkmoorGame.getInstance().getCamera(), batch.getTransformMatrix(), clipBounds,
 				scissors);
-		ScissorStack.pushScissors(scissors);
-		super.drawChildren(batch, parentAlpha);
-		ScissorStack.popScissors();
+
+		if (ScissorStack.pushScissors(scissors)) {
+			batch.flush();
+			super.drawChildren(batch, parentAlpha);
+			batch.flush();
+			ScissorStack.popScissors();
+		}
 	}
 
 	private boolean getFlipHorizontally(TileDrawing tmp, ViewFieldPosition position) {
