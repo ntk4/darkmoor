@@ -21,13 +21,13 @@ public class Compass {
 			}
 			return North;
 		}
-		
+
 		private int value;
-		
+
 		private CardinalPoint(int value) {
 			this.value = value;
 		}
-		
+
 		public int value() {
 			return value;
 		}
@@ -35,8 +35,8 @@ public class Compass {
 		public static String[] stringValues() {
 			CardinalPoint[] values = values();
 			String[] result = new String[values.length];
-			
-			for (CardinalPoint point: values) {
+
+			for (CardinalPoint point : values) {
 				result[point.value] = point.toString();
 			}
 			return result;
@@ -45,19 +45,26 @@ public class Compass {
 
 	public static enum CompassRotation {
 		Rotate90(0), Rotate180(1), Rotate270(2);
-		
+
 		private int value;
-		
+
 		private CompassRotation(int value) {
 			this.value = value;
 		}
-		
+
 		public int value() {
 			return value;
 		}
 	}
 
 	private CardinalPoint direction;
+
+	private static final CardinalPoint[][] DIRECTIONS_FROM_VIEWS = new CardinalPoint[][] {//@formatter:off
+			{CardinalPoint.North, CardinalPoint.South, CardinalPoint.West, CardinalPoint.East},
+			{CardinalPoint.South, CardinalPoint.North, CardinalPoint.East, CardinalPoint.West},
+			{CardinalPoint.West, CardinalPoint.East, CardinalPoint.South, CardinalPoint.North},
+			{CardinalPoint.East, CardinalPoint.West, CardinalPoint.North, CardinalPoint.South},
+		};//@formatter:on
 
 	// Constructors
 	public Compass() {
@@ -178,14 +185,7 @@ public class Compass {
 	}
 
 	public static CardinalPoint getDirectionFromView(CardinalPoint from, CardinalPoint side) {
-		CardinalPoint[][] tab = new CardinalPoint[][] {//@formatter:off
-				{CardinalPoint.North, CardinalPoint.South, CardinalPoint.West, CardinalPoint.East},
-				{CardinalPoint.South, CardinalPoint.North, CardinalPoint.East, CardinalPoint.West},
-				{CardinalPoint.West, CardinalPoint.East, CardinalPoint.South, CardinalPoint.North},
-				{CardinalPoint.East, CardinalPoint.West, CardinalPoint.North, CardinalPoint.South},
-			}; //@formatter:on
-
-		return tab[from.value()][side.value()];
+		return DIRECTIONS_FROM_VIEWS[from.value()][side.value()];
 	}
 
 	public static CardinalPoint getOppositeDirection(CardinalPoint direction) {
